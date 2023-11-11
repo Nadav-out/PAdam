@@ -123,7 +123,7 @@ def main():
 
     # Print total number of parameters
     total_params = count_parameters(Model_1)
-    print(f"Total trainable parameters: {total_params}")
+    print(f"Total trainable parameters: {total_params}\n")
 
     # Set up optimizers
     optimizer_1 = optim.AdamW(Model_1.parameters(), lr=args.lr_1, weight_decay=args.weight_decay)
@@ -184,10 +184,6 @@ def main():
         # Calculate the fraction of small weights for each layer
         small_weights_layers_1 = [fraction_small_weights(param, args.small_weight_threshold) for param in Model_1.parameters() if param.requires_grad]
         small_weights_layers_2 = [fraction_small_weights(param, args.small_weight_threshold) for param in Model_2.parameters() if param.requires_grad]
-
-        # Store the fractions of small weights for each layer
-        params_epochs['small_weights_1'].append(small_weights_layers_1)
-        params_epochs['small_weights_2'].append(small_weights_layers_2)
 
         # Calculate the total fraction of small weights for each model
         total_frac_model_1 = parameters_per_layer_weight @ np.array(small_weights_layers_1)
