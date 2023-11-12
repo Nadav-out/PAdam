@@ -1,3 +1,4 @@
 data/
 pythpn/__pycache__/
 python/.ipynb_checkpoints/
+figs/*
