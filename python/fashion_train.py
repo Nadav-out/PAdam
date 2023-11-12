@@ -38,6 +38,10 @@ def get_args():
     # Scheduler Parameter
     parser.add_argument('--scheduler_exponent', type=float, default=0.6, help='Exponent for calculating the LR scheduler decay rate (default: 0.6)')
 
+    # Output Folder Parameter
+    default_save_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../data')
+    parser.add_argument('--save_dir', type=str, default=default_save_dir, help='Directory to save trained models and metrics')
+
     return parser.parse_args()
 
 def count_parameters(model):
@@ -242,11 +246,11 @@ def main():
 
 
     # Save the trained models
-    torch.save(Model_1.state_dict(), os.path.join(data_dir, 'fashion_Model_1.pth'))
-    torch.save(Model_2.state_dict(), os.path.join(data_dir, 'fashion_Model_2.pth'))
+    torch.save(Model_1.state_dict(), os.path.join(args.save_dir, 'fashion_Model_1.pth'))
+    torch.save(Model_2.state_dict(), os.path.join(args.save_dir, 'fashion_Model_2.pth'))
 
     # Save metrics
-    with open(os.path.join(data_dir, 'fashion_metrics.pkl'), 'wb') as f:
+    with open(os.path.join(args.save_dir, 'fashion_metrics.pkl'), 'wb') as f:
         pickle.dump(params_epochs, f)
 
 if __name__ == "__main__":
