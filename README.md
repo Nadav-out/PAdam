@@ -1,8 +1,4 @@
 # PAdam
-An Adam optimizer for any p-norm regularization.
-
-
-# PAdam
 
 PAdam is an extension of the Adam optimizer that allows for any p-norm regularization.
 
