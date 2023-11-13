@@ -41,7 +41,7 @@ Ensure you have the following dependencies installed:
 ### Optional Arguments
 
 You can customize the training by specifying the following arguments:
-- `--device`: Set the device for training (default: `cuda:3`).
+- `--device`: Set the device for training (default: `cuda:0`, on a Mac with apple silicone, use `mps`).
 - `--batch_size`: Batch size for training (default: `256`).
 - `--seed`: Seed for reproducibility (default: `2349`).
 - `--epochs`: Number of training epochs (default: `400`).
