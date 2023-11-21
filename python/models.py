@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+
+
 class FashionCNN(nn.Module):
     def __init__(self):
         super(FashionCNN, self).__init__()
