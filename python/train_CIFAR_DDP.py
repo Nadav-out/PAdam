@@ -149,7 +149,8 @@ def main(rank, world_size, config):
 
     test_sampler = DistributedSampler(testset, num_replicas=world_size, rank=rank, shuffle=False)
     testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, sampler=test_sampler, num_workers=3, pin_memory=True)
-
+    
+    print('got here')
 
     # Model Initialization for DDP
     model = ResNet18(3, 10).to(rank)
