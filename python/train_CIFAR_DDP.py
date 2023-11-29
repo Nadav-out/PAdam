@@ -155,7 +155,11 @@ def main(rank, world_size, config):
 
         # Model Initialization for DDP
         model = ResNet18(3, 10).to(rank)
+        print('got here')
         model = DDP(model, device_ids=[rank])
+        print('got here')
+
+    
         print(f"Number of trainable parameters: {count_parameters(model):,}")
 
 
