@@ -161,9 +161,9 @@ def main(rank, world_size, config):
         # Model Initialization for DDP
         # model = ResNet18(3, 10).to(rank)
         model = SimpleNet().to(rank)
-        print('got here1')
+        print(f"Initializing DDP on rank {rank}...")
         model = DDP(model, device_ids=[rank])
-        print('got here2')
+        print("DDP initialized successfully.")
 
     
         print(f"Number of trainable parameters: {count_parameters(model):,}")
