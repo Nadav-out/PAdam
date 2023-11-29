@@ -15,6 +15,7 @@ import numpy as np
 
 from models import *
 from Optimizers import *
+from functions import *
 
 def get_args():
     parser = argparse.ArgumentParser(description='Training script for Fashion MNIST.')
@@ -44,13 +45,7 @@ def get_args():
 
     return parser.parse_args()
 
-def count_parameters(model):
-    return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
-def fraction_small_weights(param, threshold):
-    small_weights = torch.sum(torch.abs(param.data) < threshold).item()
-    total_weights = param.nelement()
-    return small_weights / total_weights
 
 
 def main():
