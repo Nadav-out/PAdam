@@ -47,8 +47,9 @@ grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
 # learning rate decay settings
 decay_lr = True # whether to decay the learning rate
 warmup_iters = 1000 # how many steps to warm up for
-lr_decay_epochs = int(0.8*epochs) # should be ~= max_iters per Chinchilla
-min_lr = 6e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
+lr_decay_frac=0.8 # fraction of the max_lr to drop to at lr_decay_epochs
+lr_decay_epochs = int(lr_decay_frac*epochs) # should be ~= max_iters per Chinchilla
+min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
 
 small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
 
