@@ -71,7 +71,7 @@ compile = True # use PyTorch 2.0 to compile the model to be faster
 # Initialize DDP
 def setup(rank, world_size):
     os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '12355'
+    os.environ['MASTER_PORT'] = '12356'
     dist.init_process_group("nccl", rank=rank, world_size=world_size)
 
 def cleanup():
@@ -93,8 +93,14 @@ def parse_config():
 
 
 def main(rank, world_size, config):
+    print(f"Rank {rank} is using CUDA device: cuda:{rank}")
+    torch.cuda.set_device(rank)  # Explicitly set the device
+    print(f"PyTorch version: {torch.__version__}")
+    print(f"CUDA version: {torch.version.cuda}")
+    print(f"NCCL version: {torch.cuda.nccl.version()}")
     try:
         setup(rank, world_size)
+        
         # Apply configurations to the global namespace of this process
         globals().update(config)
 
@@ -153,7 +159,8 @@ def main(rank, world_size, config):
         
 
         # Model Initialization for DDP
-        model = ResNet18(3, 10).to(rank)
+        # model = ResNet18(3, 10).to(rank)
+        model = SimpleNet().to(rank)
         print('got here1')
         model = DDP(model, device_ids=[rank])
         print('got here2')
