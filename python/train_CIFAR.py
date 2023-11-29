@@ -239,6 +239,7 @@ for epoch in range(epochs):
             'optimizer_state_dict': optimizer.state_dict(),
             'accuracy': accuracy,
         }, model_save_path)
+        print(f"Reached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
 
     # Calculate and format runtime and expected time
     elapsed_time = time.time() - start_time
