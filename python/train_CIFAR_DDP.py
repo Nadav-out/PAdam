@@ -93,196 +93,203 @@ def parse_config():
 
 
 def main(rank, world_size, config):
-    setup(rank, world_size)
-    # Apply configurations to the global namespace of this process
-    globals().update(config)
+    try:
+        setup(rank, world_size)
+        # Apply configurations to the global namespace of this process
+        globals().update(config)
 
+        
+
+        # set up I/O directory
+        if not os.path.exists(out_dir):
+            os.makedirs(out_dir)
+        if not os.path.exists(out_dir):
+            os.makedirs(out_dir)
+        model_save_path = os.path.join(out_dir, 'best_model.pth')
+        stats_save_path = os.path.join(out_dir, 'training_stats.pkl')
+
+        # Set a different random seed for each process
+        torch.manual_seed(1337 + rank)
+        torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
+        torch.backends.cudnn.allow_tf32 = True # allow tf32 on cudnn
+        device_type = 'cuda' if 'cuda' in device else 'cpu'
+
+        # Check if mean/std file exists, calculate if not
+        mean_std_file = os.path.join(data_dir, 'cifar10_mean_std.pkl')
+        if not os.path.exists(mean_std_file):
+            # Load CIFAR-10 without normalization
+            trainset_raw = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=True, transform=tt.ToTensor())
+            mean, std = calculate_mean_std(trainset_raw)
+            with open(mean_std_file, 'wb') as f:
+                pickle.dump((mean, std), f)
+            print("Mean and Std Dev calculated and saved.\n")
+        else:
+            with open(mean_std_file, 'rb') as f:
+                mean, std = pickle.load(f)
+            print("Mean and Std Dev loaded from file.\n")
+
+
+        transform_train = tt.Compose([tt.RandomCrop(32, padding=4, padding_mode='reflect'), 
+
+                                tt.RandomRotation(degrees=(-10, 10)),
+                                tt.RandomHorizontalFlip(), 
+                                #tt.RandomPerspective(distortion_scale=0.14),
+                                # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
+                                # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
+                                tt.ToTensor(), 
+                                tt.Normalize(mean,std,inplace=True)])
+        transform_test = tt.Compose([tt.ToTensor(), tt.Normalize(mean, std)])
+
+        # Load datasets with transforms
+        trainset = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=True, transform=transform_train)
+        testset = torchvision.datasets.CIFAR10(root=data_dir, train=False, download=True, transform=transform_test)
+
+        # Initialize DataLoaders with DistributedSampler for DDP
+        train_sampler = DistributedSampler(trainset, num_replicas=world_size, rank=rank, shuffle=True)
+        trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, sampler=train_sampler, num_workers=3, pin_memory=True)
+
+        test_sampler = DistributedSampler(testset, num_replicas=world_size, rank=rank, shuffle=False)
+        testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, sampler=test_sampler, num_workers=3, pin_memory=True)
+        
+        print('got here')
+
+        # Model Initialization for DDP
+        model = ResNet18(3, 10).to(rank)
+        model = DDP(model, device_ids=[rank])
+        print(f"Number of trainable parameters: {count_parameters(model):,}")
+
+
+        # initialize a GradScaler. If enabled=False scaler is a no-op
+        if device_type == 'cuda':
+            scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
+
+        # optimizer
+        optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
+
+        if compile:
+            print("compiling the model... (takes a ~minute)")
+            unoptimized_model = model
+            model = torch.compile(model) # requires PyTorch 2.0
+
+        criterion = torch.nn.CrossEntropyLoss()
+
+
+        lr_decay_iters=len(trainloader)*lr_decay_epochs
+
+        # learning rate decay scheduler (cosine with warmup)
+        def get_lr(it):
+            # 1) linear warmup for warmup_iters steps
+            if it < warmup_iters:
+                return max_lr * it / warmup_iters+1e-6
+            # 2) if it > lr_decay_iters, return min learning rate
+            if it > lr_decay_iters:
+                return min_lr
+            # 3) in between, use cosine decay down to min learning rate
+            decay_ratio = (it - warmup_iters) / (lr_decay_iters - warmup_iters)
+            assert 0 <= decay_ratio <= 1
+            coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # coeff ranges 0..1
+            return min_lr + coeff * (max_lr - min_lr)
+        
+        best_accuracy = 0.0
+        iteration_count = 0
+        train_losses = []
+        val_losses = []
+        accuracies = []
+        lrs = []
+        small_weight_fractions = []
+        start_time = time.time()    
+        for epoch in range(epochs):
+            model.train()
+            running_loss = 0.0
+            for data in trainloader:
+                    # determine and set the learning rate for this iteration
+                lr = get_lr(iteration_count) if decay_lr else max_lr
+                for param_group in optimizer.param_groups:
+                    param_group['lr'] = lr
+                iteration_count += 1
+                inputs, labels = data[0].to(rank), data[1].to(rank)
+
+                optimizer.zero_grad()
+                outputs = model(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+                optimizer.step()
+
+                running_loss += loss.item()
+
+            avg_train_loss = running_loss / len(trainloader)
+            train_losses.append(avg_train_loss)
+
+            # Validation loop
+            if rank==0:
+                model.eval()
+                correct = 0
+                total = 0
+                running_val_loss = 0.0
+
+                with torch.no_grad():
+                    for data in testloader:
+                        images, labels = data[0].to(rank), data[1].to(rank)
+                        outputs = model(images)
+                        loss = criterion(outputs, labels)
+                        running_val_loss += loss.item()
+                        _, predicted = torch.max(outputs.data, 1)
+                        total += labels.size(0)
+                        correct += (predicted == labels).sum().item()
+                        
+
+
+
+                avg_val_loss = running_val_loss / len(testloader)
+                val_losses.append(avg_val_loss)
+
+                accuracy = 100 * correct / total
+                accuracies.append(accuracy)
+
+
+                small_weight_fractions.append([fraction_small_weights(param, small_weights_threshold) for param in model.parameters() if param.requires_grad])
+                
+                # Save best model
+                if accuracy > best_accuracy:
+                    best_accuracy = accuracy
+                    torch.save({
+                        'epoch': epoch,
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'accuracy': accuracy,
+                    }, model_save_path)
+                    print(f"Reached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
+
+                    # Calculate and format runtime and expected time
+                    elapsed_time = time.time() - start_time
+                    expected_time = elapsed_time * epochs / (epoch + 1)
+                    elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
+                    expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
+
+                    # Track and store current learning rate
+                    current_lr = optimizer.param_groups[0]['lr']
+                    lrs.append(current_lr)
+
+                    status_message = f"Epoch: {epoch+1}/{epochs}\tTrain Loss: {avg_train_loss:.4f}\tTest Loss: {avg_val_loss:.4f}\tAccuracy: {accuracy:.2f}%\tCurrent LR: {current_lr:.5f}\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
+                    print(f"\r{status_message}",end='')
+
+        print()
+
+
+        with open(stats_save_path, 'wb') as f:
+            pickle.dump({
+                'train_losses': train_losses,
+                'val_losses': val_losses,
+                'accuracies': accuracies,
+                'lrs': lrs
+            }, f)
     
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        cleanup()
 
-    # set up I/O directory
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    model_save_path = os.path.join(out_dir, 'best_model.pth')
-    stats_save_path = os.path.join(out_dir, 'training_stats.pkl')
-
-    # Set a different random seed for each process
-    torch.manual_seed(1337 + rank)
-    torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
-    torch.backends.cudnn.allow_tf32 = True # allow tf32 on cudnn
-    device_type = 'cuda' if 'cuda' in device else 'cpu'
-
-    # Check if mean/std file exists, calculate if not
-    mean_std_file = os.path.join(data_dir, 'cifar10_mean_std.pkl')
-    if not os.path.exists(mean_std_file):
-        # Load CIFAR-10 without normalization
-        trainset_raw = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=True, transform=tt.ToTensor())
-        mean, std = calculate_mean_std(trainset_raw)
-        with open(mean_std_file, 'wb') as f:
-            pickle.dump((mean, std), f)
-        print("Mean and Std Dev calculated and saved.\n")
-    else:
-        with open(mean_std_file, 'rb') as f:
-            mean, std = pickle.load(f)
-        print("Mean and Std Dev loaded from file.\n")
-
-
-    transform_train = tt.Compose([tt.RandomCrop(32, padding=4, padding_mode='reflect'), 
-
-                            tt.RandomRotation(degrees=(-10, 10)),
-                            tt.RandomHorizontalFlip(), 
-                            #tt.RandomPerspective(distortion_scale=0.14),
-                            # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
-                            # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
-                            tt.ToTensor(), 
-                            tt.Normalize(mean,std,inplace=True)])
-    transform_test = tt.Compose([tt.ToTensor(), tt.Normalize(mean, std)])
-
-    # Load datasets with transforms
-    trainset = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=True, transform=transform_train)
-    testset = torchvision.datasets.CIFAR10(root=data_dir, train=False, download=True, transform=transform_test)
-
-    # Initialize DataLoaders with DistributedSampler for DDP
-    train_sampler = DistributedSampler(trainset, num_replicas=world_size, rank=rank, shuffle=True)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, sampler=train_sampler, num_workers=3, pin_memory=True)
-
-    test_sampler = DistributedSampler(testset, num_replicas=world_size, rank=rank, shuffle=False)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, sampler=test_sampler, num_workers=3, pin_memory=True)
-    
-    print('got here')
-
-    # Model Initialization for DDP
-    model = ResNet18(3, 10).to(rank)
-    model = DDP(model, device_ids=[rank])
-    print(f"Number of trainable parameters: {count_parameters(model):,}")
-
-
-    # initialize a GradScaler. If enabled=False scaler is a no-op
-    if device_type == 'cuda':
-        scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
-
-    # optimizer
-    optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
-
-    if compile:
-        print("compiling the model... (takes a ~minute)")
-        unoptimized_model = model
-        model = torch.compile(model) # requires PyTorch 2.0
-
-    criterion = torch.nn.CrossEntropyLoss()
-
-
-    lr_decay_iters=len(trainloader)*lr_decay_epochs
-
-    # learning rate decay scheduler (cosine with warmup)
-    def get_lr(it):
-        # 1) linear warmup for warmup_iters steps
-        if it < warmup_iters:
-            return max_lr * it / warmup_iters+1e-6
-        # 2) if it > lr_decay_iters, return min learning rate
-        if it > lr_decay_iters:
-            return min_lr
-        # 3) in between, use cosine decay down to min learning rate
-        decay_ratio = (it - warmup_iters) / (lr_decay_iters - warmup_iters)
-        assert 0 <= decay_ratio <= 1
-        coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # coeff ranges 0..1
-        return min_lr + coeff * (max_lr - min_lr)
-    
-    best_accuracy = 0.0
-    iteration_count = 0
-    train_losses = []
-    val_losses = []
-    accuracies = []
-    lrs = []
-    small_weight_fractions = []
-    start_time = time.time()    
-    for epoch in range(epochs):
-        model.train()
-        running_loss = 0.0
-        for data in trainloader:
-                # determine and set the learning rate for this iteration
-            lr = get_lr(iteration_count) if decay_lr else max_lr
-            for param_group in optimizer.param_groups:
-                param_group['lr'] = lr
-            iteration_count += 1
-            inputs, labels = data[0].to(rank), data[1].to(rank)
-
-            optimizer.zero_grad()
-            outputs = model(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-            optimizer.step()
-
-            running_loss += loss.item()
-
-        avg_train_loss = running_loss / len(trainloader)
-        train_losses.append(avg_train_loss)
-
-        # Validation loop
-        if rank==0:
-            model.eval()
-            correct = 0
-            total = 0
-            running_val_loss = 0.0
-
-            with torch.no_grad():
-                for data in testloader:
-                    images, labels = data[0].to(rank), data[1].to(rank)
-                    outputs = model(images)
-                    loss = criterion(outputs, labels)
-                    running_val_loss += loss.item()
-                    _, predicted = torch.max(outputs.data, 1)
-                    total += labels.size(0)
-                    correct += (predicted == labels).sum().item()
-                    
-
-
-
-            avg_val_loss = running_val_loss / len(testloader)
-            val_losses.append(avg_val_loss)
-
-            accuracy = 100 * correct / total
-            accuracies.append(accuracy)
-
-
-            small_weight_fractions.append([fraction_small_weights(param, small_weights_threshold) for param in model.parameters() if param.requires_grad])
-            
-            # Save best model
-            if accuracy > best_accuracy:
-                best_accuracy = accuracy
-                torch.save({
-                    'epoch': epoch,
-                    'model_state_dict': model.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                    'accuracy': accuracy,
-                }, model_save_path)
-                print(f"Reached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
-
-                # Calculate and format runtime and expected time
-                elapsed_time = time.time() - start_time
-                expected_time = elapsed_time * epochs / (epoch + 1)
-                elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
-                expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
-
-                # Track and store current learning rate
-                current_lr = optimizer.param_groups[0]['lr']
-                lrs.append(current_lr)
-
-                status_message = f"Epoch: {epoch+1}/{epochs}\tTrain Loss: {avg_train_loss:.4f}\tTest Loss: {avg_val_loss:.4f}\tAccuracy: {accuracy:.2f}%\tCurrent LR: {current_lr:.5f}\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
-                print(f"\r{status_message}",end='')
-
-    print()
-
-
-    with open(stats_save_path, 'wb') as f:
-        pickle.dump({
-            'train_losses': train_losses,
-            'val_losses': val_losses,
-            'accuracies': accuracies,
-            'lrs': lrs
-        }, f)
 
 
 
