@@ -149,7 +149,7 @@ lr_decay_iters=len(trainloader)*lr_decay_epochs
 def get_lr(it):
     # 1) linear warmup for warmup_iters steps
     if it < warmup_iters:
-        return max_lr * it / warmup_iters
+        return max_lr * it / warmup_iters+1e-6
     # 2) if it > lr_decay_iters, return min learning rate
     if it > lr_decay_iters:
         return min_lr
