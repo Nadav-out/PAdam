@@ -6,3 +6,4 @@ figs/*
 __pycache__/
 *.pyc
 CIFAR_results/best_model.pth
+CIFAR_results/
