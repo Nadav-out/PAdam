@@ -240,8 +240,8 @@ for epoch in range(epochs):
             'optimizer_state_dict': optimizer.state_dict(),
             'accuracy': accuracy,
         }, model_save_path)
-        print(f"Reached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
-        print(f'Fraction of small weights: {small_weight_fractions[-1][-5]:.5f}')
+        print(f"\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
+        print(f'\nFraction of small weights: {small_weight_fractions[-1][-5]:.5f}')
 
     # Calculate and format runtime and expected time
     elapsed_time = time.time() - start_time
@@ -264,5 +264,6 @@ with open(stats_save_path, 'wb') as f:
         'train_losses': train_losses,
         'val_losses': val_losses,
         'accuracies': accuracies,
-        'lrs': lrs
+        'lrs': lrs,
+        'small_weights': small_weight_fractions
     }, f)
