@@ -3,3 +3,5 @@ pythpn/__pycache__/
 python/.ipynb_checkpoints/
 figs/*
 .DS_Store
+__pycache__/
+*.pyc
