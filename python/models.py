@@ -51,8 +51,8 @@ class FashionCNN(nn.Module):
 
         
         
-def conv_block(in_channels, out_channels, activation=False, pool=False):
-    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1,bias=False), 
+def conv_block(in_channels, out_channels, kernel_size=3, padding=1, activation=False, pool=False):
+    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding, bias=False), 
               nn.BatchNorm2d(out_channels)]
     if activation: layers.append(nn.ReLU(inplace=True))
     if pool: layers.append(nn.MaxPool2d(2))
@@ -62,30 +62,60 @@ class ResNet18(nn.Module):
     def __init__(self, in_channels, num_classes):
         super().__init__()
         
-        self.conv1 = nn.Sequential(nn.Conv2d(in_channels, 64, kernel_size=7, stride=1, padding=4),
-            nn.BatchNorm2d(64),nn.ReLU(inplace=True))
+        self.conv1 = conv_block(in_channels, 64, kernel_size=7, padding=4, activation=True)
+        
 
-        self.res1 = nn.Sequential(conv_block(64, 64,activation=True), conv_block(64, 64))
-        self.res2 = nn.Sequential(conv_block(64, 64,activation=True), conv_block(64, 64))
+        self.res1 = nn.Sequential(
+            conv_block(64, 64,activation=True), 
+            conv_block(64, 64)
+            )
         
-        self.downsample1=nn.Sequential(conv_block(64, 128,pool=True)) 
-        self.res3 = nn.Sequential(conv_block(64, 128,activation=True, pool=True),
-                                  conv_block(128,128))
-        self.res4 = nn.Sequential(conv_block(128, 128,activation=True), conv_block(128, 128,activation=True))
+        self.res2 = nn.Sequential(
+            conv_block(64, 64,activation=True), 
+            conv_block(64, 64)
+            )
         
-        self.res5 = nn.Sequential(conv_block(128, 256,activation=True, pool=True),conv_block(256,256))
-        self.downsample2 = nn.Sequential(conv_block(128, 256,pool=True,activation=True))
-        self.res6 = nn.Sequential(conv_block(256, 256,activation=True), conv_block(256, 256,activation=True))
+        self.downsample1=conv_block(64, 128,pool=True)
         
-        self.res7 = nn.Sequential(conv_block(256, 512,activation=True, pool=True),
-                                   conv_block(512,512,activation=True))
-        self.downsample3 = nn.Sequential(conv_block(256,512,activation=True,pool=True))
-        self.res8 = nn.Sequential(conv_block(512, 512,activation=True), conv_block(512, 512,activation=True))
+        self.res3 = nn.Sequential(
+            conv_block(64, 128,activation=True, pool=True),
+            conv_block(128,128)
+            )
+        
+        self.res4 = nn.Sequential(
+            conv_block(128, 128,activation=True), 
+            conv_block(128, 128,activation=True)
+            )
+        
+        self.res5 = nn.Sequential(
+            conv_block(128, 256,activation=True, pool=True),
+            conv_block(256,256)
+            )
+        
+        self.downsample2 = conv_block(128, 256,pool=True,activation=True)
+        
+        self.res6 = nn.Sequential(
+            conv_block(256, 256,activation=True), 
+            conv_block(256, 256,activation=True)
+            )
+        
+        self.res7 = nn.Sequential(
+            conv_block(256, 512,activation=True, pool=True),
+            conv_block(512,512,activation=True))
+        
+        self.downsample3 = conv_block(256,512,activation=True,pool=True)
+        
+        self.res8 = nn.Sequential(
+            conv_block(512, 512,activation=True), 
+            conv_block(512, 512,activation=True)
+            )
 
-        self.classifier = nn.Sequential(nn.AdaptiveAvgPool2d((1,1)), 
-                                        nn.Flatten(), 
-                                        nn.Dropout(0.1),
-                                        nn.Linear(512, num_classes))
+        self.classifier = nn.Sequential(
+            nn.AdaptiveAvgPool2d((1,1)), 
+            nn.Flatten(), 
+            nn.Dropout(0.1),
+            nn.Linear(512, num_classes)
+            )
         
         
         # Store the number of parameters for each layer
@@ -107,7 +137,7 @@ class ResNet18(nn.Module):
         out = self.res4(out) + out
         out = self.res5(out) + self.downsample2(out)
         out = self.res6(out) + out
-        out = self.downsample3(out) +self.res7(out)
+        out = self.res7(out) + self.downsample3(out)
         out = self.res8(out) + out
         out = self.classifier(out)
         return out
