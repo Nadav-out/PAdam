@@ -1,16 +1,14 @@
 import os
-import subprocess
 import torch
 import torchvision
 
 import torchvision.transforms as tt
 import pickle
-from torchvision.datasets import FashionMNIST
-from torch.utils import data as dataloader
-import copy
+
 import time
 import numpy as np
 import math
+import pandas as pd
 
 from models import *
 from Optimizers import *
@@ -170,7 +168,10 @@ train_losses = []
 val_losses = []
 accuracies = []
 lrs = []
-small_weights_dict = {module: [] for module in model.layer_param_count.keys()}
+# small_weights_dict = {module: [] for module in model.layer_param_count.keys()}
+sparsity_df = model.sparsity_df
+total_params = sparsity_df['paramsCount'].sum()
+
 
 
 
@@ -226,9 +227,11 @@ for epoch in range(epochs):
 
 
     # update small weights count
-    current_counts = model.count_small_weights(threshold=small_weights_threshold)
-    for module in small_weights_dict:
-        small_weights_dict[module].append(current_counts.get(module, 0))
+    sparsity_df[f'SmallWeights_epoch{epoch}'] = model.get_small_weight_vec(small_weights_threshold)
+    cur_sparsity=sparsity_df[f'SmallWeights_epoch{epoch}'].sum()/total_params
+    # current_counts = model.count_small_weights(threshold=small_weights_threshold)
+    # for module in small_weights_dict:
+    #     small_weights_dict[module].append(current_counts.get(module, 0))
 
 
     
@@ -242,7 +245,7 @@ for epoch in range(epochs):
             'accuracy': accuracy,
         }, model_save_path)
         print(f"\n\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
-        print(f'Fraction of small weights: {small_weight_fractions[-1][-5]:.5f}')
+        print(f'Sparsity: {cur_sparsity:.5f}')
 
     # Calculate and format runtime and expected time
     elapsed_time = time.time() - start_time
@@ -266,5 +269,5 @@ with open(stats_save_path, 'wb') as f:
         'val_losses': val_losses,
         'accuracies': accuracies,
         'lrs': lrs,
-        'small_weights': small_weight_fractions
+        'small_weights': sparsity_df
     }, f)
