@@ -20,7 +20,7 @@ from functions import *
 # default config values
 
 #I/O
-data_dir='./data'
+data_dir='./data/CIFAR10'
 out_dir='./CIFAR_results'
 save_checkpoints=True
 
@@ -68,9 +68,7 @@ config = {k: globals()[k] for k in config_keys} # will be useful for logging
 
 
 
-# set up output directory
-if not os.path.exists(out_dir):
-    os.makedirs(out_dir)
+
 
 torch.manual_seed(1337)
 torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
@@ -79,22 +77,21 @@ device_type = 'cuda' if 'cuda' in device else 'cpu'
 
 
 
+mean_std_file=os.path.join(data_dir, "cifar10_mean_std.pkl")
+data_paths_check = [
+    data_dir,
+    os.path.join(data_dir, "cifar-10-batches-py"),
+    mean_std_file
+]
+for path in data_paths_check:
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"CIFAR-10 data not found. Please run python CIFAR_10_prep.py --data_dir='{data_dir}' ")
 
 
+with open(mean_std_file, 'rb') as f:
+    mean, std = pickle.load(f)
 
-# Check if mean/std file exists, calculate if not
-mean_std_file = os.path.join(data_dir, 'cifar10_mean_std.pkl')
-if not os.path.exists(mean_std_file):
-    # Load CIFAR-10 without normalization
-    trainset_raw = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=True, transform=tt.ToTensor())
-    mean, std = calculate_mean_std(trainset_raw)
-    with open(mean_std_file, 'wb') as f:
-        pickle.dump((mean, std), f)
-    print("Mean and Std Dev calculated and saved.\n")
-else:
-    with open(mean_std_file, 'rb') as f:
-        mean, std = pickle.load(f)
-    print("Mean and Std Dev loaded from file.\n")
+
 
 
 transform_train = tt.Compose([tt.RandomCrop(32, padding=4, padding_mode='reflect'), 
@@ -110,10 +107,10 @@ transform_test = tt.Compose([tt.ToTensor(), tt.Normalize(mean, std)])
 
 
 # Load the CIFAR-10 dataset with transforms above
-trainset = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=True, transform=transform_train)
+trainset = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=False, transform=transform_train)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=3,pin_memory=True)
 
-testset = torchvision.datasets.CIFAR10(root=data_dir, train=False, download=True, transform=transform_test)
+testset = torchvision.datasets.CIFAR10(root=data_dir, train=False, download=False, transform=transform_test)
 testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, shuffle=False, num_workers=3,pin_memory=True)
 
 # move to device
@@ -123,8 +120,6 @@ testloader = DeviceDataLoader(testloader, device)
 
 # initialize model
 model = to_device(ResNet18(3, 10), device)
-print(f"Number of trainable parameters: {count_parameters(model):,}")
-
 
 
 
@@ -175,7 +170,8 @@ train_losses = []
 val_losses = []
 accuracies = []
 lrs = []
-small_weight_fractions = []
+small_weights_dict = {module: [] for module in model.layer_param_count.keys()}
+
 
 
 start_time = time.time()    
@@ -229,7 +225,12 @@ for epoch in range(epochs):
     accuracies.append(accuracy)
 
 
-    small_weight_fractions.append([fraction_small_weights(param, small_weights_threshold) for param in model.parameters() if param.requires_grad])
+    # update small weights count
+    current_counts = model.count_small_weights(threshold=small_weights_threshold)
+    for module in small_weights_dict:
+        small_weights_dict[module].append(current_counts.get(module, 0))
+
+
     
     # Save best model
     if accuracy > best_accuracy:

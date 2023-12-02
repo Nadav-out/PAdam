@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from Optimizers import *
 import inspect
+import pandas as pd
+
 
 
 class SimpleNet(nn.Module):
@@ -122,11 +124,49 @@ class ResNet18(nn.Module):
         self.apply(self.init_weights)
         # Initialize and count parameters
         self.layer_param_count, self.layer_regulated_param_count = self.count_parameters()
+        self.sparsity_df = pd.DataFrame(columns=['Layer', 'Sublayer', 'Component', 'paramsCount'])
+        self._initialize_sparsity_df()
 
 
     def init_weights(self,m):
         if isinstance(m, nn.Conv2d):
             nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
+    
+    
+    def _initialize_sparsity_df(self):
+        new_rows = []
+
+        for name, module in self.named_modules():
+            if isinstance(module, (nn.Conv2d, nn.Linear)):
+                parts = name.split('.')
+                layer, sublayer = (parts[0], '.'.join(parts[1:])) if len(parts) > 1 else (parts[0], '')
+                component = type(module).__name__
+
+                # Calculate total number of parameters for this module
+                params_count = sum(p.numel() for p in module.parameters())
+
+                new_row = {
+                    'Layer': layer,
+                    'Sublayer': sublayer,
+                    'Component': component,
+                    'paramsCount': params_count
+                }
+                new_rows.append(new_row)
+
+        self.sparsity_df = pd.concat([self.sparsity_df, pd.DataFrame(new_rows)], ignore_index=True)
+
+    def get_small_weight_vec(self, threshold):
+        small_weight_counts = []
+
+        for name, module in self.named_modules():
+            if isinstance(module, (nn.Conv2d, nn.Linear)):
+                small_weight_count = sum((p.abs() < threshold).sum().item() for p in module.parameters())
+                small_weight_counts.append(small_weight_count)
+
+        return small_weight_counts
+
+
+
 
             
     def forward(self, xb):
@@ -199,7 +239,7 @@ class ResNet18(nn.Module):
         return layer_param_count, layer_regulated_param_count
 
     
-    def count_small_regulated_weights(self, threshold=1e-13):
+    def count_small_weights(self, threshold=1e-13):
         small_weights_count = {}
         for name, param in self.named_parameters():
             if param.requires_grad and param.dim() >= 2:  # Regularized weights
@@ -212,6 +252,29 @@ class ResNet18(nn.Module):
                 else:
                     small_weights_count[module_name] = count
         return small_weights_count
+    
+    
+
+    def _create_sparsity_dict_structure(self, parent_name='', module=None):
+        if module is None:
+            module = self
+        sparsity_dict = {}
+        for name, layer in module.named_children():
+            layer_identifier = f'{parent_name}.{name}' if parent_name else name
+
+            if isinstance(layer, (nn.Conv2d, nn.BatchNorm2d, nn.Linear)):
+                if parent_name:
+                    if parent_name not in sparsity_dict:
+                        sparsity_dict[parent_name] = {}
+                    sparsity_dict[parent_name][name] = 0
+                else:
+                    sparsity_dict[name] = 0
+            else:
+                sub_dict = self._create_sparsity_dict_structure(layer_identifier, layer)
+                if sub_dict:
+                    sparsity_dict[layer_identifier] = sub_dict
+        return sparsity_dict
+
 
 
 
