@@ -18,7 +18,8 @@ def main():
 
     # Check if mean/std file exists, calculate if not
     mean_std_file = os.path.join(data_dir, 'cifar10_mean_std.pkl')
-    if not os.path.exists(mean_std_file):  
+    if not os.path.exists(mean_std_file): 
+        print("Calculating Mean and Std Dev...") 
         mean, std = calculate_mean_std(trainset_raw)
         with open(mean_std_file, 'wb') as f:
             pickle.dump((mean, std), f)
