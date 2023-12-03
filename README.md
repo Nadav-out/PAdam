@@ -1,5 +1,16 @@
 # PAdam
 
+### Don't forget
+- we have 10 extra parameters in the wights df we collect, make sure what are those
+
+### For Noam.
+If you want to try `FashionMNIST`, see below. For `CIFAR10` I haven't written a full explanation yet. However, it should work just fine by simply clone, move to the `PAdam` directory and run
+```bash
+python ./python/train_CIFAR.py config/config_cifar10.py --optimizer_name='PAdam' --lambda_p=1e-3  --p_norm=0.8
+```
+If you don't want to use `--blah` to parse arguments, you can add parameters to `config/config_cifar10.py`
+
+
 PAdam is an extension of the Adam optimizer that allows for any p-norm regularization.
 
 ## Blog Post
@@ -23,6 +34,7 @@ Ensure you have the following dependencies installed:
 - NumPy
 - Matplotlib
 - seaborn
+- pandas
 
 ### Running the Training Script
 
