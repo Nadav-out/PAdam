@@ -177,8 +177,6 @@ def main():
     val_losses = []
     accuracies = []
     lrs = []
-    sparsity_df = model.sparsity_df
-    total_params = sparsity_df['paramsCount'].sum()
 
 
 
@@ -235,8 +233,8 @@ def main():
 
 
         # update small weights count
-        sparsity_df[f'SmallWeights_epoch{epoch}'] = model.get_small_weight_vec(small_weights_threshold)
-        cur_sparsity=sparsity_df[f'SmallWeights_epoch{epoch}'].sum()/total_params
+        cur_sparsity = model.append_small_weight_vec(small_weights_threshold, epoch)
+
         
 
 
@@ -275,7 +273,7 @@ def main():
             'val_losses': val_losses,
             'accuracies': accuracies,
             'lrs': lrs,
-            'small_weights': sparsity_df
+            'small_weights': model.sparsity_df
         }, f)
 
 if __name__ == '__main__':

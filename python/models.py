@@ -1,3 +1,4 @@
+from ast import Raise
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -120,55 +121,15 @@ class ResNet18(nn.Module):
             )
         
         
-        # Store the number of parameters for each layer
+        # Initialize weights
         self.apply(self.init_weights)
-        # Initialize and count parameters
-        self.layer_param_count, self.layer_regulated_param_count = self.count_parameters()
-        self.sparsity_df = pd.DataFrame(columns=['Layer', 'Sublayer', 'Component', 'paramsCount'])
+        
+        # Split in to decayed vs non-decayed parameters
+        self._initialize_param_groups()  
+        
+        # initialized decayed parameters df to track sparsity
         self._initialize_sparsity_df()
-
-
-    def init_weights(self,m):
-        if isinstance(m, nn.Conv2d):
-            nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
-    
-    
-    def _initialize_sparsity_df(self):
-        new_rows = []
-
-        for name, module in self.named_modules():
-            if isinstance(module, (nn.Conv2d, nn.Linear)):
-                parts = name.split('.')
-                layer, sublayer = (parts[0], '.'.join(parts[1:])) if len(parts) > 1 else (parts[0], '')
-                component = type(module).__name__
-
-                # Calculate total number of parameters for this module
-                params_count = sum(p.numel() for p in module.parameters())
-
-                new_row = {
-                    'Layer': layer,
-                    'Sublayer': sublayer,
-                    'Component': component,
-                    'paramsCount': params_count
-                }
-                new_rows.append(new_row)
-
-        self.sparsity_df = pd.concat([self.sparsity_df, pd.DataFrame(new_rows)], ignore_index=True)
-
-    def get_small_weight_vec(self, threshold):
-        small_weight_counts = []
-
-        for name, module in self.named_modules():
-            if isinstance(module, (nn.Conv2d, nn.Linear)):
-                small_weight_count = sum((p.abs() < threshold).sum().item() for p in module.parameters())
-                small_weight_counts.append(small_weight_count)
-
-        return small_weight_counts
-
-
-
-
-            
+        
     def forward(self, xb):
         out = self.conv1(xb)
         out = self.res1(out) + out
@@ -181,100 +142,159 @@ class ResNet18(nn.Module):
         out = self.res8(out) + out
         out = self.classifier(out)
         return out
+
+    def init_weights(self,m):
+        if isinstance(m, nn.Conv2d):
+            nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
+
     
-    def configure_optimizers(self, optimizer_name, weight_decay, learning_rate, p_norm, betas, device_type):
-        # start with all of the candidate parameters
-        param_dict = {pn: p for pn, p in self.named_parameters()}
-        # filter out those that do not require grad
-        param_dict = {pn: p for pn, p in param_dict.items() if p.requires_grad}
-        # create optim groups. Any parameters that is 2D will be weight decayed, otherwise no.
-        # i.e. all weight tensors in matmuls + embeddings decay, all biases and layernorms don't.
-        decay_params = [p for n, p in param_dict.items() if p.dim() >= 2]
-        nodecay_params = [p for n, p in param_dict.items() if p.dim() < 2]
+    
+   
+    def _initialize_param_groups(self):
+        '''
+        Initializes and splits model parameters into decayed and non-decayed groups based on their tensor dimension.
+        The logic is that we don't want to decay 1D tensors (e.g., biases, batch normalization parameters).
+        For analysis purposes, the layer name, sublayer name, and type of each parameter are also stored.
+        This method populates the lists self.decay_params and self.nodecay_params with these details.
+        '''
+        self.decay_params = []
+        self.nodecay_params = []
+
+        for name, module in self.named_modules():
+            if hasattr(module, 'parameters'):
+                for param in module.parameters(recurse=False):
+                    if param.requires_grad:
+                        if param.dim() >= 2:
+                            self.decay_params.append((name, param, type(module).__name__))
+                        else:
+                            self.nodecay_params.append((name, param, type(module).__name__))
+        self.num_decay_params = sum(p[1].numel() for p in self.decay_params)
+        num_nodecay_params = sum(p[1].numel() for p in self.nodecay_params)
+        print(f"Number of trainable parameters: {self.num_decay_params+num_nodecay_params:,}, grouped into:")
+        print(f"{len(self.decay_params)} decayed parameter tensors, with {self.num_decay_params:,} parameters")
+        print(f"{len(self.nodecay_params)} non-decayed parameter tensors, with {num_nodecay_params:,} parameters")
+     
+    def _initialize_sparsity_df(self):
+        '''
+        Initializes a pandas DataFrame to monitor the evolution of parameter sparsity during training. 
+        Each row in the DataFrame corresponds to a parameter group as defined by the _initialize_param_groups method. 
+        The columns 'Layer', 'Sublayer', 'Component', and 'paramsCount' capture the layer name, sublayer name, 
+        type of the layer, and the count of parameters in that layer, respectively.
+        '''
+        self.sparsity_df = pd.DataFrame(columns=['Layer', 'Sublayer', 'Component', 'paramsCount'])
+        new_rows = []
+
+        for name, param, component in self.decay_params:
+            parts = name.split('.')
+            layer, sublayer = (parts[0], '.'.join(parts[1:])) if len(parts) > 1 else (parts[0], '')
+
+            params_count = param.numel()
+
+            new_row = {
+                'Layer': layer,
+                'Sublayer': sublayer,
+                'Component': component,
+                'paramsCount': params_count
+            }
+            new_rows.append(new_row)
+
+        self.sparsity_df = pd.concat([self.sparsity_df, pd.DataFrame(new_rows)], ignore_index=True)
+
         
-        num_decay_params = sum(p.numel() for p in decay_params)
-        num_nodecay_params = sum(p.numel() for p in nodecay_params)
-        print(f"num decayed parameter tensors: {len(decay_params)}, with {num_decay_params:,} parameters")
-        print(f"num non-decayed parameter tensors: {len(nodecay_params)}, with {num_nodecay_params:,} parameters")
+    
+
+    def append_small_weight_vec(self, threshold, epoch):
+        '''
+        Appends the sparsity DataFrame with the count of small weights for a given epoch.
+        Small weights are defined as those whose absolute value is less than the specified threshold.
+        The method calculates the count of such weights for each parameter group in decay_params and 
+        appends the DataFrame with this information. It also returns the current overall sparsity.
+        '''
+        small_weight_counts = []
+        column_name = f'SmallWeights_epoch{epoch}'
+
+        for param in self.decay_params:
+            small_weight_count = (param[1].abs() < threshold).sum().item()
+            small_weight_counts.append(small_weight_count)
+
+        # Append to the sparsity DataFrame
+        if column_name not in self.sparsity_df.columns:
+            self.sparsity_df[column_name] = small_weight_counts
+        else:
+            self.sparsity_df[column_name].update(pd.Series(small_weight_counts))
+
+        # Calculate and return the current sparsity
+        cur_sparsity = self.sparsity_df[column_name].sum() / self.num_decay_params
+        return cur_sparsity
+
+
+
+
+
+
+            
+    
+    
+    # def configure_optimizers(self, optimizer_name, weight_decay, learning_rate, p_norm, betas, device_type):
+    #     # start with all of the candidate parameters
+    #     param_dict = {pn: p for pn, p in self.named_parameters()}
+    #     # filter out those that do not require grad
+    #     param_dict = {pn: p for pn, p in param_dict.items() if p.requires_grad}
+    #     # create optim groups. Any parameters that is 2D will be weight decayed, otherwise no.
+    #     # i.e. all weight tensors in matmuls + embeddings decay, all biases and layernorms don't.
+    #     decay_params = [p for n, p in param_dict.items() if p.dim() >= 2]
+    #     nodecay_params = [p for n, p in param_dict.items() if p.dim() < 2]
+        
+    #     num_decay_params = sum(p.numel() for p in decay_params)
+    #     num_nodecay_params = sum(p.numel() for p in nodecay_params)
+    #     print(f"num decayed parameter tensors: {len(decay_params)}, with {num_decay_params:,} parameters")
+    #     print(f"num non-decayed parameter tensors: {len(nodecay_params)}, with {num_nodecay_params:,} parameters")
+    #     # Create AdamW/PAdam optimizer and use the fused version if it is available
+    #     fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
+    #     use_fused = fused_available and device_type == 'cuda'
+    #     extra_args = dict(fused=True) if use_fused else dict()
+    #     if optimizer_name == 'AdamW':
+    #         optim_groups = [
+    #             {'params': decay_params, 'weight_decay': weight_decay},
+    #             {'params': nodecay_params, 'weight_decay': 0.0}
+    #             ]
+    #         optimizer = torch.optim.AdamW(optim_groups, lr=learning_rate, betas=betas, **extra_args)
+    #     elif optimizer_name == 'PAdam':
+    #         optim_groups = [
+    #             {'params': decay_params, 'lambda_p': weight_decay},
+    #             {'params': nodecay_params, 'lambda_p': 0.0}
+    #             ]
+    #         optimizer = PAdam(optim_groups, lr=learning_rate,p_norm=p_norm, betas=betas, **extra_args)
+        
+    #     print(f"using fused Adam: {use_fused}")
+
+    #     return optimizer
+    def configure_optimizers(self, optimizer_name, weight_decay, learning_rate, p_norm, betas, device_type):
         # Create AdamW/PAdam optimizer and use the fused version if it is available
         fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
         use_fused = fused_available and device_type == 'cuda'
         extra_args = dict(fused=True) if use_fused else dict()
+
         if optimizer_name == 'AdamW':
             optim_groups = [
-                {'params': decay_params, 'weight_decay': weight_decay},
-                {'params': nodecay_params, 'weight_decay': 0.0}
-                ]
+                {'params': [p[1] for p in self.decay_params], 'weight_decay': weight_decay},
+                {'params': [p[1] for p in self.nodecay_params], 'weight_decay': 0.0}
+            ]
             optimizer = torch.optim.AdamW(optim_groups, lr=learning_rate, betas=betas, **extra_args)
+
         elif optimizer_name == 'PAdam':
             optim_groups = [
-                {'params': decay_params, 'lambda_p': weight_decay},
-                {'params': nodecay_params, 'lambda_p': 0.0}
-                ]
-            optimizer = PAdam(optim_groups, lr=learning_rate,p_norm=p_norm, betas=betas, **extra_args)
-        
+                {'params': [p[1] for p in self.decay_params], 'lambda_p': weight_decay},
+                {'params': [p[1] for p in self.nodecay_params], 'lambda_p': 0.0}
+            ]
+            optimizer = PAdam(optim_groups, lr=learning_rate, p_norm=p_norm, betas=betas, **extra_args)
+
+        else:
+            raise ValueError("optimizer_name must be either 'AdamW' or 'PAdam'")
+
         print(f"using fused Adam: {use_fused}")
 
         return optimizer
-    
-    def count_parameters(self):
-        layer_param_count = {}
-        layer_regulated_param_count = {}  # For regulated (weight decay) parameters
-
-        for name, param in self.named_parameters():
-            if param.requires_grad:
-                # Extract module name from parameter name
-                module_name = name.split('.')[0]
-                
-                # Count all trainable parameters
-                layer_param_count[module_name] = layer_param_count.get(module_name, 0) + param.numel()
-
-                # Count regulated parameters (2D or higher)
-                if param.dim() >= 2:
-                    layer_regulated_param_count[module_name] = layer_regulated_param_count.get(module_name, 0) + param.numel()
-
-        total_params = sum(layer_param_count.values())
-        print(f"Number of trainable parameters: {total_params:,}")
-
-        return layer_param_count, layer_regulated_param_count
-
-    
-    def count_small_weights(self, threshold=1e-13):
-        small_weights_count = {}
-        for name, param in self.named_parameters():
-            if param.requires_grad and param.dim() >= 2:  # Regularized weights
-                # Extract the higher-level module name from the parameter name
-                module_name = name.split('.')[0]
-                # Count the small weights in this parameter
-                count = (param.abs() < threshold).sum().item()
-                if module_name in small_weights_count:
-                    small_weights_count[module_name] += count
-                else:
-                    small_weights_count[module_name] = count
-        return small_weights_count
-    
-    
-
-    def _create_sparsity_dict_structure(self, parent_name='', module=None):
-        if module is None:
-            module = self
-        sparsity_dict = {}
-        for name, layer in module.named_children():
-            layer_identifier = f'{parent_name}.{name}' if parent_name else name
-
-            if isinstance(layer, (nn.Conv2d, nn.BatchNorm2d, nn.Linear)):
-                if parent_name:
-                    if parent_name not in sparsity_dict:
-                        sparsity_dict[parent_name] = {}
-                    sparsity_dict[parent_name][name] = 0
-                else:
-                    sparsity_dict[name] = 0
-            else:
-                sub_dict = self._create_sparsity_dict_structure(layer_identifier, layer)
-                if sub_dict:
-                    sparsity_dict[layer_identifier] = sub_dict
-        return sparsity_dict
-
 
 
 
