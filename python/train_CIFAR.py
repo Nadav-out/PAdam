@@ -238,12 +238,6 @@ def main():
         # update small weights count
         cur_sparsity = model.append_small_weight_vec(small_weights_threshold, epoch)
 
-        # Aggregate all decayed weights
-        decayed_weights = torch.cat([param.data.view(-1) for name, param, _ in self.decay_params if param.requires_grad])
-
-        # Apply log10 transformation
-        log_decayed_weights = torch.log10(torch.abs(decayed_weights) + 1e-13)
-
 
         
         if wandb_log:
