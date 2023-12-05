@@ -138,6 +138,8 @@ def main():
     # optimizer
     optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
 
+    print(model.decayed_weights_histogram())
+
     if compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
         unoptimized_model = model
