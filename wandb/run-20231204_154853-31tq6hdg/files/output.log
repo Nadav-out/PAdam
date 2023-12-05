@@ -1,0 +1,3 @@
+Reached accuracy 10.00% on epoch 1. Model saved to ./CIFAR_results/best_model.pth.
+Sparsity: 0.00059
+Epoch: 1/1	Train Loss: 13107355335875872849958667993219072.0000	Test Loss: 13101753641961921391127958323724288.0000	Accuracy: 10.00%	Current LR: 0.00013	Elapsed Time: 00:02:20	Expected Time: 00:02:20

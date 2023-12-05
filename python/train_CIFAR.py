@@ -176,9 +176,12 @@ def main():
     train_losses = []
     val_losses = []
     accuracies = []
-    lrs = []
+    lrs = [] 
 
-
+    # logging
+    if wandb_log:
+        import wandb
+        wandb.init(project=wandb_project, name=wandb_run_name, config=config)
 
 
     start_time = time.time()    
@@ -236,7 +239,15 @@ def main():
         cur_sparsity = model.append_small_weight_vec(small_weights_threshold, epoch)
 
         
-
+        if wandb_log:
+            wandb.log({
+                "epoch": epoch,
+                "train/loss": avg_train_loss,
+                "validation/loss": avg_val_loss,
+                "validation/accuracy": accuracy,
+                "lr": lr,
+                "sparsity": cur_sparsity,
+            })
 
         
         # Save best model

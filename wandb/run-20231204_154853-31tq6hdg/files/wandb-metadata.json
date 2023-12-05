@@ -1,0 +1,41 @@
+{
+    "os": "macOS-13.2.1-arm64-arm-64bit",
+    "python": "3.8.17",
+    "heartbeatAt": "2023-12-04T23:48:53.703415",
+    "startedAt": "2023-12-04T23:48:53.196830",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--epochs=1",
+        "--device=mps",
+        "--wandb_log=True"
+    ],
+    "state": "running",
+    "program": "./python/train_CIFAR.py",
+    "codePathLocal": "python/train_CIFAR.py",
+    "codePath": "python/train_CIFAR.py",
+    "git": {
+        "remote": "https://github.com/Nadav-out/PAdam.git",
+        "commit": "728cd28f878d611389e9221af077e3b5fb20befa"
+    },
+    "email": "Nadav.Out@gmail.com",
+    "root": "/Users/nadavoutmezguine/Library/CloudStorage/Dropbox/Lerning/PAdam",
+    "host": "MacBook-Pro-5.local.vpn-dhcp.lbl.gov",
+    "username": "nadavoutmezguine",
+    "executable": "/Users/nadavoutmezguine/miniconda3/envs/lasso/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 10,
+    "disk": {
+        "/": {
+            "total": 926.3517189025879,
+            "used": 238.2668228149414
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 32.0
+    }
+}
