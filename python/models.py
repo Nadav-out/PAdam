@@ -226,7 +226,14 @@ class ResNet18(nn.Module):
         # Calculate and return the current sparsity
         cur_sparsity = self.sparsity_df[column_name].sum() / self.num_decay_params
         return cur_sparsity
+    def decayed_weights_histogram(self):
+        # Aggregate all decayed weights
+        decayed_weights = torch.cat([param.data.view(-1) for name, param, _ in self.decay_params if param.requires_grad])
 
+        # Apply log10 transformation
+        return torch.log10(torch.abs(decayed_weights) + 1e-13).cpu().numpy()
+
+        
 
 
 
