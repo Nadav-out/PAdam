@@ -230,14 +230,14 @@ class ResNet18(nn.Module):
     
     def decayed_weights_histogram(self):
         # Aggregate all decayed weights
-        decayed_weights = torch.cat([param.data.view(-1) for name, param, _ in self.decay_params if param.requires_grad])
+        decayed_weights = torch.cat([param.data.view(-1) for name, param, _ in self.decay_params if param.requires_grad]).cpu()
         counts, bins=(torch.abs(decayed_weights) + 1e-13).log10().histogram(bins=50,range=(-13, 0))
         log_counts = counts.log10()
         log_counts[log_counts == float('-inf')] = -1
 
 
         # Apply log10 transformation
-        return (log_counts.cpu().numpy(), bins.cpu().numpy())
+        return (log_counts.numpy(), bins.numpy())
 
         
 
