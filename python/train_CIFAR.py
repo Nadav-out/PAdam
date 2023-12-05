@@ -183,6 +183,7 @@ def main():
         import wandb
         wandb.init(project=wandb_project, name=wandb_run_name, config=config)
 
+    print(model.decayed_weights_histogram())
 
     start_time = time.time()    
     for epoch in range(epochs):
@@ -248,7 +249,7 @@ def main():
                 "validation/accuracy": accuracy,
                 "lr": lr,
                 "sparsity": cur_sparsity,
-                "decayed_weights_hist": wandb.Histogram(model.decayed_weights_histogram()),
+                "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
             })
 
         
