@@ -237,7 +237,7 @@ class ResNet18(nn.Module):
 
 
         # Apply log10 transformation
-        return (log_counts.numpy(), bins.numpy())
+        return (counts.numpy(), bins.numpy())
 
         
 
