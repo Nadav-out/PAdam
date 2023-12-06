@@ -49,7 +49,7 @@ grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
 decay_lr = True # whether to decay the learning rate
 warmup_iters = 1000 # how many steps to warm up for
 lr_decay_frac=0.8 # fraction of the max_lr to drop to at lr_decay_epochs
-lr_decay_epochs = int(lr_decay_frac*epochs) # should be ~= max_iters per Chinchilla
+
 min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
 
 small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
@@ -70,7 +70,6 @@ config = {k: globals()[k] for k in config_keys} # will be useful for logging
 
 
 def main():
-
     torch.manual_seed(1337)
     torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
     torch.backends.cudnn.allow_tf32 = True # allow tf32 on cudnn
@@ -146,8 +145,10 @@ def main():
     criterion = torch.nn.CrossEntropyLoss()
 
 
-    lr_decay_iters=len(trainloader)*lr_decay_epochs
-
+    
+    
+    lr_decay_epochs = int(lr_decay_frac*epochs) 
+    lr_decay_iters=len(trainloader)*lr_decay_epochs # should be ~= max_iters per Chinchilla
     # learning rate decay scheduler (cosine with warmup)
     def get_lr(it):
         # 1) linear warmup for warmup_iters steps
