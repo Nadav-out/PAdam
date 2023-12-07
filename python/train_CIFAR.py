@@ -209,7 +209,7 @@ def main():
                 lp_term = torch.tensor(0., requires_grad=True)
                 for name, param, module_type in model.decay_params:
                     if param.requires_grad:
-                        lp_term += torch.sum(torch.abs(param) ** p_norm)
+                        lp_term = lp_term + torch.sum(torch.abs(param) ** p_norm)
                 loss+=lp_term    
 
 
