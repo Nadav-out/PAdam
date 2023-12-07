@@ -21,8 +21,9 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 # default config values
 
 #I/O
-data_dir = os.path.join(script_dir, 'data/CIFAR10')
-out_dir='./CIFAR_results'
+relative_paths=True
+data_dir = '../data/CIFAR10'
+out_dir= '../results/CIFAR10'
 save_checkpoints=True
 
 # wandb logging
@@ -70,6 +71,15 @@ config = {k: globals()[k] for k in config_keys} # will be useful for logging
 
 
 def main():
+
+    
+
+    # If relative paths are used:
+    if relative_paths:
+        global data_dir, out_dir
+        data_dir = os.path.join(script_dir, data_dir)
+        out_dir = os.path.join(script_dir, out_dir)
+        
     torch.manual_seed(1337)
     torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
     torch.backends.cudnn.allow_tf32 = True # allow tf32 on cudnn
