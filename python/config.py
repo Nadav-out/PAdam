@@ -1,11 +1,15 @@
 import sys
 from ast import literal_eval
+import os
+
+# Get the directory of the original script
+script_dir = os.path.dirname(os.path.realpath(__file__))
 
 for arg in sys.argv[1:]:
     if '=' not in arg:
         # assume it's the name of a config file
         assert not arg.startswith('--')
-        config_file = arg
+        config_file = os.path.join(script_dir, arg)
         print(f"Overriding config with {config_file}:")
         with open(config_file) as f:
             print(f.read())
