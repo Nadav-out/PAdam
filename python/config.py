@@ -7,13 +7,14 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 
 for arg in sys.argv[1:]:
     if '=' not in arg:
-        # assume it's the name of a config file
+        # Assume it's the name of a config file
         assert not arg.startswith('--')
-        config_file = os.path.join(script_dir, arg)
+        # Adjust path to look in the parent directory of script_dir
+        config_file = os.path.join(script_dir, '../' + arg)
         print(f"Overriding config with {config_file}:")
         with open(config_file) as f:
             print(f.read())
-        exec(open(config_file).read())
+        exec(open(config_file).read(), globals())
     else:
         # assume it's a --key=value argument
         assert arg.startswith('--')
