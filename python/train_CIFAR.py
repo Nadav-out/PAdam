@@ -205,11 +205,11 @@ def main():
             loss = criterion(outputs, labels)
             running_loss += loss.item()
 
-            if optimizer_name == 'Manual':
+            if optimizer_name == 'Manual' and epoch>0:
                 lp_term = torch.tensor(0., requires_grad=True)
                 for name, param, module_type in model.decay_params:
                     if param.requires_grad:
-                        lp_term = lp_term + torch.sum(torch.abs(param) ** p_norm)
+                        lp_term = lp_term + torch.sum(torch.abs(param+1e-14) ** p_norm)
                 loss+=lp_term    
 
 
