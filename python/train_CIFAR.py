@@ -45,13 +45,12 @@ p_norm = 0.8
 beta1 = 0.9
 beta2 = 0.95
 grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
+
 # learning rate decay settings
 decay_lr = True # whether to decay the learning rate
 warmup_iters = 1000 # how many steps to warm up for
 lr_decay_frac=0.8 # fraction of the max_lr to drop to at lr_decay_epochs
-
 min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
-
 small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
 
 
@@ -114,7 +113,7 @@ def main():
     # trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=3,pin_memory=True)
     # testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, shuffle=False, num_workers=3,pin_memory=True)
 
-    loader_args = dict(num_workers=3, pin_memory=True) if device_type == 'cuda' else dict()
+    loader_args = dict(num_workers=num_workers, pin_memory=True) if device_type == 'cuda' else dict()
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, **loader_args)
     testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, shuffle=False, **loader_args)
 
@@ -135,7 +134,10 @@ def main():
         scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
 
     # optimizer
-    optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
+    if optimizer_name=='Manual':
+        optimizer = model.configure_optimizers('AdamW', 0, max_lr, 0, (beta1, beta2), device_type)
+    else:
+        optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
 
     if compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
@@ -196,14 +198,26 @@ def main():
             iteration_count += 1
             inputs, labels = data
 
+
+
             optimizer.zero_grad()
             outputs = model(inputs)
             loss = criterion(outputs, labels)
+            running_loss += loss.item()
+
+            if optimizer_name == 'Manual':
+                lp_term = torch.tensor(0., requires_grad=True)
+                for name, param, module_type in model.decay_params:
+                    if param.requires_grad:
+                        lp_term += torch.sum(torch.abs(param) ** p_norm)
+                loss+=lp_term    
+
+
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
             optimizer.step()
 
-            running_loss += loss.item()
+            
             # scheduler.step()
 
         avg_train_loss = running_loss / len(trainloader)
