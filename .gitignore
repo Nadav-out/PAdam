@@ -1,5 +1,5 @@
 data/
-result/
+results/
 pythpn/__pycache__/
 python/.ipynb_checkpoints/
 figs/*
