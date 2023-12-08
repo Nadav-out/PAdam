@@ -40,7 +40,7 @@ def get_args():
     parser.add_argument('--scheduler_exponent', type=float, default=0.6, help='Exponent for calculating the LR scheduler decay rate (default: 0.6)')
 
     # Output Folder Parameter
-    default_save_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../data')
+    default_save_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../results/fashion_sparse')
     parser.add_argument('--save_dir', type=str, default=default_save_dir, help='Directory to save trained models and metrics')
 
     return parser.parse_args()
@@ -242,7 +242,7 @@ def main():
         expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
 
         # Print status
-        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tSmall Weights: {100*total_frac_model_2:.2f}%\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
+        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tSmall Weights: {100*total_frac_model_1:.2f}% | {100*total_frac_model_2:.2f}%\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
         print(f"\r{status_message:<150}", end='')
 
     print()
