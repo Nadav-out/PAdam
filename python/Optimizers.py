@@ -37,7 +37,7 @@ class AdamP(torch.optim.Adam):
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,
                  lambda_p=0, amsgrad=False, p_norm=2):
         # Initialize the parent class (Adam) with weight_decay set to 0
-        super(AdamLp, self).__init__(params, lr=lr, betas=betas, eps=eps,
+        super(AdamP, self).__init__(params, lr=lr, betas=betas, eps=eps,
                                      weight_decay=0, amsgrad=amsgrad)
         self.lambda_p = lambda_p
         self.p_norm = p_norm
