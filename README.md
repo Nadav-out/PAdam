@@ -1,8 +1,5 @@
 # PAdam
 
-### Don't forget
-- we have 10 extra parameters in the wights df we collect, make sure what are those
-
 ### For Noam.
 If you want to try `FashionMNIST`, see below. For `CIFAR10` I haven't written a full explanation yet. However, it should work just fine by simply clone, move to the `PAdam` directory and run
 ```bash
