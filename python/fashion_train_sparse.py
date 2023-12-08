@@ -126,8 +126,9 @@ def main():
     print(f"Total trainable parameters: {total_params}\n")
 
     # Set up optimizers
-    optimizer_1 = optim.Adam(Model_1.parameters(), lr=args.lr_1, weight_decay=0)
-    optimizer_2 = PAdam(Model_2.parameters(), lr=args.lr_2, lambda_p=args.lambda_p2, p_norm=args.p_norm)
+    optimizer_1 = optim.Adam(Model_1.parameters(), lr=args.lr_1, weight_decay=args.lambda_p2)
+    # optimizer_2 = PAdam(Model_2.parameters(), lr=args.lr_2, lambda_p=args.lambda_p2, p_norm=args.p_norm)
+    optimizer_2 = optim.AdamW(Model_2.parameters(), lr=args.lr_2, weight_decay=args.lambda_p2)
 
     # Set up schedulers
     decay_rate = 10 ** (-args.scheduler_exponent / args.epochs)
@@ -176,12 +177,12 @@ def main():
             train_loss_epoch_1 += loss_1.item()
             train_loss_epoch_2 += loss_2.item()
 
-            # Calculate and add L_p^p regularization for Model_1
-            reg_loss_1 = torch.tensor(0., requires_grad=True).to(device)
-            for param in Model_1.parameters():
-                if param.requires_grad:
-                    reg_loss_1 += torch.sum(torch.abs(param) ** args.p_norm)
-            loss_1 += args.lambda_p1 * reg_loss_1
+            # # Calculate and add L_p^p regularization for Model_1
+            # reg_loss_1 = torch.tensor(0., requires_grad=True).to(device)
+            # for param in Model_1.parameters():
+            #     if param.requires_grad:
+            #         reg_loss_1 += torch.sum(torch.abs(param) ** args.p_norm)
+            # loss_1 += args.lambda_p1 * reg_loss_1
 
 
 
