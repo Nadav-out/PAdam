@@ -32,8 +32,8 @@ def get_args():
     # Optimizer Parameters
     parser.add_argument('--lr_1', type=float, default=3e-3, help='Learning rate for first model (default: 3e-3)')
     parser.add_argument('--lr_2', type=float, default=3e-3, help='Learning rate for second model (default: 3e-3)')
-    parser.add_argument('--weight_decay', type=float, default=1e-1, help='Weight decay for AdamW optimizer (default: 1e-1)')
-    parser.add_argument('--lambda_p', type=float, default=3e-3, help='Lambda parameter for PAdam optimizer (default: 3e-3)')
+    parser.add_argument('--lambda_p1', type=float, default=3e-3, help='Lambda parameter for Adam + LP optimizer (default: 3e-3)')
+    parser.add_argument('--lambda_p2', type=float, default=3e-3, help='Lambda parameter for PAdam optimizer (default: 3e-3)')
     parser.add_argument('--p_norm', type=float, default=0.8, help='p-norm for PAdam optimizer (default: 0.8)')
 
     # Scheduler Parameter
@@ -126,8 +126,8 @@ def main():
     print(f"Total trainable parameters: {total_params}\n")
 
     # Set up optimizers
-    optimizer_1 = optim.AdamW(Model_1.parameters(), lr=args.lr_1, weight_decay=args.weight_decay)
-    optimizer_2 = PAdam(Model_2.parameters(), lr=args.lr_2, lambda_p=args.lambda_p, p_norm=args.p_norm)
+    optimizer_1 = optim.Adam(Model_1.parameters(), lr=args.lr_1, weight_decay=0)
+    optimizer_2 = PAdam(Model_2.parameters(), lr=args.lr_2, lambda_p=args.lambda_p2, p_norm=args.p_norm)
 
     # Set up schedulers
     decay_rate = 10 ** (-args.scheduler_exponent / args.epochs)
@@ -175,6 +175,15 @@ def main():
             loss_2 = F.cross_entropy(y_pred_2, target)
             train_loss_epoch_1 += loss_1.item()
             train_loss_epoch_2 += loss_2.item()
+
+            # Calculate and add L_p^p regularization for Model_1
+            reg_loss_1 = torch.tensor(0., requires_grad=True).to(device)
+            for param in Model_1.parameters():
+                if param.requires_grad:
+                    reg_loss_1 += torch.sum(torch.abs(param) ** args.p_norm)
+            loss_1 += args.lambda_p1 * reg_loss_1
+
+
 
             loss_1.backward()
             optimizer_1.step()

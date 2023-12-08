@@ -39,7 +39,7 @@ batch_size = 400
 epochs = 100
 
 # optimizer
-optimizer_name = 'AdamW'
+optimizer_name = 'PAdam'
 max_lr = 1e-3
 lambda_p = 1e-3
 p_norm = 0.8
@@ -49,8 +49,8 @@ grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
 
 # learning rate decay settings
 decay_lr = True # whether to decay the learning rate
-warmup_iters = 1000 # how many steps to warm up for
-lr_decay_frac=0.8 # fraction of the max_lr to drop to at lr_decay_epochs
+warmup_iters = 500 # how many steps to warm up for
+lr_decay_frac=1.0 # fraction of the max_lr to drop to at lr_decay_epochs
 min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
 small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
 
