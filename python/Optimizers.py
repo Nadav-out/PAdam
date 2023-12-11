@@ -1,5 +1,5 @@
 import torch
-class PAdam(torch.optim.Adam):
+class PAdam(torch.optim.AdamW):
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, lambda_p=1e-2, p_norm=1, *args, **kwargs):
         super(PAdam, self).__init__(params, lr=lr, betas=betas, eps=eps, weight_decay=0, *args, **kwargs)
         self.p_norm = p_norm
@@ -98,14 +98,14 @@ class CustomAdam(torch.optim.Optimizer):
                 state['step'] += 1
 
                 # Decay the first and second moment running average coefficient
-                exp_avg.mul_(beta1).add_(1 - beta1, grad)
-                exp_avg_sq.mul_(beta2).addcmul_(1 - beta2, grad, grad)
+                exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
+                exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
 
                 bias_correction1 = 1 - beta1 ** state['step']
                 bias_correction2 = 1 - beta2 ** state['step']
                 step_size = group['lr'] / bias_correction1
 
-                denom = (exp_avg_sq.sqrt() / bias_correction2.sqrt()).add_(group['eps'])
-                p.data.addcdiv_(-step_size, exp_avg, denom)
+                denom = (exp_avg_sq.sqrt() / (bias_correction2 ** 0.5)).add_(group['eps'])
+                p.data.addcdiv_(exp_avg, denom, value=-step_size)
 
         return loss
