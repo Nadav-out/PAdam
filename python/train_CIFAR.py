@@ -216,20 +216,23 @@ def main():
             loss = criterion(outputs, labels)
             running_loss += loss.item()
 
+         
             if optimizer_name == 'Manual' and epoch>0:
-                lp_term = torch.tensor(0., requires_grad=True)
-                for name, param, module_type in model.decay_params:
-                    if param.requires_grad:
-                        lp_term = lp_term + torch.sum(torch.abs(param+1e-14) ** p_norm)
-                loss+=lambda_p*lp_term    
+                for group in optimizer.param_groups:
+                    for param in group['params']:
+                        if param.grad is None:
+                            continue
+
+                        # Apply the general Lp^p regularization
+                        if lambda_p != 0:
+                            lp_grad = (param.data.abs()**(p_norm - 2)) * param.data
+                            param.grad.data.add_(lp_grad, p_norm * lambda_p)  
 
 
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
             optimizer.step()
 
-            
-            # scheduler.step()
 
         avg_train_loss = running_loss / len(trainloader)
         train_losses.append(avg_train_loss)
