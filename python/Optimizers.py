@@ -5,6 +5,33 @@ class PAdam(torch.optim.AdamW):
         self.p_norm = p_norm
         self.lambda_p = lambda_p
 
+    # @torch.no_grad()
+    # def step(self, closure=None):
+    #     # Store the old params
+    #     old_params = []
+    #     for group in self.param_groups:
+    #         old_params.append({param: param.data.clone() for param in group['params'] if param.grad is not None})
+
+    #     # Perform the standard Adam step
+    #     loss = super(PAdam, self).step(closure)
+
+    #     # Perform the PAdam step
+    #     for group, old_group in zip(self.param_groups, old_params):
+    #         for param in group['params']:
+    #             if param.grad is None:
+    #                 continue
+
+    #             # Use old parameters in the decay factor
+    #             param_old = old_group[param]
+    #             X = param_old.abs()**(2 - self.p_norm)
+    #             update_term = X / (X + self.p_norm * group['lr'] * self.lambda_p)
+
+    #             # Update the parameters
+    #             param.data.mul_(update_term)
+
+    #     return loss
+    
+
     @torch.no_grad()
     def step(self, closure=None):
         # Store the old params
@@ -12,23 +39,24 @@ class PAdam(torch.optim.AdamW):
         for group in self.param_groups:
             old_params.append({param: param.data.clone() for param in group['params'] if param.grad is not None})
 
-        # Perform the standard Adam step
+        # Perform the standard AdamW step
         loss = super(PAdam, self).step(closure)
 
         # Perform the PAdam step
         for group, old_group in zip(self.param_groups, old_params):
-            lambda_p_group = group.get('lambda_p', self.lambda_p)  # Retrieve group-specific lambda_p
-            for param in group['params']:
-                if param.grad is None:
-                    continue
+            lambda_p_group = group.get('lambda_p', self.lambda_p)  # Use group-specific lambda_p or default to global lambda_p
+            if lambda_p_group > 0:  # Apply the regularization only if lambda_p is greater than 0
+                for param in group['params']:
+                    if param.grad is None:
+                        continue
 
-                # Use old parameters in the decay factor
-                param_old = old_group[param]
-                X = param_old.abs()**(2 - self.p_norm)
-                update_term = X / (X + self.p_norm * group['lr'] * lambda_p_group)  # Use group-specific lambda_p
+                    # Use old parameters in the decay factor
+                    param_old = old_group[param]
+                    X = param_old.abs()**(2 - self.p_norm)
+                    update_term = X / (X + self.p_norm * group['lr'] * lambda_p_group)
 
-                # Update the parameters
-                param.data.mul_(update_term)
+                    # Update the parameters
+                    param.data.mul_(update_term)
 
         return loss
 
