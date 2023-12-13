@@ -17,6 +17,7 @@ class PAdam(torch.optim.AdamW):
 
         # Perform the PAdam step
         for group, old_group in zip(self.param_groups, old_params):
+            lambda_p_group = group.get('lambda_p', self.lambda_p)  # Retrieve group-specific lambda_p
             for param in group['params']:
                 if param.grad is None:
                     continue
@@ -24,16 +25,39 @@ class PAdam(torch.optim.AdamW):
                 # Use old parameters in the decay factor
                 param_old = old_group[param]
                 X = param_old.abs()**(2 - self.p_norm)
-                update_term = X / (X + self.p_norm * group['lr'] * self.lambda_p)
+                update_term = X / (X + self.p_norm * group['lr'] * lambda_p_group)  # Use group-specific lambda_p
 
                 # Update the parameters
                 param.data.mul_(update_term)
 
         return loss
 
+class Adam_L1(torch.optim.AdamW):
+    def __init__(self, params, l1_lambda=0.01,weight_decay=0, *args, **kwargs):
+        super(Adam_L1, self).__init__(params,weight_decay=0, *args, **kwargs)
+        self.l1_lambda = l1_lambda
+        self.WD=weight_decay
 
+    
+    @torch.no_grad()
+    def step(self, closure=None):
+        # Standard AdamW optimization step
+        loss = super(Adam_L1, self).step(closure)
 
-class AdamP(torch.optim.Adam):
+        # Apply L1 regularization per group
+        for group in self.param_groups:
+            lr = group['lr']
+            l1_lambda = group.get('l1_lambda', 0)  # Use group-specific l1_lambda or default to 0
+            for p in group['params']:
+                if p.grad is not None:
+                    # Apply soft thresholding for L1 regularization
+                    p.data = torch.sign(p.data) * torch.clamp(torch.abs(p.data) - l1_lambda * lr, min=0)
+                    # Apply weight decay (L2 regularization)
+                    p.data /= (1 + lr * self.WD)
+
+        return loss
+
+class AdamP(torch.optim.AdamW):
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,
                  lambda_p=0, amsgrad=False, p_norm=2):
         # Initialize the parent class (Adam) with weight_decay set to 0

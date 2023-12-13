@@ -260,9 +260,16 @@ class ResNet18(nn.Module):
                 {'params': [p[1] for p in self.nodecay_params], 'lambda_p': 0.0}
             ]
             optimizer = PAdam(optim_groups, lr=learning_rate, p_norm=p_norm, betas=betas, **extra_args)
+        
+        elif optimizer_name == 'Adam_L1':
+            optim_groups = [
+                {'params': [p[1] for p in self.decay_params], 'l1_lambda': weight_decay},
+                {'params': [p[1] for p in self.nodecay_params], 'l1_lambda': 0.0}
+            ]
+            optimizer = Adam_L1(optim_groups, lr=learning_rate, p_norm=p_norm, betas=betas, **extra_args)
 
         else:
-            raise ValueError("optimizer_name must be either 'AdamW' or 'PAdam'")
+            raise ValueError("optimizer_name must be 'AdamW', 'PAdam' or 'Adam_L1'")
 
         print(f"using fused Adam: {use_fused}")
 
