@@ -1,4 +1,5 @@
 import os
+from requests import get
 import torch
 import torchvision
 
@@ -49,6 +50,7 @@ grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
 
 # learning rate decay settings
 decay_lr = True # whether to decay the learning rate
+lr1 = True # whether to use the lr1 function or the lr2 function
 warmup_iters = 500 # how many steps to warm up for
 lr_decay_frac=1.0 # fraction of the max_lr to drop to at lr_decay_epochs
 min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
@@ -163,7 +165,7 @@ def main():
     lr_decay_epochs = int(lr_decay_frac*epochs) 
     lr_decay_iters=len(trainloader)*lr_decay_epochs # should be ~= max_iters per Chinchilla
     # learning rate decay scheduler (cosine with warmup)
-    def get_lr(it):
+    def get_lr1(it):
         # 1) linear warmup for warmup_iters steps
         if it < warmup_iters:
             return max_lr * it / warmup_iters+1e-6
@@ -175,7 +177,29 @@ def main():
         assert 0 <= decay_ratio <= 1
         coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # coeff ranges 0..1
         return min_lr + coeff * (max_lr - min_lr)
+    
+    def cosine_annealing(it, T_max, max_lr, min_lr):
+        # Adjust the iteration count and T_max for the cosine function
+        cosine_value = math.cos(math.pi * it / T_max)
+        lr = min_lr + (max_lr - min_lr) * (1 + cosine_value) / 2
+        return lr
 
+    # Global variables
+    q = epochs // 15
+    epoch_steps = [epochs - q * x for x in [0, 8, 12, 14]]
+    epoch_steps.append(0)  # Append 0 to represent the start of the training
+    epoch_steps = epoch_steps[::-1]  # Reverse to get the correct order
+    it_steps = [len(trainloader) * e for e in epoch_steps]  # Convert epochs to iterations
+
+    def get_lr2(it):
+        for i in range(len(it_steps) - 1):
+            if it < it_steps[i + 1]:
+                return cosine_annealing(it - it_steps[i], it_steps[i + 1] - it_steps[i], max_lr, min_lr)
+        return min_lr
+    if lr1:
+        get_lr = get_lr1
+    else:   
+        get_lr = get_lr2
 
 
     if not os.path.exists(out_dir):
