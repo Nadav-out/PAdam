@@ -137,7 +137,8 @@ def main():
 
 
     # initialize model
-    model = to_device(ResNet18(3, 10), device)
+    # model = to_device(ResNet18(3, 10), device)
+    model = to_device(resnet18(10), device)
 
 
 
