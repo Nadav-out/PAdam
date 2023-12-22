@@ -192,11 +192,14 @@ def main():
     epoch_steps = epoch_steps[::-1]  # Reverse to get the correct order
     it_steps = [len(trainloader) * e for e in epoch_steps]  # Convert epochs to iterations
 
+    rate=80*len(trainloader)
     def get_lr2(it):
-        for i in range(len(it_steps) - 1):
-            if it < it_steps[i + 1]:
-                return cosine_annealing(it - it_steps[i], it_steps[i + 1] - it_steps[i], max_lr, min_lr)
-        return min_lr
+        # for i in range(len(it_steps) - 1):
+        #     if it < it_steps[i + 1]:
+        #         return cosine_annealing(it - it_steps[i], it_steps[i + 1] - it_steps[i], max_lr, min_lr)
+        # return min_lr
+        max_lr*0.1**(it//rate)
+
     if lr1:
         get_lr = get_lr1
     else:   
