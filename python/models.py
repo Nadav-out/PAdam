@@ -223,7 +223,7 @@ class ResNet(nn.Module):
         self.linear = nn.Linear(512*block.expansion, num_classes)
 
         # Apply custom initializations
-        self.apply(self.custom_weight_init)
+        # self.apply(self.custom_weight_init)
         self.apply(self.init_bn_gamma)
 
     def _make_layer(self, block, planes, num_blocks, stride):
@@ -247,13 +247,13 @@ class ResNet(nn.Module):
     
     
 
-    # def custom_weight_init(self, m):
-    #     if isinstance(m, nn.Conv2d):
-    #         # Initialize weights
-    #         weight_shape = m.weight.data.shape
-    #         weight = np.random.uniform(-1, 1, weight_shape).astype(np.float32)
-    #         weight[np.abs(weight) < 0.1] = np.sign(weight[np.abs(weight) < 0.1]) * 0.1
-    #         m.weight.data = torch.from_numpy(weight)
+    def custom_weight_init(self, m):
+        if isinstance(m, nn.Conv2d):
+            # Initialize weights
+            weight_shape = m.weight.data.shape
+            weight = np.random.uniform(-1, 1, weight_shape).astype(np.float32)
+            weight[np.abs(weight) < 0.1] = np.sign(weight[np.abs(weight) < 0.1]) * 0.1
+            m.weight.data = torch.from_numpy(weight)
 
     def init_bn_gamma(self, m):
         if isinstance(m, nn.BatchNorm2d):
