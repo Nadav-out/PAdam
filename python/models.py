@@ -150,22 +150,6 @@ def ModelUtils(model_class):
     return model_class
 
 
-# class ModelUtils:
-#     @staticmethod
-#     def extend_model_class(model_class):
-#         # Save the original __init__ method of the model class
-#         original_init = model_class.__init__
-
-#         # Define a new __init__ method that calls the original one and then the additional methods
-#         def new_init(self, *args, **kwargs):
-#             original_init(self, *args, **kwargs)  # Call the original __init__
-#             self._initialize_param_groups()       # Initialize parameter groups
-#             self._initialize_sparsity_df()        # Initialize sparsity DataFrame
-
-        
-
-#         return model_class
-
 
 
 
@@ -237,6 +221,10 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
         self.linear = nn.Linear(512*block.expansion, num_classes)
 
+        # Apply custom initializations
+        self.apply(self.custom_weight_init)
+        self.apply(self.init_bn_gamma)
+
     def _make_layer(self, block, planes, num_blocks, stride):
         strides = [stride] + [1]*(num_blocks-1)
         layers = []
@@ -255,6 +243,20 @@ class ResNet(nn.Module):
         out = out.view(out.size(0), -1)
         out = self.linear(out)
         return out
+    
+    
+
+    def custom_weight_init(self, m):
+        if isinstance(m, nn.Conv2d):
+            # Initialize weights
+            weight_shape = m.weight.data.shape
+            weight = np.random.uniform(-1, 1, weight_shape).astype(np.float32)
+            weight[np.abs(weight) < 0.1] = np.sign(weight[np.abs(weight) < 0.1]) * 0.1
+            m.weight.data = torch.from_numpy(weight)
+
+    def init_bn_gamma(self, m):
+        if isinstance(m, nn.BatchNorm2d):
+            nn.init.constant_(m.weight, np.sqrt(2))
     
         
 
