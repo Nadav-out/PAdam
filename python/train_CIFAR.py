@@ -108,10 +108,11 @@ def main():
 
 
 
-    transform_train = tt.Compose([tt.RandomCrop(32, padding=4, padding_mode='reflect'), 
 
-                            tt.RandomRotation(degrees=(-10, 10)),
+    transform_train = tt.Compose([
+                            tt.RandomCrop(32, padding=4), 
                             tt.RandomHorizontalFlip(), 
+                            # tt.RandomRotation(degrees=(-10, 10)),
                             #tt.RandomPerspective(distortion_scale=0.14),
                             # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
                             # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
