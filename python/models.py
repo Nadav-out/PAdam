@@ -386,22 +386,22 @@ class ResNet18(nn.Module):
 #         # initialized decayed parameters df to track sparsity
 #         self._initialize_sparsity_df()
         
-#     def forward(self, xb):
-#         out = self.conv1(xb)
-#         out = self.res1(out) + out
-#         out = self.res2(out) + out
-#         out = self.res3(out) + self.downsample1(out)
-#         out = self.res4(out) + out
-#         out = self.res5(out) + self.downsample2(out)
-#         out = self.res6(out) + out
-#         out = self.res7(out) + self.downsample3(out)
-#         out = self.res8(out) + out
-#         out = self.classifier(out)
-#         return out
+    def forward(self, xb):
+        out = self.conv1(xb)
+        out = self.res1(out) + out
+        out = self.res2(out) + out
+        out = self.res3(out) + self.downsample1(out)
+        out = self.res4(out) + out
+        out = self.res5(out) + self.downsample2(out)
+        out = self.res6(out) + out
+        out = self.res7(out) + self.downsample3(out)
+        out = self.res8(out) + out
+        out = self.classifier(out)
+        return out
 
-#     def init_weights(self,m):
-#         if isinstance(m, nn.Conv2d):
-#             nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
+    def init_weights(self,m):
+        if isinstance(m, nn.Conv2d):
+            nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
 
     
     
