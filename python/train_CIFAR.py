@@ -198,7 +198,7 @@ def main():
         #     if it < it_steps[i + 1]:
         #         return cosine_annealing(it - it_steps[i], it_steps[i + 1] - it_steps[i], max_lr, min_lr)
         # return min_lr
-        max_lr*0.1**(it//rate)
+        return max_lr*0.1**(it//rate)
 
     if lr1:
         get_lr = get_lr1
