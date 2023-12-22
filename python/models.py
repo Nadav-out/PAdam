@@ -122,7 +122,7 @@ class ResNet18(nn.Module):
         
         
         # Initialize weights
-        self.apply(self.init_weights)
+        # self.apply(self.init_weights)
         
         # Split in to decayed vs non-decayed parameters
         self._initialize_param_groups()  
