@@ -123,8 +123,7 @@ def main():
     # Load the CIFAR-10 dataset with transforms above
     trainset = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=False, transform=transform_train)
     testset = torchvision.datasets.CIFAR10(root=data_dir, train=False, download=False, transform=transform_test)
-    # trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=3,pin_memory=True)
-    # testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, shuffle=False, num_workers=3,pin_memory=True)
+    
 
     loader_args = dict(num_workers=num_workers, pin_memory=True) if device_type == 'cuda' else dict()
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, **loader_args)

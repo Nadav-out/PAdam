@@ -177,7 +177,7 @@ class BasicBlock(nn.Module):
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.bn2(self.conv2(out))
         out += self.shortcut(x)
-        out/=np.sqrt(2)
+        # out/=np.sqrt(2)
         out = F.relu(out)
         return out
 
@@ -206,7 +206,7 @@ class Bottleneck(nn.Module):
         out = F.relu(self.bn2(self.conv2(out)))
         out = self.bn3(self.conv3(out))
         out += self.shortcut(x)
-        out/=np.sqrt(2)
+        # out/=np.sqrt(2)
         out = F.relu(out)
         return out
 
@@ -225,8 +225,8 @@ class ResNet(nn.Module):
         self.linear = nn.Linear(512*block.expansion, num_classes)
 
         # Apply custom initializations
-        self.apply(self.custom_weight_init)
-        self.apply(self.init_bn_gamma)
+        # self.apply(self.custom_weight_init)
+        # self.apply(self.init_bn_gamma)
 
     def _make_layer(self, block, planes, num_blocks, stride):
         strides = [stride] + [1]*(num_blocks-1)
