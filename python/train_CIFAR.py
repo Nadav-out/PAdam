@@ -61,7 +61,7 @@ small_weights_threshold = 1e-13 # weights smaller than this will be considered "
 backend = 'nccl' # 'nccl', 'gloo', etc.
 # system
 device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
-dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
+# dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
 compile = True # use PyTorch 2.0 to compile the model to be faster
 # -----------------------------------------------------------------------------
 config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
@@ -114,7 +114,7 @@ def main():
                             tt.RandomHorizontalFlip(), 
                             #tt.RandomPerspective(distortion_scale=0.14),
                             # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
-                            tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
+                            # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
                             tt.ToTensor(), 
                             tt.Normalize(mean,std,inplace=True)])
     transform_test = tt.Compose([tt.ToTensor(), tt.Normalize(mean, std)])
@@ -143,8 +143,8 @@ def main():
 
 
     # initialize a GradScaler. If enabled=False scaler is a no-op
-    if device_type == 'cuda':
-        scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
+    # if device_type == 'cuda':
+    #     scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
 
     # optimizer
     if optimizer_name=='Manual':
@@ -152,10 +152,10 @@ def main():
     else:
         optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
 
-    if compile and device_type == 'cuda':
-        print("compiling the model... (takes a ~minute)")
-        unoptimized_model = model
-        model = torch.compile(model) # requires PyTorch 2.0
+    # if compile and device_type == 'cuda':
+    #     print("compiling the model... (takes a ~minute)")
+    #     unoptimized_model = model
+    #     model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss()
 
