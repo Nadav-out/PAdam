@@ -154,10 +154,10 @@ def main():
     else:
         optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
 
-    # if compile and device_type == 'cuda':
-    #     print("compiling the model... (takes a ~minute)")
-    #     unoptimized_model = model
-    #     model = torch.compile(model) # requires PyTorch 2.0
+    if compile and device_type == 'cuda':
+        print("compiling the model... (takes a ~minute)")
+        unoptimized_model = model
+        model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
 
