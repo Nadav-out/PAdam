@@ -306,6 +306,7 @@ def main():
                 "lr": lr,
                 "sparsity": cur_sparsity,
                 "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
+                "validation/best_accuracy": best_accuracy,
             })
 
         
@@ -320,7 +321,7 @@ def main():
             }, model_save_path)
             print(f"\n\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
             print(f'Sparsity: {cur_sparsity:.5f}')
-            wandb.log({"validation/best_accuracy": best_accuracy})
+            
 
         # Calculate and format runtime and expected time
         elapsed_time = time.time() - start_time
