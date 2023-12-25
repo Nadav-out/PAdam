@@ -111,7 +111,9 @@ def main():
     transform_train = tt.Compose([tt.RandomCrop(32, padding=4, padding_mode='reflect'), 
 
                             tt.RandomRotation(degrees=(-10, 10)),
-                            tt.RandomHorizontalFlip(), 
+                            # tt.RandomHorizontalFlip(), 
+                            tt.RandomHorizontalFlip(0.5),
+                            tt.RandomCrop(32, padding=4),
                             #tt.RandomPerspective(distortion_scale=0.14),
                             # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
                             # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
@@ -152,10 +154,10 @@ def main():
     else:
         optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
 
-    if compile and device_type == 'cuda':
-        print("compiling the model... (takes a ~minute)")
-        unoptimized_model = model
-        model = torch.compile(model) # requires PyTorch 2.0
+    # if compile and device_type == 'cuda':
+    #     print("compiling the model... (takes a ~minute)")
+    #     unoptimized_model = model
+    #     model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
 

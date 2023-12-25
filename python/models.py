@@ -111,7 +111,7 @@ def ModelUtils(model_class):
     def configure_optimizers(self, optimizer_name, weight_decay, learning_rate, p_norm, betas, device_type):
         # Create AdamW/PAdam optimizer and use the fused version if it is available
         fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
-        use_fused = fused_available and device_type == 'cuda' #and False
+        use_fused = fused_available and device_type == 'cuda' and False
         extra_args = dict(fused=True) if use_fused else dict()
 
         if optimizer_name == 'AdamW':
