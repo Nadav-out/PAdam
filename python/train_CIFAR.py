@@ -114,7 +114,7 @@ def main():
                             tt.RandomHorizontalFlip(), 
                             #tt.RandomPerspective(distortion_scale=0.14),
                             # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
-                            tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
+                            # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
                             tt.ToTensor(), 
                             tt.Normalize(mean,std,inplace=True)])
     transform_test = tt.Compose([tt.ToTensor(), tt.Normalize(mean, std)])
@@ -157,7 +157,7 @@ def main():
     #     unoptimized_model = model
     #     model = torch.compile(model) # requires PyTorch 2.0
 
-    criterion = torch.nn.CrossEntropyLoss()
+    criterion = torch.nn.CrossEntropyLoss(reduction='mean')
 
 
     
