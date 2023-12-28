@@ -45,7 +45,7 @@ max_lr = 1e-3
 lambda_p = 1e-3
 p_norm = 0.8
 beta1 = 0.9
-beta2 = 0.95
+beta2 = 0.999
 grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
 
 # learning rate decay settings
