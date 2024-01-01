@@ -25,7 +25,8 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 relative_paths=True
 data_dir = '../data/CIFAR10'
 out_dir= '../results/CIFAR10'
-save_checkpoints=False
+save_checkpoints = False
+save_model = False
 
 # wandb logging
 wandb_log = False # disabled by default
@@ -156,7 +157,7 @@ def main():
 
     if compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
-        unoptimized_model = model
+        # unoptimized_model = model
         model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
@@ -209,12 +210,14 @@ def main():
 
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
-    model_save_path = os.path.join(out_dir, 'best_model.pth')
+    accuracy_save_path = os.path.join(out_dir, 'best_accuracy_model.pth')
+    loss_save_path = os.path.join(out_dir, 'best_loss_model.pth')
     stats_save_path = os.path.join(out_dir, 'training_stats.pkl')
 
 
 
     best_accuracy = 0.0
+    best_val_loss = np.inf
     iteration_count = 0
     train_losses = []
     val_losses = []
@@ -316,6 +319,7 @@ def main():
                 "sparsity": cur_sparsity,
                 "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
                 "validation/best_accuracy": best_accuracy,
+                "validation/best_val_loss": best_val_loss,
             })
 
         
@@ -328,8 +332,23 @@ def main():
                     'model_state_dict': model.state_dict(),
                     'optimizer_state_dict': optimizer.state_dict(),
                     'accuracy': accuracy,
-                }, model_save_path)
-            print(f"\n\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
+                }, accuracy_save_path)
+                print(f"\n\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {accuracy_save_path}.")
+            else:
+                print(f"\n\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}.")
+            print(f'Sparsity: {cur_sparsity:.5f}')
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            if save_checkpoints:
+                torch.save({
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'accuracy': accuracy,
+                }, loss_save_path)
+                print(f"\n\nReached validation loss {best_val_loss:.4f} on epoch {epoch+1}. Model saved to {loss_save_path}.")
+            else:
+                print(f"\n\nReached validation loss {best_val_loss:.4f} on epoch {epoch+1}.")
             print(f'Sparsity: {cur_sparsity:.5f}')
             
 
@@ -349,14 +368,15 @@ def main():
     print()
 
 
-    with open(stats_save_path, 'wb') as f:
-        pickle.dump({
-            'train_losses': train_losses,
-            'val_losses': val_losses,
-            'accuracies': accuracies,
-            'lrs': lrs,
-            'small_weights': model.sparsity_df
-        }, f)
+    if save_model:
+        with open(stats_save_path, 'wb') as f:
+            pickle.dump({
+                'train_losses': train_losses,
+                'val_losses': val_losses,
+                'accuracies': accuracies,
+                'lrs': lrs,
+                'small_weights': model.sparsity_df
+            }, f)
 
 if __name__ == '__main__':
     torch.multiprocessing.freeze_support()
