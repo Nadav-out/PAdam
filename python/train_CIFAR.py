@@ -62,7 +62,7 @@ small_weights_threshold = 1e-13 # weights smaller than this will be considered "
 backend = 'nccl' # 'nccl', 'gloo', etc.
 # system
 device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
-dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
+# dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
 compile = True # use PyTorch 2.0 to compile the model to be faster
 # -----------------------------------------------------------------------------
 config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
@@ -146,8 +146,8 @@ def main():
 
 
     # initialize a GradScaler. If enabled=False scaler is a no-op
-    if device_type == 'cuda':
-        scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
+    # if device_type == 'cuda':
+    #     scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
 
     # optimizer
     if optimizer_name=='Manual':
@@ -261,18 +261,19 @@ def main():
                             param.grad.data.add_(lp_grad, p_norm * lambda_p)  
 
 
-            # loss.backward()
-            scaler.scale(loss).backward()
+            loss.backward()
+            # scaler.scale(loss).backward()
             # clip the gradient
             if grad_clip != 0.0:
-                scaler.unscale_(optimizer)
+                # scaler.unscale_(optimizer)
                 torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
             # step the optimizer and scaler if training in fp16
-            scaler.step(optimizer)
-            scaler.update()
+            # scaler.step(optimizer)
+            # scaler.update()
             # flush the gradients as soon as we can, no need for this memory anymore
+            optimizer.step()
             optimizer.zero_grad(set_to_none=True)
-            # optimizer.step()
+            
 
 
         avg_train_loss = running_loss / len(trainloader)
