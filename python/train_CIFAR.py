@@ -25,7 +25,7 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 relative_paths=True
 data_dir = '../data/CIFAR10'
 out_dir= '../results/CIFAR10'
-save_checkpoints=True
+save_checkpoints=False
 
 # wandb logging
 wandb_log = False # disabled by default
@@ -46,7 +46,7 @@ lambda_p = 1e-3
 p_norm = 0.8
 beta1 = 0.9
 beta2 = 0.999
-grad_clip = 1.0 # clip gradients at this value, or disable if == 0.0
+grad_clip = 0.0 # clip gradients at this value, or disable if == 0.0
 
 # learning rate decay settings
 decay_lr = True # whether to decay the learning rate
@@ -145,8 +145,8 @@ def main():
 
 
     # initialize a GradScaler. If enabled=False scaler is a no-op
-    # if device_type == 'cuda':
-    #     scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
+    if device_type == 'cuda':
+        scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
 
     # optimizer
     if optimizer_name=='Manual':
@@ -258,9 +258,18 @@ def main():
                             param.grad.data.add_(lp_grad, p_norm * lambda_p)  
 
 
-            loss.backward()
-            # torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-            optimizer.step()
+            # loss.backward()
+            scaler.scale(loss).backward()
+            # clip the gradient
+            if grad_clip != 0.0:
+                scaler.unscale_(optimizer)
+                torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+            # step the optimizer and scaler if training in fp16
+            scaler.step(optimizer)
+            scaler.update()
+            # flush the gradients as soon as we can, no need for this memory anymore
+            optimizer.zero_grad(set_to_none=True)
+            # optimizer.step()
 
 
         avg_train_loss = running_loss / len(trainloader)
@@ -313,12 +322,13 @@ def main():
         # Save best model
         if accuracy > best_accuracy:
             best_accuracy = accuracy
-            torch.save({
-                'epoch': epoch,
-                'model_state_dict': model.state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                'accuracy': accuracy,
-            }, model_save_path)
+            if save_checkpoints:
+                torch.save({
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'accuracy': accuracy,
+                }, model_save_path)
             print(f"\n\nReached accuracy {best_accuracy:.2f}% on epoch {epoch+1}. Model saved to {model_save_path}.")
             print(f'Sparsity: {cur_sparsity:.5f}')
             
