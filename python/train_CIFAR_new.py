@@ -17,7 +17,7 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn
+from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn, TimeElapsedColumn
 
 
 
@@ -242,16 +242,15 @@ def main():
     with Progress(
         TextColumn("[bold]Epoch {task.completed}/{task.total}", justify="left"),
         BarColumn(bar_width=None),
-        TextColumn("Elapsed: [not bold]{task.fields[elapsed]}", justify="right"),
-        TextColumn("Expected: [not bold]{task.fields[expected]}", justify="right"),
+        TimeElapsedColumn(),
+        TimeRemainingColumn(),
         console=console,
         expand=True
     ) as progress:
 
 
         # Initialize the task with default values for 'elapsed' and 'expected'
-        training_task = progress.add_task("Training", total=epochs, fields={"elapsed": "00:00:00", "expected": "00:00:00"})
-        start_time = time.time()  # Record the start time
+        training_task = progress.add_task("Training", total=epochs)
 
         for epoch in range(epochs):
             model.train()
@@ -373,24 +372,6 @@ def main():
                     }, loss_save_path)
             
             
-            # Track and store current learning rate
-            current_lr = optimizer.param_groups[0]['lr']
-            lrs.append(current_lr)
-
-            # Calculate and update elapsed time
-            elapsed_time = time.time() - start_time
-            elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
-
-            # Calculate and update expected total time
-            expected_total_time = elapsed_time / (epoch + 1) * epochs if epoch > 0 else elapsed_time
-            expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_total_time))
-
-            progress.update(training_task, advance=1, fields={"elapsed": elapsed_str, "expected": expected_str})
-
-
-
-
-
             # Print status directly to the console
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
             console.print(status_message)
