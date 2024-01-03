@@ -19,8 +19,10 @@ import subprocess
 from rich.console import Console
 from rich.layout import Layout
 from rich.text import Text
-from rich.progress import BarColumn, TimeElapsedColumn, TimeRemainingColumn, Progress
+from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn
 from rich.live import Live
+
+
 
 
 
@@ -245,22 +247,25 @@ def main():
     
     console = Console()
     layout = Layout()
-
     # Create separate areas in the layout
     layout.split(
-        Layout(name="progress"),
+        Layout(name="progress", size=3),  # Adjust size to fit the progress bar
         Layout(name="status"),
         Layout(name="best_results")
     )
 
+
     progress = Progress(
         "[progress.description]{task.description}",
         BarColumn(),
-        "[progress.percentage]{task.percentage:>3.0f}%",
         TimeElapsedColumn(),
-        TimeRemainingColumn()
+        TimeRemainingColumn(),
+        console=console,
+        expand=True
     )
     task_id = progress.add_task("Training", total=epochs)
+
+
 
 
     with Live(layout, console=console, auto_refresh=False) as live:
@@ -402,11 +407,10 @@ def main():
 
             # Update layout areas
             layout["progress"].update(progress)
-            
-            status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
+            status_message = f"Epoch {epoch+1}/{epochs} - Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
+            layout["status"].update(status_message)
+
             best_results_str = best_val_loss_str + "\t" + best_accuracy_str
-            
-            layout["status"].update(Text(status_message))
             layout["best_results"].update(Text(best_results_str))
 
             live.refresh()
