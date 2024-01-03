@@ -17,7 +17,7 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn
+from rich.progress import Progress, TextColumn, BarColumn, TimeElapsedColumn, TimeRemainingColumn
 from rich.panel import Panel
 from rich.layout import Layout
 
