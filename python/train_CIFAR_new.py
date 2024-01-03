@@ -263,7 +263,7 @@ def main():
     task_id = progress.add_task("Training", total=epochs)
 
 
-    with Live(layout, console=console, auto_refresh=False):
+    with Live(layout, console=console, auto_refresh=False) as live:
 
 
 
@@ -409,7 +409,7 @@ def main():
             layout["status"].update(Text(status_message))
             layout["best_results"].update(Text(best_results_str))
 
-            console.refresh()
+            live.refresh()
 
     
         # End of training
