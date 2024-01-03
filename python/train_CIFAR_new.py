@@ -17,7 +17,7 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn, Task
+from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
 
 
 
@@ -248,9 +248,10 @@ def main():
         expand=True
     ) as progress:
 
-        # Add a task for the progress bar
-        training_task = progress.add_task("Training", total=epochs)
-        start_time = time.time()  # Record the start time  
+
+        # Initialize the task with a default value for 'elapsed'
+        training_task = progress.add_task("Training", total=epochs, elapsed="00:00:00")
+        start_time = time.time()  # Record the start time 
 
         for epoch in range(epochs):
             model.train()
