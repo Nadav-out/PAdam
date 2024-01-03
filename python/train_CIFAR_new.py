@@ -17,7 +17,7 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
+from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn, Task
 
 
 
@@ -242,7 +242,7 @@ def main():
     with Progress(
         TextColumn("[bold]Epoch {task.completed}/{task.total}", justify="left"),
         BarColumn(bar_width=None),
-        TextColumn("Elapsed: [not bold]{elapsed}", justify="right"),
+        TextColumn("Elapsed: [not bold]{task.fields[elapsed]}", justify="right"),
         TimeRemainingColumn(),
         console=console,
         expand=True
@@ -375,7 +375,8 @@ def main():
             # Update progress bar
             elapsed_time = int(time.time() - start_time)
             elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
-            progress.update(training_task, advance=1, elapsed=elapsed_str)
+            progress.update(training_task, advance=1, completed=epoch+1, fields={"elapsed": elapsed_str})
+
 
 
             # Print status and best results directly to the console
