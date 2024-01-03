@@ -247,24 +247,31 @@ def main():
 
     
     console = Console()
-    # Create a progress object
+    layout = Layout()
+
+    # Set up the progress bar
     progress = Progress(
         "[progress.description]{task.description}",
         BarColumn(),
         TimeElapsedColumn(),
         TimeRemainingColumn(),
-        console=console,
         expand=True
     )
+    task_id = progress.add_task("Training", total=epochs)
 
-    # Create a task for the progress
-    training_task = progress.add_task("Training", total=epochs)
+    # Split the layout into three parts
+    layout.split(
+        Layout(name="progress"),
+        Layout(name="status", size=1),
+        Layout(name="best_results", size=1)
+    )
+    layout["progress"].update(progress)
 
 
 
 
 
-    with Live(console=console, auto_refresh=True) as live:
+    with Console().Live(auto_refresh=True) as live:
 
 
 
@@ -394,19 +401,20 @@ def main():
 
             
             
-            # Update progress
-            progress.update(training_task, advance=1)
-            live.update(progress)
+            # Update the progress
+            progress.update(task_id, advance=1)
+            layout["progress"].update(progress)
 
-            # Update status message
+            # Update the current status
             status_message = f"Epoch {epoch+1}/{epochs} - Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
-            live.console.print(status_message)
+            layout["status"].update(status_message)
 
-            best_results_str = best_val_loss_str + "   " + best_accuracy_str
-            live.console.print(best_results_str)
+            best_results_message = best_val_loss_str + "   " + best_accuracy_str
+            layout["best_results"].update(best_results_message)
 
             # Refresh the live display
-            live.refresh()
+            live.update(layout)
+
 
 
     
