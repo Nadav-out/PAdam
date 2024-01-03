@@ -17,7 +17,9 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn, TimeElapsedColumn
+from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn
+from rich.panel import Panel
+from rich.layout import Layout
 
 
 
@@ -237,6 +239,14 @@ def main():
     
     # Create a console object for Rich
     console = Console()
+    layout = Layout()
+    layout.split(
+        Layout(name="progress"),
+        Layout(name="status"),
+        Layout(name="best_results")
+    )
+
+
 
     # Initialize progress bar
     with Progress(
@@ -251,6 +261,8 @@ def main():
 
         # Initialize the task with default values for 'elapsed' and 'expected'
         training_task = progress.add_task("Training", total=epochs)
+        layout["progress"].update(progress)
+
 
         for epoch in range(epochs):
             model.train()
@@ -382,10 +394,15 @@ def main():
 
             # Print status directly to the console
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
-            console.print(status_message)
+            # console.print(status_message)
+            layout["status"].update(Panel(status_message))
+
 
             # Print best results
-            console.print(best_val_loss_str + "\t" + best_accuracy_str)
+            layout["best_results"].update(Panel(best_val_loss_str + "\t" + best_accuracy_str))
+
+            # Refresh the console with the updated layout
+            console.print(layout)
     
         # End of training
         progress.console.print("Training completed.")
