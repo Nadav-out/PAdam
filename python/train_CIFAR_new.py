@@ -250,7 +250,7 @@ def main():
 
 
         # Initialize the task with default values for 'elapsed' and 'expected'
-        training_task = progress.add_task("Training", total=epochs, elapsed="00:00:00", expected="00:00:00")
+        training_task = progress.add_task("Training", total = epochs)
         start_time = time.time()  # Record the start time
 
         for epoch in range(epochs):
@@ -350,6 +350,8 @@ def main():
             # Save best model
             if accuracy > best_accuracy:
                 best_accuracy = accuracy
+                best_accuracy_str = f"Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1})"
+
                 if save_checkpoints:
                     torch.save({
                         'epoch': epoch,
@@ -360,6 +362,8 @@ def main():
                     
             if avg_val_loss < best_val_loss:
                 best_val_loss = avg_val_loss
+                best_val_loss_str = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1})"
+
                 if save_checkpoints:
                     torch.save({
                         'epoch': epoch,
@@ -390,15 +394,9 @@ def main():
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
             console.print(status_message)
 
-            # Check and print best results
-            best_results = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})  Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})"
-            console.print(best_results)
-                
-
-
-
-
-
+            # Print best results
+            console.print(best_val_loss_str + "\t" + best_accuracy_str)
+    
         # End of training
         progress.console.print("Training completed.")
 
