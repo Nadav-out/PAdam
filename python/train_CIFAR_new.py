@@ -378,13 +378,10 @@ def main():
             elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
 
             # Calculate and update expected total time
-            if epoch > 0:
-                expected_total_time = elapsed_time * epochs / (epoch + 1)
-            else:
-                expected_total_time = 0
+            expected_total_time = elapsed_time / (epoch + 1) * epochs if epoch > 0 else elapsed_time
             expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_total_time))
 
-            progress.update(training_task, advance=1, completed=epoch+1, fields={"elapsed": elapsed_str, "expected": expected_str})
+            progress.update(training_task, completed=epoch+1, fields={"elapsed": elapsed_str, "expected": expected_str})
 
 
 
@@ -394,9 +391,9 @@ def main():
             console.print(status_message)
 
             # Check and print best results
-            if accuracy > best_accuracy or avg_val_loss < best_val_loss:
-                best_results = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})  Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})"
-                console.print(best_results)
+            best_results = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})  Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})"
+            console.print(best_results)
+                
 
 
 
