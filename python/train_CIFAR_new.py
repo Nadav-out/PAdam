@@ -238,6 +238,7 @@ def main():
         wandb.init(project=wandb_project, name=wandb_run_name, config=config)
 
     
+    console = Console()
     with Live(console=console, auto_refresh=False) as live:  # Auto refresh is turned off
         with Progress(
             TextColumn("[bold]Epoch {task.completed}/{task.total}", justify="left"),
