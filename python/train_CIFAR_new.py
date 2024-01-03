@@ -18,7 +18,8 @@ import subprocess
 
 from rich.console import Console
 from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
-from rich.layout import Layout
+
+
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -237,27 +238,20 @@ def main():
     # Create a console object for Rich
     console = Console()
 
-    # Set up the layout
-    layout = Layout()
-    layout.split(
-        Layout(name="progress"),
-        Layout(name="status"),
-        Layout(name="best_results")
-    )
-
     # Initialize progress bar
     with Progress(
-        "[progress.description]{task.description}",
-        BarColumn(),
-        "[progress.percentage]{task.percentage:>3.0f}%",
+        TextColumn("[bold]Epoch {task.completed}/{task.total}", justify="left"),
+        BarColumn(bar_width=None),
+        TextColumn("Elapsed: [not bold]{elapsed}", justify="right"),
         TimeRemainingColumn(),
-        console=console
+        console=console,
+        expand=True
     ) as progress:
 
         # Add a task for the progress bar
         training_task = progress.add_task("Training", total=epochs)
-    
-        start_time = time.time()    
+        start_time = time.time()  # Record the start time  
+
         for epoch in range(epochs):
             model.train()
             running_loss = 0.0
@@ -373,32 +367,27 @@ def main():
                         'accuracy': accuracy,
                     }, loss_save_path)
             
-                
-
-            # Calculate and format runtime and expected time
-            elapsed_time = time.time() - start_time
-            expected_time = elapsed_time * epochs / (epoch + 1)
-            elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
-            expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
-
+            
             # Track and store current learning rate
             current_lr = optimizer.param_groups[0]['lr']
             lrs.append(current_lr)
 
             # Update progress bar
-            progress.update(training_task, advance=1, description=f"Epoch {epoch+1}/{epochs}")
+            elapsed_time = int(time.time() - start_time)
+            elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
+            progress.update(training_task, advance=1, elapsed=elapsed_str)
 
-            # Update status
+
+            # Print status and best results directly to the console
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
-            layout["status"].update(status_message)
+            console.print(status_message)
 
-            # Update best results
             if accuracy > best_accuracy or avg_val_loss < best_val_loss:
                 best_results = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})  Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})"
-                layout["best_results"].update(best_results)
+                console.print(best_results)
 
-            # Render the layout
-            console.print(layout)
+
+
 
         # End of training
         progress.console.print("Training completed.")
