@@ -273,7 +273,7 @@ def main():
 
 
 
-    with Console().Live(auto_refresh=True) as live:
+    with Live(console=console, auto_refresh=False) as live:
 
 
 
