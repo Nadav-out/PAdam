@@ -17,10 +17,11 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.layout import Layout
-from rich.text import Text
-from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn
+from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn, TaskID
 from rich.live import Live
+from rich.text import Text
+
+
 
 
 
@@ -246,15 +247,7 @@ def main():
 
     
     console = Console()
-    layout = Layout()
-    # Create separate areas in the layout
-    layout.split(
-        Layout(name="progress", size=3),  # Adjust size to fit the progress bar
-        Layout(name="status"),
-        Layout(name="best_results")
-    )
-
-
+    # Create a progress object
     progress = Progress(
         "[progress.description]{task.description}",
         BarColumn(),
@@ -263,12 +256,21 @@ def main():
         console=console,
         expand=True
     )
-    task_id = progress.add_task("Training", total=epochs)
+
+    # Create a task for the progress
+    training_task = progress.add_task("Training", total=epochs)
 
 
 
 
-    with Live(layout, console=console, auto_refresh=False) as live:
+
+    with Live(layout, console=console, auto_refresh=True) as live:
+
+
+
+
+        # Initialize the task with default values for 'elapsed' and 'expected'
+        training_task = progress.add_task("Training", total=epochs)
 
 
         for epoch in range(epochs):
@@ -396,18 +398,21 @@ def main():
             lrs.append(current_lr)
 
             
-            # Update progress bar
-            progress.update(task_id, advance=1)
+            
+            # Update progress
+            progress.update(training_task, advance=1)
+            live.update(progress)
 
-            # Update layout areas
-            layout["progress"].update(progress)
+            # Update status message
             status_message = f"Epoch {epoch+1}/{epochs} - Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
-            layout["status"].update(status_message)
+            live.console.print(status_message)
 
-            best_results_str = best_val_loss_str + "\t" + best_accuracy_str
-            layout["best_results"].update(Text(best_results_str))
+            best_results_str = best_val_loss_str + "   " + best_accuracy_str
+            live.console.print(best_results_str)
 
+            # Refresh the live display
             live.refresh()
+
 
     
         # End of training
