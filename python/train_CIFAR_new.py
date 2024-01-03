@@ -268,11 +268,6 @@ def main():
 
 
 
-
-        # Initialize the task with default values for 'elapsed' and 'expected'
-        training_task = progress.add_task("Training", total=epochs)
-
-
         for epoch in range(epochs):
             model.train()
             running_loss = 0.0
