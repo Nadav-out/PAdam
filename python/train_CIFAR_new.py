@@ -17,7 +17,7 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
+from rich.progress import Progress, BarColumn, TextColumn
 
 
 
@@ -243,15 +243,15 @@ def main():
         TextColumn("[bold]Epoch {task.completed}/{task.total}", justify="left"),
         BarColumn(bar_width=None),
         TextColumn("Elapsed: [not bold]{task.fields[elapsed]}", justify="right"),
-        TimeRemainingColumn(),
+        TextColumn("Expected: [not bold]{task.fields[expected]}", justify="right"),
         console=console,
         expand=True
     ) as progress:
 
 
-        # Initialize the task with a default value for 'elapsed'
-        training_task = progress.add_task("Training", total=epochs, elapsed="00:00:00")
-        start_time = time.time()  # Record the start time 
+        # Initialize the task with default values for 'elapsed' and 'expected'
+        training_task = progress.add_task("Training", total=epochs, elapsed="00:00:00", expected="00:00:00")
+        start_time = time.time()  # Record the start time
 
         for epoch in range(epochs):
             model.train()
@@ -373,20 +373,31 @@ def main():
             current_lr = optimizer.param_groups[0]['lr']
             lrs.append(current_lr)
 
-            # Update progress bar
-            elapsed_time = int(time.time() - start_time)
+            # Calculate and update elapsed time
+            elapsed_time = time.time() - start_time
             elapsed_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
-            progress.update(training_task, advance=1, completed=epoch+1, fields={"elapsed": elapsed_str})
+
+            # Calculate and update expected total time
+            if epoch > 0:
+                expected_total_time = elapsed_time * epochs / (epoch + 1)
+            else:
+                expected_total_time = 0
+            expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_total_time))
+
+            progress.update(training_task, advance=1, completed=epoch+1, fields={"elapsed": elapsed_str, "expected": expected_str})
 
 
 
-            # Print status and best results directly to the console
+
+            # Print status directly to the console
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
             console.print(status_message)
 
+            # Check and print best results
             if accuracy > best_accuracy or avg_val_loss < best_val_loss:
                 best_results = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})  Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1}, Sparsity: {cur_sparsity:.5f})"
                 console.print(best_results)
+
 
 
 
