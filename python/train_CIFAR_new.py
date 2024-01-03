@@ -17,8 +17,11 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn, TimeElapsedColumn, TimeRemainingColumn
-from rich.live import Live
+from rich.layout import Layout
+from rich.text import Text
+from rich.progress import BarColumn, TimeElapsedColumn, TimeRemainingColumn, Progress
+
+
 
 
 
@@ -239,162 +242,173 @@ def main():
 
     
     console = Console()
-    with Live(console=console, auto_refresh=False) as live:  # Auto refresh is turned off
-        with Progress(
-            TextColumn("[bold]Epoch {task.completed}/{task.total}", justify="left"),
-            BarColumn(bar_width=None),
-            TimeElapsedColumn(),
-            TimeRemainingColumn(),
-            console=console,
-            expand=True
-        ) as progress:
+    layout = Layout()
+
+    # Create separate areas in the layout
+    layout.split(
+        Layout(name="progress"),
+        Layout(name="status"),
+        Layout(name="best_results")
+    )
+
+    progress = Progress(
+        "[progress.description]{task.description}",
+        BarColumn(),
+        "[progress.percentage]{task.percentage:>3.0f}%",
+        TimeElapsedColumn(),
+        TimeRemainingColumn()
+    )
+    task_id = progress.add_task("Training", total=epochs)
+
+
+    with Live(layout, console=console, auto_refresh=False):
 
 
 
-            # Initialize the task with default values for 'elapsed' and 'expected'
-            training_task = progress.add_task("Training", total=epochs)
+
+        # Initialize the task with default values for 'elapsed' and 'expected'
+        training_task = progress.add_task("Training", total=epochs)
 
 
-            for epoch in range(epochs):
-                model.train()
-                running_loss = 0.0
-                for data in trainloader:
-                        # determine and set the learning rate for this iteration
-                    lr = get_lr(iteration_count) if decay_lr else max_lr
-                    for param_group in optimizer.param_groups:
-                        param_group['lr'] = lr
-                    iteration_count += 1
-                    inputs, labels = data
+        for epoch in range(epochs):
+            model.train()
+            running_loss = 0.0
+            for data in trainloader:
+                    # determine and set the learning rate for this iteration
+                lr = get_lr(iteration_count) if decay_lr else max_lr
+                for param_group in optimizer.param_groups:
+                    param_group['lr'] = lr
+                iteration_count += 1
+                inputs, labels = data
 
 
 
-                    optimizer.zero_grad()
-                    outputs = model(inputs)
-                    loss = criterion(outputs, labels)
-                    running_loss += loss.item()
+                optimizer.zero_grad()
+                outputs = model(inputs)
+                loss = criterion(outputs, labels)
+                running_loss += loss.item()
 
+            
+                if optimizer_name == 'Manual' and epoch>0:
+                    for group in optimizer.param_groups:
+                        for param in group['params']:
+                            if param.grad is None:
+                                continue
+
+                            # Apply the general Lp^p regularization
+                            if lambda_p != 0:
+                                lp_grad = (param.data.abs()**(p_norm - 2)) * param.data
+                                param.grad.data.add_(lp_grad, p_norm * lambda_p)  
+
+
+                loss.backward()
+                # scaler.scale(loss).backward()
+                # clip the gradient
+                if grad_clip != 0.0:
+                    # scaler.unscale_(optimizer)
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+                # step the optimizer and scaler if training in fp16
+                # scaler.step(optimizer)
+                # scaler.update()
+                # flush the gradients as soon as we can, no need for this memory anymore
+                optimizer.step()
+                optimizer.zero_grad(set_to_none=True)
                 
-                    if optimizer_name == 'Manual' and epoch>0:
-                        for group in optimizer.param_groups:
-                            for param in group['params']:
-                                if param.grad is None:
-                                    continue
-
-                                # Apply the general Lp^p regularization
-                                if lambda_p != 0:
-                                    lp_grad = (param.data.abs()**(p_norm - 2)) * param.data
-                                    param.grad.data.add_(lp_grad, p_norm * lambda_p)  
 
 
-                    loss.backward()
-                    # scaler.scale(loss).backward()
-                    # clip the gradient
-                    if grad_clip != 0.0:
-                        # scaler.unscale_(optimizer)
-                        torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-                    # step the optimizer and scaler if training in fp16
-                    # scaler.step(optimizer)
-                    # scaler.update()
-                    # flush the gradients as soon as we can, no need for this memory anymore
-                    optimizer.step()
-                    optimizer.zero_grad(set_to_none=True)
+            avg_train_loss = running_loss / len(trainloader)
+            train_losses.append(avg_train_loss)
+
+            # Validation loop
+            model.eval()
+            correct = 0
+            total = 0
+            running_val_loss = 0.0
+
+            with torch.no_grad():
+                for data in testloader:
+                    images, labels = data
+                    outputs = model(images)
+                    loss = criterion(outputs, labels)
+                    running_val_loss += loss.item()
+                    _, predicted = torch.max(outputs.data, 1)
+                    total += labels.size(0)
+                    correct += (predicted == labels).sum().item()
                     
 
 
-                avg_train_loss = running_loss / len(trainloader)
-                train_losses.append(avg_train_loss)
 
-                # Validation loop
-                model.eval()
-                correct = 0
-                total = 0
-                running_val_loss = 0.0
+            avg_val_loss = running_val_loss / len(testloader)
+            val_losses.append(avg_val_loss)
 
-                with torch.no_grad():
-                    for data in testloader:
-                        images, labels = data
-                        outputs = model(images)
-                        loss = criterion(outputs, labels)
-                        running_val_loss += loss.item()
-                        _, predicted = torch.max(outputs.data, 1)
-                        total += labels.size(0)
-                        correct += (predicted == labels).sum().item()
-                        
+            accuracy = 100 * correct / total
+            accuracies.append(accuracy)
 
 
-
-                avg_val_loss = running_val_loss / len(testloader)
-                val_losses.append(avg_val_loss)
-
-                accuracy = 100 * correct / total
-                accuracies.append(accuracy)
+            # update small weights count
+            cur_sparsity = model.append_small_weight_vec(small_weights_threshold, epoch)
 
 
-                # update small weights count
-                cur_sparsity = model.append_small_weight_vec(small_weights_threshold, epoch)
+            
+            if wandb_log:
+                wandb.log({
+                    "epoch": epoch,
+                    "train/loss": avg_train_loss,
+                    "validation/loss": avg_val_loss,
+                    "validation/accuracy": accuracy,
+                    "lr": lr,
+                    "sparsity": cur_sparsity,
+                    "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
+                    "validation/best_accuracy": best_accuracy,
+                    "validation/best_val_loss": best_val_loss,
+                })
 
+            
+            # Save best model
+            if accuracy > best_accuracy:
+                best_accuracy = accuracy
+                best_accuracy_str = f"Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1})"
 
-                
-                if wandb_log:
-                    wandb.log({
-                        "epoch": epoch,
-                        "train/loss": avg_train_loss,
-                        "validation/loss": avg_val_loss,
-                        "validation/accuracy": accuracy,
-                        "lr": lr,
-                        "sparsity": cur_sparsity,
-                        "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
-                        "validation/best_accuracy": best_accuracy,
-                        "validation/best_val_loss": best_val_loss,
-                    })
+                if save_checkpoints:
+                    torch.save({
+                        'epoch': epoch,
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'accuracy': accuracy,
+                    }, accuracy_save_path)
+                    
+            if avg_val_loss < best_val_loss:
+                best_val_loss = avg_val_loss
+                best_val_loss_str = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1})"
 
-                
-                # Save best model
-                if accuracy > best_accuracy:
-                    best_accuracy = accuracy
-                    best_accuracy_str = f"Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1})"
+                if save_checkpoints:
+                    torch.save({
+                        'epoch': epoch,
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'accuracy': accuracy,
+                    }, loss_save_path)
+            
+            
+            # Track and store current learning rate
+            current_lr = optimizer.param_groups[0]['lr']
+            lrs.append(current_lr)
 
-                    if save_checkpoints:
-                        torch.save({
-                            'epoch': epoch,
-                            'model_state_dict': model.state_dict(),
-                            'optimizer_state_dict': optimizer.state_dict(),
-                            'accuracy': accuracy,
-                        }, accuracy_save_path)
-                        
-                if avg_val_loss < best_val_loss:
-                    best_val_loss = avg_val_loss
-                    best_val_loss_str = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1})"
+            
+            # Update progress bar
+            progress.update(task_id, advance=1)
 
-                    if save_checkpoints:
-                        torch.save({
-                            'epoch': epoch,
-                            'model_state_dict': model.state_dict(),
-                            'optimizer_state_dict': optimizer.state_dict(),
-                            'accuracy': accuracy,
-                        }, loss_save_path)
-                
-                
-                # Track and store current learning rate
-                current_lr = optimizer.param_groups[0]['lr']
-                lrs.append(current_lr)
+            # Update layout areas
+            layout["progress"].update(progress)
+            
+            status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
+            best_results_str = best_val_loss_str + "\t" + best_accuracy_str
+            
+            layout["status"].update(Text(status_message))
+            layout["best_results"].update(Text(best_results_str))
 
-                
-                # Update progress bar
-                progress.update(training_task, advance=1)
+            console.refresh()
 
-                # Status message
-                status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
-                # Best results message
-                best_results_str = best_val_loss_str + "\t" + best_accuracy_str
-
-                # Construct the layout for live update
-                layout = progress
-                layout += "\n" + status_message
-                layout += "\n" + best_results_str
-
-                # Update the live display with the layout
-                live.update(layout, refresh=True)
     
         # End of training
         progress.console.print("Training completed.")
