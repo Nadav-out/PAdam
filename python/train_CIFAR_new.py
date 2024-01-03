@@ -372,6 +372,10 @@ def main():
                     }, loss_save_path)
             
             
+            # Track and store current learning rate
+            current_lr = optimizer.param_groups[0]['lr']
+            lrs.append(current_lr)
+
             # Print status directly to the console
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
             console.print(status_message)
