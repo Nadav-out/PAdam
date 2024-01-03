@@ -376,6 +376,10 @@ def main():
             current_lr = optimizer.param_groups[0]['lr']
             lrs.append(current_lr)
 
+            
+            # Update progress bar
+            progress.update(training_task, advance=1)
+
             # Print status directly to the console
             status_message = f"Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
             console.print(status_message)
