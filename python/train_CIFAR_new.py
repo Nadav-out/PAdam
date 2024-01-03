@@ -264,7 +264,7 @@ def main():
 
 
 
-    with Live(layout, console=console, auto_refresh=True) as live:
+    with Live(console=console, auto_refresh=True) as live:
 
 
 
