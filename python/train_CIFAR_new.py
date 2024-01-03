@@ -250,7 +250,7 @@ def main():
 
 
         # Initialize the task with default values for 'elapsed' and 'expected'
-        training_task = progress.add_task("Training", total = epochs)
+        training_task = progress.add_task("Training", total=epochs, fields={"elapsed": "00:00:00", "expected": "00:00:00"})
         start_time = time.time()  # Record the start time
 
         for epoch in range(epochs):
@@ -385,7 +385,8 @@ def main():
             expected_total_time = elapsed_time / (epoch + 1) * epochs if epoch > 0 else elapsed_time
             expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_total_time))
 
-            progress.update(training_task, completed=epoch+1, fields={"elapsed": elapsed_str, "expected": expected_str})
+            progress.update(training_task, advance=1, fields={"elapsed": elapsed_str, "expected": expected_str})
+
 
 
 
