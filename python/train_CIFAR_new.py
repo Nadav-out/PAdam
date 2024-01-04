@@ -2,6 +2,7 @@ import argparse
 
 
 import os
+from re import I
 from requests import get
 from sympy import li
 import torch
@@ -211,10 +212,9 @@ def validate(model, testloader, criterion):
 
     return avg_val_loss, accuracy
 
-def update_display(progress, task_id, layout, avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity, best_val_loss_str, best_accuracy_str):
+def update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity, best_val_loss_str, best_accuracy_str):
     
     # Update the progress
-    progress.update(task_id, advance=1)
     layout["progress"].update(progress)
 
     # Update the current status
@@ -240,6 +240,7 @@ def update_display(progress, task_id, layout, avg_train_loss, avg_val_loss, accu
 
 
 def main():
+    # Collect arguments 
     args = get_args()
 
     # script_dir can be used as before
@@ -323,11 +324,12 @@ def main():
 
 
 
-    if not os.path.exists(args.out_dir):
-        os.makedirs(args.out_dir)
-    accuracy_save_path = os.path.join(args.out_dir, 'best_accuracy_model.pth')
-    loss_save_path = os.path.join(args.out_dir, 'best_loss_model.pth')
-    stats_save_path = os.path.join(args.out_dir, 'training_stats.pkl')
+    if args.save_checkpoints or args.save_model or args.save_stats:
+        if not os.path.exists(args.out_dir):
+            os.makedirs(args.out_dir)
+        accuracy_save_path = os.path.join(args.out_dir, 'best_accuracy_model.pth')
+        loss_save_path = os.path.join(args.out_dir, 'best_loss_model.pth')
+        stats_save_path = os.path.join(args.out_dir, 'training_stats.pkl')
 
 
     
@@ -375,6 +377,11 @@ def main():
 
 
     with Live(layout, console=console, auto_refresh=False) as live:
+        # Initial update of the display
+        update_display(progress, layout, np.inf, np.inf, 0.0, args.min_lr, 0.0, np.inf, 0.0)
+        live.refresh()
+
+
 
         for epoch in range(args.epochs):
             # Get learning rate for this epoch
@@ -441,9 +448,9 @@ def main():
             
             
 
-            update_display(progress, task_id, layout, avg_train_loss, avg_val_loss, accuracy, lr, cur_sparsity, best_val_loss_str, best_accuracy_str)
-
-            # Refresh the live display
+            # Update progress bar
+            progress.update(task_id, advance=1)
+            update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, lr, cur_sparsity, best_val_loss_str, best_accuracy_str)
             live.refresh()
 
 
