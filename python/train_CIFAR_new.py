@@ -267,12 +267,7 @@ def main():
     )
     task_id = progress.add_task("Training", total=epochs, visible=False)
 
-    # Split the layout into parts
-    layout.split(
-        Layout(name="progress", size=1),
-        Layout(name="status", size=2),
-        Layout(name="best_results", size=2)
-    )
+    
 
 
 
@@ -407,6 +402,13 @@ def main():
             
             if epoch == 0:
                 progress.update(task_id, visible=True)
+                layout["progress"].update(progress)
+                # Split the layout into parts
+                layout.split(
+                    Layout(name="progress", size=1),
+                    Layout(name="status", size=2),
+                    Layout(name="best_results", size=2)
+                )
             # Update the progress
             progress.update(task_id, advance=1)
             layout["progress"].update(progress)
