@@ -243,7 +243,7 @@ def main():
 
     # optimizer
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
-    print(f'here! {args.decay_lr}')
+    print(f'here! {args.decay_lr,args.optimizer_name}')
     # scheduler
     if args.decay_lr:
         print('Decay learning rate')
