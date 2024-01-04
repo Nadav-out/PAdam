@@ -1,5 +1,9 @@
+import argparse
+
+
 import os
 from requests import get
+from sympy import li
 import torch
 import torchvision
 
@@ -35,89 +39,236 @@ from rich.columns import Columns
 
 
 
-script_dir = os.path.dirname(os.path.realpath(__file__))
+# script_dir = os.path.dirname(os.path.realpath(__file__))
 
-# -----------------------------------------------------------------------------
-# default config values
+# # -----------------------------------------------------------------------------
+# # default config values
 
-#I/O
-relative_paths=True
-data_dir = '../data/CIFAR10'
-out_dir= '../results/CIFAR10'
-save_checkpoints = False
-save_model = False
+# #I/O
+# relative_paths=True
+# data_dir = '../data/CIFAR10'
+# out_dir= '../results/CIFAR10'
+# save_checkpoints = False
+# save_model = False
 
-# wandb logging
-wandb_log = False # disabled by default
-wandb_project = 'PAdam'
-wandb_run_name = 'ResNet18' + str(time.time())
+# # wandb logging
+# wandb_log = False # disabled by default
+# wandb_project = 'PAdam'
+# wandb_run_name = 'ResNet18' + str(time.time())
 
-# dataset
-num_workers = 4
+# # dataset
+# num_workers = 4
 
-# training
-batch_size = 400
-epochs = 100
+# # training
+# batch_size = 400
+# epochs = 100
 
-# optimizer
-optimizer_name = 'PAdam'
-max_lr = 1e-3
-lambda_p = 1e-3
-p_norm = 0.8
-beta1 = 0.9
-beta2 = 0.999
-grad_clip = 0.0 # clip gradients at this value, or disable if == 0.0
+# # optimizer
+# optimizer_name = 'PAdam'
+# max_lr = 1e-3
+# lambda_p = 1e-3
+# p_norm = 0.8
+# beta1 = 0.9
+# beta2 = 0.999
+# grad_clip = 0.0 # clip gradients at this value, or disable if == 0.0
 
-# learning rate decay settings
-decay_lr = True # whether to decay the learning rate
-lr1 = True # whether to use the lr1 function or the lr2 function
-warmup_iters = 500 # how many steps to warm up for
-lr_decay_frac=1.0 # fraction of the max_lr to drop to at lr_decay_epochs
-min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
-small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
+# # learning rate decay settings
+# decay_lr = True # whether to decay the learning rate
+# lr1 = True # whether to use the lr1 function or the lr2 function
+# warmup_iters = 500 # how many steps to warm up for
+# lr_decay_frac=1.0 # fraction of the max_lr to drop to at lr_decay_epochs
+# min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
+# small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
 
 
-# DDP settings
-backend = 'nccl' # 'nccl', 'gloo', etc.
-# system
-device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
-compile = True # use PyTorch 2.0 to compile the model to be faster
-# -----------------------------------------------------------------------------
-config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
-config_path = os.path.join(script_dir, 'config.py')
-exec(open(config_path).read())  # overrides from command line or config file
-config = {k: globals()[k] for k in config_keys} # will be useful for logging
-# -----------------------------------------------------------------------------
+# # system
+# device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
+# compile = True # use PyTorch 2.0 to compile the model to be faster
+# # -----------------------------------------------------------------------------
+# config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
+# config_path = os.path.join(script_dir, 'config.py')
+# exec(open(config_path).read())  # overrides from command line or config file
+# config = {k: globals()[k] for k in config_keys} # will be useful for logging
+# # -----------------------------------------------------------------------------
+
+
+def get_args():
+    parser = argparse.ArgumentParser(description="Training script for CIFAR10")
+
+    # I/O
+    parser.add_argument('--relative_paths', type=bool, default=True, help="Whether to use relative paths")
+    parser.add_argument('--data_dir', type=str, default='../data/CIFAR10', help="Directory for data")
+    parser.add_argument('--out_dir', type=str, default='../results/CIFAR10', help="Output directory")
+    parser.add_argument('--save_checkpoints', action='store_true', help="Save checkpoints during training")
+    parser.add_argument('--save_model', action='store_true', help="Save the final model")
+
+    # WandB Logging
+    parser.add_argument('--wandb_log', action='store_true', help="Enable logging to Weights & Biases")
+    parser.add_argument('--wandb_project', type=str, default='PAdam', help="Weights & Biases project name")
+    parser.add_argument('--wandb_run_name', type=str, default='ResNet18' + str(time.time()), help="Weights & Biases run name")
+
+    # Dataset
+    parser.add_argument('--num_workers', type=int, default=4, help="Number of workers for data loading")
+
+    # Training
+    parser.add_argument('--batch_size', type=int, default=400, help="Batch size for training")
+    parser.add_argument('--epochs', type=int, default=100, help="Number of training epochs")
+
+    # Optimizer
+    parser.add_argument('--optimizer_name', type=str, default='PAdam', help="Name of the optimizer")
+    parser.add_argument('--max_lr', type=float, default=1e-3, help="Maximum learning rate")
+    parser.add_argument('--lambda_p', type=float, default=1e-3, help="Lambda parameter value")
+    parser.add_argument('--p_norm', type=float, default=0.8, help="P-norm value")
+    parser.add_argument('--beta1', type=float, default=0.9, help="Beta1 for Adam optimizer")
+    parser.add_argument('--beta2', type=float, default=0.999, help="Beta2 for Adam optimizer")
+    parser.add_argument('--grad_clip', type=float, default=0.0, help="Gradient clipping value")
+
+    # Learning Rate Decay Settings
+    parser.add_argument('--decay_lr', type=bool, default=True, help="Enable learning rate decay")
+    parser.add_argument('--warmup_epochs', type=int, default=2, help="Number of warmup epochs")
+    parser.add_argument('--lr_decay_frac', type=float, default=1.0, help="Fraction of max_lr to decay to")
+    parser.add_argument('--min_lr', type=float, default=1e-5, help="Minimum learning rate")
+    parser.add_argument('--small_weights_threshold', type=float, default=1e-13, help="Threshold for considering weights as small")
+
+    # System
+    parser.add_argument('--device', type=str, default='cuda', help="Device to use for training (e.g., 'cuda', 'cpu')")
+    parser.add_argument('--compile', action='store_true', help="Use PyTorch 2.0 to compile the model for faster training")
+
+    return parser.parse_args()
+
+def get_lr(epoch, epochs, max_lr, min_lr, warmup_epochs, lr_decay_frac):
+    # linear warmup for warmup_epochs steps
+    if epoch < warmup_epochs:
+        coef=(max_lr-min_lr) / warmup_epochs
+        return coef * epoch+min_lr, coef
+    # Constant learning rate after finished decaying
+    elif epoch > epochs * lr_decay_frac: # Usually ~= epochs
+        return min_lr, False
+    # Cosine annealing from max_lr to min_lr in between
+    else:
+        decay_ratio = (epoch - warmup_epochs) / (epochs * lr_decay_frac - warmup_epochs)
+        return min_lr + (max_lr - min_lr) * 0.5 * (1.0 + math.cos(math.pi * decay_ratio)), False
+    
+def train_one_epoch(model, trainloader, optimizer, criterion, lr, linear_warmup, grad_clip):
+    model.train()
+    running_loss = 0.0
+
+    for param_group in optimizer.param_groups:
+            param_group['lr'] = lr
+    if linear_warmup:
+        delta_lr=linear_warmup/len(trainloader)
+    for iter, data in enumerate(trainloader):
+        
+        # update the learning rate during warmup
+        if linear_warmup:
+            for param_group in optimizer.param_groups:
+                param_group['lr'] = lr +delta_lr*iter
+
+        
+        inputs, labels = data
+
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        running_loss += loss.item()
+
+
+        loss.backward()
+        # clip the gradient
+        if grad_clip != 0.0:            
+            torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+        # step the optimizer
+        optimizer.step()
+        # flush the gradients as soon as we can, no need for this memory anymore
+        optimizer.zero_grad(set_to_none=True)
+
+    avg_train_loss = running_loss / len(trainloader)
+    return avg_train_loss
+
+
+
+
+def validate(model, testloader, criterion):
+    # Validation loop
+    model.eval()
+    correct = 0
+    total = 0
+    running_val_loss = 0.0
+
+    with torch.no_grad():
+        for data in testloader:
+            images, labels = data
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+            running_val_loss += loss.item()
+            _, predicted = torch.max(outputs.data, 1)
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+            
+
+    avg_val_loss = running_val_loss / len(testloader)
+    accuracy = 100 * correct / total
+
+    return avg_val_loss, accuracy
+
+def update_display(progress, task_id, layout, avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity, best_val_loss_str, best_accuracy_str):
+    
+    # Update the progress
+    progress.update(task_id, advance=1)
+    layout["progress"].update(progress)
+
+    # Update the current status
+    status = format_status(avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity)
+    layout["status"].update(status)
+
+    # Update the best results in a table
+    results_table = Table.grid(padding=(0, 2))
+    results_table.add_column("Metric", justify="left")
+    results_table.add_column("Value", justify="left")
+    
+    results_table.add_row(best_val_loss_str)
+    results_table.add_row(best_accuracy_str)
+    layout["best_results"].update(results_table)
+
+    
+    
+    
+
+
+    
 
 
 
 def main():
+    args = get_args()
 
+    # script_dir can be used as before
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    # Convert args to a dictionary for easy access and logging
+    config = vars(args)
     
-
-    # If relative paths are used:
-    if relative_paths:
-        global data_dir, out_dir
-        data_dir = os.path.join(script_dir, data_dir)
-        out_dir = os.path.join(script_dir, out_dir)
+    # If relative paths are used, update data_dir and out_dir
+    if args.relative_paths:
+        args.data_dir = os.path.join(script_dir, args.data_dir)
+        args.out_dir = os.path.join(script_dir, args.out_dir)
         
     torch.manual_seed(1337)
     torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
     torch.backends.cudnn.allow_tf32 = True # allow tf32 on cudnn
-    device_type = 'cuda' if 'cuda' in device else 'cpu'
+    device_type = 'cuda' if 'cuda' in args.device else 'cpu'
 
 
 
-    mean_std_file=os.path.join(data_dir, "cifar10_mean_std.pkl")
+    mean_std_file=os.path.join(args.data_dir, "cifar10_mean_std.pkl")
     data_paths_check = [
-        data_dir,
-        os.path.join(data_dir, "cifar-10-batches-py"),
+        args.data_dir,
+        os.path.join(args.data_dir, "cifar-10-batches-py"),
         mean_std_file
     ]
     for path in data_paths_check:
         if not os.path.exists(path):
             print("CIFAR-10 data not found. Running 'CIFAR_10_prep.py'.")
-            subprocess.run(['python', os.path.join(script_dir, 'CIFAR_10_prep.py'),f'--data_dir={data_dir}'], check=True)
+            subprocess.run(['python', os.path.join(script_dir, 'CIFAR_10_prep.py'),f'--data_dir={args.data_dir}'], check=True)
 
 
 
@@ -142,108 +293,54 @@ def main():
 
 
     # Load the CIFAR-10 dataset with transforms above
-    trainset = torchvision.datasets.CIFAR10(root=data_dir, train=True, download=False, transform=transform_train)
-    testset = torchvision.datasets.CIFAR10(root=data_dir, train=False, download=False, transform=transform_test)
+    trainset = torchvision.datasets.CIFAR10(root=args.data_dir, train=True, download=False, transform=transform_train)
+    testset = torchvision.datasets.CIFAR10(root=args.data_dir, train=False, download=False, transform=transform_test)
     
 
-    loader_args = dict(num_workers=num_workers, pin_memory=True) if device_type == 'cuda' else dict()
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, **loader_args)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=2*batch_size, shuffle=False, **loader_args)
+    loader_args = dict(num_workers=args.num_workers, pin_memory=True) if device_type == 'cuda' else dict()
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size, shuffle=True, **loader_args)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=2*args.batch_size, shuffle=False, **loader_args)
 
 
     # move to device
-    trainloader = DeviceDataLoader(trainloader, device)
-    testloader = DeviceDataLoader(testloader, device)
+    trainloader = DeviceDataLoader(trainloader, args.device)
+    testloader = DeviceDataLoader(testloader, args.device)
 
 
     # initialize model
-    model = to_device(resnet18(10), device)
+    model = to_device(resnet18(10), args.device)
 
 
 
     # optimizer
-    if optimizer_name=='Manual':
-        optimizer = model.configure_optimizers('AdamW', 0, max_lr, 0, (beta1, beta2), device_type)
-    else:
-        optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
+    optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
 
-    if compile and device_type == 'cuda':
+    if args.compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
         model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
 
 
+
+    if not os.path.exists(args.out_dir):
+        os.makedirs(args.out_dir)
+    accuracy_save_path = os.path.join(args.out_dir, 'best_accuracy_model.pth')
+    loss_save_path = os.path.join(args.out_dir, 'best_loss_model.pth')
+    stats_save_path = os.path.join(args.out_dir, 'training_stats.pkl')
+
+
     
-    
-    lr_decay_epochs = int(lr_decay_frac*epochs) 
-    lr_decay_iters=len(trainloader)*lr_decay_epochs # should be ~= max_iters per Chinchilla
-    # learning rate decay scheduler (cosine with warmup)
-    def get_lr1(it):
-        # 1) linear warmup for warmup_iters steps
-        if it < warmup_iters:
-            return max_lr * it / warmup_iters+1e-6
-        # 2) if it > lr_decay_iters, return min learning rate
-        if it > lr_decay_iters:
-            return min_lr
-        # 3) in between, use cosine decay down to min learning rate
-        decay_ratio = (it - warmup_iters) / (lr_decay_iters - warmup_iters)
-        assert 0 <= decay_ratio <= 1
-        coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # coeff ranges 0..1
-        return min_lr + coeff * (max_lr - min_lr)
-    
-    def cosine_annealing(it, T_max, max_lr, min_lr):
-        # Adjust the iteration count and T_max for the cosine function
-        cosine_value = math.cos(math.pi * it / T_max)
-        lr = min_lr + (max_lr - min_lr) * (1 + cosine_value) / 2
-        return lr
-
-    # Global variables
-    q = epochs // 15
-    epoch_steps = [epochs - q * x for x in [0, 8, 12, 14]]
-    epoch_steps.append(0)  # Append 0 to represent the start of the training
-    epoch_steps = epoch_steps[::-1]  # Reverse to get the correct order
-    it_steps = [len(trainloader) * e for e in epoch_steps]  # Convert epochs to iterations
-
-    rate=80*len(trainloader)
-    def get_lr2(it):
-        # for i in range(len(it_steps) - 1):
-        #     if it < it_steps[i + 1]:
-        #         return cosine_annealing(it - it_steps[i], it_steps[i + 1] - it_steps[i], max_lr, min_lr)
-        # return min_lr
-        return max_lr*0.1**(it//rate)
-
-    if lr1:
-        get_lr = get_lr1
-    else:   
-        get_lr = get_lr2
-
-
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    accuracy_save_path = os.path.join(out_dir, 'best_accuracy_model.pth')
-    loss_save_path = os.path.join(out_dir, 'best_loss_model.pth')
-    stats_save_path = os.path.join(out_dir, 'training_stats.pkl')
-
-
-
-    best_accuracy = 0.0
-    best_val_loss = np.inf
-    iteration_count = 0
-    train_losses = []
-    val_losses = []
-    accuracies = []
-    lrs = [] 
-
     # logging
-    if wandb_log:
+    if args.wandb_log:
         import wandb
-        wandb.init(project=wandb_project, name=wandb_run_name, config=config)
+        wandb.init(project=args.wandb_project, name=args.wandb_run_name, config=config)
 
     
     console = Console()
     layout = Layout()
 
+    
     # Set up the progress bar
     progress = Progress(
         TextColumn("Epoch:", justify="left"),
@@ -257,7 +354,7 @@ def main():
         TimeRemainingColumn(),
         expand=False
     )
-    task_id = progress.add_task("Training", total=epochs)
+    task_id = progress.add_task("Training", total=args.epochs)
 
     # Split the layout into parts
     layout.split(
@@ -266,90 +363,43 @@ def main():
         Layout(name="best_results", size=2)
     )
 
+    # initialize metrices
+    best_accuracy = 0.0
+    best_val_loss = np.inf
+    train_losses = []
+    val_losses = []
+    accuracies = []
+    lrs = [] 
 
 
 
 
     with Live(layout, console=console, auto_refresh=False) as live:
 
-        for epoch in range(epochs):
-            model.train()
-            running_loss = 0.0
-            for data in trainloader:
-                    # determine and set the learning rate for this iteration
-                lr = get_lr(iteration_count) if decay_lr else max_lr
-                for param_group in optimizer.param_groups:
-                    param_group['lr'] = lr
-                iteration_count += 1
-                inputs, labels = data
+        for epoch in range(args.epochs):
+            # Get learning rate for this epoch
+            lr, linear_warmup = get_lr(epoch, args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac)
+            # Log current lr
+            lrs.append(lr)
 
-
-
-                optimizer.zero_grad()
-                outputs = model(inputs)
-                loss = criterion(outputs, labels)
-                running_loss += loss.item()
-
-            
-                if optimizer_name == 'Manual' and epoch>0:
-                    for group in optimizer.param_groups:
-                        for param in group['params']:
-                            if param.grad is None:
-                                continue
-
-                            # Apply the general Lp^p regularization
-                            if lambda_p != 0:
-                                lp_grad = (param.data.abs()**(p_norm - 2)) * param.data
-                                param.grad.data.add_(lp_grad, p_norm * lambda_p)  
-
-
-                loss.backward()
-                # clip the gradient
-                if grad_clip != 0.0:
-            
-                    torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-                # step the optimizer
-                optimizer.step()
-                # flush the gradients as soon as we can, no need for this memory anymore
-                optimizer.zero_grad(set_to_none=True)
-                
-
-
-            avg_train_loss = running_loss / len(trainloader)
+            # Train one epoch
+            avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, lr, linear_warmup, args.grad_clip)
+            # Log current train loss
             train_losses.append(avg_train_loss)
 
-            # Validation loop
-            model.eval()
-            correct = 0
-            total = 0
-            running_val_loss = 0.0
 
-            with torch.no_grad():
-                for data in testloader:
-                    images, labels = data
-                    outputs = model(images)
-                    loss = criterion(outputs, labels)
-                    running_val_loss += loss.item()
-                    _, predicted = torch.max(outputs.data, 1)
-                    total += labels.size(0)
-                    correct += (predicted == labels).sum().item()
-                    
-
-
-
-            avg_val_loss = running_val_loss / len(testloader)
+            # Validate one epoch
+            avg_val_loss, accuracy = validate(model, testloader, criterion)
+            # Log validation loss and accurecy
             val_losses.append(avg_val_loss)
-
-            accuracy = 100 * correct / total
             accuracies.append(accuracy)
 
-
             # update small weights count
-            cur_sparsity = model.append_small_weight_vec(small_weights_threshold, epoch)
+            cur_sparsity = model.append_small_weight_vec(args.small_weights_threshold, epoch)
 
 
-            
-            if wandb_log:
+            # wandb log
+            if args.wandb_log:
                 wandb.log({
                     "epoch": epoch,
                     "train/loss": avg_train_loss,
@@ -368,7 +418,7 @@ def main():
                 best_accuracy = accuracy
                 best_accuracy_str = f"Best Validation Accuracy: {best_accuracy:.2f}%, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
 
-                if save_checkpoints:
+                if args.save_checkpoints:
                     torch.save({
                         'epoch': epoch,
                         'model_state_dict': model.state_dict(),
@@ -380,7 +430,7 @@ def main():
                 best_val_loss = avg_val_loss
                 best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
 
-                if save_checkpoints:
+                if args.save_checkpoints:
                     torch.save({
                         'epoch': epoch,
                         'model_state_dict': model.state_dict(),
@@ -389,28 +439,9 @@ def main():
                     }, loss_save_path)
             
             
-            # Track and store current learning rate
-            current_lr = optimizer.param_groups[0]['lr']
-            lrs.append(current_lr)
-
             
-            
-            # Update the progress
-            progress.update(task_id, advance=1)
-            layout["progress"].update(progress)
 
-            # Update the current status
-            status = format_status(avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity)
-            layout["status"].update(status)
-
-            # Update the best results in a table
-            results_table = Table.grid(padding=(0, 2))
-            results_table.add_column("Metric", justify="left")
-            results_table.add_column("Value", justify="left")
-            
-            results_table.add_row(best_val_loss_str)
-            results_table.add_row(best_accuracy_str)
-            layout["best_results"].update(results_table)
+            update_display(progress, task_id, layout, avg_train_loss, avg_val_loss, accuracy, lr, cur_sparsity, best_val_loss_str, best_accuracy_str)
 
             # Refresh the live display
             live.refresh()
@@ -422,7 +453,7 @@ def main():
         progress.console.print("Training completed.")
 
 
-        if save_model:
+        if args.save_model:
             with open(stats_save_path, 'wb') as f:
                 pickle.dump({
                     'train_losses': train_losses,
