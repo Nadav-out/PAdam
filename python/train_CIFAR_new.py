@@ -76,7 +76,7 @@ def cosine_lambda(epoch, epochs, max_lr, min_lr, warmup_epochs, lr_decay_frac):
     # linear warmup for warmup_epochs steps
     if epoch <= warmup_epochs:
         coef=(max_lr-min_lr) / warmup_epochs
-        lr = coef * epoch+min_lr, coef
+        lr = coef * epoch+min_lr
     # Constant learning rate after finished decaying
     elif epoch > epochs * lr_decay_frac: # Usually lr_decay_frac~1
         lr = min_lr
