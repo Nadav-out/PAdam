@@ -245,9 +245,12 @@ def main():
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
     # scheduler
     if args.decay_lr:
-        scheduler=torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
+        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
     else:
-        scheduler=torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 1)
+        # scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
+        num_iters=len(trainloader)*args.epochs
+        rate=(args.min_lr/args.max_lr)**(1/num_iters)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=rate)
 
     if args.compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
