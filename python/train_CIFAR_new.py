@@ -318,7 +318,7 @@ def main():
 
         for epoch in range(args.epochs):
             # Get learning rate for this epoch
-            lr=scheduler.get_lr()[0]
+            lr=scheduler.get_last_lr()[0]
             # Log current lr
             lrs.append(lr)
 
@@ -341,7 +341,7 @@ def main():
             # wandb log
             if args.wandb_log:
                 wandb.log({
-                    "epoch": epoch,
+                    "epoch": epoch+1,
                     "train/loss": avg_train_loss,
                     "validation/loss": avg_val_loss,
                     "validation/accuracy": accuracy,
