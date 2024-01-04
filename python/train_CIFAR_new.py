@@ -319,7 +319,7 @@ def main():
 
     with Live(layout, console=console, auto_refresh=False) as live:
         # Initial update of the display
-        update_display(progress, layout, np.inf, np.inf, 0.0, args.min_lr, 0.0, "", "")
+        update_display(progress, layout, np.inf, np.inf, 0.0, scheduler.get_last_lr()[0], 0.0, "", "")
         live.refresh()
 
 
