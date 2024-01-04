@@ -135,7 +135,7 @@ def main():
                             tt.RandomHorizontalFlip(0.5),
                             tt.RandomCrop(32, padding=4),
                             #tt.RandomPerspective(distortion_scale=0.14),
-                            # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
+                            tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
                             # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
                             tt.ToTensor(), 
                             tt.Normalize(mean,std,inplace=True)])
