@@ -247,6 +247,7 @@ def main():
     if args.decay_lr:
         scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
     else:
+        print('No decay learning rate')
         # scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
         num_iters=len(trainloader)*args.epochs
         rate=(args.min_lr/args.max_lr)**(1/num_iters)
