@@ -61,7 +61,7 @@ def get_args():
 
     # Learning Rate Decay Settings
     parser.add_argument('--decay_lr', type=bool, default=True, help="Enable learning rate decay")
-    parser.add_argument('--warmup_epochs', type=int, default=2, help="Number of warmup epochs")
+    parser.add_argument('--warmup_epochs', type=float, default=2, help="Number of warmup epochs, can be fractional")
     parser.add_argument('--lr_decay_frac', type=float, default=1.0, help="Fraction of max_lr to decay to")
     parser.add_argument('--min_lr', type=float, default=1e-5, help="Minimum learning rate")
     parser.add_argument('--small_weights_threshold', type=float, default=1e-13, help="Threshold for considering weights as small")
