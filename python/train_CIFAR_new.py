@@ -149,7 +149,7 @@ def get_lr(epoch, epochs, max_lr, min_lr, warmup_epochs, lr_decay_frac):
     else:
         decay_ratio = (epoch - warmup_epochs) / (epochs * lr_decay_frac - warmup_epochs)
         lr=min_lr + (max_lr - min_lr) * 0.5 * (1.0 + math.cos(math.pi * decay_ratio))
-        return lr, lr*0.2
+        return lr, -lr*0.2
     
 def train_one_epoch(model, trainloader, optimizer, criterion, lr, linear_warmup, grad_clip):
     model.train()
