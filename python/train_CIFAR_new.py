@@ -323,8 +323,7 @@ def main():
             lrs.append(lr)
 
             # Train one epoch
-            avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, lr, scheduler, args.grad_clip)
-                                             
+            avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
             # Log current train loss
             train_losses.append(avg_train_loss)
 
