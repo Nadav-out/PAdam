@@ -265,7 +265,7 @@ def main():
         TimeRemainingColumn(),
         expand=False
     )
-    task_id = progress.add_task("Training", total=epochs)
+    task_id = progress.add_task("Training", total=epochs, visible=False)
 
     # Split the layout into parts
     layout.split(
@@ -377,7 +377,7 @@ def main():
             # Save best model
             if accuracy > best_accuracy:
                 best_accuracy = accuracy
-                best_accuracy_str = f"Best Accuracy: {best_accuracy:.2f}%, achive at Epoch {epoch+1}, with {100*cur_sparsity:.1f}% sparsity"
+                best_accuracy_str = f"Best Validation Accuracy: {best_accuracy:.2f}%, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
 
                 if save_checkpoints:
                     torch.save({
@@ -389,7 +389,7 @@ def main():
                     
             if avg_val_loss < best_val_loss:
                 best_val_loss = avg_val_loss
-                best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at Epoch {epoch+1}, with {100*cur_sparsity:.1f}% sparsity"
+                best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
 
                 if save_checkpoints:
                     torch.save({
@@ -405,7 +405,8 @@ def main():
             lrs.append(current_lr)
 
             
-            
+            if epoch == 0:
+                progress.update(task_id, visible=True)
             # Update the progress
             progress.update(task_id, advance=1)
             layout["progress"].update(progress)
