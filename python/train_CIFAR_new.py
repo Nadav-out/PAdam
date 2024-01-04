@@ -135,7 +135,7 @@ def main():
                             tt.RandomHorizontalFlip(0.5),
                             tt.RandomCrop(32, padding=4),
                             #tt.RandomPerspective(distortion_scale=0.14),
-                            tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
+                            # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
                             # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
                             tt.ToTensor(), 
                             tt.Normalize(mean,std,inplace=True)])
@@ -158,8 +158,15 @@ def main():
 
 
     # initialize model
+    # model = to_device(ResNet18(3, 10), device)
     model = to_device(resnet18(10), device)
 
+
+
+
+    # initialize a GradScaler. If enabled=False scaler is a no-op
+    # if device_type == 'cuda':
+    #     scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
 
     # optimizer
     if optimizer_name=='Manual':
@@ -168,7 +175,7 @@ def main():
         optimizer = model.configure_optimizers(optimizer_name, lambda_p, max_lr, p_norm, (beta1, beta2), device_type)
 
     if compile and device_type == 'cuda':
-        print("compiling the model... (takes a ~minute)\n")
+        print("compiling the model... (takes a ~minute)")
         # unoptimized_model = model
         model = torch.compile(model) # requires PyTorch 2.0
 
@@ -244,11 +251,6 @@ def main():
     
     console = Console()
     layout = Layout()
-    layout.split(
-                    Layout(name="progress", size=1),
-                    Layout(name="status", size=2),
-                    Layout(name="best_results", size=2)
-                )
 
     # Set up the progress bar
     progress = Progress(
@@ -265,7 +267,12 @@ def main():
     )
     task_id = progress.add_task("Training", total=epochs)
 
-    
+    # Split the layout into parts
+    layout.split(
+        Layout(name="progress", size=1),
+        Layout(name="status", size=2),
+        Layout(name="best_results", size=2)
+    )
 
 
 
@@ -398,7 +405,7 @@ def main():
             lrs.append(current_lr)
 
             
-                
+            
             # Update the progress
             progress.update(task_id, advance=1)
             layout["progress"].update(progress)
