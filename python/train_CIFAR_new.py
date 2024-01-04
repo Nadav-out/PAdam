@@ -32,7 +32,7 @@ def get_args():
     parser = argparse.ArgumentParser(description="Training script for CIFAR10")
 
     # I/O
-    parser.add_argument('--relative_paths', type=bool, default=True, help="Whether to use relative paths")
+    parser.add_argument('--absolute_paths', action='store_true', help="Whether to use absolute paths")
     parser.add_argument('--data_dir', type=str, default='../data/CIFAR10', help="Directory for data")
     parser.add_argument('--out_dir', type=str, default='../results/CIFAR10', help="Output directory")
     parser.add_argument('--save_checkpoints', action='store_true', help="Save checkpoints during training")
@@ -60,7 +60,7 @@ def get_args():
     parser.add_argument('--grad_clip', type=float, default=0.0, help="Gradient clipping value")
 
     # Learning Rate Decay Settings
-    parser.add_argument('--decay_lr', type=bool, default=True, help="Enable learning rate decay")
+    parser.add_argument('--non_decay_lr', action='store_true', help="Disable learning rate decay")
     parser.add_argument('--warmup_epochs', type=float, default=2, help="Number of warmup epochs, can be fractional")
     parser.add_argument('--lr_decay_frac', type=float, default=1.0, help="Fraction of max_lr to decay to")
     parser.add_argument('--min_lr', type=float, default=1e-5, help="Minimum learning rate")
@@ -179,7 +179,7 @@ def main():
     config = vars(args)
     
     # If relative paths are used, update data_dir and out_dir
-    if args.relative_paths:
+    if not args.absolute_paths:
         args.data_dir = os.path.join(script_dir, args.data_dir)
         args.out_dir = os.path.join(script_dir, args.out_dir)
         
@@ -245,15 +245,17 @@ def main():
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
     print(f'here! {args.decay_lr,args.optimizer_name}')
     # scheduler
-    if args.decay_lr:
-        print('Decay learning rate')
-        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
-    else:
+    if args.non_decay_lr:
         print('No decay learning rate')
         # scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
         num_iters=len(trainloader)*args.epochs
         rate=(args.min_lr/args.max_lr)**(1/num_iters)
         scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=rate)
+    
+    else: 
+        print('Decay learning rate')
+        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
+    
 
     if args.compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
