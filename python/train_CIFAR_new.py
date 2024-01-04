@@ -324,7 +324,7 @@ def main():
 
 
 
-    if args.save_checkpoints or args.save_model or args.save_stats:
+    if args.save_checkpoints or args.save_model:
         if not os.path.exists(args.out_dir):
             os.makedirs(args.out_dir)
         accuracy_save_path = os.path.join(args.out_dir, 'best_accuracy_model.pth')
