@@ -72,20 +72,21 @@ def get_args():
 
     return parser.parse_args()
 
-def get_lr(epoch, epochs, max_lr, min_lr, warmup_epochs, lr_decay_frac):
+def cosine_lambda(epoch, epochs, max_lr, min_lr, warmup_epochs, lr_decay_frac):
     # linear warmup for warmup_epochs steps
     if epoch <= warmup_epochs:
         coef=(max_lr-min_lr) / warmup_epochs
-        return coef * epoch+min_lr, coef
+        lr = coef * epoch+min_lr, coef
     # Constant learning rate after finished decaying
     elif epoch > epochs * lr_decay_frac: # Usually lr_decay_frac~1
-        return min_lr
+        lr = min_lr
     # Cosine annealing from max_lr to min_lr in between
     else:
         decay_ratio = (epoch - warmup_epochs) / (epochs * lr_decay_frac - warmup_epochs)
         assert 0 <= decay_ratio <= 1
         coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # coeff ranges 0..1
-        return min_lr + coeff * (max_lr - min_lr)
+        lr = min_lr + coeff * (max_lr - min_lr)
+    return lr/max_lr
         
 def train_one_epoch(model, trainloader, optimizer, criterion, scheduler, grad_clip):
     model.train()
@@ -244,9 +245,9 @@ def main():
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
     # scheduler
     if args.decay_lr:
-        torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: get_lr(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
+        scheduler=torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
     else:
-        torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: args.max_lr)
+        scheduler=torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 1)
 
     if args.compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
@@ -317,12 +318,13 @@ def main():
 
         for epoch in range(args.epochs):
             # Get learning rate for this epoch
-            lr, linear_warmup = get_lr(epoch, args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac)
+            lr=1.0
             # Log current lr
             lrs.append(lr)
 
             # Train one epoch
-            avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, lr, linear_warmup, args.grad_clip)
+            avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, lr, scheduler, args.grad_clip)
+                                             
             # Log current train loss
             train_losses.append(avg_train_loss)
 
