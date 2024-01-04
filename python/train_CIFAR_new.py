@@ -318,7 +318,7 @@ def main():
 
         for epoch in range(args.epochs):
             # Get learning rate for this epoch
-            lr=1.0
+            lr=scheduler.get_lr()[0]
             # Log current lr
             lrs.append(lr)
 
