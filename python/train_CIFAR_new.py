@@ -405,7 +405,7 @@ def main():
             lrs.append(current_lr)
 
             
-            if epoch == 1:
+            if epoch == 0:
                 progress.update(task_id, visible=True)
             # Update the progress
             progress.update(task_id, advance=1)
