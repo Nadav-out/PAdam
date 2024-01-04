@@ -81,7 +81,6 @@ small_weights_threshold = 1e-13 # weights smaller than this will be considered "
 backend = 'nccl' # 'nccl', 'gloo', etc.
 # system
 device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
-# dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
 compile = True # use PyTorch 2.0 to compile the model to be faster
 # -----------------------------------------------------------------------------
 config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
@@ -135,7 +134,7 @@ def main():
                             tt.RandomHorizontalFlip(0.5),
                             tt.RandomCrop(32, padding=4),
                             #tt.RandomPerspective(distortion_scale=0.14),
-                            # tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
+                            tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), 
                             # tt.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.2),
                             tt.ToTensor(), 
                             tt.Normalize(mean,std,inplace=True)])
@@ -158,15 +157,9 @@ def main():
 
 
     # initialize model
-    # model = to_device(ResNet18(3, 10), device)
     model = to_device(resnet18(10), device)
 
 
-
-
-    # initialize a GradScaler. If enabled=False scaler is a no-op
-    # if device_type == 'cuda':
-    #     scaler = torch.cuda.amp.GradScaler(enabled=(dtype == 'float16'))
 
     # optimizer
     if optimizer_name=='Manual':
@@ -176,7 +169,6 @@ def main():
 
     if compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
-        # unoptimized_model = model
         model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
@@ -312,16 +304,13 @@ def main():
 
 
                 loss.backward()
-                # scaler.scale(loss).backward()
                 # clip the gradient
                 if grad_clip != 0.0:
-                    # scaler.unscale_(optimizer)
+            
                     torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-                # step the optimizer and scaler if training in fp16
-                # scaler.step(optimizer)
-                # scaler.update()
-                # flush the gradients as soon as we can, no need for this memory anymore
+                # step the optimizer
                 optimizer.step()
+                # flush the gradients as soon as we can, no need for this memory anymore
                 optimizer.zero_grad(set_to_none=True)
                 
 
