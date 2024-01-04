@@ -245,6 +245,7 @@ def main():
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
     # scheduler
     if args.decay_lr:
+        print('Decay learning rate')
         scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
     else:
         print('No decay learning rate')
