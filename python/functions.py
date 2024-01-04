@@ -1,4 +1,6 @@
 import torch
+from rich.columns import Columns
+
 
 def get_default_device():
     """Pick GPU if available, else CPU"""
@@ -53,5 +55,20 @@ def fraction_small_weights(param, threshold):
     
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+def format_status(avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity):
+    # Format the status information as a single string
+    return Columns([
+        f"Train Loss: {avg_train_loss:.4f}",
+        f"•",
+        f"Validation Loss: {avg_val_loss:.4f}",
+        f"•",
+        f"Validation Accuracy: {accuracy:.2f}%",
+        f"•",
+        f"Learning Rate: {current_lr:.5f}",
+        f"•",
+        f"Sparsity: {100*cur_sparsity:.1f}%"
+    ], expand=False)
+
 
 

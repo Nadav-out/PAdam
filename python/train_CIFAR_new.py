@@ -17,10 +17,11 @@ from functions import *
 import subprocess
 
 from rich.console import Console
-from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn, TaskID
-from rich.live import Live
-from rich.text import Text
+from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingColumn, TextColumn, MofNCompleteColumn
 from rich.layout import Layout
+from rich.live import Live
+from rich.table import Table
+from rich.columns import Columns
 
 
 
@@ -253,29 +254,31 @@ def main():
 
     # Set up the progress bar
     progress = Progress(
-        "[progress.description]{task.description}",
+        TextColumn("Epoch:", justify="left"),
+        MofNCompleteColumn(),
         BarColumn(),
+        TextColumn("•"),
+        TextColumn("Time Elapsed:", justify="left"),
         TimeElapsedColumn(),
+        TextColumn("•"),
+        TextColumn("Time Remaining:", justify="left"),
         TimeRemainingColumn(),
-        expand=True
+        expand=False
     )
     task_id = progress.add_task("Training", total=epochs)
 
-    # Split the layout into three parts
+    # Split the layout into parts
     layout.split(
-        Layout(name="progress"),
-        Layout(name="status", size=1),
-        Layout(name="best_results", size=1)
+        Layout(name="progress", size=1),
+        Layout(name="status", size=2),
+        Layout(name="best_results", size=2)
     )
-    layout["progress"].update(progress)
 
 
 
 
 
-    with Live(console=console, auto_refresh=False) as live:
-
-
+    with Live(layout, console=console, auto_refresh=False) as live:
 
         for epoch in range(epochs):
             model.train()
@@ -374,7 +377,7 @@ def main():
             # Save best model
             if accuracy > best_accuracy:
                 best_accuracy = accuracy
-                best_accuracy_str = f"Best Accuracy: {best_accuracy:.2f}% (Epoch {epoch+1})"
+                best_accuracy_str = f"Best Accuracy: {best_accuracy:.2f}%, achive at Epoch {epoch+1}, with {100*cur_sparsity:.1f}% sparsity"
 
                 if save_checkpoints:
                     torch.save({
@@ -386,7 +389,7 @@ def main():
                     
             if avg_val_loss < best_val_loss:
                 best_val_loss = avg_val_loss
-                best_val_loss_str = f"Best Val Loss: {best_val_loss:.4f} (Epoch {epoch+1})"
+                best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at Epoch {epoch+1}, with {100*cur_sparsity:.1f}% sparsity"
 
                 if save_checkpoints:
                     torch.save({
@@ -408,14 +411,20 @@ def main():
             layout["progress"].update(progress)
 
             # Update the current status
-            status_message = f"Epoch {epoch+1}/{epochs} - Train Loss: {avg_train_loss:.4f}  Val Loss: {avg_val_loss:.4f}  Accuracy: {accuracy:.2f}%  LR: {current_lr:.5f}  Sparsity: {cur_sparsity:.5f}"
-            layout["status"].update(status_message)
+            status = format_status(avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity)
+            layout["status"].update(status)
 
-            best_results_message = best_val_loss_str + "   " + best_accuracy_str
-            layout["best_results"].update(best_results_message)
+            # Update the best results in a table
+            results_table = Table.grid(padding=(0, 2))
+            results_table.add_column("Metric", justify="left")
+            results_table.add_column("Value", justify="left")
+            
+            results_table.add_row(best_val_loss_str)
+            results_table.add_row(best_accuracy_str)
+            layout["best_results"].update(results_table)
 
             # Refresh the live display
-            live.update(layout)
+            live.refresh()
 
 
 
