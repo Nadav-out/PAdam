@@ -1,17 +1,15 @@
 import argparse
-
-
 import os
-from re import I
-from requests import get
-from sympy import li
+
+
 import torch
 import torchvision
-
 import torchvision.transforms as tt
+
 import pickle
 
 import time
+
 import numpy as np
 import math
 import pandas as pd
@@ -26,71 +24,8 @@ from rich.progress import Progress, BarColumn, TimeElapsedColumn, TimeRemainingC
 from rich.layout import Layout
 from rich.live import Live
 from rich.table import Table
-from rich.columns import Columns
 
 
-
-
-
-
-
-
-
-
-
-
-
-# script_dir = os.path.dirname(os.path.realpath(__file__))
-
-# # -----------------------------------------------------------------------------
-# # default config values
-
-# #I/O
-# relative_paths=True
-# data_dir = '../data/CIFAR10'
-# out_dir= '../results/CIFAR10'
-# save_checkpoints = False
-# save_model = False
-
-# # wandb logging
-# wandb_log = False # disabled by default
-# wandb_project = 'PAdam'
-# wandb_run_name = 'ResNet18' + str(time.time())
-
-# # dataset
-# num_workers = 4
-
-# # training
-# batch_size = 400
-# epochs = 100
-
-# # optimizer
-# optimizer_name = 'PAdam'
-# max_lr = 1e-3
-# lambda_p = 1e-3
-# p_norm = 0.8
-# beta1 = 0.9
-# beta2 = 0.999
-# grad_clip = 0.0 # clip gradients at this value, or disable if == 0.0
-
-# # learning rate decay settings
-# decay_lr = True # whether to decay the learning rate
-# lr1 = True # whether to use the lr1 function or the lr2 function
-# warmup_iters = 500 # how many steps to warm up for
-# lr_decay_frac=1.0 # fraction of the max_lr to drop to at lr_decay_epochs
-# min_lr = 1e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
-# small_weights_threshold = 1e-13 # weights smaller than this will be considered "small"
-
-
-# # system
-# device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
-# compile = True # use PyTorch 2.0 to compile the model to be faster
-# # -----------------------------------------------------------------------------
-# config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
-# config_path = os.path.join(script_dir, 'config.py')
-# exec(open(config_path).read())  # overrides from command line or config file
-# config = {k: globals()[k] for k in config_keys} # will be useful for logging
-# # -----------------------------------------------------------------------------
 
 
 def get_args():
@@ -139,34 +74,24 @@ def get_args():
 
 def get_lr(epoch, epochs, max_lr, min_lr, warmup_epochs, lr_decay_frac):
     # linear warmup for warmup_epochs steps
-    if epoch < warmup_epochs:
+    if epoch <= warmup_epochs:
         coef=(max_lr-min_lr) / warmup_epochs
         return coef * epoch+min_lr, coef
     # Constant learning rate after finished decaying
-    elif epoch > epochs * lr_decay_frac: # Usually ~= epochs
-        return min_lr, False
+    elif epoch > epochs * lr_decay_frac: # Usually lr_decay_frac~1
+        return min_lr
     # Cosine annealing from max_lr to min_lr in between
     else:
         decay_ratio = (epoch - warmup_epochs) / (epochs * lr_decay_frac - warmup_epochs)
-        lr=min_lr + (max_lr - min_lr) * 0.5 * (1.0 + math.cos(math.pi * decay_ratio))
-        return lr, -lr*0.2
-    
-def train_one_epoch(model, trainloader, optimizer, criterion, lr, linear_warmup, grad_clip):
+        assert 0 <= decay_ratio <= 1
+        coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio)) # coeff ranges 0..1
+        return min_lr + coeff * (max_lr - min_lr)
+        
+def train_one_epoch(model, trainloader, optimizer, criterion, scheduler, grad_clip):
     model.train()
     running_loss = 0.0
 
-    for param_group in optimizer.param_groups:
-            param_group['lr'] = lr
-    if linear_warmup:
-        delta_lr=linear_warmup/len(trainloader)
-    for iter, data in enumerate(trainloader):
-        
-        # update the learning rate during warmup
-        if linear_warmup:
-            for param_group in optimizer.param_groups:
-                param_group['lr'] = lr +delta_lr*iter
-
-        
+    for data in trainloader:
         inputs, labels = data
 
         optimizer.zero_grad()
@@ -183,6 +108,9 @@ def train_one_epoch(model, trainloader, optimizer, criterion, lr, linear_warmup,
         optimizer.step()
         # flush the gradients as soon as we can, no need for this memory anymore
         optimizer.zero_grad(set_to_none=True)
+        # lr step
+        scheduler.step()
+
 
     avg_train_loss = running_loss / len(trainloader)
     return avg_train_loss
@@ -312,10 +240,13 @@ def main():
     # initialize model
     model = to_device(resnet18(10), args.device)
 
-
-
     # optimizer
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
+    # scheduler
+    if args.decay_lr:
+        torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: get_lr(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
+    else:
+        torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: args.max_lr)
 
     if args.compile and device_type == 'cuda':
         print("compiling the model... (takes a ~minute)")
