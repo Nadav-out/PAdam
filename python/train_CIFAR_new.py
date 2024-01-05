@@ -291,7 +291,7 @@ def main():
     
     console = Console()
     if args.verbose:
-        console.print("Starting training...")
+        console.print("\nTraining...")
 
     if args.progress_bar:
         # Set up the progress bar
@@ -405,7 +405,7 @@ def main():
         # Save best model
         if accuracy > best_accuracy:
             best_accuracy = accuracy
-            best_accuracy_str = f"Best Validation Accuracy: {best_accuracy:.2f}%, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
+            best_accuracy_str = f"Best Validation Accuracy: {best_accuracy:.2f}%, achived at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
             if args.verbose:
                 console.print(best_accuracy_str)
 
@@ -419,7 +419,7 @@ def main():
                 
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
-            best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
+            best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achived at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
             if args.verbose:
                 console.print(best_val_loss_str)
 
