@@ -183,6 +183,7 @@ def main():
     # Convert args to a dictionary for easy access and logging
     config = vars(args)
     if args.verbose:
+        print("\n")
         for arg in config:
             print(f"{arg}: {getattr(args, arg)}")
         print("\n")
@@ -241,7 +242,7 @@ def main():
 
     loader_args = dict(num_workers=args.num_workers, pin_memory=True) if device_type == 'cuda' else dict()
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=args.batch_size, shuffle=True, **loader_args)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=2*args.batch_size, shuffle=False, **loader_args)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=args.batch_size, shuffle=False, **loader_args)
 
 
     # move to device
@@ -292,7 +293,7 @@ def main():
     
     console = Console()
     if args.verbose:
-        console.print("\nTraining...")
+        console.print("\nTraining...\n")
 
     if args.progress_bar:
         # Set up the progress bar
