@@ -185,6 +185,7 @@ def main():
     if args.verbose:
         for arg in config:
             print(f"{arg}: {getattr(args, arg)}")
+        print("\n")
 
 
     
@@ -267,7 +268,7 @@ def main():
     
 
     if args.compile and device_type == 'cuda':
-        print("compiling the model...\n")
+        print("Compiling the model...\n")
         model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
@@ -416,6 +417,8 @@ def main():
                     'optimizer_state_dict': optimizer.state_dict(),
                     'accuracy': accuracy,
                 }, accuracy_save_path)
+                if args.verbose:
+                    console.print(f"Saved best accuracy model to {accuracy_save_path}")
                 
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
@@ -430,11 +433,15 @@ def main():
                     'optimizer_state_dict': optimizer.state_dict(),
                     'accuracy': accuracy,
                 }, loss_save_path)
+                if args.verbose:
+                    console.print(f"Saved best loss model to {loss_save_path}")
         
         
         
 
-        # Update progress bar
+        # Update/print stats
+        if args.verbose:
+            console.print(f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {avg_train_loss:.4f}\tTest Loss: {avg_val_loss:.4f}\tAccuracy: {accuracy:.2f}%\tCurrent LR: {lr:.5f}")
         if args.progress_bar:
             progress.update(task_id, advance=1)
             update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, lr, cur_sparsity, best_val_loss_str, best_accuracy_str)
