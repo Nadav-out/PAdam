@@ -182,7 +182,7 @@ def main():
     script_dir = os.path.dirname(os.path.realpath(__file__))
     # Convert args to a dictionary for easy access and logging
     config = vars(args)
-    if args.vrbose:
+    if args.verbose:
         for arg in config:
             print(f"{arg}: {getattr(args, arg)}")
 
