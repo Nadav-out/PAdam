@@ -249,7 +249,7 @@ def main():
         print('No decay learning rate')
         # scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
         num_iters=len(trainloader)*args.epochs
-        scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=num_iters//6, gamma=0.3)
+        scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=num_iters//3, gamma=0.3)
         # rate=(args.min_lr/args.max_lr)**(1/num_iters)
         # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=rate)
     
