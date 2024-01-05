@@ -31,6 +31,11 @@ from rich.table import Table
 def get_args():
     parser = argparse.ArgumentParser(description="Training script for CIFAR10")
 
+    # Add progress_bar and verbose arguments
+    parser.add_argument('--progress_bar', action='store_true', help='Enable rich live layout progress bar')
+    parser.add_argument('--verbose', action='store_true', help='Enable verbose output')
+
+
     # I/O
     parser.add_argument('--absolute_paths', action='store_true', help="Whether to use absolute paths")
     parser.add_argument('--data_dir', type=str, default='../data/CIFAR10', help="Directory for data")
@@ -67,7 +72,7 @@ def get_args():
     parser.add_argument('--small_weights_threshold', type=float, default=1e-13, help="Threshold for considering weights as small")
 
     # System
-    parser.add_argument('--device', type=str, default='cuda', help="Device to use for training (e.g., 'cuda', 'cpu')")
+    parser.add_argument('--device', type=str, default='cuda', help="Device to use for training (e.g., 'cuda', 'cpu', 'mps')")
     parser.add_argument('--compile', action='store_true', help="Use PyTorch 2.0 to compile the model for faster training")
 
     return parser.parse_args()
@@ -177,6 +182,11 @@ def main():
     script_dir = os.path.dirname(os.path.realpath(__file__))
     # Convert args to a dictionary for easy access and logging
     config = vars(args)
+    if args.vrbose:
+        for arg in config:
+            print(f"{arg}: {getattr(args, arg)}")
+
+
     
     # If relative paths are used, update data_dir and out_dir
     if not args.absolute_paths:
@@ -246,20 +256,18 @@ def main():
     
     # scheduler
     if args.non_decay_lr:
-        print('No decay learning rate')
-        # scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
-        num_iters=len(trainloader)*args.epochs
-        scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[num_iters//2,2*num_iters//3,3*num_iters//4,4*num_iters//5], gamma=0.5)
-        # rate=(args.min_lr/args.max_lr)**(1/num_iters)
+        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
+        # num_iters=len(trainloader)*args.epochs
+        # scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[num_iters//2,2*num_iters//3,3*num_iters//4,4*num_iters//5], gamma=0.5)
+        # # rate=(args.min_lr/args.max_lr)**(1/num_iters)
         # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=rate)
     
     else: 
-        print('Decay learning rate')
         scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
     
 
     if args.compile and device_type == 'cuda':
-        print("compiling the model... (takes a ~minute)")
+        print("compiling the model...\n")
         model = torch.compile(model) # requires PyTorch 2.0
 
     criterion = torch.nn.CrossEntropyLoss(reduction='mean')
@@ -282,30 +290,62 @@ def main():
 
     
     console = Console()
-    layout = Layout()
+    if args.verbose:
+        console.print("Starting training...")
+
+    if args.progress_bar:
+        # Set up the progress bar
+        progress = Progress(
+            TextColumn("Epoch:", justify="left"),
+            MofNCompleteColumn(),
+            BarColumn(),
+            TextColumn("•"),
+            TextColumn("Time Elapsed:", justify="left"),
+            TimeElapsedColumn(),
+            TextColumn("•"),
+            TextColumn("Time Remaining:", justify="left"),
+            TimeRemainingColumn(),
+            expand=False
+        )
+        task_id = progress.add_task("Training", total=args.epochs)
+
+        # Set up the layout
+        layout = Layout()
+        layout.split(
+            Layout(name="progress", size=1),
+            Layout(name="status", size=2),
+            Layout(name="best_results", size=2)
+        )
+        layout["progress"].update(progress)
+
+        # Start the Live context
+        live = Live(layout, console=console, auto_refresh=False)
+        live.start()
+        update_display(progress, layout, np.inf, np.inf, 0.0, scheduler.get_last_lr()[0], 0.0, "", "")
+        live.refresh()
 
     
-    # Set up the progress bar
-    progress = Progress(
-        TextColumn("Epoch:", justify="left"),
-        MofNCompleteColumn(),
-        BarColumn(),
-        TextColumn("•"),
-        TextColumn("Time Elapsed:", justify="left"),
-        TimeElapsedColumn(),
-        TextColumn("•"),
-        TextColumn("Time Remaining:", justify="left"),
-        TimeRemainingColumn(),
-        expand=False
-    )
-    task_id = progress.add_task("Training", total=args.epochs)
+    # # Set up the progress bar
+    # progress = Progress(
+    #     TextColumn("Epoch:", justify="left"),
+    #     MofNCompleteColumn(),
+    #     BarColumn(),
+    #     TextColumn("•"),
+    #     TextColumn("Time Elapsed:", justify="left"),
+    #     TimeElapsedColumn(),
+    #     TextColumn("•"),
+    #     TextColumn("Time Remaining:", justify="left"),
+    #     TimeRemainingColumn(),
+    #     expand=False
+    # )
+    # task_id = progress.add_task("Training", total=args.epochs)
 
-    # Split the layout into parts
-    layout.split(
-        Layout(name="progress", size=1),
-        Layout(name="status", size=2),
-        Layout(name="best_results", size=2)
-    )
+    # # Split the layout into parts
+    # layout.split(
+    #     Layout(name="progress", size=1),
+    #     Layout(name="status", size=2),
+    #     Layout(name="best_results", size=2)
+    # )
 
     # initialize metrices
     best_accuracy = 0.0
@@ -318,99 +358,110 @@ def main():
 
 
 
-    with Live(layout, console=console, auto_refresh=False) as live:
+    # with Live(layout, console=console, auto_refresh=False) as live:
         # Initial update of the display
-        update_display(progress, layout, np.inf, np.inf, 0.0, scheduler.get_last_lr()[0], 0.0, "", "")
-        live.refresh()
+        # update_display(progress, layout, np.inf, np.inf, 0.0, scheduler.get_last_lr()[0], 0.0, "", "")
+        # live.refresh()
 
 
 
-        for epoch in range(args.epochs):
-            # Get learning rate for this epoch
-            lr=scheduler.get_last_lr()[0]
-            # Log current lr
-            lrs.append(lr)
+    for epoch in range(args.epochs):
+        # Get learning rate for this epoch
+        lr=scheduler.get_last_lr()[0]
+        # Log current lr
+        lrs.append(lr)
 
-            # Train one epoch
-            avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
-            # Log current train loss
-            train_losses.append(avg_train_loss)
-
-
-            # Validate one epoch
-            avg_val_loss, accuracy = validate(model, testloader, criterion)
-            # Log validation loss and accurecy
-            val_losses.append(avg_val_loss)
-            accuracies.append(accuracy)
-
-            # update small weights count
-            cur_sparsity = model.append_small_weight_vec(args.small_weights_threshold, epoch)
+        # Train one epoch
+        avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
+        # Log current train loss
+        train_losses.append(avg_train_loss)
 
 
-            # wandb log
-            if args.wandb_log:
-                wandb.log({
-                    "epoch": epoch+1,
-                    "train/loss": avg_train_loss,
-                    "validation/loss": avg_val_loss,
-                    "validation/accuracy": accuracy,
-                    "lr": lr,
-                    "sparsity": cur_sparsity,
-                    "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
-                    "validation/best_accuracy": best_accuracy,
-                    "validation/best_val_loss": best_val_loss,
-                })
+        # Validate one epoch
+        avg_val_loss, accuracy = validate(model, testloader, criterion)
+        # Log validation loss and accurecy
+        val_losses.append(avg_val_loss)
+        accuracies.append(accuracy)
 
-            
-            # Save best model
-            if accuracy > best_accuracy:
-                best_accuracy = accuracy
-                best_accuracy_str = f"Best Validation Accuracy: {best_accuracy:.2f}%, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
+        # update small weights count
+        cur_sparsity = model.append_small_weight_vec(args.small_weights_threshold, epoch)
 
-                if args.save_checkpoints:
-                    torch.save({
-                        'epoch': epoch,
-                        'model_state_dict': model.state_dict(),
-                        'optimizer_state_dict': optimizer.state_dict(),
-                        'accuracy': accuracy,
-                    }, accuracy_save_path)
-                    
-            if avg_val_loss < best_val_loss:
-                best_val_loss = avg_val_loss
-                best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
 
-                if args.save_checkpoints:
-                    torch.save({
-                        'epoch': epoch,
-                        'model_state_dict': model.state_dict(),
-                        'optimizer_state_dict': optimizer.state_dict(),
-                        'accuracy': accuracy,
-                    }, loss_save_path)
-            
-            
-            
+        # wandb log
+        if args.wandb_log:
+            wandb.log({
+                "epoch": epoch+1,
+                "train/loss": avg_train_loss,
+                "validation/loss": avg_val_loss,
+                "validation/accuracy": accuracy,
+                "lr": lr,
+                "sparsity": cur_sparsity,
+                "decayed_weights_hist": wandb.Histogram(np_histogram=model.decayed_weights_histogram()),
+                "validation/best_accuracy": best_accuracy,
+                "validation/best_val_loss": best_val_loss,
+            })
 
-            # Update progress bar
+        
+        # Save best model
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            best_accuracy_str = f"Best Validation Accuracy: {best_accuracy:.2f}%, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
+            if args.verbose:
+                console.print(best_accuracy_str)
+
+            if args.save_checkpoints:
+                torch.save({
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'accuracy': accuracy,
+                }, accuracy_save_path)
+                
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            best_val_loss_str = f"Best Validation Loss: {best_val_loss:.4f}, achive at epoch {epoch+1} with {100*cur_sparsity:.1f}% sparsity"
+            if args.verbose:
+                console.print(best_val_loss_str)
+
+            if args.save_checkpoints:
+                torch.save({
+                    'epoch': epoch,
+                    'model_state_dict': model.state_dict(),
+                    'optimizer_state_dict': optimizer.state_dict(),
+                    'accuracy': accuracy,
+                }, loss_save_path)
+        
+        
+        
+
+        # Update progress bar
+        if args.progress_bar:
             progress.update(task_id, advance=1)
             update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, lr, cur_sparsity, best_val_loss_str, best_accuracy_str)
             live.refresh()
+    
+    if args.progress_bar:
+        live.stop()
 
 
 
     
-        # End of training
-        progress.console.print("Training completed.")
+    if args.verbose:
+        console.print("Training completed.")
+        console.print(best_accuracy_str)
+        console.print(best_val_loss_str)
 
 
-        if args.save_model:
-            with open(stats_save_path, 'wb') as f:
-                pickle.dump({
-                    'train_losses': train_losses,
-                    'val_losses': val_losses,
-                    'accuracies': accuracies,
-                    'lrs': lrs,
-                    'small_weights': model.sparsity_df
-                }, f)
+
+    if args.save_model:
+        with open(stats_save_path, 'wb') as f:
+            pickle.dump({
+                'train_losses': train_losses,
+                'val_losses': val_losses,
+                'accuracies': accuracies,
+                'lrs': lrs,
+                'small_weights': model.sparsity_df
+            }, f)
 
 if __name__ == '__main__':
     torch.multiprocessing.freeze_support()
