@@ -101,8 +101,8 @@ def train_one_epoch(model, trainloader, optimizer, criterion, scheduler, grad_cl
         inputs, labels = data
 
         optimizer.zero_grad()
-        outputs = model(inputs)
-        loss = criterion(outputs, labels)
+        logits = model(inputs)
+        loss = criterion(logits, labels)
         running_loss += loss.item()
 
 
@@ -130,22 +130,25 @@ def validate(model, testloader, criterion):
     correct = 0
     total = 0
     running_val_loss = 0.0
+    probs_array = []
 
     with torch.no_grad():
         for data in testloader:
             images, labels = data
-            outputs = model(images)
-            loss = criterion(outputs, labels)
+            logits = model(images)
+            loss = criterion(logits, labels)
             running_val_loss += loss.item()
-            _, predicted = torch.max(outputs.data, 1)
+            _, predicted = torch.max(logits.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
+            probs = torch.nn.functional.softmax(logits, dim=1)
+            probs_array.append(probs.cpu())
             
 
     avg_val_loss = running_val_loss / len(testloader)
     accuracy = 100 * correct / total
 
-    return avg_val_loss, accuracy
+    return avg_val_loss, accuracy, probs_array
 
 def update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, current_lr, cur_sparsity, best_val_loss_str, best_accuracy_str):
     
@@ -327,27 +330,7 @@ def main():
         live.refresh()
 
     
-    # # Set up the progress bar
-    # progress = Progress(
-    #     TextColumn("Epoch:", justify="left"),
-    #     MofNCompleteColumn(),
-    #     BarColumn(),
-    #     TextColumn("•"),
-    #     TextColumn("Time Elapsed:", justify="left"),
-    #     TimeElapsedColumn(),
-    #     TextColumn("•"),
-    #     TextColumn("Time Remaining:", justify="left"),
-    #     TimeRemainingColumn(),
-    #     expand=False
-    # )
-    # task_id = progress.add_task("Training", total=args.epochs)
-
-    # # Split the layout into parts
-    # layout.split(
-    #     Layout(name="progress", size=1),
-    #     Layout(name="status", size=2),
-    #     Layout(name="best_results", size=2)
-    # )
+    
 
     # initialize metrices
     best_accuracy = 0.0
@@ -360,10 +343,7 @@ def main():
 
 
 
-    # with Live(layout, console=console, auto_refresh=False) as live:
-        # Initial update of the display
-        # update_display(progress, layout, np.inf, np.inf, 0.0, scheduler.get_last_lr()[0], 0.0, "", "")
-        # live.refresh()
+    
 
 
 
@@ -380,7 +360,7 @@ def main():
 
 
         # Validate one epoch
-        avg_val_loss, accuracy = validate(model, testloader, criterion)
+        avg_val_loss, accuracy, probs = validate(model, testloader, criterion)
         # Log validation loss and accurecy
         val_losses.append(avg_val_loss)
         accuracies.append(accuracy)
@@ -416,6 +396,7 @@ def main():
                     'epoch': epoch,
                     'model_state_dict': model.state_dict(),
                     'optimizer_state_dict': optimizer.state_dict(),
+                    'probs': probs,
                     'accuracy': accuracy,
                 }, accuracy_save_path)
                 if args.verbose:
@@ -432,6 +413,7 @@ def main():
                     'epoch': epoch,
                     'model_state_dict': model.state_dict(),
                     'optimizer_state_dict': optimizer.state_dict(),
+                    'probs': probs,
                     'accuracy': accuracy,
                 }, loss_save_path)
                 if args.verbose:
