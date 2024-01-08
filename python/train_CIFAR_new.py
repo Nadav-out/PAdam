@@ -47,6 +47,7 @@ def get_args():
     parser.add_argument('--wandb_log', action='store_true', help="Enable logging to Weights & Biases")
     parser.add_argument('--wandb_project', type=str, default='PAdam', help="Weights & Biases project name")
     parser.add_argument('--wandb_run_name', type=str, default='ResNet18' + str(time.time()), help="Weights & Biases run name")
+    parser.add_argument('--wandb_group', type=str, default=None, help="Weights & Biases run group")
 
     # Dataset
     parser.add_argument('--num_workers', type=int, default=4, help="Number of workers for data loading")
@@ -414,7 +415,7 @@ def main():
                     'model_state_dict': model.state_dict(),
                     'optimizer_state_dict': optimizer.state_dict(),
                     'probs': probs,
-                    'accuracy': accuracy,
+                    'val_loss': avg_val_loss,
                 }, loss_save_path)
                 if args.verbose:
                     console.print(f"Saved best loss model to {loss_save_path}")
