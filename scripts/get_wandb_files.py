@@ -4,7 +4,7 @@ import pickle
 from tqdm import tqdm
 
 def main():
-    api = wandb.Api()
+    api = wandb.Api(timeout=29)  # Increase the timeout to 29 seconds
     project_name = "rmt-ml/PAdam"
 
     # Fetch runs from the project
