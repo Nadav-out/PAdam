@@ -181,7 +181,7 @@ def update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, cur
 def main():
     # Collect arguments 
     args = get_args()
-    args.min_lr = args.max_lr / 10
+    args.min_lr = args.max_lr / 100
 
     # script_dir can be used as before
     script_dir = os.path.dirname(os.path.realpath(__file__))
