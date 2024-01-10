@@ -293,7 +293,7 @@ def main():
     # logging
     if args.wandb_log:
         import wandb
-        wandb.init(project=args.wandb_project, name=args.wandb_run_name, config=config)
+        wandb.init(project=args.wandb_project, name=args.wandb_run_name, group=args.wandb_group, config=config)
 
     
     console = Console()
