@@ -10,3 +10,6 @@ CIFAR_results/best_model.pth
 CIFAR_results/
 *.onnx
 
+notebooks/
+results/
+figs/
