@@ -1,0 +1,34 @@
+Reached accuracy 53.48% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 2/200	Train Loss: 1.0873	Test Loss: 2.0818	Accuracy: 50.97%	Current LR: 0.00249	Elapsed Time: 00:00:24	Expected Time: 00:40:15
+Reached accuracy 59.50% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 3/200	Train Loss: 0.8968	Test Loss: 1.2976	Accuracy: 59.50%	Current LR: 0.00374	Elapsed Time: 00:00:35	Expected Time: 00:39:41
+Reached accuracy 65.65% on epoch 4. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 4/200	Train Loss: 0.7798	Test Loss: 1.0408	Accuracy: 65.65%	Current LR: 0.00499	Elapsed Time: 00:00:47	Expected Time: 00:39:25
+Reached accuracy 72.79% on epoch 5. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 5/200	Train Loss: 0.6852	Test Loss: 0.8150	Accuracy: 72.79%	Current LR: 0.00500	Elapsed Time: 00:00:58	Expected Time: 00:39:16
+Reached accuracy 81.47% on epoch 6. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 7/200	Train Loss: 0.5160	Test Loss: 0.6030	Accuracy: 79.99%	Current LR: 0.00500	Elapsed Time: 00:01:21	Expected Time: 00:39:00
+Reached accuracy 83.61% on epoch 8. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 8/200	Train Loss: 0.4616	Test Loss: 0.4915	Accuracy: 83.61%	Current LR: 0.00499	Elapsed Time: 00:01:33	Expected Time: 00:38:55
+Reached accuracy 86.56% on epoch 9. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+
+Epoch: 12/200	Train Loss: 0.3368	Test Loss: 0.4098	Accuracy: 86.43%	Current LR: 0.00498	Elapsed Time: 00:02:18	Expected Time: 00:38:32
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 349, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 260, in main
+    torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/nn/utils/clip_grad.py", line 76, in clip_grad_norm_
+    torch._foreach_mul_(grads, clip_coef_clamped.to(device))  # type: ignore[call-overload]
+KeyboardInterrupt

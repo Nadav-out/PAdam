@@ -1,0 +1,48 @@
+
+[2023-12-05 14:01:28,609] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 294, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 251, in main
+    "decayed_weights_hist": wandb.Histogram(model.decayed_weights_histogram()),
+  File "/global/home/users/njo/PAdam/python/models.py", line 234, in decayed_weights_histogram
+    counts, bins=(torch.abs(decayed_weights) + 1e-13).log10().histogram(bins=50,range=(-13, 0))
+NotImplementedError: Could not run 'aten::histogram.bin_ct' with arguments from the 'CUDA' backend. This could be because the operator doesn't exist for this backend, or was omitted during the selective/custom build process (if using custom build). If you are a Facebook employee using PyTorch on mobile, please visit https://fburl.com/ptmfixes for possible resolutions. 'aten::histogram.bin_ct' is only available for these backends: [CPU, BackendSelect, Python, FuncTorchDynamicLayerBackMode, Functionalize, Named, Conjugate, Negative, ZeroTensor, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradHIP, AutogradXLA, AutogradMPS, AutogradIPU, AutogradXPU, AutogradHPU, AutogradVE, AutogradLazy, AutogradMeta, AutogradMTIA, AutogradPrivateUse1, AutogradPrivateUse2, AutogradPrivateUse3, AutogradNestedTensor, Tracer, AutocastCPU, AutocastCUDA, FuncTorchBatched, FuncTorchVmapMode, Batched, VmapMode, FuncTorchGradWrapper, PythonTLSSnapshot, FuncTorchDynamicLayerFrontMode, PythonDispatcher].
+CPU: registered at aten/src/ATen/RegisterCPU.cpp:31034 [kernel]
+BackendSelect: fallthrough registered at ../aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]
+Python: registered at ../aten/src/ATen/core/PythonFallbackKernel.cpp:144 [backend fallback]
+FuncTorchDynamicLayerBackMode: registered at ../aten/src/ATen/functorch/DynamicLayer.cpp:491 [backend fallback]
+Functionalize: registered at ../aten/src/ATen/FunctionalizeFallbackKernel.cpp:280 [backend fallback]
+Named: registered at ../aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]
+Conjugate: registered at ../aten/src/ATen/ConjugateFallback.cpp:17 [backend fallback]
+Negative: registered at ../aten/src/ATen/native/NegateFallback.cpp:19 [backend fallback]
+ZeroTensor: registered at ../aten/src/ATen/ZeroTensorFallback.cpp:86 [backend fallback]
+ADInplaceOrView: fallthrough registered at ../aten/src/ATen/core/VariableFallbackKernel.cpp:63 [backend fallback]
+AutogradOther: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradCPU: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradCUDA: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradHIP: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradXLA: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradMPS: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradIPU: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradXPU: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradHPU: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradVE: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradLazy: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradMeta: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradMTIA: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradPrivateUse1: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradPrivateUse2: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradPrivateUse3: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+AutogradNestedTensor: registered at ../torch/csrc/autograd/generated/VariableType_0.cpp:15238 [autograd kernel]
+Tracer: registered at ../torch/csrc/autograd/generated/TraceType_0.cpp:16728 [kernel]
+AutocastCPU: fallthrough registered at ../aten/src/ATen/autocast_mode.cpp:487 [backend fallback]
+AutocastCUDA: fallthrough registered at ../aten/src/ATen/autocast_mode.cpp:354 [backend fallback]
+FuncTorchBatched: registered at ../aten/src/ATen/functorch/LegacyBatchingRegistrations.cpp:815 [backend fallback]
+FuncTorchVmapMode: fallthrough registered at ../aten/src/ATen/functorch/VmapModeRegistrations.cpp:28 [backend fallback]
+Batched: registered at ../aten/src/ATen/LegacyBatchingRegistrations.cpp:1073 [backend fallback]
+VmapMode: fallthrough registered at ../aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]
+FuncTorchGradWrapper: registered at ../aten/src/ATen/functorch/TensorWrapper.cpp:210 [backend fallback]
+PythonTLSSnapshot: registered at ../aten/src/ATen/core/PythonFallbackKernel.cpp:152 [backend fallback]
+FuncTorchDynamicLayerFrontMode: registered at ../aten/src/ATen/functorch/DynamicLayer.cpp:487 [backend fallback]
+PythonDispatcher: registered at ../aten/src/ATen/core/PythonFallbackKernel.cpp:148 [backend fallback]

@@ -1,0 +1,8 @@
+
+[2023-12-05 12:12:52,016] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 300, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 242, in main
+    decayed_weights = torch.cat([param.data.view(-1) for name, param, _ in self.decay_params if param.requires_grad])
+NameError: name 'self' is not defined

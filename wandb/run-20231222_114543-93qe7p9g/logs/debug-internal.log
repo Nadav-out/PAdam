@@ -1,0 +1,1299 @@
+2023-12-22 11:45:43,778 INFO    StreamThr :29654 [internal.py:wandb_internal():86] W&B internal server running at pid: 29654, started at: 2023-12-22 11:45:43.777553
+2023-12-22 11:45:43,781 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status
+2023-12-22 11:45:43,782 INFO    WriterThread:29654 [datastore.py:open_for_write():85] open: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/run-93qe7p9g.wandb
+2023-12-22 11:45:43,784 DEBUG   SenderThread:29654 [sender.py:send():382] send: header
+2023-12-22 11:45:43,827 DEBUG   SenderThread:29654 [sender.py:send():382] send: run
+2023-12-22 11:45:44,188 INFO    SenderThread:29654 [dir_watcher.py:__init__():211] watching files in: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files
+2023-12-22 11:45:44,188 INFO    SenderThread:29654 [sender.py:_start_run_threads():1136] run started: 93qe7p9g with start time 1703274343.777995
+2023-12-22 11:45:44,206 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: check_version
+2023-12-22 11:45:44,206 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: check_version
+2023-12-22 11:45:44,281 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: run_start
+2023-12-22 11:45:44,284 DEBUG   HandlerThread:29654 [system_info.py:__init__():32] System info init
+2023-12-22 11:45:44,284 DEBUG   HandlerThread:29654 [system_info.py:__init__():47] System info init done
+2023-12-22 11:45:44,284 INFO    HandlerThread:29654 [system_monitor.py:start():194] Starting system monitor
+2023-12-22 11:45:44,285 INFO    SystemMonitor:29654 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-12-22 11:45:44,285 INFO    HandlerThread:29654 [system_monitor.py:probe():214] Collecting system info
+2023-12-22 11:45:44,286 INFO    SystemMonitor:29654 [interfaces.py:start():190] Started cpu monitoring
+2023-12-22 11:45:44,287 INFO    SystemMonitor:29654 [interfaces.py:start():190] Started disk monitoring
+2023-12-22 11:45:44,288 INFO    SystemMonitor:29654 [interfaces.py:start():190] Started gpu monitoring
+2023-12-22 11:45:44,289 INFO    SystemMonitor:29654 [interfaces.py:start():190] Started memory monitoring
+2023-12-22 11:45:44,290 INFO    SystemMonitor:29654 [interfaces.py:start():190] Started network monitoring
+2023-12-22 11:45:44,317 DEBUG   HandlerThread:29654 [system_info.py:probe():196] Probing system
+2023-12-22 11:45:44,327 DEBUG   HandlerThread:29654 [system_info.py:_probe_git():181] Probing git
+2023-12-22 11:45:44,347 DEBUG   HandlerThread:29654 [system_info.py:_probe_git():189] Probing git done
+2023-12-22 11:45:44,347 DEBUG   HandlerThread:29654 [system_info.py:probe():244] Probing system done
+2023-12-22 11:45:44,347 DEBUG   HandlerThread:29654 [system_monitor.py:probe():223] {'os': 'Linux-3.10.0-1160.105.1.el7.x86_64-x86_64-with-glibc2.10', 'python': '3.8.5', 'heartbeatAt': '2023-12-22T19:45:44.317137', 'startedAt': '2023-12-22T19:45:43.766098', 'docker': None, 'cuda': None, 'args': ('config/config_cifar10.py', '--optimizer_name=PAdam', '--lambda_p=5e-3', '--lr_decay_frac=1.0', '--warmup_iters=500', '--p_norm=0.8', '--out_dir=./CIFAR10/p0p8', '--wandb_log=True', '--min_lr=1e-5', '--beta2=0.999', '--device=cuda:3'), 'state': 'running', 'program': './python/train_CIFAR.py', 'codePathLocal': 'python/train_CIFAR.py', 'codePath': 'python/train_CIFAR.py', 'git': {'remote': 'https://github.com/Nadav-out/PAdam', 'commit': '9943ce8692897702156aaa39a7629d4bf6df084a'}, 'email': 'nadav.out@gmail.com', 'root': '/global/home/users/njo/PAdam', 'host': 'ml4hep2', 'username': 'njo', 'executable': '/global/home/users/njo/anaconda3/bin/python', 'cpu_count': 16, 'cpu_count_logical': 32, 'cpu_freq': {'current': 1584.375, 'min': 1500.0, 'max': 3000.0}, 'cpu_freq_per_core': [{'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 2400.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 2400.0, 'min': 1500.0, 'max': 3000.0}, {'current': 2400.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1500.0, 'min': 1500.0, 'max': 3000.0}], 'disk': {'/': {'total': 96.9096908569336, 'used': 91.9939079284668}}, 'gpu': 'NVIDIA A40', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA A40', 'memory_total': 47850782720}, {'name': 'NVIDIA A40', 'memory_total': 47850782720}, {'name': 'NVIDIA A40', 'memory_total': 47850782720}, {'name': 'NVIDIA A40', 'memory_total': 47850782720}], 'memory': {'total': 503.6625747680664}}
+2023-12-22 11:45:44,348 INFO    HandlerThread:29654 [system_monitor.py:probe():224] Finished collecting system info
+2023-12-22 11:45:44,348 INFO    HandlerThread:29654 [system_monitor.py:probe():227] Publishing system info
+2023-12-22 11:45:44,348 DEBUG   HandlerThread:29654 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-12-22 11:45:44,350 DEBUG   HandlerThread:29654 [system_info.py:_save_pip():68] Saving pip packages done
+2023-12-22 11:45:44,350 DEBUG   HandlerThread:29654 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-12-22 11:45:45,190 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_created():271] file/dir created: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/conda-environment.yaml
+2023-12-22 11:45:45,190 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_created():271] file/dir created: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/requirements.txt
+2023-12-22 11:45:48,866 DEBUG   HandlerThread:29654 [system_info.py:_save_conda():87] Saving conda packages done
+2023-12-22 11:45:48,869 INFO    HandlerThread:29654 [system_monitor.py:probe():229] Finished publishing system info
+2023-12-22 11:45:48,875 DEBUG   SenderThread:29654 [sender.py:send():382] send: files
+2023-12-22 11:45:48,875 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-metadata.json with policy now
+2023-12-22 11:45:48,876 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:45:48,884 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:45:48,885 DEBUG   SenderThread:29654 [sender.py:send():382] send: telemetry
+2023-12-22 11:45:48,924 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:45:48,925 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:45:49,193 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/conda-environment.yaml
+2023-12-22 11:45:49,193 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_created():271] file/dir created: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-metadata.json
+2023-12-22 11:45:49,339 INFO    wandb-upload_0:29654 [upload_job.py:push():131] Uploaded file /tmp/tmpinv2z2pzwandb/lwvcf7eg-wandb-metadata.json
+2023-12-22 11:45:54,160 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:45:59,161 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:03,928 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:46:03,928 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:46:03,967 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:46:05,124 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:10,125 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:15,131 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:16,213 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/config.yaml
+2023-12-22 11:46:18,889 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:46:18,890 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:46:18,891 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:46:21,083 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:26,084 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:30,324 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:46:30,326 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:46:30,327 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:46:30,330 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:46:31,225 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_created():271] file/dir created: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:46:31,225 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_created():271] file/dir created: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:46:31,628 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:33,228 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:46:33,896 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:46:33,896 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:46:33,896 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:46:37,053 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:42,054 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:42,435 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:46:42,436 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:46:42,437 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:46:42,439 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:46:43,235 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:46:44,291 DEBUG   SystemMonitor:29654 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-12-22 11:46:44,292 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:46:45,237 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:46:47,293 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:48,899 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:46:48,900 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:46:48,901 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:46:53,099 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:46:54,638 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:46:54,639 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:46:54,639 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:46:54,642 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:46:55,246 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:46:57,248 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:46:58,924 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:03,925 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:03,926 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:47:03,927 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:47:03,927 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:47:06,702 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:47:06,703 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:47:06,704 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:47:06,705 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:47:07,256 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:47:09,007 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:09,259 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:47:14,008 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:14,294 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:47:18,820 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:47:18,822 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:47:18,823 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:47:18,825 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:47:19,139 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:47:19,139 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:47:19,140 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:47:19,268 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:47:19,335 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:21,270 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:47:24,336 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:29,336 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:30,860 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:47:30,862 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:47:30,862 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:47:30,864 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:47:31,280 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:47:33,282 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:47:33,971 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:47:33,971 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:47:33,972 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:47:35,165 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:40,165 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:43,046 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:47:43,047 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:47:43,048 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:47:43,050 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:47:43,290 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:47:44,295 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:47:45,293 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:47:45,297 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:48,971 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:47:48,971 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:47:48,972 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:47:51,173 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:54,862 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:47:54,863 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:47:54,864 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:47:54,865 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:47:55,301 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:47:57,158 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:47:57,303 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:48:02,159 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:03,973 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:48:03,973 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:48:03,974 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:48:06,948 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:48:06,950 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:48:06,950 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:48:06,952 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:48:07,303 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:07,311 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:48:09,313 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:48:12,305 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:14,297 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:48:18,298 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:18,972 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:48:18,973 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:48:18,974 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:48:19,152 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:48:19,164 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:48:19,164 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:48:19,168 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:48:19,355 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:48:21,357 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:48:23,498 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:28,499 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:31,275 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:48:31,277 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:48:31,278 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:48:31,280 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:48:31,366 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:48:33,368 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:48:33,978 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:48:33,978 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:48:33,979 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:48:34,121 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:39,121 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:42,990 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:48:42,992 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:48:42,992 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:48:42,994 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:48:43,376 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:48:44,299 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:48:44,300 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:45,378 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:48:48,981 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:48:48,981 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:48:48,982 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:48:50,096 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:54,843 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:48:54,845 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:48:54,846 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:48:54,847 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:48:55,387 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:48:55,884 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:48:57,389 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:49:00,885 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:04,016 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:49:04,017 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:49:04,017 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:49:06,194 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:06,653 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:49:06,655 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:49:06,655 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:49:06,657 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:49:07,397 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:49:09,399 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:49:11,950 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:14,300 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:49:17,301 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:18,942 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:49:18,944 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:49:18,944 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:49:18,947 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:49:19,026 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:49:19,027 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:49:19,027 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:49:19,408 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:49:21,410 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:49:23,126 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:28,127 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:30,722 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:49:30,723 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:49:30,724 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:49:30,727 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:49:31,419 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:49:33,421 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:49:34,025 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:49:34,025 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:49:34,028 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:49:34,192 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:39,192 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:42,855 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:49:42,858 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:49:42,858 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:49:42,860 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:49:43,431 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:49:43,431 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:49:44,301 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:49:44,302 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:49,029 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:49:49,029 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:49:49,030 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:49:50,199 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:54,836 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:49:54,837 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:49:54,838 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:49:54,840 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:49:55,441 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:49:55,840 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:49:57,443 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:50:00,841 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:04,034 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:50:04,035 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:50:04,035 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:50:06,233 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:06,629 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:50:06,631 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:50:06,631 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:50:06,634 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:50:07,451 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:50:09,453 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:50:11,929 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:14,303 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:50:17,305 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:18,821 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:50:18,824 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:50:18,824 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:50:18,826 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:50:19,034 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:50:19,035 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:50:19,035 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:50:19,463 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:50:21,465 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:50:23,219 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:28,220 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:30,745 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:50:30,746 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:50:30,747 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:50:30,749 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:50:31,473 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:50:33,475 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:50:34,047 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:34,075 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:50:34,075 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:50:34,075 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:50:39,259 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:42,931 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:50:42,933 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:50:42,933 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:50:42,936 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:50:43,482 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:50:44,304 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:50:44,305 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:45,485 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:50:49,097 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:50:49,098 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:50:49,099 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:50:50,207 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:55,037 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:50:55,039 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:50:55,039 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:50:55,041 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:50:55,493 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:50:56,077 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:50:57,495 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:51:01,078 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:04,098 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:51:04,098 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:51:04,099 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:51:06,192 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:06,879 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:51:06,880 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:51:06,881 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:51:06,882 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:51:07,505 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:51:09,507 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:51:11,920 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:14,305 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:51:17,306 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:18,694 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:51:18,695 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:51:18,696 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:51:18,698 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:51:19,118 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:51:19,118 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:51:19,119 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:51:19,515 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:51:21,517 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:51:23,307 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:28,307 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:30,483 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:51:30,484 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:51:30,485 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:51:30,486 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:51:30,525 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:51:33,527 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:51:33,797 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:34,130 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:51:34,130 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:51:34,131 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:51:39,332 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:42,691 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:51:42,693 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:51:42,694 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:51:42,696 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:51:43,535 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:51:44,306 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:51:45,307 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:45,537 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:51:49,149 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:51:49,149 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:51:49,150 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:51:51,296 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:51:54,568 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:51:54,569 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:51:54,569 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:51:54,571 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:51:55,546 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:51:55,547 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:51:56,869 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:01,869 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:04,155 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:52:04,156 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:52:04,156 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:52:06,790 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:52:06,791 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:52:06,792 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:52:06,794 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:52:07,556 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:52:07,557 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:52:07,794 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:12,795 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:14,308 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:52:18,309 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:18,646 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:52:18,647 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:52:18,648 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:52:18,649 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:52:19,155 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:52:19,155 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:52:19,156 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:52:19,566 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:52:19,566 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:52:23,337 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:28,338 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:30,757 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:52:30,759 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:52:30,760 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:52:30,761 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:52:31,577 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:52:31,577 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:52:34,050 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:34,161 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:52:34,162 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:52:34,162 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:52:39,271 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:42,923 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:52:42,925 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:52:42,925 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:52:42,927 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:52:43,588 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:52:43,588 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:52:44,309 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:52:44,311 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:49,160 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:52:49,161 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:52:49,162 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:52:49,365 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:54,366 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:52:54,821 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:52:54,822 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:52:54,823 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:52:54,824 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:52:55,600 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:52:55,600 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:52:59,826 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:04,163 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:53:04,163 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:53:04,164 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:53:05,349 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:06,731 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:53:06,733 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:53:06,734 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:53:06,736 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:53:07,610 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:53:07,611 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:53:10,737 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:14,311 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:53:16,312 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:18,566 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:53:18,568 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:53:18,569 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:53:18,571 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:53:18,619 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:53:19,168 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:53:19,169 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:53:19,170 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:53:19,620 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:53:21,325 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:26,326 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:30,454 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:53:30,456 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:53:30,457 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:53:30,458 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:53:30,630 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:53:31,459 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:31,631 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:53:34,172 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:53:34,172 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:53:34,173 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:53:37,354 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:42,302 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:53:42,304 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:53:42,305 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:53:42,306 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:53:42,641 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:53:43,307 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:43,642 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:53:44,312 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:53:48,314 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:49,180 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:53:49,181 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:53:49,181 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:53:53,389 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:53:54,228 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:53:54,229 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:53:54,230 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:53:54,231 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:53:54,653 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:53:55,654 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:53:58,533 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:03,534 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:04,180 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:54:04,180 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:54:04,183 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:54:06,449 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:54:06,450 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:54:06,450 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:54:06,452 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:54:06,664 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:54:07,665 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:54:09,453 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:14,314 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:54:15,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:18,365 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:54:18,366 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:54:18,367 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:54:18,369 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:54:18,675 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:54:19,222 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:54:19,222 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:54:19,223 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:54:19,675 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:54:20,371 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:25,372 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:30,372 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:30,621 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:54:30,622 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:54:30,623 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:54:30,624 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:54:30,684 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:54:31,686 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:54:34,221 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:54:34,222 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:54:34,223 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:54:36,322 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:41,323 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:42,406 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:54:42,409 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:54:42,409 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:54:42,411 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:54:42,695 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:54:43,696 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:54:44,316 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:54:47,317 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:49,222 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:54:49,222 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:54:49,223 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:54:52,322 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:54:54,290 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:54:54,292 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:54:54,292 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:54:54,294 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:54:54,706 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:54:55,707 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:54:57,581 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:02,582 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:04,237 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:55:04,237 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:55:04,238 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:55:06,509 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:55:06,510 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:55:06,511 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:55:06,513 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:55:06,717 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:55:07,719 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:55:08,514 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:13,515 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:14,318 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:55:18,456 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:55:18,458 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:55:18,458 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:55:18,460 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:55:18,728 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:55:19,273 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:55:19,273 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:55:19,273 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:55:19,361 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:19,730 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:55:24,361 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:29,362 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:30,327 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:55:30,329 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:55:30,329 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:55:30,331 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:55:30,738 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:55:31,739 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:55:34,282 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:55:34,283 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:55:34,283 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:55:34,435 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:39,436 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:42,442 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:55:42,444 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:55:42,444 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:55:42,446 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:55:42,748 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:55:43,749 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:55:44,319 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:55:45,320 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:49,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:55:49,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:55:49,316 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:55:50,427 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:55:54,319 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:55:54,320 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:55:54,320 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:55:54,322 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:55:54,759 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:55:55,760 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:55:56,359 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:01,360 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:04,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:56:04,316 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:56:04,316 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:56:06,249 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:56:06,251 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:56:06,252 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:56:06,253 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:56:06,769 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:56:07,289 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:07,770 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:56:12,291 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:14,320 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:56:17,322 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:18,018 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:56:18,019 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:56:18,020 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:56:18,021 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:56:18,779 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:56:19,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:56:19,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:56:19,316 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:56:19,781 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:56:22,442 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:27,443 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:30,123 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:56:30,124 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:56:30,125 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:56:30,127 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:56:30,790 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:56:31,791 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:56:33,128 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:34,316 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:56:34,316 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:56:34,317 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:56:38,516 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:41,928 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:56:41,930 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:56:41,931 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:56:41,932 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:56:42,800 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:56:43,801 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:56:43,933 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:44,322 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:56:49,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:56:49,316 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:56:49,358 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:56:49,512 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:53,766 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:56:53,768 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:56:53,768 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:56:53,770 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:56:53,809 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:56:54,771 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:56:55,811 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:56:59,772 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:04,334 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:57:04,334 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:57:04,335 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:57:05,486 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:05,576 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:57:05,578 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:57:05,578 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:57:05,580 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:57:05,821 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:57:07,823 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:57:10,581 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:14,324 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:57:16,325 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:17,347 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:57:17,349 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:57:17,349 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:57:17,351 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:57:17,831 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:57:17,832 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:57:19,372 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:57:19,372 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:57:19,373 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:57:21,568 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:26,569 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:29,143 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:57:29,145 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:57:29,145 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:57:29,147 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:57:29,842 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:57:29,842 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:57:32,148 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:34,406 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:57:34,406 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:57:34,407 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:57:37,549 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:40,991 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:57:40,993 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:57:40,994 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:57:40,995 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:57:41,854 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:57:41,854 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:57:42,996 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:44,325 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:57:48,326 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:49,428 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:57:49,429 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:57:49,429 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:57:52,856 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:57:52,858 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:57:52,859 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:57:52,861 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:57:52,864 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:57:53,861 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:57:53,865 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:57:58,862 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:03,863 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:04,429 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:58:04,429 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:58:04,430 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:58:04,766 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:58:04,767 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:58:04,768 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:58:04,769 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:58:04,874 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:58:05,876 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:58:09,770 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:14,326 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:58:15,328 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:16,692 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:58:16,694 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:58:16,694 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:58:16,696 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:58:16,906 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:58:17,908 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:58:19,437 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:58:19,438 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:58:19,438 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:58:20,566 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:25,567 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:28,915 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:58:28,917 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:58:28,918 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:58:28,919 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:58:29,919 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:58:29,920 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:58:31,219 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:34,467 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:58:34,467 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:58:34,467 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:58:36,567 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:41,141 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:58:41,143 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:58:41,143 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:58:41,144 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:58:41,931 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:58:41,931 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:58:42,181 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:44,328 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:58:47,330 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:49,468 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:58:49,468 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:58:49,469 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:58:52,622 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:58:53,087 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:58:53,089 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:58:53,090 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:58:53,091 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:58:53,942 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:58:53,942 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:58:58,093 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:03,094 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:04,467 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:59:04,468 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:59:04,468 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:59:04,941 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:59:04,943 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:59:04,943 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:59:04,945 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:59:04,952 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:59:05,953 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:59:08,946 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:13,947 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:14,329 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:59:16,758 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:59:16,759 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:59:16,760 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:59:16,762 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:59:16,976 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:59:17,977 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:59:19,053 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:19,478 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:59:19,479 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:59:19,479 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:59:24,614 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:28,993 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:59:28,995 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:59:28,996 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:59:28,997 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:59:29,987 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:59:29,987 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:59:30,284 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:34,507 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:59:34,508 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:59:34,508 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:59:35,688 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:40,689 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:41,103 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:59:41,106 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:59:41,106 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:59:41,108 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:59:41,998 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:59:41,998 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:59:44,330 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 11:59:46,332 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:49,508 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 11:59:49,508 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 11:59:49,509 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 11:59:51,663 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 11:59:53,036 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 11:59:53,038 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 11:59:53,038 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 11:59:53,040 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 11:59:54,009 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 11:59:54,009 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 11:59:57,077 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:02,078 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:04,510 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:00:04,511 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:00:04,511 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:00:04,902 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:00:04,904 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:00:04,904 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:00:04,906 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:00:05,019 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:00:06,021 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:00:07,208 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:12,209 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:14,331 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:00:17,054 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:00:17,056 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:00:17,056 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:00:17,058 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:00:18,031 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:00:18,031 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:00:18,059 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:19,534 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:00:19,534 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:00:19,535 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:00:23,701 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:28,701 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:28,842 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:00:28,843 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:00:28,844 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:00:28,846 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:00:29,056 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:00:30,057 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:00:34,135 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:34,538 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:00:34,538 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:00:34,539 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:00:39,736 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:41,057 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:00:41,059 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:00:41,060 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:00:41,061 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:00:41,068 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:00:42,069 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:00:44,332 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:00:45,333 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:49,552 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:00:49,552 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:00:49,553 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:00:50,744 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:00:52,878 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:00:52,880 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:00:52,881 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:00:52,883 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:00:53,079 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:00:54,080 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:00:55,919 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:00,919 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:04,552 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:01:04,552 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:01:04,553 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:01:04,722 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:01:04,724 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:01:04,724 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:01:04,726 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:01:05,090 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:01:06,091 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:01:06,763 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:11,764 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:14,333 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:01:16,526 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:01:16,527 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:01:16,528 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:01:16,529 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:01:16,801 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:17,100 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:01:18,101 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:01:19,553 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:01:19,553 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:01:19,554 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:01:22,718 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:27,719 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:28,612 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:01:28,614 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:01:28,614 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:01:28,616 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:01:29,110 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:01:30,112 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:01:33,653 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:34,569 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:01:34,570 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:01:34,570 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:01:38,734 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:40,461 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:01:40,463 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:01:40,463 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:01:40,465 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:01:41,121 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:01:42,122 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:01:44,335 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:01:44,336 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:49,336 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:01:49,590 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:01:49,590 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:01:49,592 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:01:52,250 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:01:52,252 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:01:52,253 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:01:52,254 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:01:53,131 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:01:54,132 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:01:55,291 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:00,291 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:04,133 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:02:04,135 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:02:04,135 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:02:04,137 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:02:04,140 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:02:04,610 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:02:04,610 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:02:04,611 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:02:05,763 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:06,142 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:02:10,763 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:14,336 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:02:16,072 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:02:16,074 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:02:16,075 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:02:16,075 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:16,077 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:02:16,152 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:02:18,154 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:02:19,640 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:02:19,641 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:02:19,641 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:02:21,800 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:26,801 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:28,200 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:02:28,203 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:02:28,203 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:02:28,205 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:02:29,164 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:02:30,165 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:02:32,207 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:34,640 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:02:34,641 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:02:34,641 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:02:37,807 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:39,948 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:02:39,950 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:02:39,951 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:02:39,952 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:02:40,173 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:02:42,175 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:02:42,953 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:44,337 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:02:48,338 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:49,665 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:02:49,665 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:02:49,666 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:02:51,795 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:02:51,797 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:02:51,798 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:02:51,799 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:02:52,184 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:02:52,185 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:02:53,800 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:02:58,801 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:03,578 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:03:03,581 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:03:03,581 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:03:03,583 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:03:04,195 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:03:04,195 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:03:04,584 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:04,665 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:03:04,666 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:03:04,666 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:03:09,866 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:14,338 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:03:15,340 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:15,463 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:03:15,465 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:03:15,465 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:03:15,467 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:03:16,205 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:03:16,205 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:03:19,665 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:03:19,665 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:03:19,666 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:03:20,829 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:25,830 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:27,374 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:03:27,376 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:03:27,377 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:03:27,378 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:03:28,216 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:03:28,217 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:03:31,415 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:34,665 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:03:34,666 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:03:34,667 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:03:36,834 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:39,211 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:03:39,213 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:03:39,214 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:03:39,215 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:03:39,226 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:03:40,227 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:03:42,252 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:44,340 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:03:47,341 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:49,667 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:03:49,667 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:03:49,668 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:03:51,166 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:03:51,168 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:03:51,169 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:03:51,171 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:03:51,239 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:03:52,240 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:03:53,206 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:03:58,207 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:03,024 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:04:03,026 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:04:03,027 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:04:03,029 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:04:03,249 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:04:04,030 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:04,250 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:04:04,680 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:04:04,681 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:04:04,681 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:04:09,853 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:14,342 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:04:14,920 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:04:14,922 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:04:14,922 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:04:14,923 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:14,924 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:04:15,260 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:04:16,261 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:04:19,701 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:04:19,702 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:04:19,703 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:04:20,906 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:25,907 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:26,842 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:04:26,844 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:04:26,844 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:04:26,846 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:04:27,271 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:04:28,273 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:04:31,847 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:34,701 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:04:34,702 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:04:34,702 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:04:36,883 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:38,652 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:04:38,653 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:04:38,653 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:04:38,655 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:04:39,283 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:04:40,284 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:04:41,949 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:44,343 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:04:47,345 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:49,715 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:04:49,742 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:04:49,743 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:04:50,812 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:04:50,814 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:04:50,814 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:04:50,815 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:04:51,292 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:04:52,294 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:04:52,852 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:04:57,853 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:02,764 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:05:02,766 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:05:02,766 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:05:02,768 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:05:03,302 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:05:03,769 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:04,304 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:05:04,750 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:05:04,751 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:05:04,751 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:05:08,873 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:13,874 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:14,345 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:05:14,633 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:05:14,635 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:05:14,635 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:05:14,636 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:05:15,313 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:05:16,314 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:05:19,673 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:19,751 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:05:19,752 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:05:19,752 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:05:24,907 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:26,474 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:05:26,475 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:05:26,476 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:05:26,477 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:05:27,322 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:05:28,323 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:05:30,771 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:34,759 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:05:34,760 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:05:34,760 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:05:35,925 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:38,623 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:05:38,624 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:05:38,625 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:05:38,627 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:05:39,332 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:05:40,334 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:05:41,664 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:44,347 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:05:47,348 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:49,760 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:05:49,760 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:05:49,763 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:05:50,454 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:05:50,456 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:05:50,456 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:05:50,458 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:05:51,344 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:05:52,345 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:05:52,494 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:05:57,495 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:06:02,315 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:06:02,317 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:06:02,318 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:06:02,320 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:06:02,354 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:06:03,320 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:06:04,356 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:06:04,760 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:06:04,760 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: stop_status
+2023-12-22 12:06:04,761 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: stop_status
+2023-12-22 12:06:08,973 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:06:13,974 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:06:14,129 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: partial_history
+2023-12-22 12:06:14,130 DEBUG   SenderThread:29654 [sender.py:send():382] send: history
+2023-12-22 12:06:14,131 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: summary_record
+2023-12-22 12:06:14,132 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:06:14,197 DEBUG   SenderThread:29654 [sender.py:send():382] send: exit
+2023-12-22 12:06:14,197 INFO    SenderThread:29654 [sender.py:send_exit():589] handling exit code: 0
+2023-12-22 12:06:14,197 INFO    SenderThread:29654 [sender.py:send_exit():591] handling runtime: 1229
+2023-12-22 12:06:14,199 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:06:14,200 INFO    SenderThread:29654 [sender.py:send_exit():597] send defer
+2023-12-22 12:06:14,200 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,200 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 0
+2023-12-22 12:06:14,202 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,202 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 0
+2023-12-22 12:06:14,202 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 1
+2023-12-22 12:06:14,202 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,202 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 1
+2023-12-22 12:06:14,202 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,202 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 1
+2023-12-22 12:06:14,202 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 2
+2023-12-22 12:06:14,202 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,202 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 2
+2023-12-22 12:06:14,202 INFO    HandlerThread:29654 [system_monitor.py:finish():203] Stopping system monitor
+2023-12-22 12:06:14,203 INFO    HandlerThread:29654 [interfaces.py:finish():202] Joined cpu monitor
+2023-12-22 12:06:14,203 INFO    HandlerThread:29654 [interfaces.py:finish():202] Joined disk monitor
+2023-12-22 12:06:14,204 DEBUG   SystemMonitor:29654 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-12-22 12:06:14,204 DEBUG   SystemMonitor:29654 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-12-22 12:06:14,365 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:06:14,390 INFO    HandlerThread:29654 [interfaces.py:finish():202] Joined gpu monitor
+2023-12-22 12:06:14,390 INFO    HandlerThread:29654 [interfaces.py:finish():202] Joined memory monitor
+2023-12-22 12:06:14,391 INFO    HandlerThread:29654 [interfaces.py:finish():202] Joined network monitor
+2023-12-22 12:06:14,391 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,391 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 2
+2023-12-22 12:06:14,391 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 3
+2023-12-22 12:06:14,391 DEBUG   SenderThread:29654 [sender.py:send():382] send: stats
+2023-12-22 12:06:14,393 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,393 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 3
+2023-12-22 12:06:14,394 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,394 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 3
+2023-12-22 12:06:14,394 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 4
+2023-12-22 12:06:14,394 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,394 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 4
+2023-12-22 12:06:14,395 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,395 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 4
+2023-12-22 12:06:14,395 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 5
+2023-12-22 12:06:14,395 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,395 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 5
+2023-12-22 12:06:14,395 DEBUG   SenderThread:29654 [sender.py:send():382] send: summary
+2023-12-22 12:06:14,397 INFO    SenderThread:29654 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2023-12-22 12:06:14,397 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,397 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 5
+2023-12-22 12:06:14,397 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 6
+2023-12-22 12:06:14,397 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,397 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 6
+2023-12-22 12:06:14,397 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,397 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 6
+2023-12-22 12:06:14,398 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 7
+2023-12-22 12:06:14,398 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: status_report
+2023-12-22 12:06:14,398 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:14,398 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 7
+2023-12-22 12:06:14,398 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:14,398 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 7
+2023-12-22 12:06:15,197 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-22 12:06:15,366 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:06:16,183 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 8
+2023-12-22 12:06:16,183 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: poll_exit
+2023-12-22 12:06:16,184 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:16,184 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 8
+2023-12-22 12:06:16,184 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:16,184 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 8
+2023-12-22 12:06:16,184 INFO    SenderThread:29654 [job_builder.py:build():298] Attempting to build job artifact
+2023-12-22 12:06:16,185 INFO    SenderThread:29654 [job_builder.py:_get_source_type():428] is repo sourced job
+2023-12-22 12:06:16,199 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-22 12:06:16,233 INFO    SenderThread:29654 [job_builder.py:build():404] adding wandb-job metadata file
+2023-12-22 12:06:16,245 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 9
+2023-12-22 12:06:16,245 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: poll_exit
+2023-12-22 12:06:16,246 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:16,246 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 9
+2023-12-22 12:06:16,246 DEBUG   SenderThread:29654 [sender.py:send():382] send: artifact
+2023-12-22 12:06:16,367 INFO    Thread-12 :29654 [dir_watcher.py:_on_file_modified():288] file/dir modified: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:06:17,005 INFO    wandb-upload_1:29654 [upload_job.py:push():86] Skipped uploading /global/home/users/njo/.local/share/wandb/artifacts/staging/tmpntc6v3ef
+2023-12-22 12:06:17,200 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-22 12:06:17,285 INFO    wandb-upload_0:29654 [upload_job.py:push():89] Uploaded file /global/home/users/njo/.local/share/wandb/artifacts/staging/tmp3hmjg0k8
+2023-12-22 12:06:18,343 INFO    SenderThread:29654 [sender.py:send_artifact():1470] sent artifact job-https___github.com_Nadav-out_PAdam_python_train_CIFAR.py - {'id': 'QXJ0aWZhY3Q6NjcyODU3MTMx', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEyMzMxMjMwOA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjcyODM3NDQx', 'versionIndex': 9}}}
+2023-12-22 12:06:18,343 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:18,343 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 9
+2023-12-22 12:06:18,343 INFO    SenderThread:29654 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-12-22 12:06:18,369 INFO    SenderThread:29654 [dir_watcher.py:finish():388] scan: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files
+2023-12-22 12:06:18,369 INFO    SenderThread:29654 [dir_watcher.py:finish():402] scan save: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/config.yaml config.yaml
+2023-12-22 12:06:18,370 INFO    SenderThread:29654 [dir_watcher.py:finish():402] scan save: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/requirements.txt requirements.txt
+2023-12-22 12:06:18,370 INFO    SenderThread:29654 [dir_watcher.py:finish():402] scan save: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/conda-environment.yaml conda-environment.yaml
+2023-12-22 12:06:18,373 INFO    SenderThread:29654 [dir_watcher.py:finish():402] scan save: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-metadata.json wandb-metadata.json
+2023-12-22 12:06:18,373 INFO    SenderThread:29654 [dir_watcher.py:finish():402] scan save: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json wandb-summary.json
+2023-12-22 12:06:18,374 INFO    SenderThread:29654 [dir_watcher.py:finish():402] scan save: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log output.log
+2023-12-22 12:06:18,380 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 10
+2023-12-22 12:06:18,380 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: poll_exit
+2023-12-22 12:06:18,381 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:18,381 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 10
+2023-12-22 12:06:18,383 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:18,384 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 10
+2023-12-22 12:06:18,384 INFO    SenderThread:29654 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-22 12:06:18,690 INFO    wandb-upload_1:29654 [upload_job.py:push():131] Uploaded file /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/config.yaml
+2023-12-22 12:06:18,976 INFO    wandb-upload_0:29654 [upload_job.py:push():131] Uploaded file /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/conda-environment.yaml
+2023-12-22 12:06:19,063 INFO    wandb-upload_3:29654 [upload_job.py:push():131] Uploaded file /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/wandb-summary.json
+2023-12-22 12:06:19,075 INFO    wandb-upload_2:29654 [upload_job.py:push():131] Uploaded file /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/requirements.txt
+2023-12-22 12:06:19,128 INFO    wandb-upload_4:29654 [upload_job.py:push():131] Uploaded file /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/files/output.log
+2023-12-22 12:06:19,329 INFO    Thread-11 :29654 [sender.py:transition_state():617] send defer: 11
+2023-12-22 12:06:19,329 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:19,329 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 11
+2023-12-22 12:06:19,330 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:19,330 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 11
+2023-12-22 12:06:19,330 INFO    SenderThread:29654 [file_pusher.py:join():181] waiting for file pusher
+2023-12-22 12:06:19,330 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 12
+2023-12-22 12:06:19,330 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:19,330 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 12
+2023-12-22 12:06:19,331 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:19,331 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 12
+2023-12-22 12:06:19,331 INFO    SenderThread:29654 [file_stream.py:finish():595] file stream finish called
+2023-12-22 12:06:19,928 INFO    SenderThread:29654 [file_stream.py:finish():599] file stream finish is done
+2023-12-22 12:06:19,928 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 13
+2023-12-22 12:06:19,928 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:19,928 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 13
+2023-12-22 12:06:19,929 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:19,929 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 13
+2023-12-22 12:06:19,929 INFO    SenderThread:29654 [sender.py:transition_state():617] send defer: 14
+2023-12-22 12:06:19,929 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: defer
+2023-12-22 12:06:19,929 INFO    HandlerThread:29654 [handler.py:handle_request_defer():172] handle defer: 14
+2023-12-22 12:06:19,929 DEBUG   SenderThread:29654 [sender.py:send():382] send: final
+2023-12-22 12:06:19,930 DEBUG   SenderThread:29654 [sender.py:send():382] send: footer
+2023-12-22 12:06:19,930 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: defer
+2023-12-22 12:06:19,930 INFO    SenderThread:29654 [sender.py:send_request_defer():613] handle sender defer: 14
+2023-12-22 12:06:19,930 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: poll_exit
+2023-12-22 12:06:19,931 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: poll_exit
+2023-12-22 12:06:19,931 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: server_info
+2023-12-22 12:06:19,932 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: server_info
+2023-12-22 12:06:19,934 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: get_summary
+2023-12-22 12:06:19,934 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: sampled_history
+2023-12-22 12:06:19,936 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: internal_messages
+2023-12-22 12:06:19,937 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: job_info
+2023-12-22 12:06:20,033 DEBUG   SenderThread:29654 [sender.py:send_request():409] send_request: job_info
+2023-12-22 12:06:20,034 INFO    MainThread:29654 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2023-12-22 12:06:20,035 INFO    MainThread:29654 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2023-12-22 12:06:20,035 INFO    MainThread:29654 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2023-12-22 12:06:20,035 DEBUG   HandlerThread:29654 [handler.py:handle_request():146] handle_request: shutdown
+2023-12-22 12:06:20,035 INFO    HandlerThread:29654 [handler.py:finish():866] shutting down handler
+2023-12-22 12:06:20,937 INFO    WriterThread:29654 [datastore.py:close():294] close: /global/home/users/njo/PAdam/wandb/run-20231222_114543-93qe7p9g/run-93qe7p9g.wandb
+2023-12-22 12:06:21,034 INFO    SenderThread:29654 [sender.py:finish():1548] shutting down sender
+2023-12-22 12:06:21,034 INFO    SenderThread:29654 [file_pusher.py:finish():175] shutting down file pusher
+2023-12-22 12:06:21,034 INFO    SenderThread:29654 [file_pusher.py:join():181] waiting for file pusher

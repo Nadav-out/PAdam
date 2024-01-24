@@ -1,0 +1,136 @@
+
+[2023-12-11 15:57:40,135] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 54.21% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 1/100	Train Loss: 1.7861	Test Loss: 1.3008	Accuracy: 54.21%	Current LR: 0.00025	Elapsed Time: 00:01:32	Expected Time: 02:34:45
+Reached accuracy 56.71% on epoch 2. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 2/100	Train Loss: 1.2137	Test Loss: 1.2938	Accuracy: 56.71%	Current LR: 0.00050	Elapsed Time: 00:02:20	Expected Time: 01:57:11
+Reached accuracy 62.17% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 3/100	Train Loss: 0.9967	Test Loss: 1.1811	Accuracy: 62.17%	Current LR: 0.00075	Elapsed Time: 00:03:09	Expected Time: 01:45:25
+Reached accuracy 66.75% on epoch 4. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 4/100	Train Loss: 0.8641	Test Loss: 0.9925	Accuracy: 66.75%	Current LR: 0.00100	Elapsed Time: 00:03:57	Expected Time: 01:38:47
+Reached accuracy 67.34% on epoch 5. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 5/100	Train Loss: 0.7490	Test Loss: 1.0298	Accuracy: 67.34%	Current LR: 0.00100	Elapsed Time: 00:04:45	Expected Time: 01:35:03
+Reached accuracy 76.41% on epoch 6. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 6/100	Train Loss: 0.6502	Test Loss: 0.7595	Accuracy: 76.41%	Current LR: 0.00100	Elapsed Time: 00:05:33	Expected Time: 01:32:40
+Reached accuracy 79.57% on epoch 7. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 8/100	Train Loss: 0.5369	Test Loss: 0.6157	Accuracy: 79.26%	Current LR: 0.00100	Elapsed Time: 00:07:09	Expected Time: 01:29:34
+Reached accuracy 84.13% on epoch 9. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+
+Epoch: 12/100	Train Loss: 0.3918	Test Loss: 0.5044	Accuracy: 83.46%	Current LR: 0.00098	Elapsed Time: 00:10:21	Expected Time: 01:26:19
+Reached accuracy 84.62% on epoch 13. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 13/100	Train Loss: 0.3615	Test Loss: 0.4788	Accuracy: 84.62%	Current LR: 0.00098	Elapsed Time: 00:11:08	Expected Time: 01:25:43
+Reached accuracy 86.04% on epoch 14. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 14/100	Train Loss: 0.3410	Test Loss: 0.4144	Accuracy: 86.04%	Current LR: 0.00097	Elapsed Time: 00:11:57	Expected Time: 01:25:22
+Reached accuracy 86.38% on epoch 15. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 16/100	Train Loss: 0.3048	Test Loss: 0.4399	Accuracy: 85.93%	Current LR: 0.00096	Elapsed Time: 00:13:32	Expected Time: 01:24:40
+Reached accuracy 86.83% on epoch 17. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 17/100	Train Loss: 0.2839	Test Loss: 0.4216	Accuracy: 86.83%	Current LR: 0.00096	Elapsed Time: 00:14:20	Expected Time: 01:24:22
+Reached accuracy 89.18% on epoch 18. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 19/100	Train Loss: 0.2544	Test Loss: 0.3910	Accuracy: 88.44%	Current LR: 0.00094	Elapsed Time: 00:15:55	Expected Time: 01:23:51
+Reached accuracy 89.46% on epoch 20. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 21/100	Train Loss: 0.2256	Test Loss: 0.3698	Accuracy: 88.80%	Current LR: 0.00093	Elapsed Time: 00:17:24	Expected Time: 01:22:56
+Reached accuracy 90.13% on epoch 22. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+
+Epoch: 28/100	Train Loss: 0.1506	Test Loss: 0.3433	Accuracy: 89.65%	Current LR: 0.00086	Elapsed Time: 00:22:03	Expected Time: 01:18:48
+Reached accuracy 91.00% on epoch 29. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+Epoch: 34/100	Train Loss: 0.1108	Test Loss: 0.3351	Accuracy: 90.30%	Current LR: 0.00078	Elapsed Time: 00:26:02	Expected Time: 01:16:34
+Reached accuracy 91.14% on epoch 35. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 35/100	Train Loss: 0.1066	Test Loss: 0.3292	Accuracy: 91.14%	Current LR: 0.00077	Elapsed Time: 00:26:42	Expected Time: 01:16:17
+Reached accuracy 91.57% on epoch 36. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 38/100	Train Loss: 0.0893	Test Loss: 0.3211	Accuracy: 91.25%	Current LR: 0.00072	Elapsed Time: 00:28:44	Expected Time: 01:15:38
+Reached accuracy 92.05% on epoch 39. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 41/100	Train Loss: 0.0789	Test Loss: 0.3373	Accuracy: 91.45%	Current LR: 0.00068	Elapsed Time: 00:30:39	Expected Time: 01:14:46
+Reached accuracy 92.10% on epoch 42. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+Epoch: 46/100	Train Loss: 0.0603	Test Loss: 0.3123	Accuracy: 92.05%	Current LR: 0.00060	Elapsed Time: 00:33:50	Expected Time: 01:13:34
+Reached accuracy 92.30% on epoch 47. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 48/100	Train Loss: 0.0575	Test Loss: 0.3441	Accuracy: 91.88%	Current LR: 0.00057	Elapsed Time: 00:35:07	Expected Time: 01:13:11
+Reached accuracy 92.31% on epoch 49. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 49/100	Train Loss: 0.0494	Test Loss: 0.3293	Accuracy: 92.31%	Current LR: 0.00055	Elapsed Time: 00:35:46	Expected Time: 01:13:00
+Reached accuracy 92.58% on epoch 50. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+Epoch: 55/100	Train Loss: 0.0383	Test Loss: 0.3325	Accuracy: 92.42%	Current LR: 0.00046	Elapsed Time: 00:39:35	Expected Time: 01:11:58
+Reached accuracy 92.64% on epoch 56. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 56/100	Train Loss: 0.0337	Test Loss: 0.3220	Accuracy: 92.64%	Current LR: 0.00044	Elapsed Time: 00:40:13	Expected Time: 01:11:49
+Reached accuracy 92.77% on epoch 57. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.
+Sparsity: 0.00000
+Epoch: 58/100	Train Loss: 0.0317	Test Loss: 0.3175	Accuracy: 92.77%	Current LR: 0.00041	Elapsed Time: 00:41:30	Expected Time: 01:11:34
+Reached accuracy 93.01% on epoch 59. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:11:34
+Reached accuracy 93.01% on epoch 59. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:11:34
+Sparsity: 0.00000
+Epoch: 60/100	Train Loss: 0.0290	Test Loss: 0.3364	Accuracy: 92.58%	Current LR: 0.00038	Elapsed Time: 00:42:47	Expected Time: 01:11:19
+Epoch: 61/100	Train Loss: 0.0276	Test Loss: 0.3275	Accuracy: 92.76%	Current LR: 0.00036	Elapsed Time: 00:43:25	Expected Time: 01:11:11
+Sparsity: 0.00000in Loss: 0.0276	Test Loss: 0.3275	Accuracy: 92.76%	Current LR: 0.00036	Elapsed Time: 00:43:25	Expected Time: 01:11:11
+Sparsity: 0.00000in Loss: 0.0276	Test Loss: 0.3275	Accuracy: 92.76%	Current LR: 0.00036	Elapsed Time: 00:43:25	Expected Time: 01:11:11
+Sparsity: 0.00000in Loss: 0.0276	Test Loss: 0.3275	Accuracy: 92.76%	Current LR: 0.00036	Elapsed Time: 00:43:25	Expected Time: 01:11:11
+Sparsity: 0.00000in Loss: 0.0276	Test Loss: 0.3275	Accuracy: 92.76%	Current LR: 0.00036	Elapsed Time: 00:43:25	Expected Time: 01:11:11
+Sparsity: 0.00000in Loss: 0.0276	Test Loss: 0.3275	Accuracy: 92.76%	Current LR: 0.00036	Elapsed Time: 00:43:25	Expected Time: 01:11:11
+Reached accuracy 93.15% on epoch 67. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:11:11
+Reached accuracy 93.15% on epoch 67. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:11:11
+Epoch: 69/100	Train Loss: 0.0167	Test Loss: 0.3328	Accuracy: 93.32%	Current LR: 0.00024	Elapsed Time: 00:48:32	Expected Time: 01:10:21
+Epoch: 70/100	Train Loss: 0.0154	Test Loss: 0.3279	Accuracy: 93.30%	Current LR: 0.00023	Elapsed Time: 00:49:10	Expected Time: 01:10:15
+Epoch: 71/100	Train Loss: 0.0139	Test Loss: 0.3330	Accuracy: 93.32%	Current LR: 0.00022	Elapsed Time: 00:49:49	Expected Time: 01:10:10
+Epoch: 72/100	Train Loss: 0.0144	Test Loss: 0.3291	Accuracy: 93.02%	Current LR: 0.00020	Elapsed Time: 00:50:27	Expected Time: 01:10:04
+Epoch: 73/100	Train Loss: 0.0131	Test Loss: 0.3394	Accuracy: 93.16%	Current LR: 0.00019	Elapsed Time: 00:51:05	Expected Time: 01:09:59
+Epoch: 74/100	Train Loss: 0.0120	Test Loss: 0.3379	Accuracy: 93.12%	Current LR: 0.00018	Elapsed Time: 00:51:43	Expected Time: 01:09:53
+Epoch: 75/100	Train Loss: 0.0126	Test Loss: 0.3425	Accuracy: 93.26%	Current LR: 0.00017	Elapsed Time: 00:52:21	Expected Time: 01:09:48
+Sparsity: 0.00000in Loss: 0.0126	Test Loss: 0.3425	Accuracy: 93.26%	Current LR: 0.00017	Elapsed Time: 00:52:21	Expected Time: 01:09:48
+Sparsity: 0.00000in Loss: 0.0126	Test Loss: 0.3425	Accuracy: 93.26%	Current LR: 0.00017	Elapsed Time: 00:52:21	Expected Time: 01:09:48
+Sparsity: 0.00000in Loss: 0.0126	Test Loss: 0.3425	Accuracy: 93.26%	Current LR: 0.00017	Elapsed Time: 00:52:21	Expected Time: 01:09:48
+Sparsity: 0.00000in Loss: 0.0126	Test Loss: 0.3425	Accuracy: 93.26%	Current LR: 0.00017	Elapsed Time: 00:52:21	Expected Time: 01:09:48
+Sparsity: 0.00000in Loss: 0.0126	Test Loss: 0.3425	Accuracy: 93.26%	Current LR: 0.00017	Elapsed Time: 00:52:21	Expected Time: 01:09:48
+Reached accuracy 93.65% on epoch 81. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:09:48
+Reached accuracy 93.65% on epoch 81. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:09:48
+Reached accuracy 93.65% on epoch 81. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_mann/best_model.pth.ime: 01:09:48

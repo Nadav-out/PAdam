@@ -1,0 +1,37 @@
+Epoch: [32m  0/200[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:00[39m • Time Remaining: [36m-:--:--
+Train Loss: [1m1.5587[22m • Validation Loss: [1m1.9734[22m • Validation Accuracy: [1m42.76[22m% • Learning Rate: [1m0.00005[22m • Sparsity: [1m0.0[22m%
+Best Validation Loss: 1.9734, achive at epoch 1 with 0.0% sparsity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Best Validation Loss: 0.2849, achive at epoch 34 with 0.0% sparsity
+Best Validation Accuracy: 94.39%, achive at epoch 164 with 0.0% sparsity
+[?25h

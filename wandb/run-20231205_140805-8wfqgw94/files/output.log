@@ -1,0 +1,21 @@
+
+[2023-12-05 14:08:17,629] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+/global/home/users/njo/anaconda3/lib/python3.8/site-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 294, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 251, in main
+    "decayed_weights_hist": wandb.Histogram(model.decayed_weights_histogram()),
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/wandb/sdk/data_types/histogram.py", line 77, in __init__
+    self.histogram, self.bins = np.histogram(sequence, bins=num_bins)
+  File "<__array_function__ internals>", line 5, in histogram
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/numpy/lib/histograms.py", line 792, in histogram
+    bin_edges, uniform_bins = _get_bin_edges(a, bins, range, weights)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/numpy/lib/histograms.py", line 426, in _get_bin_edges
+    first_edge, last_edge = _get_outer_edges(a, range)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/numpy/lib/histograms.py", line 321, in _get_outer_edges
+    first_edge, last_edge = a.min(), a.max()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/numpy/core/_methods.py", line 43, in _amin
+    return umr_minimum(a, axis, None, out, keepdims, initial, where)
+ValueError: operands could not be broadcast together with shapes (50,) (51,)

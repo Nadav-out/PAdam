@@ -1,0 +1,12 @@
+
+[2023-12-12 16:02:25,846] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 10.00% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 2/100	Train Loss: nan	Test Loss: nan	Accuracy: 10.00%	Current LR: 0.00050	Elapsed Time: 00:01:57	Expected Time: 01:38:10
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 322, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 217, in main
+    running_loss += loss.item()
+KeyboardInterrupt

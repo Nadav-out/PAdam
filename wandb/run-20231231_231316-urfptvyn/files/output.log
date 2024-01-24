@@ -1,0 +1,255 @@
+Reached accuracy 49.18% on epoch 1.
+Sparsity: 0.00000
+Reached validation loss 1.5906 on epoch 1.
+Sparsity: 0.00000
+Epoch: 1/200	Train Loss: 1.5968	Test Loss: 1.5906	Accuracy: 49.18%	Current LR: 0.00124	Elapsed Time: 00:00:26	Expected Time: 01:28:25
+Reached accuracy 52.57% on epoch 2.
+Sparsity: 0.00000
+Epoch: 2/200	Train Loss: 1.1495	Test Loss: 1.7959	Accuracy: 52.57%	Current LR: 0.00249	Elapsed Time: 00:00:37	Expected Time: 01:02:00
+Reached accuracy 65.82% on epoch 3.
+Sparsity: 0.00000
+Reached validation loss 1.0094 on epoch 3.
+Sparsity: 0.00000
+Epoch: 3/200	Train Loss: 0.9492	Test Loss: 1.0094	Accuracy: 65.82%	Current LR: 0.00374	Elapsed Time: 00:00:48	Expected Time: 00:53:21
+Reached accuracy 73.77% on epoch 4.
+Sparsity: 0.00000
+Reached validation loss 0.7785 on epoch 4.
+Sparsity: 0.00000
+Epoch: 4/200	Train Loss: 0.8320	Test Loss: 0.7785	Accuracy: 73.77%	Current LR: 0.00499	Elapsed Time: 00:00:58	Expected Time: 00:49:01
+Reached accuracy 74.71% on epoch 5.
+Sparsity: 0.00000
+Reached validation loss 0.7555 on epoch 5.
+Sparsity: 0.00000
+Epoch: 5/200	Train Loss: 0.7223	Test Loss: 0.7555	Accuracy: 74.71%	Current LR: 0.00500	Elapsed Time: 00:01:09	Expected Time: 00:46:22
+Reached accuracy 75.01% on epoch 6.
+Sparsity: 0.00000
+Reached validation loss 0.7510 on epoch 6.
+Sparsity: 0.00000
+Epoch: 6/200	Train Loss: 0.6217	Test Loss: 0.7510	Accuracy: 75.01%	Current LR: 0.00500	Elapsed Time: 00:01:20	Expected Time: 00:44:37
+Reached accuracy 76.80% on epoch 7.
+Sparsity: 0.00000
+Reached validation loss 0.7073 on epoch 7.
+Sparsity: 0.00000
+Epoch: 7/200	Train Loss: 0.5700	Test Loss: 0.7073	Accuracy: 76.80%	Current LR: 0.00500	Elapsed Time: 00:01:31	Expected Time: 00:43:25
+Reached accuracy 83.28% on epoch 8.
+Sparsity: 0.00000
+Reached validation loss 0.4916 on epoch 8.
+Sparsity: 0.00000
+Epoch: 8/200	Train Loss: 0.5160	Test Loss: 0.4916	Accuracy: 83.28%	Current LR: 0.00499	Elapsed Time: 00:01:41	Expected Time: 00:42:29
+Reached accuracy 84.68% on epoch 9.
+Sparsity: 0.00000
+Reached validation loss 0.4522 on epoch 9.
+Sparsity: 0.00000
+
+Epoch: 10/200	Train Loss: 0.4483	Test Loss: 0.5392	Accuracy: 82.18%	Current LR: 0.00499	Elapsed Time: 00:02:03	Expected Time: 00:41:10
+Reached accuracy 86.17% on epoch 11.
+Sparsity: 0.00000
+Reached validation loss 0.4236 on epoch 11.
+Sparsity: 0.00000
+Epoch: 11/200	Train Loss: 0.4168	Test Loss: 0.4236	Accuracy: 86.17%	Current LR: 0.00498	Elapsed Time: 00:02:14	Expected Time: 00:40:44
+Reached accuracy 87.03% on epoch 12.
+Sparsity: 0.00000
+Reached validation loss 0.3849 on epoch 12.
+Sparsity: 0.00000
+
+
+
+
+Epoch: 16/200	Train Loss: 0.3197	Test Loss: 0.4142	Accuracy: 86.76%	Current LR: 0.00495	Elapsed Time: 00:03:08	Expected Time: 00:39:19
+Reached accuracy 87.45% on epoch 17.
+Sparsity: 0.00000
+Epoch: 17/200	Train Loss: 0.3012	Test Loss: 0.3980	Accuracy: 87.45%	Current LR: 0.00495	Elapsed Time: 00:03:19	Expected Time: 00:39:07
+Reached accuracy 87.98% on epoch 18.
+Sparsity: 0.00000
+Epoch: 18/200	Train Loss: 0.2878	Test Loss: 0.3890	Accuracy: 87.98%	Current LR: 0.00494	Elapsed Time: 00:03:30	Expected Time: 00:38:56
+Reached accuracy 88.58% on epoch 19.
+Sparsity: 0.00000
+Reached validation loss 0.3529 on epoch 19.
+Sparsity: 0.00000
+Epoch: 19/200	Train Loss: 0.2745	Test Loss: 0.3529	Accuracy: 88.58%	Current LR: 0.00493	Elapsed Time: 00:03:41	Expected Time: 00:38:46
+Epoch: 19/200	Train Loss: 0.2745	Test Loss: 0.3529	Accuracy: 88.58%	Current LR: 0.00493	Elapsed Time: 00:03:41	Expected Time: 00:38:46
+Reached accuracy 88.81% on epoch 20.
+Sparsity: 0.00000
+Reached validation loss 0.3374 on epoch 20.
+Sparsity: 0.00000
+Epoch: 21/200	Train Loss: 0.2546	Test Loss: 0.3656	Accuracy: 88.33%	Current LR: 0.00491	Elapsed Time: 00:04:02	Expected Time: 00:38:30
+Epoch: 22/200	Train Loss: 0.2424	Test Loss: 0.3607	Accuracy: 88.78%	Current LR: 0.00490	Elapsed Time: 00:04:13	Expected Time: 00:38:24
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 23/200	Train Loss: 0.2316	Test Loss: 0.3320	Accuracy: 89.54%	Current LR: 0.00489	Elapsed Time: 00:04:24	Expected Time: 00:38:18
+Epoch: 32/200	Train Loss: 0.1710	Test Loss: 0.3129	Accuracy: 90.97%	Current LR: 0.00476	Elapsed Time: 00:06:01	Expected Time: 00:37:41
+Epoch: 32/200	Train Loss: 0.1710	Test Loss: 0.3129	Accuracy: 90.97%	Current LR: 0.00476	Elapsed Time: 00:06:01	Expected Time: 00:37:41
+Epoch: 34/200	Train Loss: 0.1583	Test Loss: 0.2966	Accuracy: 91.38%	Current LR: 0.00472	Elapsed Time: 00:06:23	Expected Time: 00:37:34
+Epoch: 35/200	Train Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Epoch: 35/200	Train Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Epoch: 35/200	Train Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Epoch: 35/200	Train Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Epoch: 35/200	Train Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Epoch: 35/200	Train Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32
+Sparsity: 0.00000in Loss: 0.1508	Test Loss: 0.3543	Accuracy: 90.06%	Current LR: 0.00470	Elapsed Time: 00:06:34	Expected Time: 00:37:32

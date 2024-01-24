@@ -1,0 +1,22 @@
+Epoch: [32m  0/200[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:00[39m • Time Remaining: [36m-:--:--
+Train Loss: [1m1.5345[22m • Validation Loss: [1m1.2260[22m • Validation Accuracy: [1m57.22[22m% • Learning Rate: [1m0.00005[22m • Sparsity: [1m0.0[22m%
+Best Validation Loss: 1.2260, achive at epoch 1 with 0.0% sparsity
+
+
+
+
+
+Best Validation Accuracy: 80.73%, achive at epoch 6 with 0.0% sparsity
+[?25h
+Traceback (most recent call last):
+  File "./python/train_CIFAR_new.py", line 417, in <module>
+    main()
+  File "./python/train_CIFAR_new.py", line 335, in main
+    avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
+  File "./python/train_CIFAR_new.py", line 104, in train_one_epoch
+    loss.backward()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

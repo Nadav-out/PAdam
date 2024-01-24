@@ -1,0 +1,88 @@
+
+[2023-12-12 16:51:44,441] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 54.63% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.01176
+Epoch: 1/100	Train Loss: 1.7864	Test Loss: 1.2849	Accuracy: 54.63%	Current LR: 0.00025	Elapsed Time: 00:01:22	Expected Time: 02:18:05
+Reached accuracy 56.97% on epoch 2. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.04784
+Epoch: 2/100	Train Loss: 1.2138	Test Loss: 1.2688	Accuracy: 56.97%	Current LR: 0.00050	Elapsed Time: 00:02:02	Expected Time: 01:42:14
+Reached accuracy 66.77% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.09603
+
+Epoch: 4/100	Train Loss: 0.8527	Test Loss: 1.0517	Accuracy: 65.08%	Current LR: 0.00100	Elapsed Time: 00:03:21	Expected Time: 01:24:07
+Reached accuracy 69.23% on epoch 5. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.20690
+Epoch: 5/100	Train Loss: 0.7417	Test Loss: 0.9142	Accuracy: 69.23%	Current LR: 0.00100	Elapsed Time: 00:04:01	Expected Time: 01:20:26
+Reached accuracy 77.14% on epoch 6. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.25658
+Epoch: 6/100	Train Loss: 0.6409	Test Loss: 0.6989	Accuracy: 77.14%	Current LR: 0.00100	Elapsed Time: 00:04:41	Expected Time: 01:18:04
+Reached accuracy 79.19% on epoch 7. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.30166
+Epoch: 7/100	Train Loss: 0.5801	Test Loss: 0.6193	Accuracy: 79.19%	Current LR: 0.00100	Elapsed Time: 00:05:20	Expected Time: 01:16:20
+Reached accuracy 79.67% on epoch 8. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.34154
+Epoch: 8/100	Train Loss: 0.5291	Test Loss: 0.5835	Accuracy: 79.67%	Current LR: 0.00100	Elapsed Time: 00:06:00	Expected Time: 01:15:05
+Reached accuracy 83.16% on epoch 9. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.37834
+Epoch: 9/100	Train Loss: 0.4734	Test Loss: 0.4947	Accuracy: 83.16%	Current LR: 0.00099	Elapsed Time: 00:06:39	Expected Time: 01:14:04
+Reached accuracy 83.27% on epoch 10. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.41215
+
+Epoch: 11/100	Train Loss: 0.4072	Test Loss: 0.5095	Accuracy: 82.93%	Current LR: 0.00099	Elapsed Time: 00:07:58	Expected Time: 01:12:33
+Reached accuracy 84.42% on epoch 12. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.47104
+Epoch: 12/100	Train Loss: 0.3815	Test Loss: 0.4624	Accuracy: 84.42%	Current LR: 0.00098	Elapsed Time: 00:08:38	Expected Time: 01:12:00
+Reached accuracy 86.17% on epoch 13. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.49695
+
+Epoch: 14/100	Train Loss: 0.3338	Test Loss: 0.4207	Accuracy: 85.74%	Current LR: 0.00097	Elapsed Time: 00:09:57	Expected Time: 01:11:06
+Reached accuracy 86.58% on epoch 15. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.54287
+Epoch: 15/100	Train Loss: 0.3112	Test Loss: 0.4026	Accuracy: 86.58%	Current LR: 0.00097	Elapsed Time: 00:10:36	Expected Time: 01:10:45
+Reached accuracy 87.43% on epoch 16. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.56338
+
+Epoch: 17/100	Train Loss: 0.2747	Test Loss: 0.4277	Accuracy: 86.66%	Current LR: 0.00096	Elapsed Time: 00:11:55	Expected Time: 01:10:09
+Reached accuracy 88.81% on epoch 18. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.60028
+Epoch: 18/100	Train Loss: 0.2604	Test Loss: 0.3374	Accuracy: 88.81%	Current LR: 0.00095	Elapsed Time: 00:12:35	Expected Time: 01:09:55
+Reached accuracy 88.88% on epoch 19. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.61704
+
+
+Epoch: 21/100	Train Loss: 0.2155	Test Loss: 0.3466	Accuracy: 88.79%	Current LR: 0.00093	Elapsed Time: 00:14:32	Expected Time: 01:09:16
+Reached accuracy 89.11% on epoch 22. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.66122
+Epoch: 22/100	Train Loss: 0.2039	Test Loss: 0.3454	Accuracy: 89.11%	Current LR: 0.00092	Elapsed Time: 00:15:12	Expected Time: 01:09:06
+Reached accuracy 89.28% on epoch 23. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.67410
+
+Epoch: 24/100	Train Loss: 0.1866	Test Loss: 0.3402	Accuracy: 89.24%	Current LR: 0.00090	Elapsed Time: 00:16:31	Expected Time: 01:08:49
+Reached accuracy 90.58% on epoch 25. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.69725
+
+Epoch: 26/100	Train Loss: 0.1627	Test Loss: 0.3372	Accuracy: 89.25%	Current LR: 0.00088	Elapsed Time: 00:17:49	Expected Time: 01:08:33
+Reached accuracy 90.62% on epoch 27. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.71795
+Epoch: 27/100	Train Loss: 0.1541	Test Loss: 0.2909	Accuracy: 90.62%	Current LR: 0.00087	Elapsed Time: 00:18:29	Expected Time: 01:08:28
+Reached accuracy 90.72% on epoch 28. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.72746
+
+
+Epoch: 30/100	Train Loss: 0.1336	Test Loss: 0.3310	Accuracy: 90.29%	Current LR: 0.00083	Elapsed Time: 00:20:26	Expected Time: 01:08:08
+Reached accuracy 91.22% on epoch 31. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.75303
+
+
+Epoch: 33/100	Train Loss: 0.1116	Test Loss: 0.3164	Accuracy: 90.90%	Current LR: 0.00079	Elapsed Time: 00:22:25	Expected Time: 01:07:56
+Reached accuracy 91.80% on epoch 34. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.77476
+Epoch: 34/100	Train Loss: 0.1083	Test Loss: 0.2783	Accuracy: 91.80%	Current LR: 0.00078	Elapsed Time: 00:23:04	Expected Time: 01:07:52
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 322, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 233, in main
+    torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/nn/utils/clip_grad.py", line 76, in clip_grad_norm_
+    torch._foreach_mul_(grads, clip_coef_clamped.to(device))  # type: ignore[call-overload]
+KeyboardInterrupt

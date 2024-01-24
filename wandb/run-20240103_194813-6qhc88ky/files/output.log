@@ -1,0 +1,106 @@
+[?25l[34m╭───────────────────────────────────────────────────────────────────────────────── [32m'progress'[34m [39m[1m(187[34m[22m x [39m[1m1)[34m[22m ──────────────────────────────────────────────────────────────────────────────────╮
+[34m╭────────────────────────────────────────────────────────────────────────────────── [32m'status'[34m [39m[1m(187[34m[22m x [39m[1m2)[34m[22m ───────────────────────────────────────────────────────────────────────────────────╮
+[34m╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[34m╭─────────────────────────────────────────────────────────────────────────────── [32m'best_results'[34m [39m[1m(187[34m[22m x [39m[1m2)[34m[22m ────────────────────────────────────────────────────────────────────────────────╮
+[34m╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[?25h
+Traceback (most recent call last):
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 1199, in run_node
+    return nnmodule(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/utils/_stats.py", line 20, in wrapper
+    return fn(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_subclasses/fake_tensor.py", line 987, in __torch_dispatch__
+    return self.dispatch(func, types, args, kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_subclasses/fake_tensor.py", line 1140, in dispatch
+    return decomposition_table[func](*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_prims_common/wrappers.py", line 220, in _fn
+    result = fn(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_decomp/decompositions.py", line 70, in inner
+    r = f(*tree_map(increase_prec, args), **tree_map(increase_prec, kwargs))
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_decomp/decompositions.py", line 1126, in addmm
+    out = alpha * torch.mm(mat1, mat2)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/utils/_stats.py", line 20, in wrapper
+    return fn(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_subclasses/fake_tensor.py", line 987, in __torch_dispatch__
+    return self.dispatch(func, types, args, kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_subclasses/fake_tensor.py", line 1170, in dispatch
+    r = func(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_ops.py", line 287, in __call__
+    return self._op(*args, **kwargs or {})
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_meta_registrations.py", line 448, in meta_mm
+    check(M1 == M2, lambda: "a and b must have same reduction dim")
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_prims_common/__init__.py", line 1563, in check
+    raise exc_type(s())
+RuntimeError: a and b must have same reduction dim
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 1152, in get_fake_value
+    return wrap_fake_exception(
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 808, in wrap_fake_exception
+    return fn()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 1153, in <lambda>
+    lambda: run_node(tx.output, node, args, kwargs, nnmodule)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 1206, in run_node
+    raise RuntimeError(
+RuntimeError: Failed running call_module self_linear(*(FakeTensor(FakeTensor(..., device='meta', size=(400, 32768), grad_fn=<ViewBackward0>), cuda:2),), **{}):
+a and b must have same reduction dim
+(scroll up for backtrace)
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "./python/train_CIFAR_new.py", line 441, in <module>
+    main()
+  File "./python/train_CIFAR_new.py", line 290, in main
+    outputs = model(inputs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/eval_frame.py", line 82, in forward
+    return self.dynamo_ctx(self._orig_mod.forward)(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/eval_frame.py", line 209, in _fn
+    return fn(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/eval_frame.py", line 337, in catch_errors
+    return callback(frame, cache_size, hooks)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/convert_frame.py", line 404, in _convert_frame
+    result = inner_convert(frame, cache_size, hooks)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/convert_frame.py", line 104, in _fn
+    return fn(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/convert_frame.py", line 262, in _convert_frame_assert
+    return _compile(
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+    r = func(*args, **kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/convert_frame.py", line 324, in _compile
+    out_code = transform_code_object(code, transform)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/bytecode_transformation.py", line 445, in transform_code_object
+    transformations(instructions, code_options)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/convert_frame.py", line 311, in transform
+    tracer.run()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/symbolic_convert.py", line 1726, in run
+    super().run()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/symbolic_convert.py", line 576, in run
+    and self.step()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/symbolic_convert.py", line 540, in step
+    getattr(self, inst.opname)(inst)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/symbolic_convert.py", line 342, in wrapper
+    return inner_fn(self, inst)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/symbolic_convert.py", line 965, in CALL_FUNCTION
+    self.call_function(fn, args, {})
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/symbolic_convert.py", line 474, in call_function
+    self.push(fn.call_function(self, args, kwargs))
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/variables/nn_module.py", line 203, in call_function
+    return wrap_fx_proxy(
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/variables/builder.py", line 754, in wrap_fx_proxy
+    return wrap_fx_proxy_cls(
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/variables/builder.py", line 789, in wrap_fx_proxy_cls
+    example_value = get_fake_value(proxy.node, tx)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/_dynamo/utils.py", line 1173, in get_fake_value
+    raise TorchRuntimeError() from e
+torch._dynamo.exc.TorchRuntimeError:
+from user code:
+   File "/global/home/users/njo/PAdam/python/models.py", line 247, in forward
+    out = self.linear(out)
+Set torch._dynamo.config.verbose=True for more information
+You can suppress this exception and fall back to eager by setting:
+    torch._dynamo.config.suppress_errors = True

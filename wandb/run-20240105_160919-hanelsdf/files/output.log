@@ -1,0 +1,268 @@
+
+Training[33m...
+Best Validation Accuracy: [1m52.75[22m%, achived at epoch [1m1[22m with [1m45.8[22m% sparsity
+Best Validation Loss: [1m1.4281[22m, achived at epoch [1m1[22m with [1m45.8[22m% sparsity
+Epoch: [1m1[22m/[1m200[22m    Train Loss: [1m1.5242[22m      Test Loss: [1m1.4281[22m       Accuracy: [1m52.75[22m%        Current LR: [1m0.00005
+Best Validation Accuracy: [1m59.62[22m%, achived at epoch [1m2[22m with [1m78.8[22m% sparsity
+Best Validation Loss: [1m1.3460[22m, achived at epoch [1m2[22m with [1m78.8[22m% sparsity
+Epoch: [1m2[22m/[1m200[22m    Train Loss: [1m1.1519[22m      Test Loss: [1m1.3460[22m       Accuracy: [1m59.62[22m%        Current LR: [1m0.00170
+Best Validation Accuracy: [1m72.20[22m%, achived at epoch [1m3[22m with [1m86.1[22m% sparsity
+Best Validation Loss: [1m0.7997[22m, achived at epoch [1m3[22m with [1m86.1[22m% sparsity
+Epoch: [1m3[22m/[1m200[22m    Train Loss: [1m0.9497[22m      Test Loss: [1m0.7997[22m       Accuracy: [1m72.20[22m%        Current LR: [1m0.00335
+Best Validation Accuracy: [1m74.57[22m%, achived at epoch [1m4[22m with [1m88.8[22m% sparsity
+Best Validation Loss: [1m0.7422[22m, achived at epoch [1m4[22m with [1m88.8[22m% sparsity
+Epoch: [1m4[22m/[1m200[22m    Train Loss: [1m0.7999[22m      Test Loss: [1m0.7422[22m       Accuracy: [1m74.57[22m%        Current LR: [1m0.00500
+Best Validation Accuracy: [1m79.55[22m%, achived at epoch [1m5[22m with [1m90.0[22m% sparsity
+Best Validation Loss: [1m0.6019[22m, achived at epoch [1m5[22m with [1m90.0[22m% sparsity
+Epoch: [1m5[22m/[1m200[22m    Train Loss: [1m0.7016[22m      Test Loss: [1m0.6019[22m       Accuracy: [1m79.55[22m%        Current LR: [1m0.00500
+Epoch: [1m6[22m/[1m200[22m    Train Loss: [1m0.6292[22m      Test Loss: [1m0.6561[22m       Accuracy: [1m77.83[22m%        Current LR: [1m0.00500
+Best Validation Accuracy: [1m82.73[22m%, achived at epoch [1m7[22m with [1m91.1[22m% sparsity
+Best Validation Loss: [1m0.4992[22m, achived at epoch [1m7[22m with [1m91.1[22m% sparsity
+Epoch: [1m7[22m/[1m200[22m    Train Loss: [1m0.5754[22m      Test Loss: [1m0.4992[22m       Accuracy: [1m82.73[22m%        Current LR: [1m0.00500
+Epoch: [1m8[22m/[1m200[22m    Train Loss: [1m0.5333[22m      Test Loss: [1m0.5501[22m       Accuracy: [1m81.17[22m%        Current LR: [1m0.00499
+Best Validation Accuracy: [1m84.51[22m%, achived at epoch [1m9[22m with [1m91.7[22m% sparsity
+Best Validation Loss: [1m0.4699[22m, achived at epoch [1m9[22m with [1m91.7[22m% sparsity
+Epoch: [1m9[22m/[1m200[22m    Train Loss: [1m0.5034[22m      Test Loss: [1m0.4699[22m       Accuracy: [1m84.51[22m%        Current LR: [1m0.00499
+Best Validation Accuracy: [1m84.60[22m%, achived at epoch [1m10[22m with [1m91.9[22m% sparsity
+Best Validation Loss: [1m0.4587[22m, achived at epoch [1m10[22m with [1m91.9[22m% sparsity
+Epoch: [1m10[22m/[1m200[22m   Train Loss: [1m0.4710[22m      Test Loss: [1m0.4587[22m       Accuracy: [1m84.60[22m%        Current LR: [1m0.00499
+Best Validation Accuracy: [1m86.00[22m%, achived at epoch [1m11[22m with [1m92.1[22m% sparsity
+Best Validation Loss: [1m0.4037[22m, achived at epoch [1m11[22m with [1m92.1[22m% sparsity
+Epoch: [1m11[22m/[1m200[22m   Train Loss: [1m0.4446[22m      Test Loss: [1m0.4037[22m       Accuracy: [1m86.00[22m%        Current LR: [1m0.00498
+Best Validation Accuracy: [1m86.21[22m%, achived at epoch [1m12[22m with [1m92.2[22m% sparsity
+Epoch: [1m12[22m/[1m200[22m   Train Loss: [1m0.4238[22m      Test Loss: [1m0.4065[22m       Accuracy: [1m86.21[22m%        Current LR: [1m0.00498
+Best Validation Accuracy: [1m87.18[22m%, achived at epoch [1m13[22m with [1m92.4[22m% sparsity
+Best Validation Loss: [1m0.3829[22m, achived at epoch [1m13[22m with [1m92.4[22m% sparsity
+Epoch: [1m13[22m/[1m200[22m   Train Loss: [1m0.4055[22m      Test Loss: [1m0.3829[22m       Accuracy: [1m87.18[22m%        Current LR: [1m0.00497
+Epoch: [1m14[22m/[1m200[22m   Train Loss: [1m0.3880[22m      Test Loss: [1m0.4051[22m       Accuracy: [1m86.21[22m%        Current LR: [1m0.00497
+Best Validation Accuracy: [1m88.19[22m%, achived at epoch [1m15[22m with [1m92.6[22m% sparsity
+Best Validation Loss: [1m0.3601[22m, achived at epoch [1m15[22m with [1m92.6[22m% sparsity
+Epoch: [1m15[22m/[1m200[22m   Train Loss: [1m0.3760[22m      Test Loss: [1m0.3601[22m       Accuracy: [1m88.19[22m%        Current LR: [1m0.00496
+Best Validation Accuracy: [1m88.51[22m%, achived at epoch [1m16[22m with [1m92.8[22m% sparsity
+Epoch: [1m16[22m/[1m200[22m   Train Loss: [1m0.3546[22m      Test Loss: [1m0.3633[22m       Accuracy: [1m88.51[22m%        Current LR: [1m0.00495
+Best Validation Loss: [1m0.3544[22m, achived at epoch [1m17[22m with [1m92.9[22m% sparsity
+Epoch: [1m17[22m/[1m200[22m   Train Loss: [1m0.3429[22m      Test Loss: [1m0.3544[22m       Accuracy: [1m88.40[22m%        Current LR: [1m0.00495
+Epoch: [1m18[22m/[1m200[22m   Train Loss: [1m0.3351[22m      Test Loss: [1m0.3553[22m       Accuracy: [1m88.29[22m%        Current LR: [1m0.00494
+Best Validation Loss: [1m0.3514[22m, achived at epoch [1m19[22m with [1m93.1[22m% sparsity
+Epoch: [1m19[22m/[1m200[22m   Train Loss: [1m0.3286[22m      Test Loss: [1m0.3514[22m       Accuracy: [1m88.45[22m%        Current LR: [1m0.00493
+Best Validation Loss: [1m0.3437[22m, achived at epoch [1m20[22m with [1m93.2[22m% sparsity
+Epoch: [1m20[22m/[1m200[22m   Train Loss: [1m0.3219[22m      Test Loss: [1m0.3437[22m       Accuracy: [1m88.49[22m%        Current LR: [1m0.00492
+Best Validation Accuracy: [1m89.21[22m%, achived at epoch [1m21[22m with [1m93.3[22m% sparsity
+Best Validation Loss: [1m0.3237[22m, achived at epoch [1m21[22m with [1m93.3[22m% sparsity
+Epoch: [1m21[22m/[1m200[22m   Train Loss: [1m0.3124[22m      Test Loss: [1m0.3237[22m       Accuracy: [1m89.21[22m%        Current LR: [1m0.00491
+Epoch: [1m22[22m/[1m200[22m   Train Loss: [1m0.3015[22m      Test Loss: [1m0.3497[22m       Accuracy: [1m88.66[22m%        Current LR: [1m0.00490
+Epoch: [1m23[22m/[1m200[22m   Train Loss: [1m0.2913[22m      Test Loss: [1m0.3348[22m       Accuracy: [1m89.11[22m%        Current LR: [1m0.00489
+Best Validation Accuracy: [1m89.54[22m%, achived at epoch [1m24[22m with [1m93.5[22m% sparsity
+Epoch: [1m24[22m/[1m200[22m   Train Loss: [1m0.2866[22m      Test Loss: [1m0.3258[22m       Accuracy: [1m89.54[22m%        Current LR: [1m0.00488
+Best Validation Accuracy: [1m89.57[22m%, achived at epoch [1m25[22m with [1m93.6[22m% sparsity
+Best Validation Loss: [1m0.3136[22m, achived at epoch [1m25[22m with [1m93.6[22m% sparsity
+Epoch: [1m25[22m/[1m200[22m   Train Loss: [1m0.2805[22m      Test Loss: [1m0.3136[22m       Accuracy: [1m89.57[22m%        Current LR: [1m0.00486
+Epoch: [1m26[22m/[1m200[22m   Train Loss: [1m0.2742[22m      Test Loss: [1m0.3272[22m       Accuracy: [1m89.38[22m%        Current LR: [1m0.00485
+Epoch: [1m27[22m/[1m200[22m   Train Loss: [1m0.2687[22m      Test Loss: [1m0.3423[22m       Accuracy: [1m89.00[22m%        Current LR: [1m0.00484
+Best Validation Accuracy: [1m90.00[22m%, achived at epoch [1m28[22m with [1m93.9[22m% sparsity
+Best Validation Loss: [1m0.3105[22m, achived at epoch [1m28[22m with [1m93.9[22m% sparsity
+Epoch: [1m28[22m/[1m200[22m   Train Loss: [1m0.2692[22m      Test Loss: [1m0.3105[22m       Accuracy: [1m90.00[22m%        Current LR: [1m0.00482
+Epoch: [1m29[22m/[1m200[22m   Train Loss: [1m0.2534[22m      Test Loss: [1m0.3188[22m       Accuracy: [1m89.80[22m%        Current LR: [1m0.00481
+Best Validation Accuracy: [1m90.19[22m%, achived at epoch [1m30[22m with [1m94.0[22m% sparsity
+Best Validation Loss: [1m0.3036[22m, achived at epoch [1m30[22m with [1m94.0[22m% sparsity
+Epoch: [1m30[22m/[1m200[22m   Train Loss: [1m0.2562[22m      Test Loss: [1m0.3036[22m       Accuracy: [1m90.19[22m%        Current LR: [1m0.00479
+Best Validation Accuracy: [1m90.41[22m%, achived at epoch [1m31[22m with [1m94.1[22m% sparsity
+Best Validation Loss: [1m0.3007[22m, achived at epoch [1m31[22m with [1m94.1[22m% sparsity
+Epoch: [1m31[22m/[1m200[22m   Train Loss: [1m0.2495[22m      Test Loss: [1m0.3007[22m       Accuracy: [1m90.41[22m%        Current LR: [1m0.00477
+Epoch: [1m32[22m/[1m200[22m   Train Loss: [1m0.2445[22m      Test Loss: [1m0.3146[22m       Accuracy: [1m89.77[22m%        Current LR: [1m0.00476
+Epoch: [1m33[22m/[1m200[22m   Train Loss: [1m0.2383[22m      Test Loss: [1m0.3342[22m       Accuracy: [1m89.43[22m%        Current LR: [1m0.00474
+Epoch: [1m34[22m/[1m200[22m   Train Loss: [1m0.2317[22m      Test Loss: [1m0.3068[22m       Accuracy: [1m90.32[22m%        Current LR: [1m0.00472
+Epoch: [1m35[22m/[1m200[22m   Train Loss: [1m0.2240[22m      Test Loss: [1m0.3140[22m       Accuracy: [1m90.29[22m%        Current LR: [1m0.00470
+Best Validation Loss: [1m0.2921[22m, achived at epoch [1m36[22m with [1m94.4[22m% sparsity
+Epoch: [1m36[22m/[1m200[22m   Train Loss: [1m0.2292[22m      Test Loss: [1m0.2921[22m       Accuracy: [1m90.22[22m%        Current LR: [1m0.00468
+Best Validation Accuracy: [1m90.91[22m%, achived at epoch [1m37[22m with [1m94.5[22m% sparsity
+Epoch: [1m37[22m/[1m200[22m   Train Loss: [1m0.2224[22m      Test Loss: [1m0.2938[22m       Accuracy: [1m90.91[22m%        Current LR: [1m0.00467
+Epoch: [1m38[22m/[1m200[22m   Train Loss: [1m0.2235[22m      Test Loss: [1m0.2948[22m       Accuracy: [1m90.81[22m%        Current LR: [1m0.00465
+Best Validation Accuracy: [1m91.00[22m%, achived at epoch [1m39[22m with [1m94.6[22m% sparsity
+Best Validation Loss: [1m0.2853[22m, achived at epoch [1m39[22m with [1m94.6[22m% sparsity
+Epoch: [1m39[22m/[1m200[22m   Train Loss: [1m0.2104[22m      Test Loss: [1m0.2853[22m       Accuracy: [1m91.00[22m%        Current LR: [1m0.00462
+Best Validation Accuracy: [1m91.22[22m%, achived at epoch [1m40[22m with [1m94.7[22m% sparsity
+Best Validation Loss: [1m0.2699[22m, achived at epoch [1m40[22m with [1m94.7[22m% sparsity
+Epoch: [1m40[22m/[1m200[22m   Train Loss: [1m0.2117[22m      Test Loss: [1m0.2699[22m       Accuracy: [1m91.22[22m%        Current LR: [1m0.00460
+Epoch: [1m41[22m/[1m200[22m   Train Loss: [1m0.2105[22m      Test Loss: [1m0.2968[22m       Accuracy: [1m90.76[22m%        Current LR: [1m0.00458
+Epoch: [1m42[22m/[1m200[22m   Train Loss: [1m0.2055[22m      Test Loss: [1m0.3096[22m       Accuracy: [1m90.58[22m%        Current LR: [1m0.00456
+Epoch: [1m43[22m/[1m200[22m   Train Loss: [1m0.2040[22m      Test Loss: [1m0.2910[22m       Accuracy: [1m91.08[22m%        Current LR: [1m0.00454
+Epoch: [1m44[22m/[1m200[22m   Train Loss: [1m0.2011[22m      Test Loss: [1m0.3172[22m       Accuracy: [1m90.39[22m%        Current LR: [1m0.00451
+Epoch: [1m45[22m/[1m200[22m   Train Loss: [1m0.1966[22m      Test Loss: [1m0.3038[22m       Accuracy: [1m90.84[22m%        Current LR: [1m0.00449
+Epoch: [1m46[22m/[1m200[22m   Train Loss: [1m0.1948[22m      Test Loss: [1m0.2921[22m       Accuracy: [1m90.88[22m%        Current LR: [1m0.00447
+Best Validation Accuracy: [1m91.24[22m%, achived at epoch [1m47[22m with [1m95.0[22m% sparsity
+Epoch: [1m47[22m/[1m200[22m   Train Loss: [1m0.1856[22m      Test Loss: [1m0.2928[22m       Accuracy: [1m91.24[22m%        Current LR: [1m0.00444
+Epoch: [1m48[22m/[1m200[22m   Train Loss: [1m0.1891[22m      Test Loss: [1m0.3280[22m       Accuracy: [1m90.22[22m%        Current LR: [1m0.00442
+Best Validation Accuracy: [1m91.30[22m%, achived at epoch [1m49[22m with [1m95.1[22m% sparsity
+Epoch: [1m49[22m/[1m200[22m   Train Loss: [1m0.1862[22m      Test Loss: [1m0.2846[22m       Accuracy: [1m91.30[22m%        Current LR: [1m0.00439
+Best Validation Accuracy: [1m91.43[22m%, achived at epoch [1m50[22m with [1m95.2[22m% sparsity
+Epoch: [1m50[22m/[1m200[22m   Train Loss: [1m0.1793[22m      Test Loss: [1m0.2868[22m       Accuracy: [1m91.43[22m%        Current LR: [1m0.00436
+Epoch: [1m51[22m/[1m200[22m   Train Loss: [1m0.1831[22m      Test Loss: [1m0.2904[22m       Accuracy: [1m91.40[22m%        Current LR: [1m0.00434
+Epoch: [1m52[22m/[1m200[22m   Train Loss: [1m0.1782[22m      Test Loss: [1m0.2881[22m       Accuracy: [1m91.27[22m%        Current LR: [1m0.00431
+Best Validation Accuracy: [1m91.67[22m%, achived at epoch [1m53[22m with [1m95.3[22m% sparsity
+Epoch: [1m53[22m/[1m200[22m   Train Loss: [1m0.1758[22m      Test Loss: [1m0.2706[22m       Accuracy: [1m91.67[22m%        Current LR: [1m0.00428
+Epoch: [1m54[22m/[1m200[22m   Train Loss: [1m0.1740[22m      Test Loss: [1m0.2907[22m       Accuracy: [1m91.60[22m%        Current LR: [1m0.00425
+Best Validation Accuracy: [1m92.02[22m%, achived at epoch [1m55[22m with [1m95.4[22m% sparsity
+Best Validation Loss: [1m0.2672[22m, achived at epoch [1m55[22m with [1m95.4[22m% sparsity
+Epoch: [1m55[22m/[1m200[22m   Train Loss: [1m0.1749[22m      Test Loss: [1m0.2672[22m       Accuracy: [1m92.02[22m%        Current LR: [1m0.00423
+Epoch: [1m56[22m/[1m200[22m   Train Loss: [1m0.1706[22m      Test Loss: [1m0.2853[22m       Accuracy: [1m91.61[22m%        Current LR: [1m0.00420
+Epoch: [1m57[22m/[1m200[22m   Train Loss: [1m0.1651[22m      Test Loss: [1m0.2811[22m       Accuracy: [1m91.61[22m%        Current LR: [1m0.00417
+Epoch: [1m58[22m/[1m200[22m   Train Loss: [1m0.1684[22m      Test Loss: [1m0.2839[22m       Accuracy: [1m91.77[22m%        Current LR: [1m0.00414
+Epoch: [1m59[22m/[1m200[22m   Train Loss: [1m0.1582[22m      Test Loss: [1m0.2970[22m       Accuracy: [1m91.37[22m%        Current LR: [1m0.00411
+Epoch: [1m60[22m/[1m200[22m   Train Loss: [1m0.1618[22m      Test Loss: [1m0.2897[22m       Accuracy: [1m91.48[22m%        Current LR: [1m0.00408
+Epoch: [1m61[22m/[1m200[22m   Train Loss: [1m0.1619[22m      Test Loss: [1m0.3060[22m       Accuracy: [1m91.54[22m%        Current LR: [1m0.00405
+Epoch: [1m62[22m/[1m200[22m   Train Loss: [1m0.1587[22m      Test Loss: [1m0.3058[22m       Accuracy: [1m91.49[22m%        Current LR: [1m0.00401
+Best Validation Accuracy: [1m92.19[22m%, achived at epoch [1m63[22m with [1m95.7[22m% sparsity
+Epoch: [1m63[22m/[1m200[22m   Train Loss: [1m0.1578[22m      Test Loss: [1m0.2746[22m       Accuracy: [1m92.19[22m%        Current LR: [1m0.00398
+Epoch: [1m64[22m/[1m200[22m   Train Loss: [1m0.1532[22m      Test Loss: [1m0.2757[22m       Accuracy: [1m91.72[22m%        Current LR: [1m0.00395
+Epoch: [1m65[22m/[1m200[22m   Train Loss: [1m0.1520[22m      Test Loss: [1m0.3072[22m       Accuracy: [1m90.84[22m%        Current LR: [1m0.00392
+Epoch: [1m66[22m/[1m200[22m   Train Loss: [1m0.1471[22m      Test Loss: [1m0.2809[22m       Accuracy: [1m91.77[22m%        Current LR: [1m0.00389
+Best Validation Accuracy: [1m92.21[22m%, achived at epoch [1m67[22m with [1m95.9[22m% sparsity
+Epoch: [1m67[22m/[1m200[22m   Train Loss: [1m0.1483[22m      Test Loss: [1m0.2833[22m       Accuracy: [1m92.21[22m%        Current LR: [1m0.00385
+Epoch: [1m68[22m/[1m200[22m   Train Loss: [1m0.1496[22m      Test Loss: [1m0.2772[22m       Accuracy: [1m91.87[22m%        Current LR: [1m0.00382
+Epoch: [1m69[22m/[1m200[22m   Train Loss: [1m0.1431[22m      Test Loss: [1m0.2994[22m       Accuracy: [1m91.88[22m%        Current LR: [1m0.00379
+Epoch: [1m70[22m/[1m200[22m   Train Loss: [1m0.1397[22m      Test Loss: [1m0.3028[22m       Accuracy: [1m91.78[22m%        Current LR: [1m0.00375
+Epoch: [1m71[22m/[1m200[22m   Train Loss: [1m0.1425[22m      Test Loss: [1m0.2839[22m       Accuracy: [1m91.86[22m%        Current LR: [1m0.00372
+Epoch: [1m72[22m/[1m200[22m   Train Loss: [1m0.1387[22m      Test Loss: [1m0.2744[22m       Accuracy: [1m92.10[22m%        Current LR: [1m0.00368
+Epoch: [1m73[22m/[1m200[22m   Train Loss: [1m0.1360[22m      Test Loss: [1m0.2865[22m       Accuracy: [1m91.59[22m%        Current LR: [1m0.00365
+Epoch: [1m74[22m/[1m200[22m   Train Loss: [1m0.1358[22m      Test Loss: [1m0.2808[22m       Accuracy: [1m92.15[22m%        Current LR: [1m0.00361
+Epoch: [1m75[22m/[1m200[22m   Train Loss: [1m0.1368[22m      Test Loss: [1m0.2989[22m       Accuracy: [1m91.99[22m%        Current LR: [1m0.00358
+Best Validation Accuracy: [1m92.28[22m%, achived at epoch [1m76[22m with [1m96.2[22m% sparsity
+Epoch: [1m76[22m/[1m200[22m   Train Loss: [1m0.1313[22m      Test Loss: [1m0.2853[22m       Accuracy: [1m92.28[22m%        Current LR: [1m0.00354
+Epoch: [1m77[22m/[1m200[22m   Train Loss: [1m0.1322[22m      Test Loss: [1m0.2901[22m       Accuracy: [1m92.11[22m%        Current LR: [1m0.00350
+Epoch: [1m78[22m/[1m200[22m   Train Loss: [1m0.1300[22m      Test Loss: [1m0.2836[22m       Accuracy: [1m92.16[22m%        Current LR: [1m0.00347
+Epoch: [1m79[22m/[1m200[22m   Train Loss: [1m0.1313[22m      Test Loss: [1m0.2889[22m       Accuracy: [1m92.00[22m%        Current LR: [1m0.00343
+Epoch: [1m80[22m/[1m200[22m   Train Loss: [1m0.1268[22m      Test Loss: [1m0.2940[22m       Accuracy: [1m91.69[22m%        Current LR: [1m0.00339
+Epoch: [1m81[22m/[1m200[22m   Train Loss: [1m0.1230[22m      Test Loss: [1m0.3091[22m       Accuracy: [1m91.98[22m%        Current LR: [1m0.00336
+Epoch: [1m82[22m/[1m200[22m   Train Loss: [1m0.1284[22m      Test Loss: [1m0.2893[22m       Accuracy: [1m91.98[22m%        Current LR: [1m0.00332
+Best Validation Accuracy: [1m92.47[22m%, achived at epoch [1m83[22m with [1m96.4[22m% sparsity
+Epoch: [1m83[22m/[1m200[22m   Train Loss: [1m0.1232[22m      Test Loss: [1m0.2830[22m       Accuracy: [1m92.47[22m%        Current LR: [1m0.00328
+Best Validation Accuracy: [1m92.49[22m%, achived at epoch [1m84[22m with [1m96.5[22m% sparsity
+Epoch: [1m84[22m/[1m200[22m   Train Loss: [1m0.1229[22m      Test Loss: [1m0.2898[22m       Accuracy: [1m92.49[22m%        Current LR: [1m0.00324
+Epoch: [1m85[22m/[1m200[22m   Train Loss: [1m0.1201[22m      Test Loss: [1m0.2986[22m       Accuracy: [1m92.13[22m%        Current LR: [1m0.00321
+Epoch: [1m86[22m/[1m200[22m   Train Loss: [1m0.1185[22m      Test Loss: [1m0.2932[22m       Accuracy: [1m92.29[22m%        Current LR: [1m0.00317
+Epoch: [1m87[22m/[1m200[22m   Train Loss: [1m0.1169[22m      Test Loss: [1m0.3017[22m       Accuracy: [1m92.18[22m%        Current LR: [1m0.00313
+Epoch: [1m88[22m/[1m200[22m   Train Loss: [1m0.1174[22m      Test Loss: [1m0.2885[22m       Accuracy: [1m92.26[22m%        Current LR: [1m0.00309
+Epoch: [1m89[22m/[1m200[22m   Train Loss: [1m0.1141[22m      Test Loss: [1m0.2998[22m       Accuracy: [1m92.03[22m%        Current LR: [1m0.00305
+Epoch: [1m90[22m/[1m200[22m   Train Loss: [1m0.1167[22m      Test Loss: [1m0.2926[22m       Accuracy: [1m92.44[22m%        Current LR: [1m0.00302
+Epoch: [1m91[22m/[1m200[22m   Train Loss: [1m0.1124[22m      Test Loss: [1m0.2805[22m       Accuracy: [1m92.41[22m%        Current LR: [1m0.00298
+Epoch: [1m92[22m/[1m200[22m   Train Loss: [1m0.1117[22m      Test Loss: [1m0.2970[22m       Accuracy: [1m92.11[22m%        Current LR: [1m0.00294
+Best Validation Accuracy: [1m92.78[22m%, achived at epoch [1m93[22m with [1m96.7[22m% sparsity
+Epoch: [1m93[22m/[1m200[22m   Train Loss: [1m0.1098[22m      Test Loss: [1m0.2788[22m       Accuracy: [1m92.78[22m%        Current LR: [1m0.00290
+Epoch: [1m94[22m/[1m200[22m   Train Loss: [1m0.1088[22m      Test Loss: [1m0.2936[22m       Accuracy: [1m92.32[22m%        Current LR: [1m0.00286
+Epoch: [1m95[22m/[1m200[22m   Train Loss: [1m0.1040[22m      Test Loss: [1m0.2959[22m       Accuracy: [1m92.46[22m%        Current LR: [1m0.00282
+Epoch: [1m96[22m/[1m200[22m   Train Loss: [1m0.1057[22m      Test Loss: [1m0.2977[22m       Accuracy: [1m92.11[22m%        Current LR: [1m0.00278
+Epoch: [1m97[22m/[1m200[22m   Train Loss: [1m0.1078[22m      Test Loss: [1m0.3092[22m       Accuracy: [1m91.94[22m%        Current LR: [1m0.00274
+Epoch: [1m98[22m/[1m200[22m   Train Loss: [1m0.1020[22m      Test Loss: [1m0.3010[22m       Accuracy: [1m92.11[22m%        Current LR: [1m0.00270
+Epoch: [1m99[22m/[1m200[22m   Train Loss: [1m0.1002[22m      Test Loss: [1m0.3221[22m       Accuracy: [1m91.71[22m%        Current LR: [1m0.00266
+Epoch: [1m100[22m/[1m200[22m  Train Loss: [1m0.0999[22m      Test Loss: [1m0.3000[22m       Accuracy: [1m92.53[22m%        Current LR: [1m0.00262
+Epoch: [1m101[22m/[1m200[22m  Train Loss: [1m0.1005[22m      Test Loss: [1m0.3079[22m       Accuracy: [1m92.08[22m%        Current LR: [1m0.00258
+Epoch: [1m102[22m/[1m200[22m  Train Loss: [1m0.0978[22m      Test Loss: [1m0.3192[22m       Accuracy: [1m92.02[22m%        Current LR: [1m0.00254
+Epoch: [1m103[22m/[1m200[22m  Train Loss: [1m0.0993[22m      Test Loss: [1m0.2937[22m       Accuracy: [1m92.66[22m%        Current LR: [1m0.00251
+Epoch: [1m104[22m/[1m200[22m  Train Loss: [1m0.0973[22m      Test Loss: [1m0.2825[22m       Accuracy: [1m92.73[22m%        Current LR: [1m0.00247
+Epoch: [1m105[22m/[1m200[22m  Train Loss: [1m0.0939[22m      Test Loss: [1m0.2940[22m       Accuracy: [1m92.59[22m%        Current LR: [1m0.00243
+Epoch: [1m106[22m/[1m200[22m  Train Loss: [1m0.0920[22m      Test Loss: [1m0.3110[22m       Accuracy: [1m92.45[22m%        Current LR: [1m0.00239
+Epoch: [1m107[22m/[1m200[22m  Train Loss: [1m0.0937[22m      Test Loss: [1m0.3063[22m       Accuracy: [1m92.60[22m%        Current LR: [1m0.00235
+Epoch: [1m108[22m/[1m200[22m  Train Loss: [1m0.0927[22m      Test Loss: [1m0.3232[22m       Accuracy: [1m92.15[22m%        Current LR: [1m0.00231
+Epoch: [1m109[22m/[1m200[22m  Train Loss: [1m0.0926[22m      Test Loss: [1m0.3043[22m       Accuracy: [1m92.46[22m%        Current LR: [1m0.00227
+Epoch: [1m110[22m/[1m200[22m  Train Loss: [1m0.0910[22m      Test Loss: [1m0.3002[22m       Accuracy: [1m92.54[22m%        Current LR: [1m0.00223
+Epoch: [1m111[22m/[1m200[22m  Train Loss: [1m0.0894[22m      Test Loss: [1m0.3087[22m       Accuracy: [1m92.41[22m%        Current LR: [1m0.00219
+Best Validation Accuracy: [1m92.93[22m%, achived at epoch [1m112[22m with [1m97.2[22m% sparsity
+Epoch: [1m112[22m/[1m200[22m  Train Loss: [1m0.0865[22m      Test Loss: [1m0.3016[22m       Accuracy: [1m92.93[22m%        Current LR: [1m0.00215
+Epoch: [1m113[22m/[1m200[22m  Train Loss: [1m0.0871[22m      Test Loss: [1m0.3015[22m       Accuracy: [1m92.73[22m%        Current LR: [1m0.00211
+Epoch: [1m114[22m/[1m200[22m  Train Loss: [1m0.0863[22m      Test Loss: [1m0.3000[22m       Accuracy: [1m92.92[22m%        Current LR: [1m0.00207
+Best Validation Accuracy: [1m92.99[22m%, achived at epoch [1m115[22m with [1m97.3[22m% sparsity
+Epoch: [1m115[22m/[1m200[22m  Train Loss: [1m0.0843[22m      Test Loss: [1m0.2916[22m       Accuracy: [1m92.99[22m%        Current LR: [1m0.00203
+Epoch: [1m116[22m/[1m200[22m  Train Loss: [1m0.0850[22m      Test Loss: [1m0.3073[22m       Accuracy: [1m92.61[22m%        Current LR: [1m0.00200
+Epoch: [1m117[22m/[1m200[22m  Train Loss: [1m0.0798[22m      Test Loss: [1m0.2987[22m       Accuracy: [1m92.83[22m%        Current LR: [1m0.00196
+Epoch: [1m118[22m/[1m200[22m  Train Loss: [1m0.0789[22m      Test Loss: [1m0.2960[22m       Accuracy: [1m92.75[22m%        Current LR: [1m0.00192
+Epoch: [1m119[22m/[1m200[22m  Train Loss: [1m0.0792[22m      Test Loss: [1m0.2986[22m       Accuracy: [1m92.84[22m%        Current LR: [1m0.00188
+Best Validation Accuracy: [1m93.05[22m%, achived at epoch [1m120[22m with [1m97.4[22m% sparsity
+Epoch: [1m120[22m/[1m200[22m  Train Loss: [1m0.0801[22m      Test Loss: [1m0.2951[22m       Accuracy: [1m93.05[22m%        Current LR: [1m0.00184
+Epoch: [1m121[22m/[1m200[22m  Train Loss: [1m0.0782[22m      Test Loss: [1m0.3129[22m       Accuracy: [1m92.58[22m%        Current LR: [1m0.00181
+Epoch: [1m122[22m/[1m200[22m  Train Loss: [1m0.0794[22m      Test Loss: [1m0.2943[22m       Accuracy: [1m92.95[22m%        Current LR: [1m0.00177
+Epoch: [1m123[22m/[1m200[22m  Train Loss: [1m0.0727[22m      Test Loss: [1m0.3119[22m       Accuracy: [1m92.95[22m%        Current LR: [1m0.00173
+Epoch: [1m124[22m/[1m200[22m  Train Loss: [1m0.0745[22m      Test Loss: [1m0.3087[22m       Accuracy: [1m92.77[22m%        Current LR: [1m0.00169
+Epoch: [1m125[22m/[1m200[22m  Train Loss: [1m0.0730[22m      Test Loss: [1m0.3067[22m       Accuracy: [1m92.87[22m%        Current LR: [1m0.00166
+Epoch: [1m126[22m/[1m200[22m  Train Loss: [1m0.0763[22m      Test Loss: [1m0.3021[22m       Accuracy: [1m92.76[22m%        Current LR: [1m0.00162
+Epoch: [1m127[22m/[1m200[22m  Train Loss: [1m0.0731[22m      Test Loss: [1m0.3019[22m       Accuracy: [1m93.00[22m%        Current LR: [1m0.00158
+Epoch: [1m128[22m/[1m200[22m  Train Loss: [1m0.0722[22m      Test Loss: [1m0.3074[22m       Accuracy: [1m92.72[22m%        Current LR: [1m0.00155
+Epoch: [1m129[22m/[1m200[22m  Train Loss: [1m0.0743[22m      Test Loss: [1m0.3107[22m       Accuracy: [1m92.64[22m%        Current LR: [1m0.00151
+Epoch: [1m130[22m/[1m200[22m  Train Loss: [1m0.0693[22m      Test Loss: [1m0.3146[22m       Accuracy: [1m92.85[22m%        Current LR: [1m0.00147
+Best Validation Accuracy: [1m93.06[22m%, achived at epoch [1m131[22m with [1m97.6[22m% sparsity
+Epoch: [1m131[22m/[1m200[22m  Train Loss: [1m0.0684[22m      Test Loss: [1m0.3061[22m       Accuracy: [1m93.06[22m%        Current LR: [1m0.00144
+Best Validation Accuracy: [1m93.17[22m%, achived at epoch [1m132[22m with [1m97.6[22m% sparsity
+Epoch: [1m132[22m/[1m200[22m  Train Loss: [1m0.0690[22m      Test Loss: [1m0.3073[22m       Accuracy: [1m93.17[22m%        Current LR: [1m0.00140
+Epoch: [1m133[22m/[1m200[22m  Train Loss: [1m0.0714[22m      Test Loss: [1m0.3024[22m       Accuracy: [1m93.07[22m%        Current LR: [1m0.00137
+Epoch: [1m134[22m/[1m200[22m  Train Loss: [1m0.0692[22m      Test Loss: [1m0.3115[22m       Accuracy: [1m92.95[22m%        Current LR: [1m0.00133
+Epoch: [1m135[22m/[1m200[22m  Train Loss: [1m0.0664[22m      Test Loss: [1m0.3101[22m       Accuracy: [1m93.16[22m%        Current LR: [1m0.00130
+Best Validation Accuracy: [1m93.41[22m%, achived at epoch [1m136[22m with [1m97.7[22m% sparsity
+Epoch: [1m136[22m/[1m200[22m  Train Loss: [1m0.0642[22m      Test Loss: [1m0.2990[22m       Accuracy: [1m93.41[22m%        Current LR: [1m0.00126
+Epoch: [1m137[22m/[1m200[22m  Train Loss: [1m0.0652[22m      Test Loss: [1m0.3072[22m       Accuracy: [1m93.05[22m%        Current LR: [1m0.00123
+Epoch: [1m138[22m/[1m200[22m  Train Loss: [1m0.0666[22m      Test Loss: [1m0.3040[22m       Accuracy: [1m93.19[22m%        Current LR: [1m0.00120
+Epoch: [1m139[22m/[1m200[22m  Train Loss: [1m0.0649[22m      Test Loss: [1m0.2970[22m       Accuracy: [1m93.40[22m%        Current LR: [1m0.00116
+Epoch: [1m140[22m/[1m200[22m  Train Loss: [1m0.0641[22m      Test Loss: [1m0.3086[22m       Accuracy: [1m92.97[22m%        Current LR: [1m0.00113
+Epoch: [1m141[22m/[1m200[22m  Train Loss: [1m0.0617[22m      Test Loss: [1m0.3056[22m       Accuracy: [1m93.38[22m%        Current LR: [1m0.00110
+Epoch: [1m142[22m/[1m200[22m  Train Loss: [1m0.0653[22m      Test Loss: [1m0.3096[22m       Accuracy: [1m93.25[22m%        Current LR: [1m0.00107
+Epoch: [1m143[22m/[1m200[22m  Train Loss: [1m0.0631[22m      Test Loss: [1m0.3025[22m       Accuracy: [1m93.16[22m%        Current LR: [1m0.00104
+Epoch: [1m144[22m/[1m200[22m  Train Loss: [1m0.0619[22m      Test Loss: [1m0.3167[22m       Accuracy: [1m93.08[22m%        Current LR: [1m0.00100
+Epoch: [1m145[22m/[1m200[22m  Train Loss: [1m0.0611[22m      Test Loss: [1m0.3143[22m       Accuracy: [1m93.00[22m%        Current LR: [1m0.00097
+Epoch: [1m146[22m/[1m200[22m  Train Loss: [1m0.0577[22m      Test Loss: [1m0.3168[22m       Accuracy: [1m93.08[22m%        Current LR: [1m0.00094
+Epoch: [1m147[22m/[1m200[22m  Train Loss: [1m0.0589[22m      Test Loss: [1m0.3205[22m       Accuracy: [1m92.85[22m%        Current LR: [1m0.00091
+Epoch: [1m148[22m/[1m200[22m  Train Loss: [1m0.0592[22m      Test Loss: [1m0.3136[22m       Accuracy: [1m93.03[22m%        Current LR: [1m0.00088
+Epoch: [1m149[22m/[1m200[22m  Train Loss: [1m0.0572[22m      Test Loss: [1m0.3163[22m       Accuracy: [1m93.06[22m%        Current LR: [1m0.00085
+Epoch: [1m150[22m/[1m200[22m  Train Loss: [1m0.0546[22m      Test Loss: [1m0.3202[22m       Accuracy: [1m93.04[22m%        Current LR: [1m0.00082
+Epoch: [1m151[22m/[1m200[22m  Train Loss: [1m0.0556[22m      Test Loss: [1m0.3212[22m       Accuracy: [1m92.96[22m%        Current LR: [1m0.00080
+Epoch: [1m152[22m/[1m200[22m  Train Loss: [1m0.0549[22m      Test Loss: [1m0.3181[22m       Accuracy: [1m93.11[22m%        Current LR: [1m0.00077
+Epoch: [1m153[22m/[1m200[22m  Train Loss: [1m0.0565[22m      Test Loss: [1m0.3157[22m       Accuracy: [1m93.06[22m%        Current LR: [1m0.00074
+Epoch: [1m154[22m/[1m200[22m  Train Loss: [1m0.0545[22m      Test Loss: [1m0.3122[22m       Accuracy: [1m93.28[22m%        Current LR: [1m0.00071
+Epoch: [1m155[22m/[1m200[22m  Train Loss: [1m0.0573[22m      Test Loss: [1m0.3227[22m       Accuracy: [1m93.06[22m%        Current LR: [1m0.00069
+Epoch: [1m156[22m/[1m200[22m  Train Loss: [1m0.0534[22m      Test Loss: [1m0.3129[22m       Accuracy: [1m93.11[22m%        Current LR: [1m0.00066
+Epoch: [1m157[22m/[1m200[22m  Train Loss: [1m0.0529[22m      Test Loss: [1m0.3214[22m       Accuracy: [1m93.09[22m%        Current LR: [1m0.00063
+Epoch: [1m158[22m/[1m200[22m  Train Loss: [1m0.0529[22m      Test Loss: [1m0.3220[22m       Accuracy: [1m93.06[22m%        Current LR: [1m0.00061
+Epoch: [1m159[22m/[1m200[22m  Train Loss: [1m0.0535[22m      Test Loss: [1m0.3149[22m       Accuracy: [1m93.36[22m%        Current LR: [1m0.00058
+Epoch: [1m160[22m/[1m200[22m  Train Loss: [1m0.0518[22m      Test Loss: [1m0.3103[22m       Accuracy: [1m93.24[22m%        Current LR: [1m0.00056
+Epoch: [1m161[22m/[1m200[22m  Train Loss: [1m0.0492[22m      Test Loss: [1m0.3197[22m       Accuracy: [1m93.02[22m%        Current LR: [1m0.00054
+Epoch: [1m162[22m/[1m200[22m  Train Loss: [1m0.0500[22m      Test Loss: [1m0.3183[22m       Accuracy: [1m93.08[22m%        Current LR: [1m0.00051
+Epoch: [1m163[22m/[1m200[22m  Train Loss: [1m0.0506[22m      Test Loss: [1m0.3179[22m       Accuracy: [1m93.11[22m%        Current LR: [1m0.00049
+Epoch: [1m164[22m/[1m200[22m  Train Loss: [1m0.0485[22m      Test Loss: [1m0.3174[22m       Accuracy: [1m93.22[22m%        Current LR: [1m0.00047
+Best Validation Accuracy: [1m93.47[22m%, achived at epoch [1m165[22m with [1m98.0[22m% sparsity
+Epoch: [1m165[22m/[1m200[22m  Train Loss: [1m0.0492[22m      Test Loss: [1m0.3111[22m       Accuracy: [1m93.47[22m%        Current LR: [1m0.00045
+Epoch: [1m166[22m/[1m200[22m  Train Loss: [1m0.0477[22m      Test Loss: [1m0.3119[22m       Accuracy: [1m93.14[22m%        Current LR: [1m0.00043
+Epoch: [1m167[22m/[1m200[22m  Train Loss: [1m0.0487[22m      Test Loss: [1m0.3086[22m       Accuracy: [1m93.42[22m%        Current LR: [1m0.00040
+Epoch: [1m168[22m/[1m200[22m  Train Loss: [1m0.0479[22m      Test Loss: [1m0.3161[22m       Accuracy: [1m93.40[22m%        Current LR: [1m0.00038
+Epoch: [1m169[22m/[1m200[22m  Train Loss: [1m0.0464[22m      Test Loss: [1m0.3142[22m       Accuracy: [1m93.34[22m%        Current LR: [1m0.00037
+Epoch: [1m170[22m/[1m200[22m  Train Loss: [1m0.0459[22m      Test Loss: [1m0.3172[22m       Accuracy: [1m93.28[22m%        Current LR: [1m0.00035
+Epoch: [1m171[22m/[1m200[22m  Train Loss: [1m0.0456[22m      Test Loss: [1m0.3187[22m       Accuracy: [1m93.16[22m%        Current LR: [1m0.00033
+Epoch: [1m172[22m/[1m200[22m  Train Loss: [1m0.0476[22m      Test Loss: [1m0.3178[22m       Accuracy: [1m93.27[22m%        Current LR: [1m0.00031
+Epoch: [1m173[22m/[1m200[22m  Train Loss: [1m0.0452[22m      Test Loss: [1m0.3204[22m       Accuracy: [1m93.22[22m%        Current LR: [1m0.00029
+Epoch: [1m174[22m/[1m200[22m  Train Loss: [1m0.0483[22m      Test Loss: [1m0.3173[22m       Accuracy: [1m93.35[22m%        Current LR: [1m0.00028
+Epoch: [1m175[22m/[1m200[22m  Train Loss: [1m0.0441[22m      Test Loss: [1m0.3142[22m       Accuracy: [1m93.26[22m%        Current LR: [1m0.00026
+Epoch: [1m176[22m/[1m200[22m  Train Loss: [1m0.0457[22m      Test Loss: [1m0.3182[22m       Accuracy: [1m93.26[22m%        Current LR: [1m0.00024
+Epoch: [1m177[22m/[1m200[22m  Train Loss: [1m0.0449[22m      Test Loss: [1m0.3202[22m       Accuracy: [1m93.20[22m%        Current LR: [1m0.00023
+Epoch: [1m178[22m/[1m200[22m  Train Loss: [1m0.0481[22m      Test Loss: [1m0.3181[22m       Accuracy: [1m93.21[22m%        Current LR: [1m0.00021
+Epoch: [1m179[22m/[1m200[22m  Train Loss: [1m0.0454[22m      Test Loss: [1m0.3133[22m       Accuracy: [1m93.23[22m%        Current LR: [1m0.00020
+Epoch: [1m180[22m/[1m200[22m  Train Loss: [1m0.0440[22m      Test Loss: [1m0.3250[22m       Accuracy: [1m93.14[22m%        Current LR: [1m0.00019
+Epoch: [1m181[22m/[1m200[22m  Train Loss: [1m0.0432[22m      Test Loss: [1m0.3203[22m       Accuracy: [1m93.31[22m%        Current LR: [1m0.00017
+Epoch: [1m182[22m/[1m200[22m  Train Loss: [1m0.0442[22m      Test Loss: [1m0.3198[22m       Accuracy: [1m93.30[22m%        Current LR: [1m0.00016
+Epoch: [1m183[22m/[1m200[22m  Train Loss: [1m0.0448[22m      Test Loss: [1m0.3140[22m       Accuracy: [1m93.35[22m%        Current LR: [1m0.00015
+Epoch: [1m184[22m/[1m200[22m  Train Loss: [1m0.0436[22m      Test Loss: [1m0.3116[22m       Accuracy: [1m93.32[22m%        Current LR: [1m0.00014
+Epoch: [1m185[22m/[1m200[22m  Train Loss: [1m0.0444[22m      Test Loss: [1m0.3113[22m       Accuracy: [1m93.35[22m%        Current LR: [1m0.00013
+Epoch: [1m186[22m/[1m200[22m  Train Loss: [1m0.0441[22m      Test Loss: [1m0.3207[22m       Accuracy: [1m93.26[22m%        Current LR: [1m0.00012
+Epoch: [1m187[22m/[1m200[22m  Train Loss: [1m0.0422[22m      Test Loss: [1m0.3216[22m       Accuracy: [1m93.13[22m%        Current LR: [1m0.00011
+Epoch: [1m188[22m/[1m200[22m  Train Loss: [1m0.0433[22m      Test Loss: [1m0.3161[22m       Accuracy: [1m93.37[22m%        Current LR: [1m0.00010
+Epoch: [1m189[22m/[1m200[22m  Train Loss: [1m0.0427[22m      Test Loss: [1m0.3143[22m       Accuracy: [1m93.23[22m%        Current LR: [1m0.00010
+Epoch: [1m190[22m/[1m200[22m  Train Loss: [1m0.0428[22m      Test Loss: [1m0.3151[22m       Accuracy: [1m93.20[22m%        Current LR: [1m0.00009
+Epoch: [1m191[22m/[1m200[22m  Train Loss: [1m0.0412[22m      Test Loss: [1m0.3148[22m       Accuracy: [1m93.24[22m%        Current LR: [1m0.00008
+Epoch: [1m192[22m/[1m200[22m  Train Loss: [1m0.0429[22m      Test Loss: [1m0.3194[22m       Accuracy: [1m93.21[22m%        Current LR: [1m0.00008
+Epoch: [1m193[22m/[1m200[22m  Train Loss: [1m0.0449[22m      Test Loss: [1m0.3198[22m       Accuracy: [1m93.32[22m%        Current LR: [1m0.00007
+Epoch: [1m194[22m/[1m200[22m  Train Loss: [1m0.0435[22m      Test Loss: [1m0.3248[22m       Accuracy: [1m93.18[22m%        Current LR: [1m0.00007
+Epoch: [1m195[22m/[1m200[22m  Train Loss: [1m0.0429[22m      Test Loss: [1m0.3179[22m       Accuracy: [1m93.21[22m%        Current LR: [1m0.00006
+Epoch: [1m196[22m/[1m200[22m  Train Loss: [1m0.0423[22m      Test Loss: [1m0.3191[22m       Accuracy: [1m93.28[22m%        Current LR: [1m0.00006
+Epoch: [1m197[22m/[1m200[22m  Train Loss: [1m0.0419[22m      Test Loss: [1m0.3208[22m       Accuracy: [1m93.32[22m%        Current LR: [1m0.00006
+Epoch: [1m198[22m/[1m200[22m  Train Loss: [1m0.0436[22m      Test Loss: [1m0.3218[22m       Accuracy: [1m93.28[22m%        Current LR: [1m0.00005
+Epoch: [1m199[22m/[1m200[22m  Train Loss: [1m0.0418[22m      Test Loss: [1m0.3192[22m       Accuracy: [1m93.29[22m%        Current LR: [1m0.00005
+Epoch: [1m200[22m/[1m200[22m  Train Loss: [1m0.0418[22m      Test Loss: [1m0.3213[22m       Accuracy: [1m93.31[22m%        Current LR: [1m0.00005
+Training completed.
+Best Validation Accuracy: [1m93.47[22m%, achived at epoch [1m165[22m with [1m98.0[22m% sparsity
+Best Validation Loss: [1m0.2672[22m, achived at epoch [1m55[22m with [1m95.4[22m% sparsity

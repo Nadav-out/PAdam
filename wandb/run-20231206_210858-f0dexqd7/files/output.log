@@ -1,0 +1,22 @@
+
+[2023-12-06 21:09:11,183] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 10.00% on epoch 1. Model saved to ./CIFAR10/pp8_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+Epoch: 5/100	Train Loss: nan	Test Loss: nan	Accuracy: 10.00%	Current LR: 0.00100	Elapsed Time: 00:04:09	Expected Time: 01:23:09
+Exception ignored in: <function _releaseLock at 0x7fb0a154e430>
+Traceback (most recent call last):
+  File "/global/home/users/njo/anaconda3/lib/python3.8/logging/__init__.py", line 223, in _releaseLock
+    def _releaseLock():
+
+
+Epoch: 7/100	Train Loss: nan	Test Loss: nan	Accuracy: 10.00%	Current LR: 0.00100	Elapsed Time: 00:05:25	Expected Time: 01:17:29
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 308, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 206, in main
+    running_loss += loss.item()
+KeyboardInterrupt

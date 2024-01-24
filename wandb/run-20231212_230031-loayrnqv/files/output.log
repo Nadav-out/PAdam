@@ -1,0 +1,155 @@
+
+[2023-12-12 23:00:54,069] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 54.26% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00011
+Epoch: 1/100	Train Loss: 1.7861	Test Loss: 1.2913	Accuracy: 54.26%	Current LR: 0.00025	Elapsed Time: 00:01:19	Expected Time: 02:12:25
+Reached accuracy 56.38% on epoch 2. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00023
+Epoch: 2/100	Train Loss: 1.2145	Test Loss: 1.2909	Accuracy: 56.38%	Current LR: 0.00050	Elapsed Time: 00:01:59	Expected Time: 01:39:15
+Reached accuracy 65.19% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00035
+
+
+Epoch: 5/100	Train Loss: 0.7518	Test Loss: 1.2006	Accuracy: 62.76%	Current LR: 0.00100	Elapsed Time: 00:03:57	Expected Time: 01:19:00
+Reached accuracy 75.23% on epoch 6. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00044
+Epoch: 6/100	Train Loss: 0.6531	Test Loss: 0.7613	Accuracy: 75.23%	Current LR: 0.00100	Elapsed Time: 00:04:37	Expected Time: 01:17:00
+Reached accuracy 79.87% on epoch 7. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00044
+Epoch: 7/100	Train Loss: 0.5965	Test Loss: 0.6027	Accuracy: 79.87%	Current LR: 0.00100	Elapsed Time: 00:05:16	Expected Time: 01:15:26
+Reached accuracy 81.02% on epoch 8. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00044
+Epoch: 8/100	Train Loss: 0.5478	Test Loss: 0.5522	Accuracy: 81.02%	Current LR: 0.00100	Elapsed Time: 00:05:56	Expected Time: 01:14:15
+Reached accuracy 81.52% on epoch 9. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00043
+Epoch: 9/100	Train Loss: 0.4919	Test Loss: 0.5537	Accuracy: 81.52%	Current LR: 0.00099	Elapsed Time: 00:06:36	Expected Time: 01:13:23
+Reached accuracy 81.60% on epoch 10. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00043
+
+Epoch: 11/100	Train Loss: 0.4331	Test Loss: 0.5516	Accuracy: 81.35%	Current LR: 0.00099	Elapsed Time: 00:07:55	Expected Time: 01:12:06
+Reached accuracy 84.23% on epoch 12. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00042
+Epoch: 12/100	Train Loss: 0.4064	Test Loss: 0.4641	Accuracy: 84.23%	Current LR: 0.00098	Elapsed Time: 00:08:35	Expected Time: 01:11:36
+Reached accuracy 85.07% on epoch 13. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00042
+
+
+
+Epoch: 16/100	Train Loss: 0.3266	Test Loss: 0.5292	Accuracy: 83.49%	Current LR: 0.00096	Elapsed Time: 00:11:12	Expected Time: 01:10:05
+Reached accuracy 85.78% on epoch 17. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00040
+Epoch: 17/100	Train Loss: 0.3079	Test Loss: 0.4352	Accuracy: 85.78%	Current LR: 0.00096	Elapsed Time: 00:11:52	Expected Time: 01:09:53
+Reached accuracy 87.39% on epoch 18. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00040
+Epoch: 18/100	Train Loss: 0.2915	Test Loss: 0.3756	Accuracy: 87.39%	Current LR: 0.00095	Elapsed Time: 00:12:32	Expected Time: 01:09:40
+Reached accuracy 87.47% on epoch 19. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00040
+Epoch: 19/100	Train Loss: 0.2781	Test Loss: 0.3981	Accuracy: 87.47%	Current LR: 0.00094	Elapsed Time: 00:13:12	Expected Time: 01:09:30
+Reached accuracy 88.32% on epoch 20. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00039
+Epoch: 20/100	Train Loss: 0.2628	Test Loss: 0.3497	Accuracy: 88.32%	Current LR: 0.00093	Elapsed Time: 00:13:52	Expected Time: 01:09:20
+Reached accuracy 88.75% on epoch 21. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00040
+
+
+
+
+Epoch: 25/100	Train Loss: 0.2070	Test Loss: 0.3581	Accuracy: 88.08%	Current LR: 0.00089	Elapsed Time: 00:17:09	Expected Time: 01:08:37
+Reached accuracy 89.14% on epoch 26. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00037
+Epoch: 26/100	Train Loss: 0.1976	Test Loss: 0.3379	Accuracy: 89.14%	Current LR: 0.00088	Elapsed Time: 00:17:48	Expected Time: 01:08:30
+Reached accuracy 90.06% on epoch 27. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00037
+
+
+
+Epoch: 30/100	Train Loss: 0.1648	Test Loss: 0.4203	Accuracy: 88.61%	Current LR: 0.00083	Elapsed Time: 00:20:26	Expected Time: 01:08:08
+Reached accuracy 90.41% on epoch 31. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00036
+Epoch: 31/100	Train Loss: 0.1592	Test Loss: 0.3169	Accuracy: 90.41%	Current LR: 0.00082	Elapsed Time: 00:21:06	Expected Time: 01:08:03
+Reached accuracy 90.54% on epoch 32. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00036
+Epoch: 32/100	Train Loss: 0.1488	Test Loss: 0.3083	Accuracy: 90.54%	Current LR: 0.00081	Elapsed Time: 00:21:45	Expected Time: 01:08:01
+Reached accuracy 90.95% on epoch 33. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00035
+
+Epoch: 34/100	Train Loss: 0.1396	Test Loss: 0.3769	Accuracy: 89.28%	Current LR: 0.00078	Elapsed Time: 00:23:04	Expected Time: 01:07:53
+Reached accuracy 91.20% on epoch 35. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00036
+
+
+Epoch: 37/100	Train Loss: 0.1224	Test Loss: 0.3682	Accuracy: 89.59%	Current LR: 0.00074	Elapsed Time: 00:25:02	Expected Time: 01:07:41
+Reached accuracy 91.49% on epoch 38. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00033
+
+
+
+
+
+
+
+
+Epoch: 46/100	Train Loss: 0.0799	Test Loss: 0.3356	Accuracy: 91.09%	Current LR: 0.00060	Elapsed Time: 00:30:56	Expected Time: 01:07:15
+Reached accuracy 91.92% on epoch 47. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00030
+Epoch: 47/100	Train Loss: 0.0792	Test Loss: 0.2995	Accuracy: 91.92%	Current LR: 0.00059	Elapsed Time: 00:31:36	Expected Time: 01:07:14
+Reached accuracy 92.54% on epoch 48. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00029
+
+
+
+
+
+
+
+
+Epoch: 56/100	Train Loss: 0.0500	Test Loss: 0.3177	Accuracy: 92.42%	Current LR: 0.00044	Elapsed Time: 00:37:30	Expected Time: 01:06:58
+Reached accuracy 92.68% on epoch 57. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth.
+Sparsity: 0.00025
+Epoch: 58/100	Train Loss: 0.0463	Test Loss: 0.3171	Accuracy: 92.18%	Current LR: 0.00041	Elapsed Time: 00:38:49	Expected Time: 01:06:55
+Epoch: 59/100	Train Loss: 0.0429	Test Loss: 0.2942	Accuracy: 92.67%	Current LR: 0.00039	Elapsed Time: 00:39:28	Expected Time: 01:06:54
+Epoch: 60/100	Train Loss: 0.0410	Test Loss: 0.3112	Accuracy: 92.43%	Current LR: 0.00038	Elapsed Time: 00:40:07	Expected Time: 01:06:53
+Epoch: 61/100	Train Loss: 0.0392	Test Loss: 0.2890	Accuracy: 92.86%	Current LR: 0.00036	Elapsed Time: 00:40:47	Expected Time: 01:06:52
+Epoch: 62/100	Train Loss: 0.0356	Test Loss: 0.3136	Accuracy: 92.14%	Current LR: 0.00035	Elapsed Time: 00:41:27	Expected Time: 01:06:51
+Epoch: 63/100	Train Loss: 0.0367	Test Loss: 0.3003	Accuracy: 92.70%	Current LR: 0.00033	Elapsed Time: 00:42:06	Expected Time: 01:06:50
+Epoch: 64/100	Train Loss: 0.0296	Test Loss: 0.2965	Accuracy: 92.79%	Current LR: 0.00032	Elapsed Time: 00:42:46	Expected Time: 01:06:49
+Epoch: 65/100	Train Loss: 0.0290	Test Loss: 0.3301	Accuracy: 92.50%	Current LR: 0.00030	Elapsed Time: 00:43:25	Expected Time: 01:06:48
+Epoch: 66/100	Train Loss: 0.0296	Test Loss: 0.2874	Accuracy: 93.15%	Current LR: 0.00029	Elapsed Time: 00:44:04	Expected Time: 01:06:47
+Epoch: 67/100	Train Loss: 0.0267	Test Loss: 0.2956	Accuracy: 93.01%	Current LR: 0.00027	Elapsed Time: 00:44:44	Expected Time: 01:06:46
+Epoch: 68/100	Train Loss: 0.0235	Test Loss: 0.2953	Accuracy: 92.89%	Current LR: 0.00026	Elapsed Time: 00:45:23	Expected Time: 01:06:45
+Epoch: 69/100	Train Loss: 0.0245	Test Loss: 0.3018	Accuracy: 92.73%	Current LR: 0.00024	Elapsed Time: 00:46:02	Expected Time: 01:06:44
+Epoch: 70/100	Train Loss: 0.0201	Test Loss: 0.3003	Accuracy: 93.19%	Current LR: 0.00023	Elapsed Time: 00:46:42	Expected Time: 01:06:43
+Reached accuracy 93.52% on epoch 71. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:43
+Reached accuracy 93.52% on epoch 71. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:43
+Sparsity: 0.00019
+Epoch: 72/100	Train Loss: 0.0176	Test Loss: 0.2962	Accuracy: 93.35%	Current LR: 0.00020	Elapsed Time: 00:48:01	Expected Time: 01:06:42
+Sparsity: 0.00017in Loss: 0.0176	Test Loss: 0.2962	Accuracy: 93.35%	Current LR: 0.00020	Elapsed Time: 00:48:01	Expected Time: 01:06:42
+Epoch: 73/100	Train Loss: 0.0184	Test Loss: 0.2848	Accuracy: 93.63%	Current LR: 0.00019	Elapsed Time: 00:48:41	Expected Time: 01:06:42
+Sparsity: 0.00017in Loss: 0.0176	Test Loss: 0.2962	Accuracy: 93.35%	Current LR: 0.00020	Elapsed Time: 00:48:01	Expected Time: 01:06:42
+Reached accuracy 93.66% on epoch 75. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:42
+Reached accuracy 93.66% on epoch 75. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:42
+Epoch: 77/100	Train Loss: 0.0125	Test Loss: 0.3011	Accuracy: 93.75%	Current LR: 0.00014	Elapsed Time: 00:51:20	Expected Time: 01:06:40
+Epoch: 78/100	Train Loss: 0.0121	Test Loss: 0.2895	Accuracy: 93.67%	Current LR: 0.00013	Elapsed Time: 00:51:59	Expected Time: 01:06:39
+Epoch: 79/100	Train Loss: 0.0113	Test Loss: 0.3024	Accuracy: 93.41%	Current LR: 0.00012	Elapsed Time: 00:52:39	Expected Time: 01:06:38
+Sparsity: 0.00013in Loss: 0.0113	Test Loss: 0.3024	Accuracy: 93.41%	Current LR: 0.00012	Elapsed Time: 00:52:39	Expected Time: 01:06:38
+Sparsity: 0.00013in Loss: 0.0113	Test Loss: 0.3024	Accuracy: 93.41%	Current LR: 0.00012	Elapsed Time: 00:52:39	Expected Time: 01:06:38
+Sparsity: 0.00013in Loss: 0.0113	Test Loss: 0.3024	Accuracy: 93.41%	Current LR: 0.00012	Elapsed Time: 00:52:39	Expected Time: 01:06:38
+Reached accuracy 93.85% on epoch 83. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:38
+Epoch: 84/100	Train Loss: 0.0086	Test Loss: 0.2912	Accuracy: 93.95%	Current LR: 0.00008	Elapsed Time: 00:55:56	Expected Time: 01:06:35
+Sparsity: 0.00009in Loss: 0.0086	Test Loss: 0.2912	Accuracy: 93.95%	Current LR: 0.00008	Elapsed Time: 00:55:56	Expected Time: 01:06:35
+Sparsity: 0.00009in Loss: 0.0086	Test Loss: 0.2912	Accuracy: 93.95%	Current LR: 0.00008	Elapsed Time: 00:55:56	Expected Time: 01:06:35
+Reached accuracy 94.02% on epoch 87. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:35
+Epoch: 88/100	Train Loss: 0.0063	Test Loss: 0.2848	Accuracy: 94.15%	Current LR: 0.00005	Elapsed Time: 00:58:35	Expected Time: 01:06:34
+Epoch: 89/100	Train Loss: 0.0048	Test Loss: 0.2961	Accuracy: 94.13%	Current LR: 0.00004	Elapsed Time: 00:59:14	Expected Time: 01:06:34
+Epoch: 90/100	Train Loss: 0.0047	Test Loss: 0.2916	Accuracy: 94.09%	Current LR: 0.00004	Elapsed Time: 00:59:53	Expected Time: 01:06:33
+Epoch: 91/100	Train Loss: 0.0047	Test Loss: 0.2927	Accuracy: 94.13%	Current LR: 0.00003	Elapsed Time: 01:00:33	Expected Time: 01:06:32
+Epoch: 92/100	Train Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Sparsity: 0.00005in Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Sparsity: 0.00005in Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Sparsity: 0.00005in Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Sparsity: 0.00005in Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Sparsity: 0.00005in Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Sparsity: 0.00005in Loss: 0.0050	Test Loss: 0.2882	Accuracy: 93.96%	Current LR: 0.00003	Elapsed Time: 01:01:12	Expected Time: 01:06:31
+Reached accuracy 94.30% on epoch 99. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:31
+Reached accuracy 94.30% on epoch 99. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:31
+Reached accuracy 94.30% on epoch 99. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/Lasso/best_model.pth. Time: 01:06:31

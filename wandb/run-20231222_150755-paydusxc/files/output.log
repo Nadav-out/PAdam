@@ -1,0 +1,253 @@
+Reached accuracy 49.61% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 1/200	Train Loss: 1.5900	Test Loss: 1.5010	Accuracy: 49.61%	Current LR: 0.00124	Elapsed Time: 00:00:29	Expected Time: 01:37:52
+Reached accuracy 58.81% on epoch 2. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 2/200	Train Loss: 1.0683	Test Loss: 1.3940	Accuracy: 58.81%	Current LR: 0.00249	Elapsed Time: 00:00:41	Expected Time: 01:08:38
+Reached accuracy 60.66% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 3/200	Train Loss: 0.8262	Test Loss: 1.4443	Accuracy: 60.66%	Current LR: 0.00374	Elapsed Time: 00:00:53	Expected Time: 00:58:58
+Reached accuracy 74.10% on epoch 4. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 4/200	Train Loss: 0.6895	Test Loss: 0.8096	Accuracy: 74.10%	Current LR: 0.00499	Elapsed Time: 00:01:04	Expected Time: 00:54:04
+Reached accuracy 76.56% on epoch 5. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 6/200	Train Loss: 0.4853	Test Loss: 0.7196	Accuracy: 76.55%	Current LR: 0.00500	Elapsed Time: 00:01:28	Expected Time: 00:49:03
+Reached accuracy 83.49% on epoch 7. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 8/200	Train Loss: 0.3804	Test Loss: 0.5492	Accuracy: 82.74%	Current LR: 0.00499	Elapsed Time: 00:01:51	Expected Time: 00:46:31
+Reached accuracy 85.02% on epoch 9. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 9/200	Train Loss: 0.3466	Test Loss: 0.4695	Accuracy: 85.02%	Current LR: 0.00499	Elapsed Time: 00:02:03	Expected Time: 00:45:43
+Reached accuracy 85.99% on epoch 10. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 11/200	Train Loss: 0.2906	Test Loss: 0.5175	Accuracy: 83.84%	Current LR: 0.00498	Elapsed Time: 00:02:26	Expected Time: 00:44:30
+Reached accuracy 86.48% on epoch 12. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 13/200	Train Loss: 0.2482	Test Loss: 0.4576	Accuracy: 85.84%	Current LR: 0.00497	Elapsed Time: 00:02:50	Expected Time: 00:43:39
+Reached accuracy 86.90% on epoch 14. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 14/200	Train Loss: 0.2319	Test Loss: 0.4128	Accuracy: 86.90%	Current LR: 0.00497	Elapsed Time: 00:03:02	Expected Time: 00:43:20
+Reached accuracy 87.35% on epoch 15. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 15/200	Train Loss: 0.2167	Test Loss: 0.4200	Accuracy: 87.35%	Current LR: 0.00496	Elapsed Time: 00:03:13	Expected Time: 00:43:04
+Reached accuracy 88.42% on epoch 16. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 16/200	Train Loss: 0.2016	Test Loss: 0.3740	Accuracy: 88.42%	Current LR: 0.00495	Elapsed Time: 00:03:25	Expected Time: 00:42:51
+Reached accuracy 88.57% on epoch 17. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 18/200	Train Loss: 0.1736	Test Loss: 0.4477	Accuracy: 87.11%	Current LR: 0.00494	Elapsed Time: 00:03:49	Expected Time: 00:42:24
+Reached accuracy 88.90% on epoch 19. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 20/200	Train Loss: 0.1531	Test Loss: 0.4437	Accuracy: 87.16%	Current LR: 0.00492	Elapsed Time: 00:04:12	Expected Time: 00:42:04
+Reached accuracy 89.36% on epoch 21. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+
+Epoch: 24/200	Train Loss: 0.1242	Test Loss: 0.4172	Accuracy: 88.73%	Current LR: 0.00487	Elapsed Time: 00:04:59	Expected Time: 00:41:32
+Reached accuracy 90.10% on epoch 25. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 25/200	Train Loss: 0.1143	Test Loss: 0.3354	Accuracy: 90.10%	Current LR: 0.00486	Elapsed Time: 00:05:10	Expected Time: 00:41:27
+Reached accuracy 90.11% on epoch 26. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 27/200	Train Loss: 0.0976	Test Loss: 0.3959	Accuracy: 89.34%	Current LR: 0.00483	Elapsed Time: 00:05:34	Expected Time: 00:41:16
+Reached accuracy 90.27% on epoch 28. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+Epoch: 32/200	Train Loss: 0.0760	Test Loss: 0.4027	Accuracy: 89.68%	Current LR: 0.00476	Elapsed Time: 00:06:32	Expected Time: 00:40:51
+Reached accuracy 90.44% on epoch 33. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 34/200	Train Loss: 0.0662	Test Loss: 0.4170	Accuracy: 90.14%	Current LR: 0.00472	Elapsed Time: 00:06:55	Expected Time: 00:40:44
+Reached accuracy 90.52% on epoch 35. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 37/200	Train Loss: 0.0605	Test Loss: 0.4204	Accuracy: 90.49%	Current LR: 0.00466	Elapsed Time: 00:07:30	Expected Time: 00:40:35
+Reached accuracy 91.42% on epoch 38. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch: 51/200	Train Loss: 0.0335	Test Loss: 0.4431	Accuracy: 91.04%	Current LR: 0.00433	Elapsed Time: 00:10:12	Expected Time: 00:40:01
+Reached accuracy 91.52% on epoch 52. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 52/200	Train Loss: 0.0372	Test Loss: 0.3950	Accuracy: 91.52%	Current LR: 0.00430	Elapsed Time: 00:10:24	Expected Time: 00:40:00
+Reached accuracy 91.92% on epoch 53. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 55/200	Train Loss: 0.0326	Test Loss: 0.4080	Accuracy: 91.64%	Current LR: 0.00422	Elapsed Time: 00:10:59	Expected Time: 00:39:56
+Reached accuracy 92.16% on epoch 56. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch: 68/200	Train Loss: 0.0225	Test Loss: 0.5106	Accuracy: 90.80%	Current LR: 0.00381	Elapsed Time: 00:13:29	Expected Time: 00:39:40
+Reached accuracy 92.21% on epoch 69. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 69/200	Train Loss: 0.0231	Test Loss: 0.3981	Accuracy: 92.21%	Current LR: 0.00377	Elapsed Time: 00:13:41	Expected Time: 00:39:40
+Epoch: 69/200	Train Loss: 0.0231	Test Loss: 0.3981	Accuracy: 92.21%	Current LR: 0.00377	Elapsed Time: 00:13:41	Expected Time: 00:39:40
+Reached accuracy 92.29% on epoch 70. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 71/200	Train Loss: 0.0222	Test Loss: 0.4261	Accuracy: 91.80%	Current LR: 0.00371	Elapsed Time: 00:14:04	Expected Time: 00:39:39
+Epoch: 72/200	Train Loss: 0.0233	Test Loss: 0.3857	Accuracy: 92.32%	Current LR: 0.00367	Elapsed Time: 00:14:16	Expected Time: 00:39:39
+Epoch: 73/200	Train Loss: 0.0211	Test Loss: 0.4457	Accuracy: 91.62%	Current LR: 0.00363	Elapsed Time: 00:14:28	Expected Time: 00:39:38
+Epoch: 74/200	Train Loss: 0.0201	Test Loss: 0.4419	Accuracy: 91.79%	Current LR: 0.00360	Elapsed Time: 00:14:39	Expected Time: 00:39:37
+Epoch: 75/200	Train Loss: 0.0200	Test Loss: 0.3983	Accuracy: 92.53%	Current LR: 0.00356	Elapsed Time: 00:14:51	Expected Time: 00:39:37
+Epoch: 76/200	Train Loss: 0.0148	Test Loss: 0.4538	Accuracy: 91.80%	Current LR: 0.00353	Elapsed Time: 00:15:03	Expected Time: 00:39:36
+Epoch: 77/200	Train Loss: 0.0152	Test Loss: 0.4308	Accuracy: 92.29%	Current LR: 0.00349	Elapsed Time: 00:15:14	Expected Time: 00:39:35
+Epoch: 78/200	Train Loss: 0.0186	Test Loss: 0.4384	Accuracy: 91.87%	Current LR: 0.00345	Elapsed Time: 00:15:26	Expected Time: 00:39:34
+Epoch: 79/200	Train Loss: 0.0155	Test Loss: 0.4391	Accuracy: 92.18%	Current LR: 0.00342	Elapsed Time: 00:15:37	Expected Time: 00:39:33
+Epoch: 80/200	Train Loss: 0.0152	Test Loss: 0.5065	Accuracy: 91.32%	Current LR: 0.00338	Elapsed Time: 00:15:49	Expected Time: 00:39:33
+Epoch: 81/200	Train Loss: 0.0188	Test Loss: 0.4530	Accuracy: 92.04%	Current LR: 0.00334	Elapsed Time: 00:16:01	Expected Time: 00:39:32
+Epoch: 82/200	Train Loss: 0.0138	Test Loss: 0.4788	Accuracy: 91.91%	Current LR: 0.00331	Elapsed Time: 00:16:12	Expected Time: 00:39:32
+Epoch: 83/200	Train Loss: 0.0146	Test Loss: 0.4332	Accuracy: 92.39%	Current LR: 0.00327	Elapsed Time: 00:16:24	Expected Time: 00:39:31
+Epoch: 84/200	Train Loss: 0.0153	Test Loss: 0.4489	Accuracy: 92.34%	Current LR: 0.00323	Elapsed Time: 00:16:35	Expected Time: 00:39:30
+Epoch: 85/200	Train Loss: 0.0151	Test Loss: 0.4384	Accuracy: 92.50%	Current LR: 0.00319	Elapsed Time: 00:16:47	Expected Time: 00:39:29
+Epoch: 86/200	Train Loss: 0.0127	Test Loss: 0.4344	Accuracy: 92.23%	Current LR: 0.00315	Elapsed Time: 00:16:58	Expected Time: 00:39:28
+Epoch: 87/200	Train Loss: 0.0150	Test Loss: 0.4298	Accuracy: 92.54%	Current LR: 0.00311	Elapsed Time: 00:17:10	Expected Time: 00:39:28
+Epoch: 88/200	Train Loss: 0.0136	Test Loss: 0.4260	Accuracy: 92.42%	Current LR: 0.00308	Elapsed Time: 00:17:22	Expected Time: 00:39:28
+Epoch: 89/200	Train Loss: 0.0124	Test Loss: 0.4398	Accuracy: 92.60%	Current LR: 0.00304	Elapsed Time: 00:17:33	Expected Time: 00:39:28
+Epoch: 90/200	Train Loss: 0.0126	Test Loss: 0.4328	Accuracy: 92.67%	Current LR: 0.00300	Elapsed Time: 00:17:45	Expected Time: 00:39:28
+Epoch: 91/200	Train Loss: 0.0117	Test Loss: 0.4322	Accuracy: 92.62%	Current LR: 0.00296	Elapsed Time: 00:17:57	Expected Time: 00:39:27
+Epoch: 92/200	Train Loss: 0.0106	Test Loss: 0.4575	Accuracy: 92.38%	Current LR: 0.00292	Elapsed Time: 00:18:08	Expected Time: 00:39:26
+Epoch: 93/200	Train Loss: 0.0124	Test Loss: 0.4162	Accuracy: 92.66%	Current LR: 0.00288	Elapsed Time: 00:18:20	Expected Time: 00:39:26
+Epoch: 94/200	Train Loss: 0.0123	Test Loss: 0.4134	Accuracy: 92.84%	Current LR: 0.00284	Elapsed Time: 00:18:32	Expected Time: 00:39:26
+Epoch: 95/200	Train Loss: 0.0076	Test Loss: 0.4491	Accuracy: 92.54%	Current LR: 0.00280	Elapsed Time: 00:18:43	Expected Time: 00:39:26
+Epoch: 96/200	Train Loss: 0.0097	Test Loss: 0.4895	Accuracy: 91.90%	Current LR: 0.00276	Elapsed Time: 00:18:55	Expected Time: 00:39:25
+Epoch: 97/200	Train Loss: 0.0121	Test Loss: 0.4315	Accuracy: 92.82%	Current LR: 0.00272	Elapsed Time: 00:19:07	Expected Time: 00:39:25
+Epoch: 98/200	Train Loss: 0.0093	Test Loss: 0.4624	Accuracy: 92.29%	Current LR: 0.00268	Elapsed Time: 00:19:18	Expected Time: 00:39:24
+Epoch: 99/200	Train Loss: 0.0087	Test Loss: 0.4731	Accuracy: 92.82%	Current LR: 0.00264	Elapsed Time: 00:19:30	Expected Time: 00:39:24
+Epoch: 100/200	Train Loss: 0.0104	Test Loss: 0.4628	Accuracy: 92.30%	Current LR: 0.00260	Elapsed Time: 00:19:41	Expected Time: 00:39:23
+Epoch: 101/200	Train Loss: 0.0088	Test Loss: 0.4382	Accuracy: 93.23%	Current LR: 0.00256	Elapsed Time: 00:19:53	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Epoch: 102/200	Train Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23
+Sparsity: 0.00000ain Loss: 0.0077	Test Loss: 0.4547	Accuracy: 92.79%	Current LR: 0.00253	Elapsed Time: 00:20:05	Expected Time: 00:39:23

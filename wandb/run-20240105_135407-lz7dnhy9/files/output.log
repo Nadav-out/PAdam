@@ -1,0 +1,29 @@
+
+Starting training[33m...
+Best Validation Accuracy: [1m44.10[22m%, achive at epoch [1m1[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m1.9672[22m, achive at epoch [1m1[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m53.83[22m%, achive at epoch [1m2[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m1.5481[22m, achive at epoch [1m2[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m70.28[22m%, achive at epoch [1m3[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m0.8439[22m, achive at epoch [1m3[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m70.96[22m%, achive at epoch [1m4[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m75.70[22m%, achive at epoch [1m5[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m0.7151[22m, achive at epoch [1m5[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m75.98[22m%, achive at epoch [1m6[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m80.47[22m%, achive at epoch [1m7[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m0.5856[22m, achive at epoch [1m7[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m82.75[22m%, achive at epoch [1m8[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m0.5076[22m, achive at epoch [1m8[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m82.98[22m%, achive at epoch [1m9[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m84.71[22m%, achive at epoch [1m10[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m0.4452[22m, achive at epoch [1m10[22m with [1m0.0[22m% sparsity
+Best Validation Accuracy: [1m85.67[22m%, achive at epoch [1m12[22m with [1m0.0[22m% sparsity
+Best Validation Loss: [1m0.4391[22m, achive at epoch [1m12[22m with [1m0.0[22m% sparsity
+Traceback (most recent call last):
+  File "./python/train_CIFAR_new.py", line 468, in <module>
+    main()
+  File "./python/train_CIFAR_new.py", line 375, in main
+    avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
+  File "./python/train_CIFAR_new.py", line 106, in train_one_epoch
+    running_loss += loss.item()
+KeyboardInterrupt

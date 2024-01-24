@@ -1,0 +1,20 @@
+Reached accuracy 40.96% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 1/200	Train Loss: 1.5143	Test Loss: 2.0331	Accuracy: 40.96%	Current LR: 0.00390	Elapsed Time: 00:01:01	Expected Time: 03:25:41
+Reached accuracy 61.07% on epoch 2. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 2/200	Train Loss: 1.0481	Test Loss: 1.2159	Accuracy: 61.07%	Current LR: 0.00500	Elapsed Time: 00:01:15	Expected Time: 02:06:35
+Reached accuracy 74.58% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+Epoch: 3/200	Train Loss: 0.7562	Test Loss: 0.7722	Accuracy: 74.58%	Current LR: 0.00500	Elapsed Time: 00:01:30	Expected Time: 01:40:09
+Reached accuracy 80.77% on epoch 4. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/tests/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 6/200	Train Loss: 0.4643	Test Loss: 0.6068	Accuracy: 79.71%	Current LR: 0.00499	Elapsed Time: 00:02:12	Expected Time: 01:13:24
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 351, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 246, in main
+    running_loss += loss.item()
+KeyboardInterrupt

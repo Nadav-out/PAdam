@@ -1,0 +1,35 @@
+Epoch: [32m  0/200[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:00[39m • Time Remaining: [36m-:--:--
+Train Loss: [1m1.5586[22m • Validation Loss: [1m1.6741[22m • Validation Accuracy: [1m49.74[22m% • Learning Rate: [1m0.00005[22m • Sparsity: [1m0.0[22m%
+Best Validation Loss: 1.6741, achive at epoch 1 with 0.0% sparsity
+  File "/global/home/users/njo/anaconda3/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/utils/data/_utils/pin_memory.py", line 51, in _pin_memory_loop
+    do_one_step()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/utils/data/_utils/pin_memory.py", line 28, in do_one_step
+    r = in_queue.get(timeout=MP_STATUS_CHECK_INTERVAL)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/multiprocessing/queues.py", line 116, in get
+    return _ForkingPickler.loads(res)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/site-packages/torch/multiprocessing/reductions.py", line 307, in rebuild_storage_fd
+    fd = df.detach()
+  File "/global/home/users/njo/anaconda3/lib/python3.8/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/global/home/users/njo/anaconda3/lib/python3.8/multiprocessing/resource_sharer.py", line 87, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/multiprocessing/connection.py", line 502, in Client
+    c = SocketClient(address)
+  File "/global/home/users/njo/anaconda3/lib/python3.8/multiprocessing/connection.py", line 630, in SocketClient
+    s.connect(address)
+FileNotFoundError: [Errno 2] No such file or directory
+Epoch: [32m  2/200[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:38[39m • Time Remaining: [36m0:35:12
+Train Loss: [1m1.1565[22m • Validation Loss: [1m2.5438[22m • Validation Accuracy: [1m43.86[22m% • Learning Rate: [1m0.00237[22m • Sparsity: [1m0.0[22m%
+Best Validation Loss: 1.6741, achive at epoch 1 with 0.0% sparsity
+Best Validation Accuracy: 49.74%, achive at epoch 1 with 0.0% sparsity
+[?25h
+Traceback (most recent call last):
+  File "./python/train_CIFAR_new.py", line 412, in <module>
+    main()
+  File "./python/train_CIFAR_new.py", line 330, in main
+    avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
+  File "./python/train_CIFAR_new.py", line 101, in train_one_epoch
+    running_loss += loss.item()
+KeyboardInterrupt

@@ -47,6 +47,7 @@ def get_args():
     parser.add_argument('--wandb_log', action='store_true', help="Enable logging to Weights & Biases")
     parser.add_argument('--wandb_project', type=str, default='PAdam', help="Weights & Biases project name")
     parser.add_argument('--wandb_run_name', type=str, default='ResNet18' + str(time.time()), help="Weights & Biases run name")
+    parser.add_argument('--wandb_group', type=str, default=None, help="Weights & Biases run group")
 
     # Dataset
     parser.add_argument('--num_workers', type=int, default=4, help="Number of workers for data loading")
@@ -180,6 +181,7 @@ def update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, cur
 def main():
     # Collect arguments 
     args = get_args()
+    args.min_lr = args.max_lr / 100
 
     # script_dir can be used as before
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -291,7 +293,7 @@ def main():
     # logging
     if args.wandb_log:
         import wandb
-        wandb.init(project=args.wandb_project, name=args.wandb_run_name, config=config)
+        wandb.init(project=args.wandb_project, name=args.wandb_run_name, group=args.wandb_group, config=config)
 
     
     console = Console()
@@ -414,7 +416,7 @@ def main():
                     'model_state_dict': model.state_dict(),
                     'optimizer_state_dict': optimizer.state_dict(),
                     'probs': probs,
-                    'accuracy': accuracy,
+                    'val_loss': avg_val_loss,
                 }, loss_save_path)
                 if args.verbose:
                     console.print(f"Saved best loss model to {loss_save_path}")

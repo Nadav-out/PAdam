@@ -1,0 +1,19 @@
+
+[2023-12-12 16:10:00,742] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 54.67% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p0p8/best_model.pth.
+Sparsity: 0.00000
+Epoch: 1/100	Train Loss: 1.7864	Test Loss: 1.2739	Accuracy: 54.67%	Current LR: 0.00025	Elapsed Time: 00:01:18	Expected Time: 02:10:54
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 322, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 204, in main
+    for data in trainloader:
+  File "/global/home/users/njo/PAdam/python/functions.py", line 25, in __iter__
+    yield to_device(b, self.device)
+  File "/global/home/users/njo/PAdam/python/functions.py", line 13, in to_device
+    return [to_device(x, device) for x in data]
+  File "/global/home/users/njo/PAdam/python/functions.py", line 13, in <listcomp>
+    return [to_device(x, device) for x in data]
+  File "/global/home/users/njo/PAdam/python/functions.py", line 14, in to_device
+    return data.to(device, non_blocking=True)
+KeyboardInterrupt

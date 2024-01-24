@@ -1,0 +1,10 @@
+
+Training[33m...
+Traceback (most recent call last):
+  File "./python/train_CIFAR_new.py", line 476, in <module>
+    main()
+  File "./python/train_CIFAR_new.py", line 377, in main
+    avg_train_loss = train_one_epoch(model, trainloader, optimizer, criterion, scheduler, args.grad_clip)
+  File "./python/train_CIFAR_new.py", line 106, in train_one_epoch
+    running_loss += loss.item()
+KeyboardInterrupt

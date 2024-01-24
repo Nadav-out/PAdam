@@ -1,0 +1,27 @@
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Configure stats pid to 1267
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Loading settings from /global/home/users/njo/.config/wandb/settings
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Loading settings from /global/home/users/njo/PAdam/wandb/settings
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'python/train_CIFAR.py', 'program_abspath': '/global/home/users/njo/PAdam/python/train_CIFAR.py', 'program': './python/train_CIFAR.py'}
+2023-12-22 00:25:36,641 INFO    MainThread:1267 [wandb_init.py:_log_setup():524] Logging user logs to /global/home/users/njo/PAdam/wandb/run-20231222_002536-a8ghrfd5/logs/debug.log
+2023-12-22 00:25:36,642 INFO    MainThread:1267 [wandb_init.py:_log_setup():525] Logging internal logs to /global/home/users/njo/PAdam/wandb/run-20231222_002536-a8ghrfd5/logs/debug-internal.log
+2023-12-22 00:25:36,642 INFO    MainThread:1267 [wandb_init.py:init():564] calling init triggers
+2023-12-22 00:25:36,642 INFO    MainThread:1267 [wandb_init.py:init():571] wandb.init called with sweep_config: {}
+config: {'script_dir': '/global/home/users/njo/PAdam/python', 'relative_paths': True, 'data_dir': '../data/CIFAR10', 'out_dir': './CIFAR10/p0p8', 'save_checkpoints': True, 'wandb_log': True, 'wandb_project': 'PAdam', 'wandb_run_name': 'ResNet181703233528.4223144', 'num_workers': 4, 'batch_size': 400, 'epochs': 100, 'optimizer_name': 'PAdam', 'max_lr': 0.001, 'lambda_p': 0.005, 'p_norm': 0.8, 'beta1': 0.9, 'beta2': 0.999, 'grad_clip': 1.0, 'decay_lr': True, 'lr1': False, 'warmup_iters': 500, 'lr_decay_frac': 1.0, 'min_lr': 1e-05, 'small_weights_threshold': 1e-13, 'backend': 'nccl', 'device': 'cuda', 'dtype': 'bfloat16', 'compile': True}
+2023-12-22 00:25:36,642 INFO    MainThread:1267 [wandb_init.py:init():614] starting backend
+2023-12-22 00:25:36,642 INFO    MainThread:1267 [wandb_init.py:init():618] setting up manager
+2023-12-22 00:25:36,644 INFO    MainThread:1267 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-12-22 00:25:36,647 INFO    MainThread:1267 [wandb_init.py:init():624] backend started and connected
+2023-12-22 00:25:36,652 INFO    MainThread:1267 [wandb_init.py:init():716] updated telemetry
+2023-12-22 00:25:36,692 INFO    MainThread:1267 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2023-12-22 00:25:37,089 INFO    MainThread:1267 [wandb_run.py:_on_init():2254] communicating current version
+2023-12-22 00:25:37,157 INFO    MainThread:1267 [wandb_run.py:_on_init():2263] got version response 
+2023-12-22 00:25:37,157 INFO    MainThread:1267 [wandb_init.py:init():800] starting run threads in backend
+2023-12-22 00:25:41,943 INFO    MainThread:1267 [wandb_run.py:_console_start():2233] atexit reg
+2023-12-22 00:25:41,944 INFO    MainThread:1267 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2023-12-22 00:25:41,944 INFO    MainThread:1267 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2023-12-22 00:25:41,944 INFO    MainThread:1267 [wandb_run.py:_redirect():2178] Redirects installed.
+2023-12-22 00:25:41,945 INFO    MainThread:1267 [wandb_init.py:init():841] run started, returning control to user process
+2023-12-22 00:44:44,003 WARNING MsgRouterThr:1267 [router.py:message_loop():77] message_loop has been closed

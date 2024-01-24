@@ -1,0 +1,8 @@
+
+[2023-12-06 21:05:57,064] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Traceback (most recent call last):
+  File "./python/train_CIFAR.py", line 308, in <module>
+    main()
+  File "./python/train_CIFAR.py", line 212, in main
+    lp_term += torch.sum(torch.abs(param) ** p_norm)
+RuntimeError: a leaf Variable that requires grad is being used in an in-place operation.

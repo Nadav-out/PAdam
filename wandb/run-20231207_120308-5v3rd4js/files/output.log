@@ -1,0 +1,160 @@
+
+[2023-12-07 12:03:31,151] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 54.21% on epoch 1. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+
+
+
+
+Epoch: 10/100	Train Loss: 1.1152	Test Loss: 1.5363	Accuracy: 47.31%	Current LR: 0.00099	Elapsed Time: 00:07:09	Expected Time: 01:11:31
+Reached accuracy 55.67% on epoch 11. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 11/100	Train Loss: 1.0791	Test Loss: 1.3684	Accuracy: 55.67%	Current LR: 0.00099	Elapsed Time: 00:07:48	Expected Time: 01:11:00
+Reached accuracy 58.40% on epoch 12. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 13/100	Train Loss: 1.0048	Test Loss: 1.4867	Accuracy: 46.98%	Current LR: 0.00098	Elapsed Time: 00:09:07	Expected Time: 01:10:08
+Reached accuracy 66.37% on epoch 14. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+Epoch: 17/100	Train Loss: 0.8917	Test Loss: 1.3097	Accuracy: 59.11%	Current LR: 0.00096	Elapsed Time: 00:11:43	Expected Time: 01:09:00
+Reached accuracy 69.89% on epoch 18. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+Epoch: 21/100	Train Loss: 0.8297	Test Loss: 1.1942	Accuracy: 61.76%	Current LR: 0.00093	Elapsed Time: 00:14:20	Expected Time: 01:08:15
+Reached accuracy 71.30% on epoch 22. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 24/100	Train Loss: 0.8064	Test Loss: 0.9643	Accuracy: 68.17%	Current LR: 0.00090	Elapsed Time: 00:16:17	Expected Time: 01:07:51
+Reached accuracy 73.18% on epoch 25. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch: 38/100	Train Loss: 0.7218	Test Loss: 0.8747	Accuracy: 72.14%	Current LR: 0.00072	Elapsed Time: 00:25:21	Expected Time: 01:06:45
+Reached accuracy 74.71% on epoch 39. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 41/100	Train Loss: 0.7024	Test Loss: 0.8956	Accuracy: 70.62%	Current LR: 0.00068	Elapsed Time: 00:27:19	Expected Time: 01:06:38
+Reached accuracy 75.21% on epoch 42. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 42/100	Train Loss: 0.6963	Test Loss: 0.7440	Accuracy: 75.21%	Current LR: 0.00066	Elapsed Time: 00:27:59	Expected Time: 01:06:37
+Reached accuracy 76.22% on epoch 43. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+Epoch: 47/100	Train Loss: 0.6732	Test Loss: 0.7575	Accuracy: 75.05%	Current LR: 0.00059	Elapsed Time: 00:31:13	Expected Time: 01:06:27
+Reached accuracy 78.35% on epoch 48. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 48/100	Train Loss: 0.6800	Test Loss: 0.6620	Accuracy: 78.35%	Current LR: 0.00057	Elapsed Time: 00:31:53	Expected Time: 01:06:25
+Reached accuracy 78.52% on epoch 49. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 51/100	Train Loss: 0.6610	Test Loss: 0.6654	Accuracy: 77.66%	Current LR: 0.00052	Elapsed Time: 00:33:50	Expected Time: 01:06:21
+Reached accuracy 80.32% on epoch 52. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+
+
+
+
+
+
+
+Epoch: 62/100	Train Loss: 0.5996	Test Loss: 0.6195	Accuracy: 79.43%	Current LR: 0.00035	Elapsed Time: 00:40:59	Expected Time: 01:06:07
+Reached accuracy 80.43% on epoch 63. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 64/100	Train Loss: 0.5845	Test Loss: 0.5933	Accuracy: 80.23%	Current LR: 0.00032	Elapsed Time: 00:42:18	Expected Time: 01:06:05
+Reached accuracy 80.92% on epoch 65. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 67/100	Train Loss: 0.5765	Test Loss: 0.5884	Accuracy: 80.11%	Current LR: 0.00027	Elapsed Time: 00:44:15	Expected Time: 01:06:03
+Reached accuracy 81.82% on epoch 68. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+Epoch: 70/100	Train Loss: 0.5599	Test Loss: 0.5569	Accuracy: 81.24%	Current LR: 0.00023	Elapsed Time: 00:46:12	Expected Time: 01:06:00
+Reached accuracy 82.48% on epoch 71. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 72/100	Train Loss: 0.5508	Test Loss: 0.6320	Accuracy: 79.58%	Current LR: 0.00020	Elapsed Time: 00:47:31	Expected Time: 01:05:59
+Reached accuracy 82.60% on epoch 73. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 74/100	Train Loss: 0.5375	Test Loss: 0.5263	Accuracy: 82.46%	Current LR: 0.00018	Elapsed Time: 00:48:49	Expected Time: 01:05:58
+Reached accuracy 82.75% on epoch 75. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 75/100	Train Loss: 0.5320	Test Loss: 0.5288	Accuracy: 82.75%	Current LR: 0.00017	Elapsed Time: 00:49:29	Expected Time: 01:05:58
+Reached accuracy 82.78% on epoch 76. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 76/100	Train Loss: 0.5306	Test Loss: 0.5110	Accuracy: 82.78%	Current LR: 0.00016	Elapsed Time: 00:50:08	Expected Time: 01:05:59
+Reached accuracy 83.17% on epoch 77. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+Epoch: 78/100	Train Loss: 0.5189	Test Loss: 0.4994	Accuracy: 83.12%	Current LR: 0.00013	Elapsed Time: 00:51:27	Expected Time: 01:05:58
+Reached accuracy 83.34% on epoch 79. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 79/100	Train Loss: 0.5112	Test Loss: 0.4977	Accuracy: 83.34%	Current LR: 0.00012	Elapsed Time: 00:52:06	Expected Time: 01:05:57
+Reached accuracy 84.16% on epoch 80. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+
+
+
+Epoch: 83/100	Train Loss: 0.4918	Test Loss: 0.4824	Accuracy: 83.88%	Current LR: 0.00008	Elapsed Time: 00:54:42	Expected Time: 01:05:55
+Reached accuracy 84.48% on epoch 84. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 84/100	Train Loss: 0.4906	Test Loss: 0.4536	Accuracy: 84.48%	Current LR: 0.00008	Elapsed Time: 00:55:22	Expected Time: 01:05:55
+Reached accuracy 84.62% on epoch 85. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 86/100	Train Loss: 0.4778	Test Loss: 0.4585	Accuracy: 84.47%	Current LR: 0.00006	Elapsed Time: 00:56:41	Expected Time: 01:05:54
+Reached accuracy 85.16% on epoch 87. Model saved to ./CIFAR10/p1_man/best_model.pth.006	Elapsed Time: 00:56:41	Expected Time: 01:05:54
+Reached accuracy 85.16% on epoch 87. Model saved to ./CIFAR10/p1_man/best_model.pth.006	Elapsed Time: 00:56:41	Expected Time: 01:05:54
+Sparsity: 0.00000
+Epoch: 88/100	Train Loss: 0.4702	Test Loss: 0.4395	Accuracy: 85.06%	Current LR: 0.00005	Elapsed Time: 00:57:59	Expected Time: 01:05:54
+Sparsity: 0.00000in Loss: 0.4702	Test Loss: 0.4395	Accuracy: 85.06%	Current LR: 0.00005	Elapsed Time: 00:57:59	Expected Time: 01:05:54
+Epoch: 89/100	Train Loss: 0.4709	Test Loss: 0.4305	Accuracy: 85.34%	Current LR: 0.00004	Elapsed Time: 00:58:38	Expected Time: 01:05:53
+Reached accuracy 85.44% on epoch 90. Model saved to ./CIFAR10/p1_man/best_model.pth.005	Elapsed Time: 00:57:59	Expected Time: 01:05:54
+Sparsity: 0.00000
+Epoch: 90/100	Train Loss: 0.4623	Test Loss: 0.4309	Accuracy: 85.44%	Current LR: 0.00004	Elapsed Time: 00:59:18	Expected Time: 01:05:53
+Epoch: 91/100	Train Loss: 0.4612	Test Loss: 0.4247	Accuracy: 85.71%	Current LR: 0.00003	Elapsed Time: 00:59:57	Expected Time: 01:05:53
+Reached accuracy 85.71% on epoch 91. Model saved to ./CIFAR10/p1_man/best_model.pth.
+Sparsity: 0.00000
+Epoch: 92/100	Train Loss: 0.4548	Test Loss: 0.4264	Accuracy: 85.66%	Current LR: 0.00003	Elapsed Time: 01:00:37	Expected Time: 01:05:53
+Sparsity: 0.00000in Loss: 0.4548	Test Loss: 0.4264	Accuracy: 85.66%	Current LR: 0.00003	Elapsed Time: 01:00:37	Expected Time: 01:05:53
+Epoch: 93/100	Train Loss: 0.4551	Test Loss: 0.4190	Accuracy: 85.93%	Current LR: 0.00002	Elapsed Time: 01:01:16	Expected Time: 01:05:53
+Sparsity: 0.00000in Loss: 0.4548	Test Loss: 0.4264	Accuracy: 85.66%	Current LR: 0.00003	Elapsed Time: 01:00:37	Expected Time: 01:05:53
+Reached accuracy 85.96% on epoch 95. Model saved to ./CIFAR10/p1_man/best_model.pth.003	Elapsed Time: 01:00:37	Expected Time: 01:05:53
+Reached accuracy 85.96% on epoch 95. Model saved to ./CIFAR10/p1_man/best_model.pth.003	Elapsed Time: 01:00:37	Expected Time: 01:05:53
+Reached accuracy 85.96% on epoch 95. Model saved to ./CIFAR10/p1_man/best_model.pth.003	Elapsed Time: 01:00:37	Expected Time: 01:05:53
+Epoch: 98/100	Train Loss: 0.4430	Test Loss: 0.4182	Accuracy: 86.01%	Current LR: 0.00001	Elapsed Time: 01:04:31	Expected Time: 01:05:50
+Epoch: 99/100	Train Loss: 0.4436	Test Loss: 0.4184	Accuracy: 85.95%	Current LR: 0.00001	Elapsed Time: 01:05:11	Expected Time: 01:05:50
+Epoch: 100/100	Train Loss: 0.4404	Test Loss: 0.4170	Accuracy: 85.95%	Current LR: 0.00001	Elapsed Time: 01:05:50	Expected Time: 01:05:50
+Epoch: 100/100	Train Loss: 0.4404	Test Loss: 0.4170	Accuracy: 85.95%	Current LR: 0.00001	Elapsed Time: 01:05:50	Expected Time: 01:05:50

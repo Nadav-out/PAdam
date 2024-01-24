@@ -1,0 +1,253 @@
+
+[2023-12-13 15:22:15,924] torch._inductor.utils: [WARNING] using triton random, expect difference from eager
+Reached accuracy 44.50% on epoch 1. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00013
+Epoch: 1/200	Train Loss: 1.6866	Test Loss: 1.8518	Accuracy: 44.50%	Current LR: 0.00050	Elapsed Time: 00:01:42	Expected Time: 05:40:10
+Reached accuracy 58.10% on epoch 2. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00048
+Epoch: 2/200	Train Loss: 1.1612	Test Loss: 1.2271	Accuracy: 58.10%	Current LR: 0.00100	Elapsed Time: 00:02:37	Expected Time: 04:22:37
+Reached accuracy 62.17% on epoch 3. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00077
+Epoch: 3/200	Train Loss: 0.9395	Test Loss: 1.2167	Accuracy: 62.17%	Current LR: 0.00150	Elapsed Time: 00:03:33	Expected Time: 03:57:17
+Reached accuracy 65.80% on epoch 4. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00100
+Epoch: 4/200	Train Loss: 0.8296	Test Loss: 1.0319	Accuracy: 65.80%	Current LR: 0.00200	Elapsed Time: 00:04:29	Expected Time: 03:44:16
+Reached accuracy 74.94% on epoch 5. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00118
+Epoch: 5/200	Train Loss: 0.7226	Test Loss: 0.7443	Accuracy: 74.94%	Current LR: 0.00200	Elapsed Time: 00:05:24	Expected Time: 03:36:28
+Reached accuracy 79.08% on epoch 6. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00132
+Epoch: 6/200	Train Loss: 0.6369	Test Loss: 0.5969	Accuracy: 79.08%	Current LR: 0.00200	Elapsed Time: 00:06:20	Expected Time: 03:31:11
+Reached accuracy 80.90% on epoch 7. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00143
+Epoch: 7/200	Train Loss: 0.5807	Test Loss: 0.5608	Accuracy: 80.90%	Current LR: 0.00200	Elapsed Time: 00:07:15	Expected Time: 03:27:22
+Reached accuracy 82.24% on epoch 8. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00153
+
+Epoch: 9/200	Train Loss: 0.4770	Test Loss: 0.5475	Accuracy: 82.03%	Current LR: 0.00200	Elapsed Time: 00:09:05	Expected Time: 03:22:00
+Reached accuracy 85.10% on epoch 10. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00171
+
+Epoch: 11/200	Train Loss: 0.4093	Test Loss: 0.6082	Accuracy: 79.74%	Current LR: 0.00199	Elapsed Time: 00:10:55	Expected Time: 03:18:43
+Reached accuracy 86.86% on epoch 12. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00187
+Epoch: 12/200	Train Loss: 0.3827	Test Loss: 0.3876	Accuracy: 86.86%	Current LR: 0.00199	Elapsed Time: 00:11:51	Expected Time: 03:17:36
+Reached accuracy 87.60% on epoch 13. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00195
+
+
+Epoch: 15/200	Train Loss: 0.3094	Test Loss: 0.4653	Accuracy: 85.02%	Current LR: 0.00198	Elapsed Time: 00:14:37	Expected Time: 03:14:53
+Reached accuracy 88.06% on epoch 16. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00215
+
+
+Epoch: 18/200	Train Loss: 0.2574	Test Loss: 0.4418	Accuracy: 86.08%	Current LR: 0.00198	Elapsed Time: 00:17:22	Expected Time: 03:13:00
+Reached accuracy 90.13% on epoch 19. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00235
+
+Epoch: 20/200	Train Loss: 0.2299	Test Loss: 0.3249	Accuracy: 89.57%	Current LR: 0.00197	Elapsed Time: 00:19:12	Expected Time: 03:12:08
+Reached accuracy 90.38% on epoch 21. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00248
+
+
+
+Epoch: 24/200	Train Loss: 0.1817	Test Loss: 0.3176	Accuracy: 90.00%	Current LR: 0.00195	Elapsed Time: 00:22:52	Expected Time: 03:10:37
+Reached accuracy 90.44% on epoch 25. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00271
+
+Epoch: 26/200	Train Loss: 0.1630	Test Loss: 0.3528	Accuracy: 89.41%	Current LR: 0.00194	Elapsed Time: 00:24:42	Expected Time: 03:10:04
+Reached accuracy 90.68% on epoch 27. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00282
+
+Epoch: 28/200	Train Loss: 0.1440	Test Loss: 0.3644	Accuracy: 90.16%	Current LR: 0.00193	Elapsed Time: 00:26:32	Expected Time: 03:09:37
+Reached accuracy 91.21% on epoch 29. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00293
+
+
+Epoch: 31/200	Train Loss: 0.1250	Test Loss: 0.3688	Accuracy: 90.42%	Current LR: 0.00191	Elapsed Time: 00:29:17	Expected Time: 03:08:58
+Reached accuracy 91.79% on epoch 32. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00309
+Epoch: 32/200	Train Loss: 0.1188	Test Loss: 0.3120	Accuracy: 91.79%	Current LR: 0.00190	Elapsed Time: 00:30:12	Expected Time: 03:08:49
+Reached accuracy 92.30% on epoch 33. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00315
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch: 53/200	Train Loss: 0.0538	Test Loss: 0.3911	Accuracy: 91.56%	Current LR: 0.00171	Elapsed Time: 00:49:26	Expected Time: 03:06:33
+Reached accuracy 92.40% on epoch 54. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00430
+
+Epoch: 55/200	Train Loss: 0.0539	Test Loss: 0.3522	Accuracy: 92.32%	Current LR: 0.00169	Elapsed Time: 00:51:17	Expected Time: 03:06:29
+Reached accuracy 92.41% on epoch 56. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00442
+Epoch: 56/200	Train Loss: 0.0479	Test Loss: 0.3357	Accuracy: 92.41%	Current LR: 0.00167	Elapsed Time: 00:52:12	Expected Time: 03:06:29
+Reached accuracy 92.52% on epoch 57. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00447
+
+Epoch: 58/200	Train Loss: 0.0471	Test Loss: 0.3204	Accuracy: 92.38%	Current LR: 0.00165	Elapsed Time: 00:54:03	Expected Time: 03:06:24
+Reached accuracy 92.82% on epoch 59. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00459
+
+
+
+
+
+Epoch: 64/200	Train Loss: 0.0374	Test Loss: 0.3846	Accuracy: 92.02%	Current LR: 0.00157	Elapsed Time: 00:59:34	Expected Time: 03:06:11
+Reached accuracy 92.83% on epoch 65. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00497
+
+Epoch: 66/200	Train Loss: 0.0371	Test Loss: 0.3526	Accuracy: 92.74%	Current LR: 0.00155	Elapsed Time: 01:01:26	Expected Time: 03:06:11
+Reached accuracy 93.02% on epoch 67. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.
+Sparsity: 0.00509
+Epoch: 68/200	Train Loss: 0.0348	Test Loss: 0.3511	Accuracy: 92.68%	Current LR: 0.00152	Elapsed Time: 01:03:17	Expected Time: 03:06:09
+Epoch: 69/200	Train Loss: 0.0342	Test Loss: 0.3564	Accuracy: 92.41%	Current LR: 0.00151	Elapsed Time: 01:04:13	Expected Time: 03:06:08
+Epoch: 70/200	Train Loss: 0.0336	Test Loss: 0.3651	Accuracy: 92.40%	Current LR: 0.00149	Elapsed Time: 01:05:08	Expected Time: 03:06:06
+Epoch: 71/200	Train Loss: 0.0334	Test Loss: 0.3649	Accuracy: 92.95%	Current LR: 0.00148	Elapsed Time: 01:06:03	Expected Time: 03:06:04
+Epoch: 72/200	Train Loss: 0.0315	Test Loss: 0.3691	Accuracy: 92.55%	Current LR: 0.00147	Elapsed Time: 01:06:58	Expected Time: 03:06:01
+Epoch: 73/200	Train Loss: 0.0334	Test Loss: 0.3583	Accuracy: 92.67%	Current LR: 0.00145	Elapsed Time: 01:07:53	Expected Time: 03:06:00
+Epoch: 74/200	Train Loss: 0.0290	Test Loss: 0.3869	Accuracy: 92.60%	Current LR: 0.00144	Elapsed Time: 01:08:48	Expected Time: 03:05:57
+Epoch: 75/200	Train Loss: 0.0317	Test Loss: 0.3678	Accuracy: 92.70%	Current LR: 0.00142	Elapsed Time: 01:09:43	Expected Time: 03:05:55
+Epoch: 76/200	Train Loss: 0.0279	Test Loss: 0.3593	Accuracy: 92.90%	Current LR: 0.00141	Elapsed Time: 01:10:38	Expected Time: 03:05:53
+Epoch: 77/200	Train Loss: 0.0273	Test Loss: 0.3654	Accuracy: 92.83%	Current LR: 0.00139	Elapsed Time: 01:11:33	Expected Time: 03:05:52
+Epoch: 78/200	Train Loss: 0.0250	Test Loss: 0.3778	Accuracy: 92.62%	Current LR: 0.00138	Elapsed Time: 01:12:28	Expected Time: 03:05:50
+Epoch: 79/200	Train Loss: 0.0272	Test Loss: 0.3757	Accuracy: 92.56%	Current LR: 0.00136	Elapsed Time: 01:13:23	Expected Time: 03:05:48
+Epoch: 80/200	Train Loss: 0.0276	Test Loss: 0.3814	Accuracy: 92.42%	Current LR: 0.00135	Elapsed Time: 01:14:18	Expected Time: 03:05:47
+Epoch: 81/200	Train Loss: 0.0250	Test Loss: 0.3598	Accuracy: 92.82%	Current LR: 0.00133	Elapsed Time: 01:15:14	Expected Time: 03:05:45
+Epoch: 82/200	Train Loss: 0.0258	Test Loss: 0.3652	Accuracy: 93.09%	Current LR: 0.00132	Elapsed Time: 01:16:09	Expected Time: 03:05:45
+Epoch: 83/200	Train Loss: 0.0222	Test Loss: 0.3809	Accuracy: 93.01%	Current LR: 0.00130	Elapsed Time: 01:17:05	Expected Time: 03:05:44
+Epoch: 84/200	Train Loss: 0.0234	Test Loss: 0.3875	Accuracy: 92.76%	Current LR: 0.00129	Elapsed Time: 01:18:00	Expected Time: 03:05:43
+Epoch: 85/200	Train Loss: 0.0241	Test Loss: 0.4006	Accuracy: 92.81%	Current LR: 0.00127	Elapsed Time: 01:18:55	Expected Time: 03:05:42
+Epoch: 86/200	Train Loss: 0.0235	Test Loss: 0.3763	Accuracy: 93.09%	Current LR: 0.00126	Elapsed Time: 01:19:50	Expected Time: 03:05:40
+Epoch: 87/200	Train Loss: 0.0206	Test Loss: 0.4211	Accuracy: 92.99%	Current LR: 0.00124	Elapsed Time: 01:20:45	Expected Time: 03:05:38
+Epoch: 88/200	Train Loss: 0.0196	Test Loss: 0.3715	Accuracy: 93.12%	Current LR: 0.00123	Elapsed Time: 01:21:40	Expected Time: 03:05:37
+Epoch: 89/200	Train Loss: 0.0204	Test Loss: 0.4028	Accuracy: 92.57%	Current LR: 0.00121	Elapsed Time: 01:22:35	Expected Time: 03:05:36
+Epoch: 90/200	Train Loss: 0.0200	Test Loss: 0.3728	Accuracy: 93.08%	Current LR: 0.00120	Elapsed Time: 01:23:30	Expected Time: 03:05:33
+Epoch: 91/200	Train Loss: 0.0197	Test Loss: 0.4249	Accuracy: 92.74%	Current LR: 0.00118	Elapsed Time: 01:24:24	Expected Time: 03:05:31
+Epoch: 92/200	Train Loss: 0.0185	Test Loss: 0.3878	Accuracy: 93.14%	Current LR: 0.00116	Elapsed Time: 01:25:20	Expected Time: 03:05:30
+Epoch: 93/200	Train Loss: 0.0190	Test Loss: 0.4047	Accuracy: 93.17%	Current LR: 0.00115	Elapsed Time: 01:26:15	Expected Time: 03:05:31
+Epoch: 94/200	Train Loss: 0.0190	Test Loss: 0.4113	Accuracy: 93.04%	Current LR: 0.00113	Elapsed Time: 01:27:10	Expected Time: 03:05:29
+Epoch: 95/200	Train Loss: 0.0177	Test Loss: 0.4051	Accuracy: 93.24%	Current LR: 0.00112	Elapsed Time: 01:28:06	Expected Time: 03:05:28
+Epoch: 96/200	Train Loss: 0.0174	Test Loss: 0.3852	Accuracy: 93.36%	Current LR: 0.00110	Elapsed Time: 01:29:01	Expected Time: 03:05:28
+Epoch: 97/200	Train Loss: 0.0166	Test Loss: 0.4074	Accuracy: 93.04%	Current LR: 0.00108	Elapsed Time: 01:29:56	Expected Time: 03:05:26
+Epoch: 98/200	Train Loss: 0.0168	Test Loss: 0.3974	Accuracy: 93.36%	Current LR: 0.00107	Elapsed Time: 01:30:51	Expected Time: 03:05:25
+Epoch: 99/200	Train Loss: 0.0149	Test Loss: 0.4052	Accuracy: 93.34%	Current LR: 0.00105	Elapsed Time: 01:31:46	Expected Time: 03:05:24
+Epoch: 100/200	Train Loss: 0.0148	Test Loss: 0.4151	Accuracy: 93.07%	Current LR: 0.00104	Elapsed Time: 01:32:41	Expected Time: 03:05:23
+Epoch: 101/200	Train Loss: 0.0150	Test Loss: 0.3861	Accuracy: 93.15%	Current LR: 0.00102	Elapsed Time: 01:33:36	Expected Time: 03:05:21
+Epoch: 102/200	Train Loss: 0.0149	Test Loss: 0.3814	Accuracy: 93.31%	Current LR: 0.00101	Elapsed Time: 01:34:31	Expected Time: 03:05:21
+Epoch: 103/200	Train Loss: 0.0147	Test Loss: 0.3829	Accuracy: 93.25%	Current LR: 0.00099	Elapsed Time: 01:35:26	Expected Time: 03:05:19
+Epoch: 104/200	Train Loss: 0.0132	Test Loss: 0.3888	Accuracy: 93.34%	Current LR: 0.00097	Elapsed Time: 01:36:21	Expected Time: 03:05:18
+Epoch: 105/200	Train Loss: 0.0126	Test Loss: 0.3975	Accuracy: 93.39%	Current LR: 0.00096	Elapsed Time: 01:37:17	Expected Time: 03:05:18
+Epoch: 106/200	Train Loss: 0.0147	Test Loss: 0.3982	Accuracy: 92.93%	Current LR: 0.00094	Elapsed Time: 01:38:12	Expected Time: 03:05:16
+Epoch: 107/200	Train Loss: 0.0132	Test Loss: 0.3976	Accuracy: 93.28%	Current LR: 0.00093	Elapsed Time: 01:39:06	Expected Time: 03:05:15
+Epoch: 108/200	Train Loss: 0.0125	Test Loss: 0.3866	Accuracy: 93.43%	Current LR: 0.00091	Elapsed Time: 01:40:01	Expected Time: 03:05:14
+Epoch: 109/200	Train Loss: 0.0120	Test Loss: 0.3870	Accuracy: 93.56%	Current LR: 0.00089	Elapsed Time: 01:40:57	Expected Time: 03:05:13
+Epoch: 110/200	Train Loss: 0.0108	Test Loss: 0.3848	Accuracy: 93.58%	Current LR: 0.00088	Elapsed Time: 01:41:52	Expected Time: 03:05:13
+Epoch: 111/200	Train Loss: 0.0129	Test Loss: 0.3878	Accuracy: 93.56%	Current LR: 0.00086	Elapsed Time: 01:42:43	Expected Time: 03:05:05
+Epoch: 112/200	Train Loss: 0.0095	Test Loss: 0.3761	Accuracy: 93.63%	Current LR: 0.00085	Elapsed Time: 01:43:23	Expected Time: 03:04:37
+Epoch: 113/200	Train Loss: 0.0103	Test Loss: 0.3880	Accuracy: 93.39%	Current LR: 0.00083	Elapsed Time: 01:44:02	Expected Time: 03:04:08
+Sparsity: 0.0094393.75% on epoch 114. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.Time: 03:04:08
+Sparsity: 0.0094393.75% on epoch 114. Model saved to /global/home/users/njo/PAdam/python/./CIFAR10/p1_log/best_model.pth.Time: 03:04:08
+Epoch: 115/200	Train Loss: 0.0099	Test Loss: 0.4006	Accuracy: 93.72%	Current LR: 0.00080	Elapsed Time: 01:45:20	Expected Time: 03:03:12
+Epoch: 116/200	Train Loss: 0.0105	Test Loss: 0.4239	Accuracy: 93.34%	Current LR: 0.00078	Elapsed Time: 01:45:59	Expected Time: 03:02:44
+Epoch: 117/200	Train Loss: 0.0083	Test Loss: 0.3987	Accuracy: 93.17%	Current LR: 0.00077	Elapsed Time: 01:46:38	Expected Time: 03:02:17
+Epoch: 118/200	Train Loss: 0.0095	Test Loss: 0.3957	Accuracy: 93.51%	Current LR: 0.00075	Elapsed Time: 01:47:17	Expected Time: 03:01:51
+Epoch: 119/200	Train Loss: 0.0094	Test Loss: 0.4154	Accuracy: 93.45%	Current LR: 0.00074	Elapsed Time: 01:47:56	Expected Time: 03:01:24
+Epoch: 120/200	Train Loss: 0.0091	Test Loss: 0.4217	Accuracy: 93.36%	Current LR: 0.00072	Elapsed Time: 01:48:35	Expected Time: 03:00:59
+Epoch: 121/200	Train Loss: 0.0090	Test Loss: 0.4012	Accuracy: 93.54%	Current LR: 0.00071	Elapsed Time: 01:49:14	Expected Time: 03:00:33
+Epoch: 122/200	Train Loss: 0.0085	Test Loss: 0.3803	Accuracy: 93.85%	Current LR: 0.00069	Elapsed Time: 01:49:53	Expected Time: 03:00:09
+Epoch: 123/200	Train Loss: 0.0078	Test Loss: 0.4183	Accuracy: 93.51%	Current LR: 0.00068	Elapsed Time: 01:50:32	Expected Time: 02:59:44
+Epoch: 124/200	Train Loss: 0.0085	Test Loss: 0.4049	Accuracy: 93.47%	Current LR: 0.00066	Elapsed Time: 01:51:11	Expected Time: 02:59:21
+Epoch: 125/200	Train Loss: 0.0069	Test Loss: 0.3986	Accuracy: 93.56%	Current LR: 0.00065	Elapsed Time: 01:51:51	Expected Time: 02:58:57
+Epoch: 126/200	Train Loss: 0.0068	Test Loss: 0.4069	Accuracy: 93.56%	Current LR: 0.00063	Elapsed Time: 01:52:30	Expected Time: 02:58:34
+Epoch: 127/200	Train Loss: 0.0075	Test Loss: 0.4005	Accuracy: 93.72%	Current LR: 0.00062	Elapsed Time: 01:53:09	Expected Time: 02:58:11
+Epoch: 128/200	Train Loss: 0.0065	Test Loss: 0.4119	Accuracy: 93.36%	Current LR: 0.00060	Elapsed Time: 01:53:48	Expected Time: 02:57:48
+Epoch: 129/200	Train Loss: 0.0057	Test Loss: 0.4172	Accuracy: 93.56%	Current LR: 0.00059	Elapsed Time: 01:54:26	Expected Time: 02:57:26
+Epoch: 130/200	Train Loss: 0.0066	Test Loss: 0.4400	Accuracy: 93.60%	Current LR: 0.00057	Elapsed Time: 01:55:05	Expected Time: 02:57:03
+Epoch: 131/200	Train Loss: 0.0057	Test Loss: 0.4143	Accuracy: 93.65%	Current LR: 0.00056	Elapsed Time: 01:55:44	Expected Time: 02:56:42
+Epoch: 132/200	Train Loss: 0.0070	Test Loss: 0.4115	Accuracy: 93.78%	Current LR: 0.00054	Elapsed Time: 01:56:23	Expected Time: 02:56:20
+Epoch: 133/200	Train Loss: 0.0059	Test Loss: 0.4301	Accuracy: 93.63%	Current LR: 0.00053	Elapsed Time: 01:57:02	Expected Time: 02:56:00
+Epoch: 134/200	Train Loss: 0.0055	Test Loss: 0.4099	Accuracy: 93.78%	Current LR: 0.00052	Elapsed Time: 01:57:41	Expected Time: 02:55:39
+Epoch: 135/200	Train Loss: 0.0050	Test Loss: 0.4187	Accuracy: 93.80%	Current LR: 0.00050	Elapsed Time: 01:58:20	Expected Time: 02:55:19
+Epoch: 136/200	Train Loss: 0.0048	Test Loss: 0.4172	Accuracy: 93.89%	Current LR: 0.00049	Elapsed Time: 01:58:59	Expected Time: 02:54:59
+Epoch: 137/200	Train Loss: 0.0060	Test Loss: 0.4150	Accuracy: 93.82%	Current LR: 0.00048	Elapsed Time: 01:59:39	Expected Time: 02:54:40
+Epoch: 138/200	Train Loss: 0.0045	Test Loss: 0.4315	Accuracy: 93.90%	Current LR: 0.00046	Elapsed Time: 02:00:19	Expected Time: 02:54:22
+Epoch: 139/200	Train Loss: 0.0045	Test Loss: 0.4202	Accuracy: 93.80%	Current LR: 0.00045	Elapsed Time: 02:00:58	Expected Time: 02:54:03
+Epoch: 140/200	Train Loss: 0.0052	Test Loss: 0.4252	Accuracy: 93.81%	Current LR: 0.00044	Elapsed Time: 02:01:37	Expected Time: 02:53:44
+Epoch: 141/200	Train Loss: 0.0045	Test Loss: 0.4127	Accuracy: 93.91%	Current LR: 0.00042	Elapsed Time: 02:02:16	Expected Time: 02:53:26
+Epoch: 142/200	Train Loss: 0.0040	Test Loss: 0.4272	Accuracy: 93.74%	Current LR: 0.00041	Elapsed Time: 02:02:55	Expected Time: 02:53:08
+Epoch: 143/200	Train Loss: 0.0039	Test Loss: 0.4266	Accuracy: 93.78%	Current LR: 0.00040	Elapsed Time: 02:03:34	Expected Time: 02:52:50
+Epoch: 144/200	Train Loss: 0.0031	Test Loss: 0.4392	Accuracy: 93.63%	Current LR: 0.00038	Elapsed Time: 02:04:13	Expected Time: 02:52:32
+Epoch: 145/200	Train Loss: 0.0042	Test Loss: 0.4305	Accuracy: 93.94%	Current LR: 0.00037	Elapsed Time: 02:04:53	Expected Time: 02:52:15
+Epoch: 146/200	Train Loss: 0.0035	Test Loss: 0.4191	Accuracy: 93.97%	Current LR: 0.00036	Elapsed Time: 02:05:32	Expected Time: 02:51:58
+Epoch: 147/200	Train Loss: 0.0034	Test Loss: 0.4184	Accuracy: 94.09%	Current LR: 0.00035	Elapsed Time: 02:06:12	Expected Time: 02:51:42
+Epoch: 148/200	Train Loss: 0.0032	Test Loss: 0.4130	Accuracy: 93.91%	Current LR: 0.00034	Elapsed Time: 02:06:51	Expected Time: 02:51:26
+Epoch: 149/200	Train Loss: 0.0031	Test Loss: 0.4229	Accuracy: 94.15%	Current LR: 0.00032	Elapsed Time: 02:07:31	Expected Time: 02:51:10
+Epoch: 150/200	Train Loss: 0.0033	Test Loss: 0.4058	Accuracy: 94.06%	Current LR: 0.00031	Elapsed Time: 02:08:10	Expected Time: 02:50:54
+Epoch: 151/200	Train Loss: 0.0027	Test Loss: 0.4287	Accuracy: 94.00%	Current LR: 0.00030	Elapsed Time: 02:08:49	Expected Time: 02:50:37
+Epoch: 152/200	Train Loss: 0.0029	Test Loss: 0.4278	Accuracy: 93.97%	Current LR: 0.00029	Elapsed Time: 02:09:28	Expected Time: 02:50:22
+Epoch: 153/200	Train Loss: 0.0027	Test Loss: 0.4337	Accuracy: 94.07%	Current LR: 0.00028	Elapsed Time: 02:10:07	Expected Time: 02:50:06
+Epoch: 154/200	Train Loss: 0.0029	Test Loss: 0.4189	Accuracy: 94.11%	Current LR: 0.00027	Elapsed Time: 02:10:46	Expected Time: 02:49:50
+Epoch: 155/200	Train Loss: 0.0024	Test Loss: 0.4290	Accuracy: 93.95%	Current LR: 0.00026	Elapsed Time: 02:11:25	Expected Time: 02:49:35
+Epoch: 156/200	Train Loss: 0.0024	Test Loss: 0.4358	Accuracy: 93.94%	Current LR: 0.00025	Elapsed Time: 02:12:04	Expected Time: 02:49:19
+Epoch: 157/200	Train Loss: 0.0022	Test Loss: 0.4362	Accuracy: 93.80%	Current LR: 0.00024	Elapsed Time: 02:12:43	Expected Time: 02:49:04
+Epoch: 158/200	Train Loss: 0.0015	Test Loss: 0.4413	Accuracy: 93.86%	Current LR: 0.00023	Elapsed Time: 02:13:22	Expected Time: 02:48:50
+Epoch: 159/200	Train Loss: 0.0023	Test Loss: 0.4326	Accuracy: 93.86%	Current LR: 0.00022	Elapsed Time: 02:14:01	Expected Time: 02:48:35
+Epoch: 160/200	Train Loss: 0.0021	Test Loss: 0.4308	Accuracy: 93.87%	Current LR: 0.00021	Elapsed Time: 02:14:40	Expected Time: 02:48:20
+Epoch: 161/200	Train Loss: 0.0017	Test Loss: 0.4310	Accuracy: 93.99%	Current LR: 0.00020	Elapsed Time: 02:15:19	Expected Time: 02:48:06
+Epoch: 162/200	Train Loss: 0.0018	Test Loss: 0.4326	Accuracy: 94.16%	Current LR: 0.00019	Elapsed Time: 02:15:58	Expected Time: 02:47:52
+Epoch: 163/200	Train Loss: 0.0022	Test Loss: 0.4274	Accuracy: 94.12%	Current LR: 0.00018	Elapsed Time: 02:16:38	Expected Time: 02:47:39
+Epoch: 164/200	Train Loss: 0.0015	Test Loss: 0.4286	Accuracy: 94.04%	Current LR: 0.00017	Elapsed Time: 02:17:17	Expected Time: 02:47:25
+Epoch: 165/200	Train Loss: 0.0019	Test Loss: 0.4157	Accuracy: 94.17%	Current LR: 0.00016	Elapsed Time: 02:17:56	Expected Time: 02:47:12
+Epoch: 166/200	Train Loss: 0.0014	Test Loss: 0.4239	Accuracy: 94.05%	Current LR: 0.00015	Elapsed Time: 02:18:35	Expected Time: 02:46:58
+Epoch: 167/200	Train Loss: 0.0016	Test Loss: 0.4184	Accuracy: 94.33%	Current LR: 0.00015	Elapsed Time: 02:19:14	Expected Time: 02:46:45
+Epoch: 168/200	Train Loss: 0.0013	Test Loss: 0.4206	Accuracy: 94.29%	Current LR: 0.00014	Elapsed Time: 02:19:53	Expected Time: 02:46:32
+Epoch: 169/200	Train Loss: 0.0017	Test Loss: 0.4251	Accuracy: 94.25%	Current LR: 0.00013	Elapsed Time: 02:20:32	Expected Time: 02:46:19
+Epoch: 170/200	Train Loss: 0.0012	Test Loss: 0.4188	Accuracy: 94.33%	Current LR: 0.00012	Elapsed Time: 02:21:11	Expected Time: 02:46:06
+Epoch: 171/200	Train Loss: 0.0012	Test Loss: 0.4230	Accuracy: 94.43%	Current LR: 0.00012	Elapsed Time: 02:21:51	Expected Time: 02:45:54
+Epoch: 172/200	Train Loss: 0.0014	Test Loss: 0.4189	Accuracy: 94.44%	Current LR: 0.00011	Elapsed Time: 02:22:30	Expected Time: 02:45:42
+Epoch: 173/200	Train Loss: 0.0011	Test Loss: 0.4208	Accuracy: 94.37%	Current LR: 0.00010	Elapsed Time: 02:23:09	Expected Time: 02:45:29
+Epoch: 174/200	Train Loss: 0.0010	Test Loss: 0.4310	Accuracy: 94.35%	Current LR: 0.00010	Elapsed Time: 02:23:48	Expected Time: 02:45:17
+Epoch: 175/200	Train Loss: 0.0013	Test Loss: 0.4276	Accuracy: 94.33%	Current LR: 0.00009	Elapsed Time: 02:24:27	Expected Time: 02:45:05
+Epoch: 176/200	Train Loss: 0.0013	Test Loss: 0.4245	Accuracy: 94.22%	Current LR: 0.00008	Elapsed Time: 02:25:06	Expected Time: 02:44:53
+Epoch: 177/200	Train Loss: 0.0011	Test Loss: 0.4240	Accuracy: 94.28%	Current LR: 0.00008	Elapsed Time: 02:25:45	Expected Time: 02:44:41
+Epoch: 178/200	Train Loss: 0.0010	Test Loss: 0.4244	Accuracy: 94.27%	Current LR: 0.00007	Elapsed Time: 02:26:24	Expected Time: 02:44:30
+Epoch: 179/200	Train Loss: 0.0011	Test Loss: 0.4254	Accuracy: 94.38%	Current LR: 0.00007	Elapsed Time: 02:27:03	Expected Time: 02:44:18
+Epoch: 180/200	Train Loss: 0.0011	Test Loss: 0.4221	Accuracy: 94.28%	Current LR: 0.00006	Elapsed Time: 02:27:42	Expected Time: 02:44:07
+Epoch: 181/200	Train Loss: 0.0010	Test Loss: 0.4265	Accuracy: 94.37%	Current LR: 0.00006	Elapsed Time: 02:28:21	Expected Time: 02:43:56
+Epoch: 182/200	Train Loss: 0.0013	Test Loss: 0.4267	Accuracy: 94.37%	Current LR: 0.00005	Elapsed Time: 02:29:00	Expected Time: 02:43:44
+Epoch: 183/200	Train Loss: 0.0011	Test Loss: 0.4290	Accuracy: 94.39%	Current LR: 0.00005	Elapsed Time: 02:29:39	Expected Time: 02:43:33
+Epoch: 184/200	Train Loss: 0.0011	Test Loss: 0.4264	Accuracy: 94.22%	Current LR: 0.00004	Elapsed Time: 02:30:18	Expected Time: 02:43:22
+Epoch: 185/200	Train Loss: 0.0008	Test Loss: 0.4264	Accuracy: 94.36%	Current LR: 0.00004	Elapsed Time: 02:30:57	Expected Time: 02:43:12
+Epoch: 186/200	Train Loss: 0.0007	Test Loss: 0.4255	Accuracy: 94.35%	Current LR: 0.00003	Elapsed Time: 02:31:36	Expected Time: 02:43:01
+Epoch: 187/200	Train Loss: 0.0009	Test Loss: 0.4260	Accuracy: 94.31%	Current LR: 0.00003	Elapsed Time: 02:32:16	Expected Time: 02:42:51
+Epoch: 188/200	Train Loss: 0.0006	Test Loss: 0.4297	Accuracy: 94.29%	Current LR: 0.00003	Elapsed Time: 02:32:55	Expected Time: 02:42:41
+Epoch: 189/200	Train Loss: 0.0011	Test Loss: 0.4285	Accuracy: 94.36%	Current LR: 0.00003	Elapsed Time: 02:33:34	Expected Time: 02:42:30
+Epoch: 190/200	Train Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Epoch: 190/200	Train Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Epoch: 190/200	Train Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
+Sparsity: 0.02629ain Loss: 0.0006	Test Loss: 0.4298	Accuracy: 94.32%	Current LR: 0.00002	Elapsed Time: 02:34:13	Expected Time: 02:42:20
