@@ -1,0 +1,119 @@
+wandb_version: 1
+
+progress_bar:
+  desc: null
+  value: true
+verbose:
+  desc: null
+  value: false
+absolute_paths:
+  desc: null
+  value: false
+data_dir:
+  desc: null
+  value: /global/home/users/njo/PAdam/python/../data/CIFAR10
+out_dir:
+  desc: null
+  value: /global/home/users/njo/PAdam/python/../results/CIFAR10
+save_checkpoints:
+  desc: null
+  value: false
+save_model:
+  desc: null
+  value: false
+wandb_log:
+  desc: null
+  value: true
+wandb_project:
+  desc: null
+  value: PAdam
+wandb_run_name:
+  desc: null
+  value: ResNet181706135023.9987373
+wandb_group:
+  desc: null
+  value: Tests
+num_workers:
+  desc: null
+  value: 4
+batch_size:
+  desc: null
+  value: 400
+epochs:
+  desc: null
+  value: 100
+optimizer_name:
+  desc: null
+  value: AdamW
+max_lr:
+  desc: null
+  value: 0.00630957
+lambda_p:
+  desc: null
+  value: 0.00707946
+p_norm:
+  desc: null
+  value: 0.8
+beta1:
+  desc: null
+  value: 0.9
+beta2:
+  desc: null
+  value: 0.999
+grad_clip:
+  desc: null
+  value: 0.0
+sparsity_goal:
+  desc: null
+  value: 0.8
+prune_steps:
+  desc: null
+  value: 40
+non_decay_lr:
+  desc: null
+  value: false
+warmup_epochs:
+  desc: null
+  value: 3.0
+lr_decay_frac:
+  desc: null
+  value: 1.0
+min_lr:
+  desc: null
+  value: 6.30957e-05
+small_weights_threshold:
+  desc: null
+  value: 1.0e-13
+device:
+  desc: null
+  value: cuda
+compile:
+  desc: null
+  value: false
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.5
+    cli_version: 0.16.2
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1706135028.402488
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.8.5
+      5: 0.16.2
+      8:
+      - 5
+      13: linux-x86_64

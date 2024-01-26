@@ -1,0 +1,8 @@
+[?25lEpoch: [32m  0/100[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:00[39m • Time Remaining: [36m-:--:--
+  File "./python/train_CIFAR_prune.py", line 505, in <module>
+    main()
+  File "./python/train_CIFAR_prune.py", line 415, in main
+    append_small_weight_vec(args.small_weights_threshold, epoch)
+NameError: name 'append_small_weight_vec' is not defined
+Epoch: [32m  0/100[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:23[39m • Time Remaining: [36m-:--:--
+Train Loss: inf • Validation Loss: inf • Validation Accuracy: [1m0.00[22m% • Learning Rate: [1m0.00006[22m • Sparsity: [1m0.0[22m%

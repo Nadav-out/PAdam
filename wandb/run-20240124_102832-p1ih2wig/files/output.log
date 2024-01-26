@@ -1,0 +1,26 @@
+[?25lEpoch: [32m  0/100[39m [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:00:00[39m • Time Remaining: [36m-:--:--
+Train Loss: [1m1.5592[22m • Validation Loss: [1m1.8575[22m • Validation Accuracy: [1m46.04[22m% • Learning Rate: [1m0.00006[22m • Sparsity: [1m0.0[22m%
+Best Validation Loss: 1.8575, achived at epoch 1 with 0.0% sparsity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    prune_decay_params(model, amount=prune_amount)
+  File "./python/train_CIFAR_prune.py", line 188, in prune_decay_params
+    torch.nn.utils.prune.l1_unstructured(module, name='weight', amount=amount)
+AttributeError: module 'torch.nn.utils' has no attribute 'prune'
+Epoch: [32m 25/100[39m [91m━━━━━━━━━━[90m╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m • Time Elapsed: [33m0:05:00[39m • Time Remaining: [36m0:14:16
+Train Loss: [1m0.2085[22m • Validation Loss: [1m0.3441[22m • Validation Accuracy: [1m89.67[22m% • Learning Rate: [1m0.00561[22m • Sparsity: [1m0.0[22m%
+Best Validation Loss: 0.3094, achived at epoch 24 with 0.0% sparsity
+Best Validation Accuracy: 90.02%, achived at epoch 24 with 0.0% sparsity
