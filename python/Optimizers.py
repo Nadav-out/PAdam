@@ -88,6 +88,8 @@ class Adam_L1(torch.optim.AdamW):
 
         return loss
     
+import torch
+
 class AdamL3_2(torch.optim.AdamW):
     def __init__(self, params, l3_2_lambda=0.01, weight_decay=0, *args, **kwargs):
         # Initialize the AdamW optimizer with weight_decay set to 0
@@ -107,15 +109,17 @@ class AdamL3_2(torch.optim.AdamW):
 
             for p in group['params']:
                 if p.grad is not None:
-                    # Apply the 3/2 norm proximal operator
+                    # Calculate the 3/2 norm proximal operator term
                     lambda_squared = l3_2_lambda_group ** 2
-                    term = (1 - torch.sqrt(1 + 4 * p.data / (lambda_squared+1e-12))) * lambda_squared / 2
-                    p.data += term
+                    abs_data = torch.abs(p.data)
+                    term = (1 - torch.sqrt(1 + 4 * abs_data / lambda_squared)) * lambda_squared / 2
+                    p.data += torch.sign(p.data) * term  # Apply the proximal operator
 
                     # Apply custom weight decay
                     p.data /= (1 + lr * self.WD)
 
         return loss
+
 
 
 
