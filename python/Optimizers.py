@@ -4,32 +4,6 @@ class PAdam(torch.optim.AdamW):
         super(PAdam, self).__init__(params, lr=lr, betas=betas, eps=eps, weight_decay=0, *args, **kwargs)
         self.p_norm = p_norm
         self.lambda_p = lambda_p
-
-    # @torch.no_grad()
-    # def step(self, closure=None):
-    #     # Store the old params
-    #     old_params = []
-    #     for group in self.param_groups:
-    #         old_params.append({param: param.data.clone() for param in group['params'] if param.grad is not None})
-
-    #     # Perform the standard Adam step
-    #     loss = super(PAdam, self).step(closure)
-
-    #     # Perform the PAdam step
-    #     for group, old_group in zip(self.param_groups, old_params):
-    #         for param in group['params']:
-    #             if param.grad is None:
-    #                 continue
-
-    #             # Use old parameters in the decay factor
-    #             param_old = old_group[param]
-    #             X = param_old.abs()**(2 - self.p_norm)
-    #             update_term = X / (X + self.p_norm * group['lr'] * self.lambda_p)
-
-    #             # Update the parameters
-    #             param.data.mul_(update_term)
-
-    #     return loss
     
 
     @torch.no_grad()
@@ -59,6 +33,35 @@ class PAdam(torch.optim.AdamW):
                     param.data.mul_(update_term)
 
         return loss
+    
+
+class PAdam_late(torch.optim.AdamW):
+    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, lambda_p=1e-2, p_norm=1, *args, **kwargs):
+        super(PAdam_late, self).__init__(params, lr=lr, betas=betas, eps=eps, weight_decay=0, *args, **kwargs)
+        self.p_norm = p_norm
+        self.lambda_p = lambda_p
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        # Perform the standard AdamW step
+        loss = super(PAdam_late, self).step(closure)
+
+        # Perform the modified PAdam step
+        for group in self.param_groups:
+            lambda_p_group = group.get('lambda_p', self.lambda_p)  # Use group-specific lambda_p or default to global lambda_p
+            if lambda_p_group > 0:  # Apply the regularization only if lambda_p is greater than 0
+                for param in group['params']:
+                    if param.grad is None:
+                        continue
+
+                    # Use the current parameters in the decay factor
+                    X = param.data.abs()**(2 - self.p_norm)
+                    update_term = X / (X + self.p_norm * group['lr'] * lambda_p_group)
+
+                    # Update the parameters
+                    param.data.mul_(update_term)
+
+        return loss
 
 class Adam_L1(torch.optim.AdamW):
     def __init__(self, params, l1_lambda=0.01,weight_decay=0, *args, **kwargs):
@@ -75,15 +78,46 @@ class Adam_L1(torch.optim.AdamW):
         # Apply L1 regularization per group
         for group in self.param_groups:
             lr = group['lr']
-            l1_lambda = group.get('l1_lambda', 0)  # Use group-specific l1_lambda or default to 0
+            l1_lambda_group = group.get('l1_lambda', self.l1_lambda)
             for p in group['params']:
                 if p.grad is not None:
                     # Apply soft thresholding for L1 regularization
-                    p.data = torch.sign(p.data) * torch.clamp(torch.abs(p.data) - l1_lambda * lr, min=0)
-                    # Apply weight decay (L2 regularization)
+                    p.data = torch.sign(p.data) * torch.clamp(torch.abs(p.data) - l1_lambda_group * lr, min=0)
+                    # Apply custom weight decay
                     p.data /= (1 + lr * self.WD)
 
         return loss
+    
+class AdamL3_2(torch.optim.AdamW):
+    def __init__(self, params, l3_2_lambda=0.01, weight_decay=0, *args, **kwargs):
+        # Initialize the AdamW optimizer with weight_decay set to 0
+        super(AdamL3_2, self).__init__(params, weight_decay=0, *args, **kwargs)
+        self.l3_2_lambda = l3_2_lambda
+        self.WD = weight_decay
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        # Standard AdamW optimization step
+        loss = super(AdamL3_2, self).step(closure)
+
+        # Apply 3/2 norm regularization and custom weight decay per group
+        for group in self.param_groups:
+            lr = group['lr']
+            l3_2_lambda_group = group.get('l3_2_lambda', self.l3_2_lambda) * lr
+
+            for p in group['params']:
+                if p.grad is not None:
+                    # Apply the 3/2 norm proximal operator
+                    lambda_squared = l3_2_lambda_group ** 2
+                    term = (1 - torch.sqrt(1 + 4 * p.data / lambda_squared)) * lambda_squared / 2
+                    p.data += term
+
+                    # Apply custom weight decay
+                    p.data /= (1 + lr * self.WD)
+
+        return loss
+
+
 
 class AdamP(torch.optim.AdamW):
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,

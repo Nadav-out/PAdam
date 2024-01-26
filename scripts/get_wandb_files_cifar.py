@@ -21,30 +21,29 @@ def fetch_run_data(run):
 
 def main():
     api = wandb.Api(timeout=50)
-    project_name = "rmt-ml/nanoGPT"
-    sweep_ids = ["jk08mrbv", "jzve0tyc", "6ulqoz7l"]  # Add your sweep IDs here
+    project_name = "rmt-ml/PAdam"
+    
 
     all_runs_history = []
     all_runs_metadata = []
 
-    for sweep_id in sweep_ids:
-        # Get all runs for the current sweep
-        print(f'Fetching runs for sweep {sweep_id}...')
-        runs = api.runs(project_name, {"sweep": sweep_id})
+    
+    print(f'Fetching runs...')
+    runs = api.runs(project_name)
 
-        with ThreadPoolExecutor(max_workers=10) as executor:
-            results = list(tqdm(executor.map(fetch_run_data, runs), total=len(runs), desc=f"Fetching Runs for sweep {sweep_id}"))
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        results = list(tqdm(executor.map(fetch_run_data, runs), total=len(runs), desc=f"Fetching Runs"))
 
-        for history_df, metadata_df in results:
-            if history_df is not None and metadata_df is not None:
-                all_runs_history.append(history_df)
-                all_runs_metadata.append(metadata_df)
+    for history_df, metadata_df in results:
+        if history_df is not None and metadata_df is not None:
+            all_runs_history.append(history_df)
+            all_runs_metadata.append(metadata_df)
 
     combined_history_df = pd.concat(all_runs_history, ignore_index=True)
     combined_metadata_df = pd.concat(all_runs_metadata, ignore_index=True)
 
     # Make sure save directory exists
-    out_dir = "./results/nanoGPT"
+    out_dir = "./results/CIFAR10"
     os.makedirs(out_dir, exist_ok=True)
 
     # Save to Pickle

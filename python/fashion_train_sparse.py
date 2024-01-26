@@ -127,7 +127,7 @@ def main():
 
     # Set up optimizers
     optimizer_1 = optim.Adam(Model_1.parameters(), lr=args.lr_1, weight_decay=args.lambda_p2)
-    optimizer_2 = AdamP(Model_2.parameters(), lr=args.lr_2, lambda_p=args.lambda_p2, p_norm=args.p_norm)
+    optimizer_2 = CustomAdam(Model_2.parameters(), lr=args.lr_2, weight_decay=args.lambda_p2)
     # optimizer_2 = optim.AdamW(Model_2.parameters(), lr=args.lr_2, weight_decay=args.lambda_p2)
 
     # Set up schedulers
