@@ -109,7 +109,7 @@ class AdamL3_2(torch.optim.AdamW):
                 if p.grad is not None:
                     # Apply the 3/2 norm proximal operator
                     lambda_squared = l3_2_lambda_group ** 2
-                    term = (1 - torch.sqrt(1 + 4 * p.data / lambda_squared)) * lambda_squared / 2
+                    term = (1 - torch.sqrt(1 + 4 * p.data / (lambda_squared+1e-12))) * lambda_squared / 2
                     p.data += term
 
                     # Apply custom weight decay
