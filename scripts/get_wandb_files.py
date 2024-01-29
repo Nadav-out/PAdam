@@ -22,7 +22,7 @@ def fetch_run_data(run):
 def main():
     api = wandb.Api(timeout=50)
     project_name = "rmt-ml/nanoGPT"
-    sweep_ids = ["jk08mrbv", "jzve0tyc", "6ulqoz7l"]  # Add your sweep IDs here
+    sweep_ids = ["jk08mrbv", "jzve0tyc", "6ulqoz7l", "ez3kfbs4", "nex2g6jv", "s82j19e3", "0418aodw" ,"e41g452l"]  # Add your sweep IDs here
 
     all_runs_history = []
     all_runs_metadata = []

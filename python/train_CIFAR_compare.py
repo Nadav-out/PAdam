@@ -26,6 +26,10 @@ from rich.live import Live
 from rich.table import Table
 
 
+from only_train_once import OTO
+
+
+
 
 
 def get_args():
@@ -258,8 +262,22 @@ def main():
     # initialize model
     model = to_device(resnet18(10), args.device)
 
+    dummy_input = torch.rand(1, 3, 32, 32)
+    oto = OTO(model=model, dummy_input=dummy_input.cuda())
+
+
     # optimizer
-    optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
+    # optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
+    optimizer = oto.hesso(
+        variant='adamw', 
+        lr=args.max_lr, 
+        weight_decay=args.lambda_p,
+        target_group_sparsity=0.7,
+        start_pruning_step=10 * len(trainloader), 
+        pruning_periods=10,
+        pruning_steps=10 * len(trainloader)
+    )
+
     
     # scheduler
     if args.non_decay_lr:
@@ -367,8 +385,12 @@ def main():
         val_losses.append(avg_val_loss)
         accuracies.append(accuracy)
 
+        # OTO shit
+        group_sparsity, param_norm, _ = optimizer.compute_group_sparsity_param_norm()
+        norm_important, norm_redundant, num_grps_important, num_grps_redundant = optimizer.compute_norm_groups()
+
         # update small weights count
-        cur_sparsity = model.append_small_weight_vec(args.small_weights_threshold, epoch)
+        cur_sparsity = group_sparsity#model.append_small_weight_vec(args.small_weights_threshold, epoch)
 
 
         # wandb log
