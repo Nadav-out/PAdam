@@ -276,7 +276,8 @@ def main():
         target_group_sparsity=0.7,
         start_pruning_step=10 * len(trainloader), 
         pruning_periods=10,
-        pruning_steps=10 * len(trainloader)
+        pruning_steps=10 * len(trainloader),
+        device=args.device
     )
 
     
