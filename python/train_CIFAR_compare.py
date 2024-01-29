@@ -69,6 +69,7 @@ def get_args():
     parser.add_argument('--beta1', type=float, default=0.9, help="Beta1 for Adam optimizer")
     parser.add_argument('--beta2', type=float, default=0.999, help="Beta2 for Adam optimizer")
     parser.add_argument('--grad_clip', type=float, default=0.0, help="Gradient clipping value")
+    parser.add_argument('--sparsity_goal', type=float, default=0.0, help="Target group sparsity")
 
     # Learning Rate Decay Settings
     parser.add_argument('--non_decay_lr', action='store_true', help="Disable learning rate decay")
@@ -273,7 +274,7 @@ def main():
         variant='adamw', 
         lr=args.max_lr, 
         weight_decay=args.lambda_p,
-        target_group_sparsity=0.7,
+        target_group_sparsity=args.sparsity_goal,
         start_pruning_step=10 * len(trainloader), 
         pruning_periods=10,
         pruning_steps=10 * len(trainloader),
