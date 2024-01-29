@@ -59,10 +59,10 @@ def get_args():
     parser.add_argument('--epochs', type=int, default=100, help="Number of training epochs")
 
     # Optimizer
-    parser.add_argument('--optimizer_name', type=str, default='PAdam', help="Name of the optimizer")
+    # parser.add_argument('--optimizer_name', type=str, default='PAdam', help="Name of the optimizer")
     parser.add_argument('--max_lr', type=float, default=1e-3, help="Maximum learning rate")
     parser.add_argument('--lambda_p', type=float, default=1e-3, help="Lambda parameter value")
-    parser.add_argument('--p_norm', type=float, default=0.8, help="P-norm value")
+    # parser.add_argument('--p_norm', type=float, default=0.8, help="P-norm value")
     parser.add_argument('--beta1', type=float, default=0.9, help="Beta1 for Adam optimizer")
     parser.add_argument('--beta2', type=float, default=0.999, help="Beta2 for Adam optimizer")
     parser.add_argument('--grad_clip', type=float, default=0.0, help="Gradient clipping value")
@@ -309,7 +309,7 @@ def main():
     model = to_device(resnet18(10), args.device)
 
     # optimizer
-    optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
+    optimizer = model.configure_optimizers('AdamW', args.lambda_p, args.max_lr, 2.0, (args.beta1, args.beta2), device_type)    
     
     # scheduler
     if args.non_decay_lr:
@@ -419,6 +419,7 @@ def main():
 
         # Prune
         if epoch >= args.start_pruning:
+            print(f"Pruning with threshold {threshold_epoch(epoch)} at epoch {epoch+1}")
             pruning_module.update_threshold(threshold_epoch(epoch))
             with torch.no_grad():
                 for param in model.parameters():
