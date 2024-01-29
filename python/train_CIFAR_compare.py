@@ -13,6 +13,7 @@ import time
 import numpy as np
 import math
 import pandas as pd
+from zmq import device
 
 from models import *
 from Optimizers import *
@@ -263,7 +264,7 @@ def main():
     model = to_device(resnet18(10), args.device)
 
     dummy_input = torch.rand(1, 3, 32, 32)
-    oto = OTO(model=model, dummy_input=dummy_input.cuda())
+    oto = OTO(model=model, dummy_input=dummy_input.cuda(device=args.device))
 
 
     # optimizer
