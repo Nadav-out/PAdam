@@ -144,13 +144,21 @@ def ModelUtils(model_class):
 
         elif optimizer_name == 'AdamL3_2':
             optim_groups = [
-                {'params': [p[1] for p in self.decay_params], 'l1_lambda': weight_decay},
-                {'params': [p[1] for p in self.nodecay_params], 'l1_lambda': 0.0}
+                {'params': [p[1] for p in self.decay_params], 'l3_2_lambda': weight_decay},
+                {'params': [p[1] for p in self.nodecay_params], 'l3_2_lambda': 0.0}
             ]
             optimizer = AdamL3_2(optim_groups, lr=learning_rate, betas=betas, **extra_args)
 
+
+        elif optimizer_name == 'AdamP':
+            optim_groups = [
+                {'params': [p[1] for p in self.decay_params], 'lambda_p': weight_decay},
+                {'params': [p[1] for p in self.nodecay_params], 'lambda_p': 0.0}
+            ]
+            optimizer = AdamP(optim_groups, lr=learning_rate, betas=betas, **extra_args)
+
         else:
-            raise ValueError("optimizer_name must be 'AdamW', 'PAdam', 'PAdam_late', 'Adam_L1', or 'AdamL3_2'")
+            raise ValueError("optimizer_name must be 'AdamW', 'PAdam', 'PAdam_late', 'AdamP', 'Adam_L1', or 'AdamL3_2'")
 
         print(f"using fused Adam: {use_fused}")
         return optimizer

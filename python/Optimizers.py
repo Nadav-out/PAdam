@@ -88,8 +88,6 @@ class Adam_L1(torch.optim.AdamW):
 
         return loss
     
-import torch
-
 class AdamL3_2(torch.optim.AdamW):
     def __init__(self, params, l3_2_lambda=0.01, weight_decay=0, *args, **kwargs):
         # Initialize the AdamW optimizer with weight_decay set to 0
@@ -126,12 +124,13 @@ class AdamL3_2(torch.optim.AdamW):
 class AdamP(torch.optim.AdamW):
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,
                  lambda_p=0, amsgrad=False, p_norm=2):
-        # Initialize the parent class (Adam) with weight_decay set to 0
+        # Initialize the parent class (AdamW) with weight_decay set to 0
         super(AdamP, self).__init__(params, lr=lr, betas=betas, eps=eps,
                                      weight_decay=0, amsgrad=amsgrad)
         self.lambda_p = lambda_p
         self.p_norm = p_norm
 
+    @torch.no_grad()  # Disable gradient tracking
     def step(self, closure=None):
         # Compute the loss using the parent class's step method if a closure is provided
         loss = None
@@ -146,13 +145,14 @@ class AdamP(torch.optim.AdamW):
 
                 # Apply the general Lp^p regularization
                 if self.lambda_p != 0:
-                    lp_grad = (param.data.abs()**(self.p_norm - 2)) * param.data
-                    param.grad.data.add_(lp_grad, alpha=self.p_norm * self.lambda_p)
+                    lp_grad = (param.abs()**(self.p_norm - 2)) * param
+                    param.grad.add_(lp_grad, alpha=self.p_norm * self.lambda_p)
 
         # Perform the optimization step using the parent class's logic
         super(AdamP, self).step(closure)
 
         return loss
+
 
 
 class CustomAdam(torch.optim.Optimizer):
