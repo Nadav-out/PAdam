@@ -113,26 +113,19 @@ class AdamL3_2(torch.optim.AdamW):
                     term = (1 - torch.sqrt(1 + 4 * abs_data / lambda_squared)) * lambda_squared / 2
                     p.data += torch.sign(p.data) * term  # Apply the proximal operator
 
-                    # Apply custom weight decay
-                    p.data /= (1 + lr * self.WD)
 
         return loss
-
-
-
+    
 
 class AdamP(torch.optim.AdamW):
-    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,
-                 lambda_p=0, amsgrad=False, p_norm=2):
-        # Initialize the parent class (Adam) with weight_decay set to 0
-        super(AdamP, self).__init__(params, lr=lr, betas=betas, eps=eps,
-                                     weight_decay=0, amsgrad=amsgrad)
+    def __init__(self, params, lambda_p=0.01, weight_decay=0, *args, **kwargs):
+        # Initialize the AdamW optimizer with weight_decay set to 0
+        super(AdamP, self).__init__(params, weight_decay=0, *args, **kwargs)
         self.lambda_p = lambda_p
-        self.p_norm = p_norm
-    
+        self.WD = weight_decay
+
     @torch.no_grad()
     def step(self, closure=None):
-        # Compute the loss using the parent class's step method if a closure is provided
         loss = None
         if closure is not None:
             loss = closure()
@@ -148,10 +141,44 @@ class AdamP(torch.optim.AdamW):
                     lp_grad = ((param.data.abs()+1e-13)**(self.p_norm - 2)) * param.data
                     param.grad.data.add_(lp_grad, alpha=self.p_norm * self.lambda_p)
 
-        # Perform the optimization step using the parent class's logic
-        super(AdamP, self).step(closure)
+        loss = super(AdamP, self).step(closure)
 
         return loss
+
+
+
+
+# class AdamP(torch.optim.AdamW):
+#     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,
+#                  lambda_p=0, amsgrad=False, p_norm=2):
+#         # Initialize the parent class (Adam) with weight_decay set to 0
+#         super(AdamP, self).__init__(params, lr=lr, betas=betas, eps=eps,
+#                                      weight_decay=0, amsgrad=amsgrad)
+#         self.lambda_p = lambda_p
+#         self.p_norm = p_norm
+    
+#     @torch.no_grad()
+#     def step(self, closure=None):
+#         # Compute the loss using the parent class's step method if a closure is provided
+#         loss = None
+#         if closure is not None:
+#             loss = closure()
+
+#         # Apply custom Lp^p regularization to the gradients
+#         for group in self.param_groups:
+#             for param in group['params']:
+#                 if param.grad is None:
+#                     continue
+
+#                 # Apply the general Lp^p regularization
+#                 if self.lambda_p != 0:
+#                     lp_grad = ((param.data.abs()+1e-13)**(self.p_norm - 2)) * param.data
+#                     param.grad.data.add_(lp_grad, alpha=self.p_norm * self.lambda_p)
+
+#         # Perform the optimization step using the parent class's logic
+#         super(AdamP, self).step(closure)
+
+#         return loss
 
 
 class CustomAdam(torch.optim.Optimizer):
