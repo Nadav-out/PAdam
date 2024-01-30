@@ -118,7 +118,7 @@ class AdamL3_2(torch.optim.AdamW):
     
 
 class AdamP(torch.optim.AdamW):
-    def __init__(self, params, lambda_p=0.01, weight_decay=0, *args, **kwargs):
+    def __init__(self, params, lambda_p=0.01, weight_decay=0, p_norm=1, *args, **kwargs):
         # Initialize the AdamW optimizer with weight_decay set to 0
         super(AdamP, self).__init__(params, weight_decay=0, *args, **kwargs)
         self.lambda_p = lambda_p
