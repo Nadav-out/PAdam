@@ -123,6 +123,7 @@ class AdamP(torch.optim.AdamW):
         super(AdamP, self).__init__(params, weight_decay=0, *args, **kwargs)
         self.lambda_p = lambda_p
         self.WD = weight_decay
+        self.p_norm = p_norm
 
     @torch.no_grad()
     def step(self, closure=None):
