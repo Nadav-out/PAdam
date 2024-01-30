@@ -22,7 +22,7 @@ def fetch_run_data(run):
 def main():
     api = wandb.Api(timeout=50)
     project_name = "rmt-ml/nanoGPT"
-    sweep_ids = ["jk08mrbv", "jzve0tyc", "6ulqoz7l", "ez3kfbs4", "nex2g6jv", "s82j19e3", "0418aodw" ,"e41g452l"]  # Add your sweep IDs here
+    sweep_ids = ["sshbav61"]#["jk08mrbv", "jzve0tyc", "6ulqoz7l", "ez3kfbs4", "nex2g6jv", "s82j19e3", "0418aodw" ,"e41g452l"]  # Add your sweep IDs here
 
     all_runs_history = []
     all_runs_metadata = []
@@ -48,8 +48,8 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
 
     # Save to Pickle
-    combined_history_df.to_pickle(os.path.join(out_dir, "all_runs_history.pkl"))
-    combined_metadata_df.to_pickle(os.path.join(out_dir, "all_runs_metadata.pkl"))
+    combined_history_df.to_pickle(os.path.join(out_dir, "L0_history.pkl"))
+    combined_metadata_df.to_pickle(os.path.join(out_dir, "L0_metadata.pkl"))
 
     print("Data saved successfully.")
 
