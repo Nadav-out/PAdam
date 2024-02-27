@@ -22,14 +22,14 @@ def fetch_run_data(run):
 def main():
     api = wandb.Api(timeout=50)
     project_name = "rmt-ml/PAdam"
-    
 
     all_runs_history = []
     all_runs_metadata = []
 
-    
     print(f'Fetching runs...')
-    runs = api.runs(project_name)
+    # Filter runs by a specific group
+    group="L0_2" #"OTO_2"
+    runs = api.runs(project_name, {"$and": [{"group": group}]})
 
     with ThreadPoolExecutor(max_workers=10) as executor:
         results = list(tqdm(executor.map(fetch_run_data, runs), total=len(runs), desc=f"Fetching Runs"))
@@ -47,8 +47,8 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
 
     # Save to Pickle
-    combined_history_df.to_pickle(os.path.join(out_dir, "all_runs_history.pkl"))
-    combined_metadata_df.to_pickle(os.path.join(out_dir, "all_runs_metadata.pkl"))
+    combined_history_df.to_pickle(os.path.join(out_dir, f"{group}_history.pkl"))
+    combined_metadata_df.to_pickle(os.path.join(out_dir, f"{group}_metadata.pkl"))
 
     print("Data saved successfully.")
 
