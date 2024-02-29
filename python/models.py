@@ -351,19 +351,19 @@ class FashionCNN_groups(nn.Module):
         self.dropout = nn.Dropout(p=0.2)
 
     def forward(self, x):
-        x = F.relu(torch.mul(self.scale_conv1,self.conv1(x)))
+        x = F.relu(torch.mul(self.conv1(x),self.scale_conv1))
         x = F.max_pool2d(x, 2, stride=2)
         
-        x = F.relu(torch.mul(self.scale_conv2,self.conv2(x)))
+        x = F.relu(torch.mul(self.conv2(x),self.scale_conv2))
         x = F.max_pool2d(x, 2, stride=2)
         
         # reshape
         x = x.view(x.size(0), -1)
-        x = F.relu(torch.mul(self.scale_fc1,self.fc1(x)))
+        x = F.relu(torch.mul(self.fc1(x),self.scale_fc1))
         
         # Dropout
         x = self.dropout(x)
-        x = torch.mul(self.scale_fc2,self.fc2(x))
+        x = torch.mul(self.fc2(x),self.scale_fc2)
         
         return F.log_softmax(x, dim=1)
 

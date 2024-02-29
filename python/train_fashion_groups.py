@@ -130,8 +130,9 @@ def main():
     total_params_1 = count_parameters(Model_1)
     total_params_2 = count_parameters(Model_2)
 
-    print(f"Total trainable parameters, simple model: {total_params_1}\n")
-    print(f"Total trainable parameters, group model: {total_params_2}\n")
+    print(f"Total trainable parameters, simple model: {total_params_1}")
+    print(f"Total trainable parameters, group model: {total_params_2}")
+    print(f'Number of groups: {total_params_2-total_params_1}')
 
     # Set up optimizers
     optimizer_1 = optim.AdamW(Model_1.parameters(), lr=args.lr_1, weight_decay=args.weight_decay)
