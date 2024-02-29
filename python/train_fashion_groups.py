@@ -195,11 +195,11 @@ def main():
         small_weights_layers_2 = [fraction_small_weights(param, args.small_weight_threshold) for param in Model_2.parameters() if param.requires_grad]
 
         # Calculate the total fraction of small weights for each model
-        total_frac_model_1 = parameters_per_layer_weight @ np.array(small_weights_layers_1)
+        # total_frac_model_1 = parameters_per_layer_weight @ np.array(small_weights_layers_1)
         total_frac_model_2 = parameters_per_layer_weight @ np.array(small_weights_layers_2)
 
         # Append the fractions of small weights for each layer along with the total fraction
-        params_epochs['small_weights_1'].append(small_weights_layers_1 + [total_frac_model_1])
+        # params_epochs['small_weights_1'].append(small_weights_layers_1 + [total_frac_model_1])
         params_epochs['small_weights_2'].append(small_weights_layers_2 + [total_frac_model_2])
 
         # Calculate and store the average training loss for this epoch
