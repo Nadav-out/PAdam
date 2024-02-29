@@ -148,18 +148,10 @@ def main():
         'train_1': [], 'train_2': [],
         'test_1': [], 'test_2': [],
         'accuracy_1': [], 'accuracy_2': [],
-        'small_weights_1': [], 'small_weights_2': []
+        'min_max_scales': []
     }
 
-    parameters_per_layer = np.array([p.nelement() for p in Model_2.parameters() if p.requires_grad])
-    parameters_per_layer_weight = parameters_per_layer / np.sum(parameters_per_layer)
-
-    # Function to calculate the fraction of small weights for a given parameter tensor
-    def fraction_small_weights(param, threshold):
-        small_weights = torch.sum(torch.abs(param.data) < threshold).item()
-        total_weights = param.nelement()
-        return small_weights / total_weights
-
+    
     # Record the start time
     start_time = time.time()
 
@@ -190,17 +182,9 @@ def main():
             loss_2.backward()
             optimizer_2.step()
 
-        # Calculate the fraction of small weights for each layer
-        small_weights_layers_1 = [fraction_small_weights(param, args.small_weight_threshold) for param in Model_1.parameters() if param.requires_grad]
-        small_weights_layers_2 = [fraction_small_weights(param, args.small_weight_threshold) for param in Model_2.parameters() if param.requires_grad]
-
-        # Calculate the total fraction of small weights for each model
-        # total_frac_model_1 = parameters_per_layer_weight @ np.array(small_weights_layers_1)
-        total_frac_model_2 = parameters_per_layer_weight @ np.array(small_weights_layers_2)
-
-        # Append the fractions of small weights for each layer along with the total fraction
-        # params_epochs['small_weights_1'].append(small_weights_layers_1 + [total_frac_model_1])
-        params_epochs['small_weights_2'].append(small_weights_layers_2 + [total_frac_model_2])
+        mins=[s.min().item() for s in [Model_2.scale_conv1, Model_2.scale_conv2, Model_2.scale_fc1, Model_2.scale_fc2]]
+        params_epochs['min_max_scales'].append(mins)
+        
 
         # Calculate and store the average training loss for this epoch
         params_epochs['train_1'].append(train_loss_epoch_1 / len(train_loader))
@@ -242,7 +226,7 @@ def main():
         expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
 
         # Print status
-        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tSmall Weights: {100*total_frac_model_2:.2f}%\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
+        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tMin scale: {mins}%\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
         print(f"\r{status_message:<150}", end='')
 
     print()
@@ -250,12 +234,12 @@ def main():
 
 
     # Save the trained models
-    torch.save(Model_1.state_dict(), os.path.join(args.save_dir, 'fashion_Model_1.pth'))
-    torch.save(Model_2.state_dict(), os.path.join(args.save_dir, 'fashion_Model_2.pth'))
+    # torch.save(Model_1.state_dict(), os.path.join(args.save_dir, 'fashion_Model_1.pth'))
+    # torch.save(Model_2.state_dict(), os.path.join(args.save_dir, 'fashion_Model_2.pth'))
 
     # Save metrics
-    with open(os.path.join(args.save_dir, 'fashion_metrics.pkl'), 'wb') as f:
-        pickle.dump(params_epochs, f)
+    # with open(os.path.join(args.save_dir, 'fashion_metrics.pkl'), 'wb') as f:
+    #     pickle.dump(params_epochs, f)
 
 if __name__ == "__main__":
     main()
