@@ -226,7 +226,8 @@ def main():
         expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
 
         # Print status
-        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tMin scale: {mins}%\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
+        formatted_mins = ", ".join(f'{min_value:.4f}' for min_value in mins)
+        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tMin scale: {formatted_mins}\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
         print(f"\r{status_message:<150}", end='')
 
     print()
