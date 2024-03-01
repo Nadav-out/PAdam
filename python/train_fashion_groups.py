@@ -117,10 +117,10 @@ def main():
     # Initialize and duplicate models
     Model_1 = FashionCNN_groups()
     Model_2 = copy.deepcopy(Model_1)
-    Model_1.scale_conv1.requires_grad = False
+
     Model_1.scale_conv2.requires_grad = False
     Model_1.scale_fc1.requires_grad = False
-    Model_1.scale_fc2.requires_grad = False
+    
 
 
     # Move models to the appropriate device
@@ -231,7 +231,7 @@ def main():
         status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tExpected Time: {expected_str}"
         # print(f"\r{status_message:<150}", end='')
         print(status_message)
-        for m in [Model_2.scale_conv1, Model_2.scale_conv2, Model_2.scale_fc1, Model_2.scale_fc2]:
+        for m in [Model_2.scale_conv2, Model_2.scale_fc1]:
             print(", ".join(f'{k:.4f}' for k in m[:10]))
 
     print()
