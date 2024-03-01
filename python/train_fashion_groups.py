@@ -232,7 +232,7 @@ def main():
         # print(f"\r{status_message:<150}", end='')
         print(status_message)
         for m in [Model_2.scale_conv2, Model_2.scale_fc1]:
-            print(f'{m.min().item():.4f} {m.max().item():.4f}')
+            print(f'{m.min().log10().item():.4f} {m.max().log10().item():.4f}')
             
 
     print()
