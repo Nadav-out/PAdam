@@ -240,8 +240,8 @@ def main():
 
 
     # Save the trained models
-    # torch.save(Model_1.state_dict(), os.path.join(args.save_dir, 'fashion_Model_1.pth'))
-    # torch.save(Model_2.state_dict(), os.path.join(args.save_dir, 'fashion_Model_2.pth'))
+    torch.save(Model_1.state_dict(), os.path.join(args.save_dir, 'fashion_Model_WD.pth'))
+    torch.save(Model_2.state_dict(), os.path.join(args.save_dir, 'fashion_Model_group.pth'))
 
     # Save metrics
     # with open(os.path.join(args.save_dir, 'fashion_metrics.pkl'), 'wb') as f:
