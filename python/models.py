@@ -337,7 +337,6 @@ class FashionCNN_groups(nn.Module):
         
         # Convolutional layers
         self.conv1 = nn.Conv2d(1, 32, 3, padding=1)
-        self.scale_conv1 = nn.Parameter(torch.ones(32))
         self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
         self.scale_conv2 = nn.Parameter(torch.ones(64))
                 
@@ -345,13 +344,12 @@ class FashionCNN_groups(nn.Module):
         self.fc1 = nn.Linear(64 * 7 * 7, 128)
         self.scale_fc1 = nn.Parameter(torch.ones(128))
         self.fc2 = nn.Linear(128, 10)
-        self.scale_fc2 = nn.Parameter(torch.ones(10))
 
         # Dropout
         self.dropout = nn.Dropout(p=0.2)
 
     def forward(self, x):
-        x = F.relu(torch.mul(self.conv1(x),self.scale_conv1.view(1, 32, 1, 1)))
+        x = F.relu(self.conv1(x))
         x = F.max_pool2d(x, 2, stride=2)
         
         x = F.relu(torch.mul(self.conv2(x),self.scale_conv2.view(1, 64, 1, 1)))
@@ -363,7 +361,7 @@ class FashionCNN_groups(nn.Module):
         
         # Dropout
         x = self.dropout(x)
-        x = torch.mul(self.fc2(x),self.scale_fc2)
+        x = self.fc2(x)
         
         return F.log_softmax(x, dim=1)
 

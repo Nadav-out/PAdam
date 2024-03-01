@@ -232,7 +232,7 @@ def main():
         # print(f"\r{status_message:<150}", end='')
         print(status_message)
         for m in [Model_2.scale_conv1, Model_2.scale_conv2, Model_2.scale_fc1, Model_2.scale_fc2]:
-            print(", ".join(f'{k:.4f}' for k in m))
+            print(", ".join(f'{k:.4f}' for k in m[:10]))
 
     print()
 
