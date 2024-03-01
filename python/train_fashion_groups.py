@@ -1,6 +1,7 @@
 import argparse
 import os
 import subprocess
+from turtle import st
 import torch
 import torchvision.transforms as transforms
 import pickle
@@ -182,8 +183,8 @@ def main():
             loss_2.backward()
             optimizer_2.step()
 
-        mins=[s.min().item() for s in [Model_2.scale_conv1, Model_2.scale_conv2, Model_2.scale_fc1, Model_2.scale_fc2]]
-        params_epochs['min_max_scales'].append(mins)
+        # mins=[s.min().item() for s in [Model_2.scale_conv1, Model_2.scale_conv2, Model_2.scale_fc1, Model_2.scale_fc2]]
+        # params_epochs['min_max_scales'].append(mins)
         
 
         # Calculate and store the average training loss for this epoch
@@ -226,9 +227,12 @@ def main():
         expected_str = time.strftime("%H:%M:%S", time.gmtime(expected_time))
 
         # Print status
-        formatted_mins = ", ".join(f'{min_value:.4f}' for min_value in mins)
-        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tMin scale: {formatted_mins}\tElapsed Time: {elapsed_str}\tExpected Time: {expected_str}"
-        print(f"\r{status_message:<150}", end='')
+        
+        status_message = f"Epoch: {epoch+1}/{args.epochs}\tTrain Loss: {params_epochs['train_1'][-1]:.4f} | {params_epochs['train_2'][-1]:.4f}\tTest Loss: {params_epochs['test_1'][-1]:.4f} | {params_epochs['test_2'][-1]:.4f}\tAccuracy: {params_epochs['accuracy_1'][-1]:.2f}% | {params_epochs['accuracy_2'][-1]:.2f}%\tExpected Time: {expected_str}"
+        # print(f"\r{status_message:<150}", end='')
+        print(status_message)
+        for m in [Model_2.scale_conv1, Model_2.scale_conv2, Model_2.scale_fc1, Model_2.scale_fc2]:
+            print(", ".join(f'{k:.4f}' for k in m))
 
     print()
 
