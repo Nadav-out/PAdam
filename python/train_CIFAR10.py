@@ -4,9 +4,7 @@ import os
 
 import torch
 import torchvision
-import torch.nn.utils.prune as prune
 import torchvision.transforms as tt
-
 
 import pickle
 
@@ -31,7 +29,7 @@ from rich.table import Table
 
 
 def get_args():
-    parser = argparse.ArgumentParser(description="Training script for CIFAR10")
+    parser = argparse.ArgumentParser(description="pAdam training script for CIFAR10")
 
     # Add progress_bar and verbose arguments
     parser.add_argument('--progress_bar', action='store_true', help='Enable rich live layout progress bar')
@@ -43,7 +41,7 @@ def get_args():
     parser.add_argument('--data_dir', type=str, default='../data/CIFAR10', help="Directory for data")
     parser.add_argument('--out_dir', type=str, default='../results/CIFAR10', help="Output directory")
     parser.add_argument('--save_checkpoints', action='store_true', help="Save checkpoints during training")
-    parser.add_argument('--save_model', action='store_true', help="Save the final model")
+    parser.add_argument('--save_summary', action='store_true', help="Save final training logs")
 
     # WandB Logging
     parser.add_argument('--wandb_log', action='store_true', help="Enable logging to Weights & Biases")
@@ -66,13 +64,8 @@ def get_args():
     parser.add_argument('--beta1', type=float, default=0.9, help="Beta1 for Adam optimizer")
     parser.add_argument('--beta2', type=float, default=0.999, help="Beta2 for Adam optimizer")
     parser.add_argument('--grad_clip', type=float, default=0.0, help="Gradient clipping value")
-    
-    # Sparsity
-    parser.add_argument('--sparsity_goal', type=float, default=0.0, help="Desired sparisty")
-    parser.add_argument('--prune_steps', type=int, default=5, help="number of pruning steps")
 
     # Learning Rate Decay Settings
-    parser.add_argument('--non_decay_lr', action='store_true', help="Disable learning rate decay")
     parser.add_argument('--warmup_epochs', type=float, default=2, help="Number of warmup epochs, can be fractional")
     parser.add_argument('--lr_decay_frac', type=float, default=1.0, help="Fraction of max_lr to decay to")
     parser.add_argument('--min_lr', type=float, default=1e-5, help="Minimum learning rate")
@@ -178,38 +171,9 @@ def update_display(progress, layout, avg_train_loss, avg_val_loss, accuracy, cur
     
     
     
-def prune_decay_params(model, amount):
-    """ Prune only the decay parameters of the model """
-    for module_name, _, module_type in model.decay_params:
-        module = dict(model.named_modules())[module_name]
-
-        # Check if the module is of a type that typically has 'weight' parameters to prune
-        if isinstance(module, (torch.nn.Conv2d, torch.nn.Linear)):
-            # Apply pruning to the 'weight' parameter of the module
-            prune.l1_unstructured(module, name='weight', amount=amount)
 
 
-def calculate_sparsity(model):
-    total_params = 0
-    total_zero_params = 0
-
-    for module_name, _, _ in model.decay_params:
-        module = dict(model.named_modules())[module_name]
-
-        if hasattr(module, 'weight'):
-            # Get the weight and its associated mask
-            weight = getattr(module, 'weight')
-            mask = getattr(module, 'weight_mask', torch.ones_like(weight))
-
-            # Calculate the total and zero-valued parameters considering the mask
-            total_params += torch.numel(weight)
-            total_zero_params += torch.sum(weight * mask == 0).item()
-
-    if total_params == 0:
-        return 0  # Prevent division by zero
-
-    sparsity = total_zero_params / total_params
-    return sparsity
+    
 
 
 
@@ -275,7 +239,7 @@ def main():
     transform_test = tt.Compose([tt.ToTensor(), tt.Normalize(mean, std)])
 
 
-    # Load the CIFAR-10 dataset with transforms above
+    # Load the CIFAR-10 dataset with the  transforms above
     trainset = torchvision.datasets.CIFAR10(root=args.data_dir, train=True, download=False, transform=transform_train)
     testset = torchvision.datasets.CIFAR10(root=args.data_dir, train=False, download=False, transform=transform_test)
     
@@ -297,15 +261,7 @@ def main():
     optimizer = model.configure_optimizers(args.optimizer_name, args.lambda_p, args.max_lr, args.p_norm, (args.beta1, args.beta2), device_type)    
     
     # scheduler
-    if args.non_decay_lr:
-        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: 1)
-        # num_iters=len(trainloader)*args.epochs
-        # scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[num_iters//2,2*num_iters//3,3*num_iters//4,4*num_iters//5], gamma=0.5)
-        # # rate=(args.min_lr/args.max_lr)**(1/num_iters)
-        # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=rate)
-    
-    else: 
-        scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda iter: cosine_lambda(iter/len(trainloader), args.epochs, args.max_lr, args.min_lr, args.warmup_epochs, args.lr_decay_frac))
     
 
     if args.compile and device_type == 'cuda':
@@ -316,7 +272,7 @@ def main():
 
 
 
-    if args.save_checkpoints or args.save_model:
+    if args.save_checkpoints or args.save_summary:
         if not os.path.exists(args.out_dir):
             os.makedirs(args.out_dir)
         accuracy_save_path = os.path.join(args.out_dir, 'best_accuracy_model.pth')
@@ -378,14 +334,8 @@ def main():
     lrs = [] 
 
 
-    
-    
-    prune_amount=1-(1-args.sparsity_goal)**(1/args.prune_steps)
-    pruning_start_epoch = args.warmup_epochs  # Start pruning after 1/10 of total epochs
-    pruning_end_epoch = args.epochs - int(0.3*args.epochs)  # Stop pruning 1/10 epochs before the end
-    prune_epochs = np.linspace(pruning_start_epoch, pruning_end_epoch, args.prune_steps, endpoint=True)
-    # Round the epochs and convert to integers, ensure unique epochs in case of duplicates due to rounding
-    prune_epochs = sorted(set(int(epoch) for epoch in prune_epochs))
+
+
     
 
 
@@ -407,14 +357,9 @@ def main():
         # Log validation loss and accurecy
         val_losses.append(avg_val_loss)
         accuracies.append(accuracy)
-        
-        if epoch in prune_epochs:
-            prune_decay_params(model, amount=prune_amount)
-
 
         # update small weights count
-        model.append_small_weight_vec(args.small_weights_threshold, epoch)
-        cur_sparsity = calculate_sparsity(model)
+        cur_sparsity = model.append_small_weight_vec(args.small_weights_threshold, epoch)
 
 
         # wandb log
@@ -491,7 +436,7 @@ def main():
 
 
 
-    if args.save_model:
+    if args.save_summary:
         with open(stats_save_path, 'wb') as f:
             pickle.dump({
                 'train_losses': train_losses,

@@ -1,37 +1,19 @@
-# PAdam
+# pWD and pAdam
 
-### For Noam.
-If you want to try `FashionMNIST`, see below. For `CIFAR10` I haven't written a full explanation yet. However, it should work just fine by simply clone, move to the `PAdam` directory and run
-```bash
-python ./python/train_CIFAR.py config/config_cifar10.py --optimizer_name='PAdam' --lambda_p=1e-3  --p_norm=0.8
-```
-If you don't want to use `--blah` to parse arguments, you can add parameters to `config/config_cifar10.py`
+An example use case for the pAdam optimizer, for training ResNet18 on CIFAR10.
+pWD and pAdam are described in details in the paper *Decoupled Weight Decay for Any $p$ norm*
+See also this [blog post](https://nadav-out.github.io/posts/PAdam/).
 
 
-PAdam is an extension of the Adam optimizer that allows for any p-norm regularization.
-
-## Blog Post
-
-For more details on the concepts and motivations behind PAdam, please refer to my [blog post](https://nadav-out.github.io/posts/PAdam/).
-
-
-
-## Current Implementation
-
-- The current version focuses on the simplest form of the PAdam optimizer, which I refer to as the 'adiabatic' PAdam optimizer.
-- It is currently applied here only to the `FashionMNIST` dataset for demonstration purposes.
-
-## Getting Started
-
-### Prerequisites
+### Requirements
 
 Ensure you have the following dependencies installed:
 - PyTorch
 - torchvision
 - NumPy
-- Matplotlib
-- seaborn
+- pickle
 - pandas
+- rich
 
 ### Running the Training Script
 
@@ -45,18 +27,40 @@ Ensure you have the following dependencies installed:
     ```
 3. Run the training script:
     ```bash
-    python ./python/fashion_train.py [optional arguments]
+    python ./python/train_CIFAR10.py [optional arguments]
     ```
+
+
 ### Optional Arguments
 
-You can customize the training by specifying the following arguments:
-- `--device`: Set the device for training (default: `cuda:0`. On a Mac with apple silicone use `mps`).
-- `--batch_size`: Batch size for training (default: `256`).
-- `--seed`: Seed for reproducibility (default: `2349`).
-- `--epochs`: Number of training epochs (default: `400`).
-- `--lr_1`, `--lr_2`: Learning rates for the models (default: `3e-3`).
-- `--weight_decay`: Weight decay for AdamW optimizer (default: `1e-1`).
-- `--lambda_p`: Lambda parameter for PAdam optimizer (default: `3e-3`).
-- `--p_norm`: p-norm for PAdam optimizer (default: `0.8`).
-- `--scheduler_exponent`: Exponent for LR scheduler decay rate (default: `0.6`).
-- `--save_dir`: Directory to save trained models and metrics (default: `../data`).
+- `--progress_bar`: Enable a rich live layout progress bar for visual feedback during training.
+- `--verbose`: Enable verbose output for detailed logging information.
+- `--absolute_paths`: Use absolute paths for data and output directories.
+- `--data_dir <path>`: Set the directory for data (default: `../data/CIFAR10`).
+- `--out_dir <path>`: Specify the output directory for results (default: `../results/CIFAR10`).
+- `--save_checkpoints`: Save checkpoints during training to allow resuming.
+- `--save_summary`: Save a comprehensive summary of the training session, including training and validation losses, accuracies, learning rates, and model sparsity details.
+- `--num_workers <number>`: Number of workers for data loading (default: `4`).
+- `--batch_size <size>`: Batch size for training (default: `400`).
+- `--epochs <number>`: Number of training epochs (default: `100`).
+- `--optimizer_name <name>`: Name of the optimizer to use (`AdamW` or `PAdam`, default: `PAdam`).
+- `--max_lr <rate>`: Maximum learning rate (default: `1e-3`).
+- `--lambda_p <value>`: Lambda parameter value for PAdam optimizer (default: `1e-3`).
+- `--p_norm <value>`: P-norm value for PAdam optimizer (default: `0.8`).
+- `--beta1 <value>`: Beta1 for Adam optimizer (default: `0.9`).
+- `--beta2 <value>`: Beta2 for Adam optimizer (default: `0.999`).
+- `--grad_clip <value>`: Gradient clipping value (default: `0.0`).
+- `--warmup_epochs <number>`: Number of warmup epochs, can be fractional (default: `2`).
+- `--lr_decay_frac <fraction>`: Fraction of max_lr to decay to (default: `1.0`).
+- `--min_lr <rate>`: Minimum learning rate (default: `1e-5`).
+- `--small_weights_threshold <value>`: Threshold for considering weights as small (default: `1e-13`).
+- `--device <device>`: Device to use for training (`cuda` or `cpu`, default: `cuda`).
+- `--compile`: (requires PyTorch >2.0) compiles the model for faster training.
+- `--wandb_log`: Enable logging to Weights & Biases for experiment tracking.
+- `--wandb_project <name>`: Specify the Weights & Biases project name (default: `PAdam`).
+- `--wandb_run_name <name>`: Set the Weights & Biases run name (default includes `ResNet18` with a timestamp).
+- `--wandb_group <name>`: Group related runs in Weights & Biases.
+
+
+For detailed explanations and additional parameters, refer to the argument parser setup in the training script.
+
