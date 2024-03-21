@@ -1,7 +1,7 @@
 # pWD and pAdam
 
 An example use case for the pAdam optimizer, for training ResNet18 on CIFAR10.
-pWD and pAdam are described in details in the paper *Decoupled Weight Decay for Any $p$ norm*
+pWD and pAdam are described in details in the paper *Decoupled Weight Decay for Any [p] norm*
 See also this [blog post](https://nadav-out.github.io/posts/PAdam/).
 
 
@@ -27,7 +27,7 @@ Ensure you have the following dependencies installed:
     ```
 3. Run the training script:
     ```bash
-    python ./python/train_CIFAR10.py [optional arguments]
+    python python/train_CIFAR10.py [optional arguments]
     ```
 
 
