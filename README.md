@@ -2,7 +2,7 @@
 
 An example use case for the pAdam optimizer, for training ResNet18 on CIFAR10.
 
-pWD and pAdam are described in details in the paper *Decoupled Weight Decay for Any* $p$ *norm*
+pWD and pAdam are described in details in the paper [Decoupled Weight Decay for Any* $p$ norm (arXiv 2404.10824)](https://arxiv.org/abs/2404.10824)
 
 See also this [blog post](https://nadav-out.github.io/posts/PAdam/).
 
